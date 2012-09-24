@@ -5,18 +5,31 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mufid's Code Blog</title>
+  <title>Blog Archive - Mufid's Code Blog</title>
   <meta name="author" content="Mufid">
 
   
   <meta name="description" content="
-  {% assign index = true %}
-  {% for post in paginator.posts %}
-  {% assign content = post.content %}
-    
-      {% include article.html %}
-    
- ...">
+
+
+
+  
+  2012
+
+
+  
+Tes Octopress
+Sep 24 2012
+
+
+  posted in dummy
+
+
+
+
+
+
+">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -25,7 +38,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.com/">
+  <link rel="canonical" href="http://mufid.github.com/blog/archives/">
   <link href="//favicon.png" rel="icon">
   <link href="//stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="//javascripts/modernizr-2.0.js"></script>
@@ -67,31 +80,26 @@
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
-  {% assign index = true %}
-  {% for post in paginator.posts %}
-  {% assign content = post.content %}
-    <article>
-      {% include article.html %}
-    </article>
-  {% endfor %}
-  <div class="pagination">
-    {% if paginator.next_page %}
-      <a class="prev" href="{{paginator.next_page}}">&larr; Older</a>
-    {% endif %}
-    <a href="/blog/archives">Blog Archives</a>
-    {% if paginator.previous_page %}
-    <a class="next" href="{{paginator.previous_page}}">Newer &rarr;</a>
-    {% endif %}
-  </div>
+      <div id="blog-archives">
+
+
+
+  
+  <h2>2012</h2>
+
+<article>
+  
+<h1><a href="/blog/2012/09/24/tes-octopress/">Tes Octopress</a></h1>
+<time datetime="2012-09-24T06:37:00+07:00" pubdate><span class='month'>Sep</span> <span class='day'>24</span> <span class='year'>2012</span></time>
+
+<footer>
+  <span class="categories">posted in dummy</span>
+</footer>
+
+
+</article>
+
 </div>
-<aside class="sidebar">
-  {% if site.blog_index_asides.size %}
-    {% include_array blog_index_asides %}
-  {% else %}
-    {% include_array default_asides %}
-  {% endif %}
-</aside>
 
     </div>
   </div>
