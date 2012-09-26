@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Tes Octopress - Mufid's Code Blog</title>
+  <title>AWK, oh AWK - Mufid's Code Blog</title>
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Yihaa! Berhasil! Yihaaa! coba nulis kode &lt;?php echo "tes" ?&gt;
-Wow! selesai.
-">
+  <meta name="description" content="Kali ini kita membahas bash! Baiklah tadi kita kuliah sysprog. Tapi sebelumnya pak Adin pernah ngomong ini Ini sebenarnya mah gak perlu kuliah, wong &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ Wow! selesai.
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.com/blog/2012/09/24/tes-octopress/">
+  <link rel="canonical" href="http://mufid.github.com/blog/2012/09/26/awk/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -67,7 +65,7 @@ Wow! selesai.
   
   <header>
     
-      <h1 class="entry-title">Tes Octopress</h1>
+      <h1 class="entry-title">AWK, Oh AWK</h1>
     
     
       <p class="meta">
@@ -83,27 +81,90 @@ Wow! selesai.
   
 
 
-<time datetime="2012-09-24T06:37:00+07:00" pubdate data-updated="true">Sep 24<span>th</span>, 2012</time>
+<time datetime="2012-09-26T18:50:00+07:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Yihaa! Berhasil!</p>
+<div class="entry-content"><p>Kali ini kita membahas bash!</p>
+
+<p>Baiklah tadi kita kuliah sysprog. Tapi sebelumnya pak Adin pernah ngomong ini</p>
+
+<pre><code>Ini sebenarnya mah gak perlu kuliah, wong bisa baca-baca di internet.. (informasinya gak perlu baca yang ada di buku -red)
+</code></pre>
 
 <!-- more -->
 
 
-<p>Yihaaa!</p>
+<p><em>and yeah,</em> perkataan itu ada benarnya.</p>
 
-<p>coba nulis kode</p>
+<p>Saya melakukan ini di bash. Yuk kita lihat.</p>
 
-<pre><code>&lt;?php echo "tes"  ?&gt;
-Wow!
+<p>Saya punya berkas ini</p>
+
+<pre><code>Mufid@FIDZMOBILE ~/tes
+$ cat lorem.txt
+Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
+cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
+proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 </code></pre>
 
-<p>selesai.</p>
+<p>Di kuliah sysprog tadi, saya dikenalkan beberapa perintah yang common sense, yang semua pengguna unix pasti paham:</p>
+
+<pre><code>- `pipe (a | b)` memberikan hasil output dari perintah a ke perintah b.
+- `wc` untuk word count. Tetapi juga bisa character cound dan line count.
+- `head` dan `tail` untuk mengambil beberapa bagian pertama atau beberapa bagian terakhir. Kombinasinya bisa mengeluarkan hanya baris dengan offset dan limit.
+</code></pre>
+
+<p>See? Sekarang berkenalan dengan AWK. Auch! Makhluk macam apa ini! Kenapa bisa ada sintaks dalam sintaks! Menyulitkan saja.</p>
+
+<p>Ternyata tidak seperti yang saya pikirkan. AWK ini memiliki sintaks umum. Seperti biasa, [] adalah opsional.</p>
+
+<pre><code>[BEGIN { perintah1; perintah2; ... }] #baris1
+[{ perintah1; perintah2; ... }]       #baris2
+[END { perintah1; perintah2; ...}]    #baris3
+</code></pre>
+
+<p>setiap baris adalah opsional. Tetapi Yang paling make sense adalah baris2.</p>
+
+<p>Coba perhatikan contoh berikut:</p>
+
+<pre><code>Mufid@FIDZMOBILE ~/tes
+$ awk '{print $1;}' lorem.txt
+Lorem
+tempor
+quis
+consequat.
+cillum
+proident,
+
+Mufid@FIDZMOBILE ~/tes
+$ awk '{print $2;}' lorem.txt
+ipsum
+incididunt
+nostrud
+Duis
+dolore
+sunt
+
+Mufid@FIDZMOBILE ~/tes
+$ awk '{print $3;}' lorem.txt
+dolor
+ut
+exercitation
+aute
+eu
+in
+</code></pre>
+
+<p>Sudah mulai kelihatan?</p>
+
+<p>Baiklah. Agar lebih penasaran, mari kita berhenti di sini. Kita lanjut di post selanjutnya. :)</p>
 </div>
 
 
@@ -126,12 +187,12 @@ Wow!
   
 
 
-<time datetime="2012-09-24T06:37:00+07:00" pubdate data-updated="true">Sep 24<span>th</span>, 2012</time>
+<time datetime="2012-09-26T18:50:00+07:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time>
       
 
 <span class="categories">
   
-    <a class='category' href='/blog/categories/dummy/'>dummy</a>
+    <a class='category' href='/blog/categories/bash/'>bash</a>, <a class='category' href='/blog/categories/linux-/'>linux,</a>
   
 </span>
 
@@ -140,7 +201,7 @@ Wow!
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.com/blog/2012/09/24/tes-octopress/" data-via="" data-counturl="http://mufid.github.com/blog/2012/09/24/tes-octopress/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.com/blog/2012/09/26/awk/" data-via="" data-counturl="http://mufid.github.com/blog/2012/09/26/awk/" >Tweet</a>
   
   
   
@@ -149,8 +210,8 @@ Wow!
     
     <p class="meta">
       
+        <a class="basic-alignment left" href="/blog/2012/09/24/tes-octopress/" title="Previous Post: Tes Octopress">&laquo; Tes Octopress</a>
       
-        <a class="basic-alignment right" href="/blog/2012/09/26/awk/" title="Next Post: AWK, oh AWK">AWK, oh AWK &raquo;</a>
       
     </p>
   </footer>
@@ -212,8 +273,8 @@ Wow!
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mufid.github.com/blog/2012/09/24/tes-octopress/';
-        var disqus_url = 'http://mufid.github.com/blog/2012/09/24/tes-octopress/';
+        var disqus_identifier = 'http://mufid.github.com/blog/2012/09/26/awk/';
+        var disqus_url = 'http://mufid.github.com/blog/2012/09/26/awk/';
         var disqus_script = 'embed.js';
       
     (function () {
