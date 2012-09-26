@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-09-26T19:11:33+07:00</updated>
+  <updated>2012-09-26T19:30:19+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -18,12 +18,13 @@
     <link href="http://mufid.github.com/blog/2012/09/26/awk/"/>
     <updated>2012-09-26T18:50:00+07:00</updated>
     <id>http://mufid.github.com/blog/2012/09/26/awk</id>
-    <content type="html"><![CDATA[<p>Kali ini kita membahas bash!</p>
+    <content type="html"><![CDATA[<p><img src="http://mufid.github.com/images/post/mingw.png" alt="Gambar" /></p>
+
+<p>Kali ini kita membahas bash!</p>
 
 <p>Baiklah tadi kita kuliah sysprog. Tapi sebelumnya pak Adin pernah ngomong ini</p>
 
-<pre><code>Ini sebenarnya mah gak perlu kuliah, wong bisa baca-baca di internet.. (informasinya gak perlu baca yang ada di buku -red)
-</code></pre>
+<blockquote><p>Ini sebenarnya mah gak perlu kuliah, wong bisa baca-baca di internet.. (informasinya gak perlu baca yang ada di buku -red)</p></blockquote>
 
 <!-- more -->
 
@@ -46,10 +47,12 @@ proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 <p>Di kuliah sysprog tadi, saya dikenalkan beberapa perintah yang common sense, yang semua pengguna unix pasti paham:</p>
 
-<pre><code>- `pipe (a | b)` memberikan hasil output dari perintah a ke perintah b.
-- `wc` untuk word count. Tetapi juga bisa character cound dan line count.
-- `head` dan `tail` untuk mengambil beberapa bagian pertama atau beberapa bagian terakhir. Kombinasinya bisa mengeluarkan hanya baris dengan offset dan limit.
-</code></pre>
+<ul>
+<li><code>pipe (a | b)</code> memberikan hasil output dari perintah a ke perintah b.</li>
+<li><code>wc</code> untuk word count. Tetapi juga bisa character cound dan line count.</li>
+<li><code>head</code> dan <code>tail</code> untuk mengambil beberapa bagian pertama atau beberapa bagian terakhir. Kombinasinya bisa mengeluarkan hanya baris dengan offset dan limit.</li>
+</ul>
+
 
 <p>See? Sekarang berkenalan dengan AWK. Auch! Makhluk macam apa ini! Kenapa bisa ada sintaks dalam sintaks! Menyulitkan saja.</p>
 
@@ -94,7 +97,18 @@ in
 
 <p>Sudah mulai kelihatan?</p>
 
-<p>Baiklah. Agar lebih penasaran, mari kita berhenti di sini. Kita lanjut di post selanjutnya. :)</p>
+<p>Jadi pada dasarnya di awk itu juga ada perintah seperti print dan sub (perintah lengkap dapat Anda baca di <a href="http://www.grymoire.com/Unix/Awk.html">http://www.grymoire.com/Unix/Awk.html</a> atau seperti biasa <code>man awk</code>). Pada dasarnya AWK akan melakukan ini:</p>
+
+<pre><code>1. Membaca dan menjalankan di dalam {} yang didahului dengan `begin`, jika ada
+2. Membaca setiap baris dan menjalankan di antara {} yang tidak didahului dengan `begin`, jika ada
+3. Setelah selesai, mengeksekusi perintah di antara {} yang didahului dengan end, jika ada
+</code></pre>
+
+<p>Kemudian, setiap barisnya bisa dimodifikasi. Selain itu, Anda bisa memasukkan variabel sendiri di sini. Ya, seperti scripting pada umumnya. Adapun $n akan menampilkan kolom ke-n yang mana kolom itu dipisahkan oleh spasi (by default), dan jika n = 0 akan dikembalikan keseluruhan baris tersebut.</p>
+
+<p>Terlalu abstrak?</p>
+
+<p>Silahkan coba sendiri dan rasakan sensasinya :D</p>
 ]]></content>
   </entry>
   
