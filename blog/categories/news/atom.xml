@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: news | Mufid's Code Blog]]></title>
+  <link href="http://mufid.github.com/blog/categories/news/atom.xml" rel="self"/>
+  <link href="http://mufid.github.com/"/>
+  <updated>2012-09-28T14:00:16+07:00</updated>
+  <id>http://mufid.github.com/</id>
+  <author>
+    <name><![CDATA[Mufid]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Mata Pelajaran IPA Dihapus?]]></title>
+    <link href="http://mufid.github.com/blog/2012/09/28/ipa-dihapus/"/>
+    <updated>2012-09-28T13:55:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/09/28/ipa-dihapus</id>
+    <content type="html"><![CDATA[<p>Baru baca-baca dari <a href="http://www.google.com/intl/en/jobs/students/tech/fulltime/sing/software-engineer-new-grad-in-south-east-asia-2013-apac-or-north-america-locations-1/index.html">okezone-kampus</a> berita ini.</p>
+
+<p><img src="/images/post/ss-okezone-mipadihapus.png" alt="Gambar" /></p>
+
+<p>Sepertinya akan menarik pendidikan Indonesia yang mulai mencoba
+mengedepankan kualitas pemahaman pelajaran dan bukan lagi pada
+kuantitas pelajaran.</p>
+
+<p>Kita lihat apa yang akan selanjutnya terjadi.</p>
+]]></content>
+  </entry>
+  
+</feed>
