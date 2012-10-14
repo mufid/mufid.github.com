@@ -4,7 +4,7 @@
   <title><![CDATA[Category: linux, | Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/blog/categories/linux-/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-09-28T14:01:35+07:00</updated>
+  <updated>2012-10-15T04:00:30+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[AWK, oh AWK]]></title>
-    <link href="http://mufid.github.com/blog/2012/09/26/awk/"/>
+    <link href="http://mufid.github.com/blog/2012/awk/"/>
     <updated>2012-09-26T18:50:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/09/26/awk</id>
+    <id>http://mufid.github.com/blog/2012/awk</id>
     <content type="html"><![CDATA[<p><img src="/images/post/mingw.png" alt="Gambar" /></p>
 
 <p>Kali ini kita membahas bash!</p>

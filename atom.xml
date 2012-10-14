@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-09-28T14:01:35+07:00</updated>
+  <updated>2012-10-15T04:00:30+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -14,10 +14,49 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Creative Class]]></title>
+    <link href="http://mufid.github.com/blog/2012/creative-class/"/>
+    <updated>2012-10-15T03:58:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/creative-class</id>
+    <content type="html"><![CDATA[<p>dari sini: <a href="http://luqmansyauqi.tumblr.com/post/33546691968/jangan-sampai-kena-middle-income-trap">http://luqmansyauqi.tumblr.com/post/33546691968/jangan-sampai-kena-middle-income-trap</a></p>
+
+<blockquote><p>Duh pagi-pagi udah sotoy, maaf yaaa hehe. Tadi cuma lagi baca beberapa tulisan tentang midle-income-trap. Middle-income-trap itu adalah istilah untuk negara berpendapatan menengah lalu negara itu merasa nyaman dengan keadaan seperti itu. Jebakan ! Mungkin secara sederhana itu udah nyaman ya, cuma kalau hanya karena nyaman diposisi menengah dan tidak mengembangkan SDM dan infrastruktur dan lain-lainnya yang mendukung pertumbuhan ekonomi, sangat sulit untuk mencapai high-income dan kemungkinan untuk menjadi low-income (lagi) itu ada. Emang mau gitu ditengah-tengah terus ga maju maju ? Ga mau dong. Baca di koran, katanya Indonesia bisa bisa terkena trap middle-income ini looh kalau gagal mengelola SDM dan infrastruktur. Nah looh, lalu kita harus apa ? Salah satu caranya itu adalah jangan jadi stuck class tapi jadilah creative class. Nih ada kutipannya :</p>
+
+<blockquote><p>Richard Florida dalam bukunya yang berjudul The Rise of Creative Class (2002). Intinya, buku ini mengatakan bahwa suatu bangsa akan maju jika mereka memiliki kelompok masyarakat kreatif ( creative class ) yang berperan strategis menghasilkan nilai tambah ekonomi melalui olah pikir, kreativitas, dan inovasi yang mereka hasilkan. Mereka adalah seniman, programmer/ software developer, arsitek, product designer, konsultan, creative director, pengrajin, fotografer,dan tentu sajaentrepreneur.</p>
+
+<p>(dikutip dari Fiqhislam.com)</p></blockquote>
+
+<p>Ayo ayoo yang merasa dimention diatas, jangan gabut, dukung Indonesia supaya ga kena jebakan middle trap ! :D <em>sotoyyyyy</em>. Oh iya, doain aku jadi konsultan ya, mau bangetlah supaya Indonesia ga kena jebakan:”)</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Proxy UI]]></title>
+    <link href="http://mufid.github.com/blog/2012/proxy-ui-aman/"/>
+    <updated>2012-10-01T06:37:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/proxy-ui-aman</id>
+    <content type="html"><![CDATA[<p>Tadinya mau download dari server</p>
+
+<pre><code>muhammad.mufid@ipin:~$ env | grep proxy
+http_proxy=http://proxy.ui.ac.id:8080
+https_proxy=https://proxy.ui.ac.id:8080
+muhammad.mufid@ipin:~$ wget google.com
+--2012-09-28 15:28:06--  http://google.com/
+Resolving proxy.ui.ac.id... 152.118.24.10, 2403:da00:1:3::a
+Connecting to proxy.ui.ac.id|152.118.24.10|:8080... connected.
+Proxy request sent, awaiting response... 403 Forbidden
+2012-09-28 15:28:06 ERROR 403: Forbidden.
+</code></pre>
+
+<p>Ternyata sangat aman :)</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Mata Pelajaran IPA Dihapus?]]></title>
-    <link href="http://mufid.github.com/blog/2012/09/28/ipa-dihapus/"/>
+    <link href="http://mufid.github.com/blog/2012/ipa-dihapus/"/>
     <updated>2012-09-28T13:55:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/09/28/ipa-dihapus</id>
+    <id>http://mufid.github.com/blog/2012/ipa-dihapus</id>
     <content type="html"><![CDATA[<p>Baru baca-baca dari <a href="http://kampus.okezone.com/read/2012/09/27/373/696092/pelajaran-ipa-dan-ips-akan-dihapus">okezone-kampus</a> berita ini.</p>
 
 <p><img src="http://mufid.github.com/images/post/ss-okezone-mipadihapus.png" alt="Gambar" /></p>
@@ -32,9 +71,9 @@ kuantitas pelajaran.</p>
   
   <entry>
     <title type="html"><![CDATA[AWK, oh AWK]]></title>
-    <link href="http://mufid.github.com/blog/2012/09/26/awk/"/>
+    <link href="http://mufid.github.com/blog/2012/awk/"/>
     <updated>2012-09-26T18:50:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/09/26/awk</id>
+    <id>http://mufid.github.com/blog/2012/awk</id>
     <content type="html"><![CDATA[<p><img src="http://mufid.github.com/images/post/mingw.png" alt="Gambar" /></p>
 
 <p>Kali ini kita membahas bash!</p>
@@ -131,9 +170,9 @@ in
   
   <entry>
     <title type="html"><![CDATA[Tes Octopress]]></title>
-    <link href="http://mufid.github.com/blog/2012/09/24/tes-octopress/"/>
+    <link href="http://mufid.github.com/blog/2012/tes-octopress/"/>
     <updated>2012-09-24T06:37:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/09/24/tes-octopress</id>
+    <id>http://mufid.github.com/blog/2012/tes-octopress</id>
     <content type="html"><![CDATA[<p>Yihaa! Berhasil!</p>
 
 <!-- more -->
