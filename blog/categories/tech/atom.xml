@@ -4,7 +4,7 @@
   <title><![CDATA[Category: tech | Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/blog/categories/tech/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-10-20T08:48:56+07:00</updated>
+  <updated>2012-10-22T19:27:08+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -14,29 +14,29 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Wordpress. *Wordpress Everywhere*]]></title>
+    <title type="html"><![CDATA[WordPress. *WordPress Everywhere*]]></title>
     <link href="http://mufid.github.com/blog/2012/wordpress-dimana-mana/"/>
     <updated>2012-10-20T08:05:00+07:00</updated>
     <id>http://mufid.github.com/blog/2012/wordpress-dimana-mana</id>
-    <content type="html"><![CDATA[<p><img src="/images/post/dropbox-wordpress.png" alt="Gambar" /></p>
+    <content type="html"><![CDATA[<p><img src="/images/post/dropbox-WordPress.png" alt="Gambar" /></p>
 
 <p>Pernah membayangkan kalau semua web ditambahkan /wp-admin?</p>
 
 <p>Bagi Saya, adalah sangat menarik jika banyak (jika itu kurang jelas,
 saya akan buat sedikit hiperbolis: sangat banyak) "pemain web" menggunakkan
-Wordpress sebagai <em>backbone</em> utama membuat artikel dan situs berita.</p>
+WordPress sebagai <em>backbone</em> utama membuat artikel dan situs berita.</p>
 
-<p>Sambil bertanya-tanya dalam diri Saya, <em>memang Wordpress scalable yah?
-memang Wordpress aman yah?</em></p>
+<p>Sambil bertanya-tanya dalam diri Saya, <em>memang WordPress scalable yah?
+memang WordPress aman yah?</em></p>
 
 <p><a href="http://suma.ui.ac.id/2012/01/09/situs-situs-berdomain-ui-ditembus-hacker/">Masih jelas dalam ingatan Saya banyak web di dalam subdomain UI yang
 diretas</a>:</p>
 
 <blockquote><p>Beberapa lembaga di UI dikagetkan dengan peretasan beberapa situs berdomain ui.ac.id pada akhir 2011. Hacker yang menamakan dirinya AL3X 0WN5 ini telah meretas lebih dari 20 situs lembaga di UI. Kejadian ini lantas menimbulkan keresahan di lingkungan UI. Gladhi Guarddin, atau yang biasa disapa Adin, Kepala Divisi Pengembangan Sistem Informasi PPSI UI, mengakui Ia dan tim tidak begitu resah mengetahui hal ini. "Saya mendapat kabar ini dari organisasi non-profit di luar UI pada 24 Desember."</p></blockquote>
 
-<p>Pencarian di Google tentang kenapa situs web berbasis Wordpress ini diretas
-menemukan hasil yang nihil. Tapi kalau memang Wordpress ini gampang diretas,
-<a href="http://vip.wordpress.com/clients/">kenapa banyak web-web kelas atas berbasis Wordpress yang tidak diretas</a>?
+<p>Pencarian di Google tentang kenapa situs web berbasis WordPress ini diretas
+menemukan hasil yang nihil. Tapi kalau memang WordPress ini gampang diretas,
+<a href="http://vip.WordPress.com/clients/">kenapa banyak web-web kelas atas berbasis WordPress yang tidak diretas</a>?
 Apakah ini karena pluginnya, atau karena apa?</p>
 
 <p>Well...</p>
