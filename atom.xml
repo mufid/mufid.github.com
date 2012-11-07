@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-10-22T19:29:38+07:00</updated>
+  <updated>2012-11-08T05:12:35+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,34 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Clipboard]]></title>
+    <link href="http://mufid.github.com/blog/2012/clipboard/"/>
+    <updated>2012-11-08T05:06:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/clipboard</id>
+    <content type="html"><![CDATA[<p>Di windows ada perintah <code>clip</code></p>
+
+<pre><code>&gt; echo Alhamdulillah | clip
+&gt;
+</code></pre>
+
+<p>Dia tidak menampilkan baris
+informasi apapun. Menyebalkan untuk hal ini.
+Tetapi, fungsinya sangat jelas dan sangat membantu.
+Beberapa fungsi yang mungkin anda tertarik adalah
+membuat batch file yang berisi password tidak
+penting. Semisal, Anda membuat suatu baris yang berisi
+password yang sangat panjang untuk keperluan proyek
+Anda:</p>
+
+<pre><code>&gt; copycopy.bat password/localtes
+&gt;
+</code></pre>
+
+<p>Punya ide kreatif bermain dengan <code>clip</code>?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[WordPress. *WordPress Everywhere*]]></title>
