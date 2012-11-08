@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-11-08T05:12:35+07:00</updated>
+  <updated>2012-11-09T05:53:04+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,32 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Terlalu Panjang]]></title>
+    <link href="http://mufid.github.com/blog/2012/kepanjangan/"/>
+    <updated>2012-11-09T05:41:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/kepanjangan</id>
+    <content type="html"><![CDATA[<p><a href="http://www.flickr.com/photos/trekkingrinjani/101204877/" title="Beautiful view, first step from Sembalun Lawang trekking mount Rinjani 3726 meter Lombok island Indonesia oleh Trekking Rinjani, di Flickr"><img src="http://farm1.staticflickr.com/35/101204877_6379993117.jpg" width="500" height="375" alt="Beautiful view, first step from Sembalun Lawang trekking mount Rinjani 3726 meter Lombok island Indonesia"></a></p>
+
+<p><em>TL;DR: Trik ada di bagian bawah di bagian lengkap post ini</em></p>
+
+<p>Melihat sesuatu yang terlalu panjang? Membosankan?
+Berapa banyak orang yang seperti saya? Melihat sesuatu
+yang terlalu panjang, tidak substansial dan tidak esensial,
+langsung buang dan tidak membacanya?</p>
+
+<!-- more -->
+
+
+<p>Tentu tidak masalah</p>
+
+<p><a href="">Weblog Paddy</a> menjelaskan hal yang lebih bermakna untuk mengatasi
+konten yang terlalu panjang ini.</p>
+
+<p><img src="http://iampaddy.com/lifebelow600/img/mouse.png" alt="Membangun Kemauan Scroll" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Clipboard]]></title>
