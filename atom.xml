@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-11-09T06:07:19+07:00</updated>
+  <updated>2012-11-13T09:33:54+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,49 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Awakutu: Variabel yang Tertukar]]></title>
+    <link href="http://mufid.github.com/blog/2012/awakutu-salah-variabel/"/>
+    <updated>2012-11-13T09:27:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/awakutu-salah-variabel</id>
+    <content type="html"><![CDATA[<p>Tips singkat untuk diri Saya sendiri: Dalam melakukan testing
+aplikasi, kita harus melihat requirement apakah sudah didevelop
+atau belum. Kalau sudah semua, lakukan pengujian terhadap
+semua fitur yang dikembangkan. Jika semua terlihat sudah baik,
+coba cek dua kali.</p>
+
+<p>Kemarin saya menemukan galat dalam aplikasi saya yang cukup
+membosankan: nama variabel yang tertukar. Ini butuh waktu
+berjam-jam buat saya untuk menyelesaikan galat yang sederhana
+ini. Dan ya.. Alhamdulillah, selesai juga :)</p>
+
+<p><img src="http://mufid.github.com/images/post/bug-variabel-tertukar.png" alt="Variabel yang Tertukar" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tunggu Sebentar, Sedang Memuat]]></title>
+    <link href="http://mufid.github.com/blog/2012/sedang-memuat/"/>
+    <updated>2012-11-12T06:24:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/sedang-memuat</id>
+    <content type="html"><![CDATA[<p><em>Please wait, loading..</em></p>
+
+<p>Saya tadinya iseng-iseng ke Google untuk mencari gambar <em>spinner</em>.
+Saya dalam kondisi yang cukup genting, saya harus sunting kode
+di dalam peramban dengan EXTplorer, tidak ada git, tidak ada
+<em>pull</em> kode. Jadi saya tidak ingin mengambil gambar dari <a href="http://ajaxload.info">Ajaxload.info</a>:</p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/L7tyZDq.png" alt="ajaxload.info" /></p>
+
+<p>.. karena di sana harus mengunduh image,.. dan saya tidak bisa melakukan
+itu. Saya butuh tautan gambar <em>spinner</em> yang sudah ada di CDN.</p>
+
+<p>Akhirnya, saya menemukan beberapa makhluk ini: <a href="http://img.cdn.tl/">http://img.cdn.tl/</a></p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/L7EAs5P.png" alt="" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Terlalu Panjang]]></title>
