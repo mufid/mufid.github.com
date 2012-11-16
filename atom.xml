@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-11-13T09:33:54+07:00</updated>
+  <updated>2012-11-16T20:59:15+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,27 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Indonesia Berkibar]]></title>
+    <link href="http://mufid.github.com/blog/2012/indonesia-berkibar/"/>
+    <updated>2012-11-16T20:56:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/indonesia-berkibar</id>
+    <content type="html"><![CDATA[<p>Jadi Saya ngebuka web <a href="http://www.indonesiaberkibar.org/">Indonesia Berkibar</a>.</p>
+
+<p>Terus? Saya ngelihat webnya keren sekali:</p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/S7AG7uH.png" alt="IDBerkibar" /></p>
+
+<p>Iseng-iseng saya menghapus backgroundnya:</p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/S7wxgDG.png" alt="IDBerkibar Tanpa Latar" /></p>
+
+<p>Ternyata, background memiliki peranan penting. Bisa membuat elegan, bisa membuat lebih keren, bisa membuat lebih hancur, atau bisa membuat lebih nyaman dilihat.</p>
+
+<p>Alhamdulillah, pengalaman baru.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Awakutu: Variabel yang Tertukar]]></title>
