@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-11-27T18:34:21+07:00</updated>
+  <updated>2012-12-02T11:10:52+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,43 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Ngeblog? Command Line Donk]]></title>
+    <link href="http://mufid.github.com/blog/2012/ngeblog-command-line-donk/"/>
+    <updated>2012-12-02T11:08:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/ngeblog-command-line-donk</id>
+    <content type="html"><![CDATA[<p>Namanya pakai <code>octopress</code>: <a href="http://octopress.org/">http://octopress.org/</a></p>
+
+<h1>You Control Your Blog. Every data is on your hand</h1>
+
+<p>Yep. Semua data tersimpan secara offline. Anda memegang data Anda sendiri. Menyenangkan sekali yah?</p>
+
+<p>Kalau bikin post tinggal:</p>
+
+<pre><code>rake new_post["Ngeblog? Command Line Donk!"]
+</code></pre>
+
+<p>Kalau mau upload ke server tinggal</p>
+
+<pre><code>rake generate
+rake deploy
+</code></pre>
+
+<p>Selesai.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NTP UI]]></title>
+    <link href="http://mufid.github.com/blog/2012/ntp-ui/"/>
+    <updated>2012-12-01T07:18:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2012/ntp-ui</id>
+    <content type="html"><![CDATA[<p><code>ntp.ui.ac.id</code>, yes, that&#8217;s true.</p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/19vHXKqg.png" alt="NTP UI" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Hacking Social: A Guide [for] Silence Programmer]]></title>
