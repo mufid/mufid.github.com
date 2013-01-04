@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2012-12-31T08:09:04+07:00</updated>
+  <updated>2013-01-04T08:39:56+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,46 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Redirection, Pikir Dua Kali!]]></title>
+    <link href="http://mufid.github.com/blog/2013/redirection/"/>
+    <updated>2013-01-04T08:33:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2013/redirection</id>
+    <content type="html"><![CDATA[<p>Jadi ceritanya saya dikasih tautan oleh teman tautan berikut:</p>
+
+<pre><code>http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+</code></pre>
+
+<p>Wait, kenapa saya malah diarahkan ke halaman depan? Menghapus <strong>m.</strong> merupakan solusi. Jadi ceritanya:</p>
+
+<pre><code>C:\Users\Mufid&gt;curl --head http://m.kompasiana.com/post/politik/2013/01/02/mari-
+menghujat-pks/
+HTTP/1.1 302 Found
+Date: Fri, 04 Jan 2013 01:33:10 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Location: http://www.kompasiana.com/home
+Content-Type: text/html; charset=UTF-8
+Connection: close
+</code></pre>
+
+<p>.. maksud Kompasiana itu sangat baik, jika dibuka dari mobile maka redirect ke versi m. Tetapi jika sebaliknya, membuka versi m dari desktop, justru diredirectnya ke halaman depan. Hmm.. Tidak intuitif sama sekali.</p>
+
+<pre><code>C:\Users\Mufid\octopress&gt;curl -A "Mozilla/5.0 (Linux;U; Android 2.1; en-us; Nexus One Build/ERD62) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17" --head http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+HTTP/1.1 200 OK
+Date: Fri, 04 Jan 2013 01:38:00 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Content-Type: text/html; charset=UTF-8
+Connection: Keep-Alive
+Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
+-Jan-2013 01:38:00 GMT
+</code></pre>
+
+<p>Moral of the story: Hati-hati dalam menggunakkan redirect yah.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Should I Hire a Programmer?]]></title>

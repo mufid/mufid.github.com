@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Creative Class - Mufid's Code Blog</title>
+  <title>Redirection, Pikir Dua Kali! - Mufid's Code Blog</title>
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="dari sini: http://luqmansyauqi.tumblr.com/post/33546691968/jangan-sampai-kena-middle-income-trap Duh pagi-pagi udah sotoy, maaf yaaa hehe. Tadi cuma &hellip;">
+  <meta name="description" content="Jadi ceritanya saya dikasih tautan oleh teman tautan berikut: http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/ Wait, kenapa saya &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.com/blog/2012/creative-class/">
+  <link rel="canonical" href="http://mufid.github.com/blog/2013/redirection/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,7 +74,7 @@
   <header>
     
       
-        <h1 class="entry-title">Creative Class</h1>
+        <h1 class="entry-title">Redirection, Pikir Dua Kali!</h1>
       
     
     
@@ -91,22 +91,45 @@
   
 
 
-<time datetime="2012-10-15T03:58:00+07:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+<time datetime="2013-01-04T08:33:00+07:00" pubdate data-updated="true">Jan 4<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>dari sini: <a href="http://luqmansyauqi.tumblr.com/post/33546691968/jangan-sampai-kena-middle-income-trap">http://luqmansyauqi.tumblr.com/post/33546691968/jangan-sampai-kena-middle-income-trap</a></p>
+<div class="entry-content"><p>Jadi ceritanya saya dikasih tautan oleh teman tautan berikut:</p>
 
-<blockquote><p>Duh pagi-pagi udah sotoy, maaf yaaa hehe. Tadi cuma lagi baca beberapa tulisan tentang midle-income-trap. Middle-income-trap itu adalah istilah untuk negara berpendapatan menengah lalu negara itu merasa nyaman dengan keadaan seperti itu. Jebakan ! Mungkin secara sederhana itu udah nyaman ya, cuma kalau hanya karena nyaman diposisi menengah dan tidak mengembangkan SDM dan infrastruktur dan lain-lainnya yang mendukung pertumbuhan ekonomi, sangat sulit untuk mencapai high-income dan kemungkinan untuk menjadi low-income (lagi) itu ada. Emang mau gitu ditengah-tengah terus ga maju maju ? Ga mau dong. Baca di koran, katanya Indonesia bisa bisa terkena trap middle-income ini looh kalau gagal mengelola SDM dan infrastruktur. Nah looh, lalu kita harus apa ? Salah satu caranya itu adalah jangan jadi stuck class tapi jadilah creative class. Nih ada kutipannya :</p>
+<pre><code>http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+</code></pre>
 
-<blockquote><p>Richard Florida dalam bukunya yang berjudul The Rise of Creative Class (2002). Intinya, buku ini mengatakan bahwa suatu bangsa akan maju jika mereka memiliki kelompok masyarakat kreatif ( creative class ) yang berperan strategis menghasilkan nilai tambah ekonomi melalui olah pikir, kreativitas, dan inovasi yang mereka hasilkan. Mereka adalah seniman, programmer/ software developer, arsitek, product designer, konsultan, creative director, pengrajin, fotografer,dan tentu sajaentrepreneur.</p>
+<p>Wait, kenapa saya malah diarahkan ke halaman depan? Menghapus <strong>m.</strong> merupakan solusi. Jadi ceritanya:</p>
 
-<p>(dikutip dari Fiqhislam.com)</p></blockquote>
+<pre><code>C:\Users\Mufid&gt;curl --head http://m.kompasiana.com/post/politik/2013/01/02/mari-
+menghujat-pks/
+HTTP/1.1 302 Found
+Date: Fri, 04 Jan 2013 01:33:10 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Location: http://www.kompasiana.com/home
+Content-Type: text/html; charset=UTF-8
+Connection: close
+</code></pre>
 
-<p>Ayo ayoo yang merasa dimention diatas, jangan gabut, dukung Indonesia supaya ga kena jebakan middle trap ! :D <em>sotoyyyyy</em>. Oh iya, doain aku jadi konsultan ya, mau bangetlah supaya Indonesia ga kena jebakan:”)</p></blockquote>
+<p>.. maksud Kompasiana itu sangat baik, jika dibuka dari mobile maka redirect ke versi m. Tetapi jika sebaliknya, membuka versi m dari desktop, justru diredirectnya ke halaman depan. Hmm.. Tidak intuitif sama sekali.</p>
+
+<pre><code>C:\Users\Mufid\octopress&gt;curl -A "Mozilla/5.0 (Linux;U; Android 2.1; en-us; Nexus One Build/ERD62) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17" --head http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+HTTP/1.1 200 OK
+Date: Fri, 04 Jan 2013 01:38:00 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Content-Type: text/html; charset=UTF-8
+Connection: Keep-Alive
+Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
+-Jan-2013 01:38:00 GMT
+</code></pre>
+
+<p>Moral of the story: Hati-hati dalam menggunakkan redirect yah.</p>
 </div>
 
 
@@ -129,7 +152,7 @@
   
 
 
-<time datetime="2012-10-15T03:58:00+07:00" pubdate data-updated="true">Oct 15<span>th</span>, 2012</time>
+<time datetime="2013-01-04T08:33:00+07:00" pubdate data-updated="true">Jan 4<span>th</span>, 2013</time>
       
 
 
@@ -137,7 +160,7 @@
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.com/blog/2012/creative-class/" data-via="" data-counturl="http://mufid.github.com/blog/2012/creative-class/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.com/blog/2013/redirection/" data-via="" data-counturl="http://mufid.github.com/blog/2013/redirection/" >Tweet</a>
   
   
   
@@ -146,10 +169,8 @@
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2012/proxy-ui-aman/" title="Previous Post: Proxy UI">&laquo; Proxy UI</a>
+        <a class="basic-alignment left articlenav" href="/blog/2012/should-i-hire-a-programmer/" title="Previous Post: Should I Hire a Programmer?">&laquo; Should I Hire a Programmer?</a>
       
-      
-        <a class="basic-alignment right articlenav" href="/blog/2012/wordpress-dimana-mana/" title="Next Post: WordPress. *WordPress Everywhere*">WordPress. *WordPress Everywhere* &raquo;</a>
       
     </p>
   </footer>
@@ -223,8 +244,8 @@
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mufid.github.com/blog/2012/creative-class/';
-        var disqus_url = 'http://mufid.github.com/blog/2012/creative-class/';
+        var disqus_identifier = 'http://mufid.github.com/blog/2013/redirection/';
+        var disqus_url = 'http://mufid.github.com/blog/2013/redirection/';
         var disqus_script = 'embed.js';
       
     (function () {
