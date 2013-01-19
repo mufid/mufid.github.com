@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2013-01-06T05:35:15+07:00</updated>
+  <updated>2013-01-19T11:35:14+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[On Your Mark, ETA, ETD]]></title>
+    <link href="http://mufid.github.com/blog/2013/military-term/"/>
+    <updated>2013-01-19T11:28:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2013/military-term</id>
+    <content type="html"><![CDATA[<p>Begini:</p>
+
+<ul>
+<li><em>On Your Mark</em>: Aba aba di kamu</li>
+<li><em>ETA: Estimation Time Arrival</em>, kira-kira kapan sampai</li>
+<li><em>ETD: Estimation Time Departure</em>, kira-kira kapan berangkat</li>
+</ul>
+
+
+<p>Tiga <em>term</em> itu sering dipakai untuk situasi genting.
+Tidak sedikit orang yang sudah paham <em>temr</em> militer tersebut.
+Sepertinya membawa ide ini ke kehidupan sehari-hari
+bukan ide yang buruk.</p>
+
+<ul>
+<li>Cuy, minta ETA (Kapan sampai?)</li>
+<li>19.30 cuy, ETD 18.00 (Berangkat jam 18)</li>
+<li>Okeh, gue berangkat. On your mark yah (Gue nunggu aba-aba dari lu
+baru gw beraksi).</li>
+</ul>
+
+
+<p>Btw, ETA sering disalahgunakan. Contoh:</p>
+
+<blockquote><p>Cuy ETA? Dua jam lagi</p></blockquote>
+
+<p>Padahal ETA seharusnya mengembalikan waktu absolut, bukan
+waktu relatif.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[CDN 1Cak]]></title>
