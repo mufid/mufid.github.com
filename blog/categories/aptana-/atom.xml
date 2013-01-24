@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: aptana, | Mufid's Code Blog]]></title>
+  <link href="http://mufid.github.com/blog/categories/aptana-/atom.xml" rel="self"/>
+  <link href="http://mufid.github.com/"/>
+  <updated>2013-01-25T02:17:52+07:00</updated>
+  <id>http://mufid.github.com/</id>
+  <author>
+    <name><![CDATA[Mufid]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Aptana dan Codeigniter]]></title>
+    <link href="http://mufid.github.com/blog/2013/aptana-dan-codeigniter/"/>
+    <updated>2013-01-25T02:05:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2013/aptana-dan-codeigniter</id>
+    <content type="html"><![CDATA[<p>Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI?</p>
+
+<p>Sederhana. Simpan file ini sebagai php dalam project CI Anda. Simpan dimanapun, terserah Anda.</p>
+
+<pre><code>&lt;?php
+
+class _
+{    
+    function _()
+    {
+
+    // any classes you want included in autocompletion                
+    $this-&gt;load = new CI_Loader();
+    $this-&gt;config = new CI_Config();        
+    $this-&gt;email = new CI_Email();
+    $this-&gt;encrypt = new CI_Encrypt();
+    $this-&gt;pagination = new CI_Pagination;
+    $this-&gt;session = new CI_Session();
+    $this-&gt;driver = new CI_Driver();
+    $this-&gt;benchmark = new CI_Benchmark();
+    $this-&gt;typography = new CI_Typography();
+    $this-&gt;form_validation = new CI_Form_validation();
+    $this-&gt;profiler = new CI_Profiler();
+    $this-&gt;image_lib = new CI_Image_lib();
+    $this-&gt;math = new Math();
+    $this-&gt;calendar = new CI_Calendar();
+    $this-&gt;db = new CI_DB_active_record();
+    $this-&gt;table = new CI_Table();
+    $this-&gt;table = new MY_Table();
+    $this-&gt;ftp = new CI_FTP();
+    $this-&gt;output = new CI_Output();
+    $this-&gt;javascript = new CI_Javascript();
+
+    // note you'll need to use $this-&gt;CI = &amp; getInstance() in extended libs
+    // in order for the CI to autocomplete
+    $this-&gt;CI=new CI_Controller();
+
+    }
+
+}
+
+// any classes you want autocomplete for
+class CI_Controller extends _ {}
+class CI_Model extends _ {}
+class CI_Form_validation extends _ {}
+class CI_Table extends _ {}
+?&gt; 
+</code></pre>
+
+<p>Jika Anda memiliki kepustakaan tersendiri yang ingin dimasukkan dalam autocomplete, Saya pikir Anda sudah mendapatkan idenya. Tambahkan ke dalam $this.</p>
+
+<p><a href="http://ellislab.com/forums/viewthread/187641/">http://ellislab.com/forums/viewthread/187641/</a></p>
+]]></content>
+  </entry>
+  
+</feed>

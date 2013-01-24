@@ -9,9 +9,7 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Begini: On Your Mark: Aba aba di kamu
-ETA: Estimation Time Arrival, kira-kira kapan sampai
-ETD: Estimation Time Departure, kira-kira kapan berangkat &hellip;">
+  <meta name="description" content="Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI? Sederhana. Simpan file ini sebagai php dalam project CI Anda. Simpan dimanapun, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -72,6 +70,133 @@ ETD: Estimation Time Departure, kira-kira kapan berangkat &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/aptana-dan-codeigniter/">Aptana Dan Codeigniter</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-25T02:05:00+07:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI?</p>
+
+<p>Sederhana. Simpan file ini sebagai php dalam project CI Anda. Simpan dimanapun, terserah Anda.</p>
+
+<pre><code>&lt;?php
+
+class _
+{    
+    function _()
+    {
+
+    // any classes you want included in autocompletion                
+    $this-&gt;load = new CI_Loader();
+    $this-&gt;config = new CI_Config();        
+    $this-&gt;email = new CI_Email();
+    $this-&gt;encrypt = new CI_Encrypt();
+    $this-&gt;pagination = new CI_Pagination;
+    $this-&gt;session = new CI_Session();
+    $this-&gt;driver = new CI_Driver();
+    $this-&gt;benchmark = new CI_Benchmark();
+    $this-&gt;typography = new CI_Typography();
+    $this-&gt;form_validation = new CI_Form_validation();
+    $this-&gt;profiler = new CI_Profiler();
+    $this-&gt;image_lib = new CI_Image_lib();
+    $this-&gt;math = new Math();
+    $this-&gt;calendar = new CI_Calendar();
+    $this-&gt;db = new CI_DB_active_record();
+    $this-&gt;table = new CI_Table();
+    $this-&gt;table = new MY_Table();
+    $this-&gt;ftp = new CI_FTP();
+    $this-&gt;output = new CI_Output();
+    $this-&gt;javascript = new CI_Javascript();
+
+    // note you'll need to use $this-&gt;CI = &amp; getInstance() in extended libs
+    // in order for the CI to autocomplete
+    $this-&gt;CI=new CI_Controller();
+
+    }
+
+}
+
+// any classes you want autocomplete for
+class CI_Controller extends _ {}
+class CI_Model extends _ {}
+class CI_Form_validation extends _ {}
+class CI_Table extends _ {}
+?&gt; 
+</code></pre>
+
+<p>Jika Anda memiliki kepustakaan tersendiri yang ingin dimasukkan dalam autocomplete, Saya pikir Anda sudah mendapatkan idenya. Tambahkan ke dalam $this.</p>
+
+<p><a href="http://ellislab.com/forums/viewthread/187641/">http://ellislab.com/forums/viewthread/187641/</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/dukung-mdn/">Dukung MDN</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-19T11:48:00+07:00" pubdate data-updated="true">Jan 19<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content">
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -516,107 +641,6 @@ rake deploy
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/awakutu-salah-variabel/">Awakutu: Variabel Yang Tertukar</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-13T09:27:00+07:00" pubdate data-updated="true">Nov 13<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Tips singkat untuk diri Saya sendiri: Dalam melakukan testing
-aplikasi, kita harus melihat requirement apakah sudah didevelop
-atau belum. Kalau sudah semua, lakukan pengujian terhadap
-semua fitur yang dikembangkan. Jika semua terlihat sudah baik,
-coba cek dua kali.</p>
-
-<p>Kemarin saya menemukan galat dalam aplikasi saya yang cukup
-membosankan: nama variabel yang tertukar. Ini butuh waktu
-berjam-jam buat saya untuk menyelesaikan galat yang sederhana
-ini. Dan ya.. Alhamdulillah, selesai juga :)</p>
-
-<p><img src="/images/post/bug-variabel-tertukar.png" alt="Variabel yang Tertukar" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/sedang-memuat/">Tunggu Sebentar, Sedang Memuat</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-12T06:24:00+07:00" pubdate data-updated="true">Nov 12<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><em>Please wait, loading..</em></p>
-
-<p>Saya tadinya iseng-iseng ke Google untuk mencari gambar <em>spinner</em>.
-Saya dalam kondisi yang cukup genting, saya harus sunting kode
-di dalam peramban dengan EXTplorer, tidak ada git, tidak ada
-<em>pull</em> kode. Jadi saya tidak ingin mengambil gambar dari <a href="http://ajaxload.info">Ajaxload.info</a>:</p>
-
-<p><img src="http://pasteboard.s3.amazonaws.com/images/L7tyZDq.png" alt="ajaxload.info" /></p>
-
-<p>.. karena di sana harus mengunduh image,.. dan saya tidak bisa melakukan
-itu. Saya butuh tautan gambar <em>spinner</em> yang sudah ada di CDN.</p>
-
-<p>Akhirnya, saya menemukan beberapa makhluk ini: <a href="http://img.cdn.tl/">http://img.cdn.tl/</a></p>
-
-<p><img src="http://pasteboard.s3.amazonaws.com/images/L7EAs5P.png" alt="" /></p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -632,6 +656,14 @@ itu. Saya butuh tautan gambar <em>spinner</em> yang sudah ada di CDN.</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/aptana-dan-codeigniter/">Aptana dan Codeigniter</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/dukung-mdn/">Dukung MDN</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/military-term/">On Your Mark, ETA, ETD</a>
       </li>
     
@@ -641,14 +673,6 @@ itu. Saya butuh tautan gambar <em>spinner</em> yang sudah ada di CDN.</p>
     
       <li class="post">
         <a href="/blog/2013/redirection/">Redirection, Pikir Dua Kali!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/should-i-hire-a-programmer/">Should I Hire a Programmer?</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2012/ngeblog-command-line-donk/">Ngeblog? Command Line Donk</a>
       </li>
     
   </ul>

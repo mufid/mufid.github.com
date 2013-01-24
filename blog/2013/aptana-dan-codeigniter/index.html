@@ -5,11 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Redirection, Pikir Dua Kali! - Mufid's Code Blog</title>
+  <title>Aptana dan Codeigniter - Mufid's Code Blog</title>
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Jadi ceritanya saya dikasih tautan oleh teman tautan berikut: http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/ Wait, kenapa saya &hellip;">
+  <meta name="description" content="Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI? Sederhana. Simpan file ini sebagai php dalam project CI Anda. Simpan dimanapun, &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -18,7 +18,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.com/blog/2013/redirection/">
+  <link rel="canonical" href="http://mufid.github.com/blog/2013/aptana-dan-codeigniter/">
   <link href="/favicon.png" rel="icon">
   <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/javascripts/modernizr-2.0.js"></script>
@@ -74,7 +74,7 @@
   <header>
     
       
-        <h1 class="entry-title">Redirection, Pikir Dua Kali!</h1>
+        <h1 class="entry-title">Aptana Dan Codeigniter</h1>
       
     
     
@@ -91,45 +91,65 @@
   
 
 
-<time datetime="2013-01-04T08:33:00+07:00" pubdate data-updated="true">Jan 4<span>th</span>, 2013</time>
+<time datetime="2013-01-25T02:05:00+07:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
         
       </p>
     
   </header>
 
 
-<div class="entry-content"><p>Jadi ceritanya saya dikasih tautan oleh teman tautan berikut:</p>
+<div class="entry-content"><p>Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI?</p>
 
-<pre><code>http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+<p>Sederhana. Simpan file ini sebagai php dalam project CI Anda. Simpan dimanapun, terserah Anda.</p>
+
+<pre><code>&lt;?php
+
+class _
+{    
+    function _()
+    {
+
+    // any classes you want included in autocompletion                
+    $this-&gt;load = new CI_Loader();
+    $this-&gt;config = new CI_Config();        
+    $this-&gt;email = new CI_Email();
+    $this-&gt;encrypt = new CI_Encrypt();
+    $this-&gt;pagination = new CI_Pagination;
+    $this-&gt;session = new CI_Session();
+    $this-&gt;driver = new CI_Driver();
+    $this-&gt;benchmark = new CI_Benchmark();
+    $this-&gt;typography = new CI_Typography();
+    $this-&gt;form_validation = new CI_Form_validation();
+    $this-&gt;profiler = new CI_Profiler();
+    $this-&gt;image_lib = new CI_Image_lib();
+    $this-&gt;math = new Math();
+    $this-&gt;calendar = new CI_Calendar();
+    $this-&gt;db = new CI_DB_active_record();
+    $this-&gt;table = new CI_Table();
+    $this-&gt;table = new MY_Table();
+    $this-&gt;ftp = new CI_FTP();
+    $this-&gt;output = new CI_Output();
+    $this-&gt;javascript = new CI_Javascript();
+
+    // note you'll need to use $this-&gt;CI = &amp; getInstance() in extended libs
+    // in order for the CI to autocomplete
+    $this-&gt;CI=new CI_Controller();
+
+    }
+
+}
+
+// any classes you want autocomplete for
+class CI_Controller extends _ {}
+class CI_Model extends _ {}
+class CI_Form_validation extends _ {}
+class CI_Table extends _ {}
+?&gt; 
 </code></pre>
 
-<p>Wait, kenapa saya malah diarahkan ke halaman depan? Menghapus <strong>m.</strong> merupakan solusi. Jadi ceritanya:</p>
+<p>Jika Anda memiliki kepustakaan tersendiri yang ingin dimasukkan dalam autocomplete, Saya pikir Anda sudah mendapatkan idenya. Tambahkan ke dalam $this.</p>
 
-<pre><code>C:\Users\Mufid&gt;curl --head http://m.kompasiana.com/post/politik/2013/01/02/mari-
-menghujat-pks/
-HTTP/1.1 302 Found
-Date: Fri, 04 Jan 2013 01:33:10 GMT
-Server: Apache/2.2.3 (Red Hat)
-X-Powered-By: PHP/5.3.17
-Location: http://www.kompasiana.com/home
-Content-Type: text/html; charset=UTF-8
-Connection: close
-</code></pre>
-
-<p>.. maksud Kompasiana itu sangat baik, jika dibuka dari mobile maka redirect ke versi m. Tetapi jika sebaliknya, membuka versi m dari desktop, justru diredirectnya ke halaman depan. Hmm.. Tidak intuitif sama sekali.</p>
-
-<pre><code>C:\Users\Mufid\octopress&gt;curl -A "Mozilla/5.0 (Linux;U; Android 2.1; en-us; Nexus One Build/ERD62) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17" --head http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
-HTTP/1.1 200 OK
-Date: Fri, 04 Jan 2013 01:38:00 GMT
-Server: Apache/2.2.3 (Red Hat)
-X-Powered-By: PHP/5.3.17
-Content-Type: text/html; charset=UTF-8
-Connection: Keep-Alive
-Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
--Jan-2013 01:38:00 GMT
-</code></pre>
-
-<p>Moral of the story: Hati-hati dalam menggunakkan redirect yah.</p>
+<p><a href="http://ellislab.com/forums/viewthread/187641/">http://ellislab.com/forums/viewthread/187641/</a></p>
 </div>
 
 
@@ -152,15 +172,21 @@ Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
   
 
 
-<time datetime="2013-01-04T08:33:00+07:00" pubdate data-updated="true">Jan 4<span>th</span>, 2013</time>
+<time datetime="2013-01-25T02:05:00+07:00" pubdate data-updated="true">Jan 25<span>th</span>, 2013</time>
       
+
+<span class="categories">
+  
+    <a class='category' href='/blog/categories/aptana-/'>aptana,</a>, <a class='category' href='/blog/categories/php/'>php</a>
+  
+</span>
 
 
     </p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.com/blog/2013/redirection/" data-via="" data-counturl="http://mufid.github.com/blog/2013/redirection/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.com/blog/2013/aptana-dan-codeigniter/" data-via="" data-counturl="http://mufid.github.com/blog/2013/aptana-dan-codeigniter/" >Tweet</a>
   
   
   
@@ -169,10 +195,8 @@ Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2012/should-i-hire-a-programmer/" title="Previous Post: Should I Hire a Programmer?">&laquo; Should I Hire a Programmer?</a>
+        <a class="basic-alignment left articlenav" href="/blog/2013/dukung-mdn/" title="Previous Post: Dukung MDN">&laquo; Dukung MDN</a>
       
-      
-        <a class="basic-alignment right articlenav" href="/blog/2013/cdn-1cak/" title="Next Post: CDN 1Cak">CDN 1Cak &raquo;</a>
       
     </p>
   </footer>
@@ -246,8 +270,8 @@ Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mufid.github.com/blog/2013/redirection/';
-        var disqus_url = 'http://mufid.github.com/blog/2013/redirection/';
+        var disqus_identifier = 'http://mufid.github.com/blog/2013/aptana-dan-codeigniter/';
+        var disqus_url = 'http://mufid.github.com/blog/2013/aptana-dan-codeigniter/';
         var disqus_script = 'embed.js';
       
     (function () {
