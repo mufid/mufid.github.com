@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2013-02-09T07:49:01+07:00</updated>
+  <updated>2013-02-14T07:23:38+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,21 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[AJAX No-Cache]]></title>
+    <link href="http://mufid.github.com/blog/2013/ajax-no-cache/"/>
+    <updated>2013-02-10T14:09:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2013/ajax-no-cache</id>
+    <content type="html"><![CDATA[<p>Sebetulnya, ini tidak hanya berlaku pada URI yang mengandung <em>AJAX Call</em>, tetapi juga untuk semua URI yang datanya pasti berubah.</p>
+
+<p>Liquid error: ClassNotFound: no lexer for alias &#8216;ajax&#8217; found</p>
+
+<p>Meski Internet Explorer memiliki masalah pada pemanggilan AJAX (karena meski header ini sudah diset, IE tetap saja mengambil dari cache), dari tautan yang saya temui ada <a href="https://devcentral.f5.com/blogs/us/fixing-internet-explorer-amp-ajax">empat solusi atas semua ini</a>.</p>
+
+<p>Sumber: <a href="http://ellislab.com/forums/viewthread/155976/">http://ellislab.com/forums/viewthread/155976/</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[FR: From Jakarta, Depok, Jogjakarta]]></title>
@@ -131,18 +146,53 @@
 </ul>
 
 
-<h3>13.00: Touch down Prambanan!</h3>
+<h4>13.00: Touch down Prambanan!</h4>
 
-<p>.. kita sampai di Prambanan sekitar jam 12an (atau jam 13.00 kita telah ada di dalam candinya)</p>
+<p>.. kita sampai di Prambanan sekitar jam 12an (atau jam 13.00 kita telah ada di dalam candinya). Sesuai kata Gaby di Whatsapp, candi itu sangat panas. Kenapa begitu? Mungkin karena sekitarnya minim sekali pohon, dan di candinya itu sendiri memang tidak ada pohon. Saat kita ke sana, kita diberi helm layaknya insinyur. Tetapi untuk apa? Saya kira akan ada batu-batu yang berguguran dari atas. Saya sadari ketika saya masuk, saya kepala saya <em>kejedot</em> langit-langit candi yang pendek. Tidak yakin fungsinya itu, tetapi lakukan saja.</p>
+
+<blockquote><p>Tips: Anda mungkin tertarik utuk tidak berpakaian layaknya pakaian hari raya. Anda akan banyak berkeringat dan sedikit kotor karena debu. Pakaian safari mungkin akan cocok.</p></blockquote>
 
 <p><strong>Pricing:</strong></p>
 
 <ul>
-<li>Tiket Prambanan: Rp30.000/orang</li>
+<li>Prambanan: Rp30.000 per orang</li>
 </ul>
 
 
-<p>Aha, saya mau pergi dulu. Nanti saya update lagi :)</p>
+<h4>16.30: Touch down Parangtritis!</h4>
+
+<p>Kita sempat melihat matahari terbenam di parangtritis. Katanya, pantainya bagus. Saya sama sekali tidak dapat membedakan mana tempat outdoor yang bagus dan mana yang buruk (ya, saya sudah bosan melihat gedung-gedung tinggi yang arsitekturnya tidak menarik). Yang saya lihat adalah <em>cliff</em> atau tebing. Di sana ada <em>cliff</em>! Alhamdulillah, setelah hidup beberapa belas tahun akhirnya saya bisa melihat <em>cliff</em> langsung, bukan di Natgeo. Memang tidak mirip Grand Canyon, tetapi lumayan lah.</p>
+
+<p><img src="http://mufid.github.com/images/post/jogja-cliff.JPG" alt="Cliff" /></p>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Masuk parangtrits: Rp3.000 per orang</li>
+</ul>
+
+
+<h4>19.00: Sampai kembali ke Jogja</h4>
+
+<p>Kita sampai kembali ke Jogja kemudian kita makan. Saya lupa tempat makannya, lumayan mahal. Dua kali lipat lebih mahal dibandingkan harga sarapan. Tidak apa kalau hanya sekali. Kita makan nasi gudeg di sana. Bagi Anda yang tidak suka makanan manis mungkin akan kesulitan untuk memakannya. Hal yang tidak kalah penting adalah tidak ada salahnya mencoba makanan khas jogja, sekalipun mungkin Anda tidak suka. Yaaa, sekali seumur hidup lah.</p>
+
+<h4>22.00: Night Malioboro</h4>
+
+<p>Di malam hari setelah shalat, mandi, makan, kita berjalan menyusuri Malioboro. Di 0 KM Jogja kita melihat ada banyak orang-orang dengan komunitasnya masing-masing. Ada yang foto-foto, ada yang bermain sepatu roda, dan lain-lain. Saya gak yakin mereka semua turis, tapi saya gak yakin mereka semua adalah penduduk setempat. Saya bermain gambar <em>long shutter</em> di sini, tetapi Saya lupa untuk foto HDR (dan saya tidak yakin dengan hanya tripod dan kamera Saya, saya bisa mengamblik HDR).</p>
+
+<p>Jauh berbeda dengan Jakarta atau pun Depok, meski sepi, kota tetap terlihat hidup di malam hari. Tidak ada kejadian yang menyeramkam, dan jalanan pun tetap teratur. Mobil dan motor tetap mengikuti lampu lalu lintas dan tidak ada yang melangkahi <em>zebra cross</em>. Wow!</p>
+
+<h3>Day 3: Around Jogja</h3>
+
+<p>Kita berjalan mengelilingi Jogjakarta di hari ini. Di pagi harinya kita ke Museum Benteng, harga masuknya hanya Rp2.000, kemudian agak siang kita ke Kraton, kita mengamati bagaimana kehidupan Sultan. Selanjutnya, yang akhwat pada belanja, dan yang ikhwan melanjutkan penysuruan: kita ke UGM. UGM bisa dicapai dengan Transjogja. Menariknya, kami tidak melihat ada angkot. Kota yang sungguh sangat teratur! Wajar saja kalau turis suka tinggal di sini.</p>
+
+<p>Kita mulai persiapan untuk pulang pukul 17.00. Kita naik taksi ke stasiun (hanya Rp25.000 saja), dan kita sampai di stasiun kurang dari jam 18.00 (di tiket, kereta akan tiba pukul 18.15, dan sampai di Jakarta pukul 04.00an). Dan wow, keretanya lagi-lagi tidak terlambat signifikan!</p>
+
+<h3>Day 4: Back to Depok</h3>
+
+<p>Alhamdulillah, kami kembali lagi ke Depok dengan selamat. Saya bisa tidur nyenyak di kereta sehingga di hari kepulangan itu saya masih bisa beraktivitas tanpa lelah.</p>
+
+<p>Alhamdulillah, terima kasih banyak semuanya yang telah mendukung perjalanan ini.</p>
 ]]></content>
   </entry>
   
@@ -857,23 +907,6 @@ menemukan hasil yang nihil. Tapi kalau memang WordPress ini gampang diretas,
 Apakah ini karena pluginnya, atau karena apa?</p>
 
 <p>Well&#8230;</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Creative Class]]></title>
-    <link href="http://mufid.github.com/blog/2012/creative-class/"/>
-    <updated>2012-10-15T03:58:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/creative-class</id>
-    <content type="html"><![CDATA[<p>dari sini: <a href="http://luqmansyauqi.tumblr.com/post/33546691968/jangan-sampai-kena-middle-income-trap">http://luqmansyauqi.tumblr.com/post/33546691968/jangan-sampai-kena-middle-income-trap</a></p>
-
-<blockquote><p>Duh pagi-pagi udah sotoy, maaf yaaa hehe. Tadi cuma lagi baca beberapa tulisan tentang midle-income-trap. Middle-income-trap itu adalah istilah untuk negara berpendapatan menengah lalu negara itu merasa nyaman dengan keadaan seperti itu. Jebakan ! Mungkin secara sederhana itu udah nyaman ya, cuma kalau hanya karena nyaman diposisi menengah dan tidak mengembangkan SDM dan infrastruktur dan lain-lainnya yang mendukung pertumbuhan ekonomi, sangat sulit untuk mencapai high-income dan kemungkinan untuk menjadi low-income (lagi) itu ada. Emang mau gitu ditengah-tengah terus ga maju maju ? Ga mau dong. Baca di koran, katanya Indonesia bisa bisa terkena trap middle-income ini looh kalau gagal mengelola SDM dan infrastruktur. Nah looh, lalu kita harus apa ? Salah satu caranya itu adalah jangan jadi stuck class tapi jadilah creative class. Nih ada kutipannya :</p>
-
-<blockquote><p>Richard Florida dalam bukunya yang berjudul The Rise of Creative Class (2002). Intinya, buku ini mengatakan bahwa suatu bangsa akan maju jika mereka memiliki kelompok masyarakat kreatif ( creative class ) yang berperan strategis menghasilkan nilai tambah ekonomi melalui olah pikir, kreativitas, dan inovasi yang mereka hasilkan. Mereka adalah seniman, programmer/ software developer, arsitek, product designer, konsultan, creative director, pengrajin, fotografer,dan tentu sajaentrepreneur.</p>
-
-<p>(dikutip dari Fiqhislam.com)</p></blockquote>
-
-<p>Ayo ayoo yang merasa dimention diatas, jangan gabut, dukung Indonesia supaya ga kena jebakan middle trap ! :D <em>sotoyyyyy</em>. Oh iya, doain aku jadi konsultan ya, mau bangetlah supaya Indonesia ga kena jebakan:”)</p></blockquote>
 ]]></content>
   </entry>
   
