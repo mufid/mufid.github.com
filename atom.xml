@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2013-02-14T07:23:38+07:00</updated>
+  <updated>2013-02-17T06:14:29+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -20,7 +20,19 @@
     <id>http://mufid.github.com/blog/2013/ajax-no-cache</id>
     <content type="html"><![CDATA[<p>Sebetulnya, ini tidak hanya berlaku pada URI yang mengandung <em>AJAX Call</em>, tetapi juga untuk semua URI yang datanya pasti berubah.</p>
 
-<p>Liquid error: ClassNotFound: no lexer for alias &#8216;ajax&#8217; found</p>
+<figure class='code'><figcaption><span>header-no-cache.php </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Pragma: no-cache&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Cache-Control: no-cache, must-revalidate&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Meski Internet Explorer memiliki masalah pada pemanggilan AJAX (karena meski header ini sudah diset, IE tetap saja mengambil dari cache), dari tautan yang saya temui ada <a href="https://devcentral.f5.com/blogs/us/fixing-internet-explorer-amp-ajax">empat solusi atas semua ini</a>.</p>
 
