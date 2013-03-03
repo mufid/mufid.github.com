@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2013-02-17T06:14:29+07:00</updated>
+  <updated>2013-03-04T06:11:55+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,36 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Fiddler Web Debugger]]></title>
+    <link href="http://mufid.github.com/blog/2013/fiddler-web-debugger/"/>
+    <updated>2013-03-04T06:09:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2013/fiddler-web-debugger</id>
+    <content type="html"><![CDATA[<p><em>This tool is just amazing.</em></p>
+
+<p><img src="http://mufid.github.com/images/post/fiddler.png" alt="Fiddler" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[chmod dan 500 Internal Server Error]]></title>
+    <link href="http://mufid.github.com/blog/2013/chmod/"/>
+    <updated>2013-02-21T04:47:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2013/chmod</id>
+    <content type="html"><![CDATA[<p>Untuk alasan keamanan, beberapa web server tidak
+mengizinkan permission eXecute ditampilkan oleh
+client. Maka dari itu yang harus dilakukan:</p>
+
+<pre><code>find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
+find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
+</code></pre>
+
+<p>Begitu saja #selfnote.</p>
+
+<p><a href="http://superuser.com/questions/91935/how-to-chmod-755-all-directories-but-no-file-recursively">sumber</a></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[AJAX No-Cache]]></title>
@@ -861,64 +891,6 @@ konten yang terlalu panjang ini.</p>
 
 
 <p>Anda punya ide?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Clipboard]]></title>
-    <link href="http://mufid.github.com/blog/2012/clipboard/"/>
-    <updated>2012-11-08T05:06:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/clipboard</id>
-    <content type="html"><![CDATA[<p>Di windows ada perintah <code>clip</code></p>
-
-<pre><code>&gt; echo Alhamdulillah | clip
-&gt;
-</code></pre>
-
-<p>Dia tidak menampilkan baris
-informasi apapun. Menyebalkan untuk hal ini.
-Tetapi, fungsinya sangat jelas dan sangat membantu.
-Beberapa fungsi yang mungkin anda tertarik adalah
-membuat batch file yang berisi password tidak
-penting. Semisal, Anda membuat suatu baris yang berisi
-password yang sangat panjang untuk keperluan proyek
-Anda:</p>
-
-<pre><code>&gt; copycopy.bat password/localtes
-&gt;
-</code></pre>
-
-<p>Punya ide kreatif bermain dengan <code>clip</code>?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[WordPress. *WordPress Everywhere*]]></title>
-    <link href="http://mufid.github.com/blog/2012/wordpress-dimana-mana/"/>
-    <updated>2012-10-20T08:05:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/wordpress-dimana-mana</id>
-    <content type="html"><![CDATA[<p><img src="http://mufid.github.com/images/post/dropbox-wordpress.png" alt="Gambar" /></p>
-
-<p>Pernah membayangkan kalau semua web ditambahkan /wp-admin?</p>
-
-<p>Bagi Saya, adalah sangat menarik jika banyak (jika itu kurang jelas,
-saya akan buat sedikit hiperbolis: sangat banyak) &#8220;pemain web&#8221; menggunakkan
-WordPress sebagai <em>backbone</em> utama membuat artikel dan situs berita.</p>
-
-<p>Sambil bertanya-tanya dalam diri Saya, <em>memang WordPress scalable yah?
-memang WordPress aman yah?</em></p>
-
-<p><a href="http://suma.ui.ac.id/2012/01/09/situs-situs-berdomain-ui-ditembus-hacker/">Masih jelas dalam ingatan Saya banyak web di dalam subdomain UI yang
-diretas</a>:</p>
-
-<blockquote><p>Beberapa lembaga di UI dikagetkan dengan peretasan beberapa situs berdomain ui.ac.id pada akhir 2011. Hacker yang menamakan dirinya AL3X 0WN5 ini telah meretas lebih dari 20 situs lembaga di UI. Kejadian ini lantas menimbulkan keresahan di lingkungan UI. Gladhi Guarddin, atau yang biasa disapa Adin, Kepala Divisi Pengembangan Sistem Informasi PPSI UI, mengakui Ia dan tim tidak begitu resah mengetahui hal ini. &#8220;Saya mendapat kabar ini dari organisasi non-profit di luar UI pada 24 Desember.&#8221;</p></blockquote>
-
-<p>Pencarian di Google tentang kenapa situs web berbasis WordPress ini diretas
-menemukan hasil yang nihil. Tapi kalau memang WordPress ini gampang diretas,
-<a href="http://vip.WordPress.com/clients/">kenapa banyak web-web kelas atas berbasis WordPress yang tidak diretas</a>?
-Apakah ini karena pluginnya, atau karena apa?</p>
-
-<p>Well&#8230;</p>
 ]]></content>
   </entry>
   

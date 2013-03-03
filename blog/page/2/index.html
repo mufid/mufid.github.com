@@ -9,7 +9,10 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Akhir tahun! Yay! :D Singkat saja, apakah seharusnya saya menghire programmer untuk ini untuk itu, anda merasa butuh dukungan atau support? Atau &hellip;">
+  <meta name="description" content="C:\Users\Mufid&gt;curl --head cdn1.1cak.com
+HTTP/1.1 302 Found
+Date: Sat, 05 Jan 2013 22:15:06 GMT
+Server: Apache/2.2.11 (FreeBSD) mod_ssl/2.2.11 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -70,6 +73,123 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/cdn-1cak/">CDN 1Cak</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-06T05:33:00+07:00" pubdate data-updated="true">Jan 6<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><pre><code>C:\Users\Mufid&gt;curl --head cdn1.1cak.com
+HTTP/1.1 302 Found
+Date: Sat, 05 Jan 2013 22:15:06 GMT
+Server: Apache/2.2.11 (FreeBSD) mod_ssl/2.2.11 OpenSSL/0.9.8e DAV/2 PHP/5.2.9 with Suhosin-Patch mod_gzip/2.1.0
+X-Powered-By: PHP/5.2.9
+Location: http://cdn1.blog.students.ittelkom.ac.id
+Content-Type: text/html
+Connection: close
+</code></pre>
+
+<p>Wow. :) Nice job, IF Telkom.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/redirection/">Redirection, Pikir Dua Kali!</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-01-04T08:33:00+07:00" pubdate data-updated="true">Jan 4<span>th</span>, 2013</time>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Jadi ceritanya saya dikasih tautan oleh teman tautan berikut:</p>
+
+<pre><code>http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+</code></pre>
+
+<p>Wait, kenapa saya malah diarahkan ke halaman depan? Menghapus <strong>m.</strong> merupakan solusi. Jadi ceritanya:</p>
+
+<pre><code>C:\Users\Mufid&gt;curl --head http://m.kompasiana.com/post/politik/2013/01/02/mari-
+menghujat-pks/
+HTTP/1.1 302 Found
+Date: Fri, 04 Jan 2013 01:33:10 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Location: http://www.kompasiana.com/home
+Content-Type: text/html; charset=UTF-8
+Connection: close
+</code></pre>
+
+<p>.. maksud Kompasiana itu sangat baik, jika dibuka dari mobile maka redirect ke versi m. Tetapi jika sebaliknya, membuka versi m dari desktop, justru diredirectnya ke halaman depan. Hmm.. Tidak intuitif sama sekali.</p>
+
+<pre><code>C:\Users\Mufid\octopress&gt;curl -A "Mozilla/5.0 (Linux;U; Android 2.1; en-us; Nexus One Build/ERD62) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17" --head http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+HTTP/1.1 200 OK
+Date: Fri, 04 Jan 2013 01:38:00 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Content-Type: text/html; charset=UTF-8
+Connection: Keep-Alive
+Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
+-Jan-2013 01:38:00 GMT
+</code></pre>
+
+<p>Moral of the story: Hati-hati dalam menggunakkan redirect yah.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -483,122 +603,6 @@ langsung buang dan tidak membacanya?</p>
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/clipboard/">Clipboard</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-11-08T05:06:00+07:00" pubdate data-updated="true">Nov 8<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Di windows ada perintah <code>clip</code></p>
-
-<pre><code>&gt; echo Alhamdulillah | clip
-&gt;
-</code></pre>
-
-<p>Dia tidak menampilkan baris
-informasi apapun. Menyebalkan untuk hal ini.
-Tetapi, fungsinya sangat jelas dan sangat membantu.
-Beberapa fungsi yang mungkin anda tertarik adalah
-membuat batch file yang berisi password tidak
-penting. Semisal, Anda membuat suatu baris yang berisi
-password yang sangat panjang untuk keperluan proyek
-Anda:</p>
-
-<pre><code>&gt; copycopy.bat password/localtes
-&gt;
-</code></pre>
-
-<p>Punya ide kreatif bermain dengan <code>clip</code>?</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/wordpress-dimana-mana/">WordPress. *WordPress Everywhere*</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-10-20T08:05:00+07:00" pubdate data-updated="true">Oct 20<span>th</span>, 2012</time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/images/post/dropbox-wordpress.png" alt="Gambar" /></p>
-
-<p>Pernah membayangkan kalau semua web ditambahkan /wp-admin?</p>
-
-<p>Bagi Saya, adalah sangat menarik jika banyak (jika itu kurang jelas,
-saya akan buat sedikit hiperbolis: sangat banyak) &#8220;pemain web&#8221; menggunakkan
-WordPress sebagai <em>backbone</em> utama membuat artikel dan situs berita.</p>
-
-<p>Sambil bertanya-tanya dalam diri Saya, <em>memang WordPress scalable yah?
-memang WordPress aman yah?</em></p>
-
-<p><a href="http://suma.ui.ac.id/2012/01/09/situs-situs-berdomain-ui-ditembus-hacker/">Masih jelas dalam ingatan Saya banyak web di dalam subdomain UI yang
-diretas</a>:</p>
-
-<blockquote><p>Beberapa lembaga di UI dikagetkan dengan peretasan beberapa situs berdomain ui.ac.id pada akhir 2011. Hacker yang menamakan dirinya AL3X 0WN5 ini telah meretas lebih dari 20 situs lembaga di UI. Kejadian ini lantas menimbulkan keresahan di lingkungan UI. Gladhi Guarddin, atau yang biasa disapa Adin, Kepala Divisi Pengembangan Sistem Informasi PPSI UI, mengakui Ia dan tim tidak begitu resah mengetahui hal ini. &#8220;Saya mendapat kabar ini dari organisasi non-profit di luar UI pada 24 Desember.&#8221;</p></blockquote>
-
-<p>Pencarian di Google tentang kenapa situs web berbasis WordPress ini diretas
-menemukan hasil yang nihil. Tapi kalau memang WordPress ini gampang diretas,
-<a href="http://vip.WordPress.com/clients/">kenapa banyak web-web kelas atas berbasis WordPress yang tidak diretas</a>?
-Apakah ini karena pluginnya, atau karena apa?</p>
-
-<p>Well&#8230;</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/3/">&larr; Older</a>
@@ -616,6 +620,14 @@ Apakah ini karena pluginnya, atau karena apa?</p>
   <ul id="recent_posts">
     
       <li class="post">
+        <a href="/blog/2013/fiddler-web-debugger/">Fiddler Web Debugger</a>
+      </li>
+    
+      <li class="post">
+        <a href="/blog/2013/chmod/">chmod dan 500 Internal Server Error</a>
+      </li>
+    
+      <li class="post">
         <a href="/blog/2013/ajax-no-cache/">AJAX No-Cache</a>
       </li>
     
@@ -625,14 +637,6 @@ Apakah ini karena pluginnya, atau karena apa?</p>
     
       <li class="post">
         <a href="/blog/2013/hacktivism/">Hacktivism Indonesia Lagi!</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/komunitas/">Komunitas</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2013/tentang-web/">Tentang Web</a>
       </li>
     
   </ul>
