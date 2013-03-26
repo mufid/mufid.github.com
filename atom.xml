@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code Blog]]></title>
   <link href="http://mufid.github.com/atom.xml" rel="self"/>
   <link href="http://mufid.github.com/"/>
-  <updated>2013-03-04T06:11:55+07:00</updated>
+  <updated>2013-03-26T08:01:49+07:00</updated>
   <id>http://mufid.github.com/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,25 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[I am Looking for Intern]]></title>
+    <link href="http://mufid.github.com/blog/2013/intern/"/>
+    <updated>2013-03-26T07:55:00+07:00</updated>
+    <id>http://mufid.github.com/blog/2013/intern</id>
+    <content type="html"><![CDATA[<p>I am Muhammad Mufid Afif. Currently i am third year student in Faculty of Computer Science.</p>
+
+<p>I love to do hacks. See my <a href="https://github.com/mufid">Github</a> for my latest hacks. I love hacks in PHP and Rails. I love user interface design, though i am not master in design.</p>
+
+<p>I am looking for intern this summer as part of my graduation prerequisites. I will do my best intern with my best attidude and surely i will do great hacks. I am living in Indonesia, but i am able to go abroad if needed.</p>
+
+<p>Please kindly contact me at mufid.afif[at]gmail[dot]com.</p>
+
+<p>Thank you very much,</p>
+
+<p>Mufid</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Fiddler Web Debugger]]></title>
@@ -75,7 +94,9 @@ find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
     <link href="http://mufid.github.com/blog/2013/fr-jogja/"/>
     <updated>2013-02-09T07:14:00+07:00</updated>
     <id>http://mufid.github.com/blog/2013/fr-jogja</id>
-    <content type="html"><![CDATA[<p>Jogjakarta murah? Kenapa tidak? Tanggal 5 Februari kemarin, Saya bersama teman-teman pergi ke Jogjakarta sebagai bentuk akhir perpisahan <a href="http://fuki.cs.ui.ac.id">FUKI 2012</a>. Ini adalah perjalanan <em>backpacking</em> kedua Saya, dan Alhamdulillah Saya bisa kembali lagi ke Jakarta dengan selamat.</p>
+    <content type="html"><![CDATA[<p>BONUS: <a href="http://rizalbahriawan.blogspot.com/2013/02/field-report-fr-yogyakarta-north-to.html">Lihat juga FR-nya Rizal</a></p>
+
+<p>Jogjakarta murah? Kenapa tidak? Tanggal 5 Februari kemarin, Saya bersama teman-teman pergi ke Jogjakarta sebagai bentuk akhir perpisahan <a href="http://fuki.cs.ui.ac.id">FUKI 2012</a>. Ini adalah perjalanan <em>backpacking</em> kedua Saya, dan Alhamdulillah Saya bisa kembali lagi ke Jakarta dengan selamat.</p>
 
 <p>Berikut adalah Field Report untuk Jogjakarta</p>
 
@@ -831,66 +852,6 @@ itu. Saya butuh tautan gambar <em>spinner</em> yang sudah ada di CDN.</p>
 <p>Akhirnya, saya menemukan beberapa makhluk ini: <a href="http://img.cdn.tl/">http://img.cdn.tl/</a></p>
 
 <p><img src="http://pasteboard.s3.amazonaws.com/images/L7EAs5P.png" alt="" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Terlalu Panjang]]></title>
-    <link href="http://mufid.github.com/blog/2012/kepanjangan/"/>
-    <updated>2012-11-09T05:41:00+07:00</updated>
-    <id>http://mufid.github.com/blog/2012/kepanjangan</id>
-    <content type="html"><![CDATA[<p><a href="http://www.flickr.com/photos/trekkingrinjani/101204877/" title="Beautiful view, first step from Sembalun Lawang trekking mount Rinjani 3726 meter Lombok island Indonesia oleh Trekking Rinjani, di Flickr"><img src="http://farm1.staticflickr.com/35/101204877_6379993117.jpg" width="500" height="375" alt="Beautiful view, first step from Sembalun Lawang trekking mount Rinjani 3726 meter Lombok island Indonesia"></a></p>
-
-<p><em>TL;DR: Trik ada di bagian bawah di bagian lengkap post ini</em></p>
-
-<p>Melihat sesuatu yang terlalu panjang? Membosankan?
-Berapa banyak orang yang seperti saya? Melihat sesuatu
-yang terlalu panjang, tidak substansial dan tidak esensial,
-langsung buang dan tidak membacanya?</p>
-
-<!-- more -->
-
-
-<p>Tentu tidak masalah bagi mereka yang senang membaca. Mengacu pada
-solusi mengatasi masalah &#8220;Grass Root vs. Top Down&#8221;:</p>
-
-<ol>
-<li>Coba selesaikan dari bawah. Bangun kemauan mereka untuk
-bangkit, untuk belajar, untuk membaca, lebih dari apapun.
-Sehingga mereka akan sangat termotivasi untuk membaca apapun</li>
-<li>Coba selesaikan dari atas. Berhubung dari atas, kita menyelesaikan
-masalahnya adalah dengan kemauan eksternal. Mungkin motivasi
-mereka untuk membaca tetap rendah, tetapi setidaknya kita
-mempunyai <strong>cara</strong> yang lebih baik agar mereka <strong>mau</strong>
-membaca tulisan kita yang &#8220;berbobot&#8221; (baca: agak lebih panjang)</li>
-</ol>
-
-
-<p>Tentu sejatinya kita menyerang yang pertama. Tetapi alih-alih,
-jika dalam beberapa kasus Anda tidak bisa menyelesaikan dengan
-cara yang pertama, menyelesaikan dengan cara yang kedua tidaklah
-salah.</p>
-
-<p>Sehingga, marilah kita berpikir <em>bagaimana <em>cara</em> terbaik
-untuk membuat orang-orang <em>mau</em> membaca artikel kita
-yang <em>cukup</em> panjang</em>?</p>
-
-<p><a href="http://iampaddy.com/lifebelow600/">Blogazine Paddy</a> menjelaskan hal yang lebih bermakna untuk mengatasi
-konten yang terlalu panjang ini.</p>
-
-<p><img src="http://iampaddy.com/lifebelow600/img/mouse.png" alt="Membangun Kemauan Scroll" /></p>
-
-<p>Aha, lantas bagaimana? Menurut Anda, apakah:</p>
-
-<ol>
-<li>Mengurangi <strong>jumlah kalimat dalam paragraf</strong> cukup efektif untuk mengurangi kesan &#8220;ah terlalu panjang, tidak jadi baca&#8221;?</li>
-<li>Bagaimana dengan membuat ritme di tulisan? Tidak teks melulu. Ada gambarnya. Ritme boleh <em>banget</em> digabungkan dengan bullets, point, dan multiple heading?</li>
-<li>Bagaimana dengan menghapus kalimat yang tidak informatif? Mungkin relevan, tetapi tidak substansial untuk dibahas?</li>
-<li>Bagaimana &#8230; bagaimana .. bagaimana .. ?</li>
-</ol>
-
-
-<p>Anda punya ide?</p>
 ]]></content>
   </entry>
   
