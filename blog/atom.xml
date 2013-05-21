@@ -1,0 +1,906 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Mufid's Code blog]]></title>
+  <link href="http://mufid.github.io/atom.xml" rel="self"/>
+  <link href="http://mufid.github.io/"/>
+  <updated>2013-05-21T09:18:54+07:00</updated>
+  <id>http://mufid.github.io/</id>
+  <author>
+    <name><![CDATA[Mufid]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[tes]]></title>
+    <link href="http://mufid.github.io/2013/tes/"/>
+    <updated>2013-05-21T08:41:00+07:00</updated>
+    <id>http://mufid.github.io/2013/tes</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Top Down, Bottom Up?]]></title>
+    <link href="http://mufid.github.io/2013/top-down/"/>
+    <updated>2013-05-16T06:47:00+07:00</updated>
+    <id>http://mufid.github.io/2013/top-down</id>
+    <content type="html"><![CDATA[<p>Pendekatan bisnis antara dua hal ini:
+dari atas dulu atau dari bawah dulu?</p>
+
+<p>Dalam banyak kasus, keduanya bisa saja berhasil. Akan tetapi,
+mari kita lihat beberapa studi kasus terlebih dahulu. Kita
+coba lihat kang Onno.</p>
+
+<!-- more -->
+
+
+<h2>Linux dan Kang Onno</h2>
+
+<p>Kang Onno membangun komunitas linux dari bawah. Kang Onno
+masuk ke SMK-SMK, membuat workshop, membuat ITCamp, dan hal-hal
+lain (yang saya tahu hanya sebatas ini). Saya sempat mengikuti
+workshop untuk anak SMK kang Onno dulu, sekitar 6 tahun yang lalu.
+Acaranya mengundang banyak anak SMK (mungkin saya satu-satunya dari
+SMA). Menurut Saya workshopnya kurang berhasil membahas secara
+mendetail, tetapi Saya suka sekali bagaimana kang Onno berhasil
+menggaet komunitas.</p>
+
+<p>Jika kang Onno ingin membuat gerakan yang lebih masif, tentu kang
+Onno bisa dengan mudah masuk ke pemerintahan. Tetapi kang Onno
+tidak ingin (meskipun kang Onno kenal dengan banyak orang dalam
+pemerintahan di sana). Hal ini saya dengar sendiri langsung dari
+kang Onno saat ITCamp dua tahun yang lalu.</p>
+
+<p>Sekarang mari kita lihat beberapa gerakan Top-Down. Kita lihat
+contoh AnakUI.com dan Videoku.TV. Kita mulai dari yang terakhir
+terlebih dahulu.</p>
+
+<h2>Videoku.TV</h2>
+
+<p>Pernah dengar Videoku.TV? Baiklah, jangan melakukan penelusuran
+Google. Anda tidak akan menemukannya karena sekarang sudah down.</p>
+
+<p>Videoku.TV adalah layanan hosted video sharing. Persis seperti
+YouTube, tapi dengan konten-konten lokal. Anda dapat mengunggah
+konten apapun ke Videoku.TV.</p>
+
+<p>Terdengar menarik?</p>
+
+<p>Tidak.</p>
+
+<p>Apa diferensiasi Videoku.TV dengan Youtube?</p>
+
+<p>Akan tetapi saya melihat hal yang lebih krusial lagi: Untuk
+apa membuat Videoku.TV? Apakah <em>demand</em> masyarakat internet
+Indonesia untuk video streaming sudah seperti Korea, Jepang,
+atau Singapura?</p>
+
+<p>Internet kabel sendiri saya rasa sudah cukup cepat, tetapi
+kesiapan masyarakat Indonesia terhadap <em>demand</em> ini seperti
+cerita yang berbeda.</p>
+
+<p><em>Oh, well&hellip; dari awal saya sudah yakin target Videoku.TV
+sudah salah</em>. Tapi itu bukan satu-satunya concern saya
+tentang Top Down Approach.</p>
+
+<p>Mereka memulai terlalu besar: mengajak artis
+untuk masuk dan membuat akun di Videoku.TV. Selain itu,
+Videoku.TV pada akhirnya sebagian besar berisi
+video-video gosip selebriti. Menurut Saya, menargetkan
+gosip untuk masyarakat internet Indonesia sepertinya bukan
+langkah yang tepat, mengingat pada awalnya internet Indonesia
+digunakan untuk akademisi, dan sebagian masyarakat yang lain
+belum tersentuh internet (atau bahkan belum mengenal).</p>
+
+<p>Nah, they shut down now. More services shutdown.</p>
+
+<p>Oh sebelum berganti topik, Saya sering sekali terkena spam
+dari Videoku. Seems they&rsquo;re not digging into security.</p>
+
+<p><img src="http://mufid.github.io/images/post/spam.png" alt="spam" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[I am Looking for Internship]]></title>
+    <link href="http://mufid.github.io/2013/intern/"/>
+    <updated>2013-03-26T07:55:00+07:00</updated>
+    <id>http://mufid.github.io/2013/intern</id>
+    <content type="html"><![CDATA[<p>I am Muhammad Mufid Afif. Currently i am third year student in Faculty of Computer Science.</p>
+
+<p>I love to do hacks. See my <a href="https://github.com/mufid">Github</a> for my latest hacks. I love hacks in PHP and Rails. I love user interface design, though i am not master in design.</p>
+
+<p>I am looking for intern this summer as part of my graduation prerequisites. I will do my best intern with my best attidude and surely i will do great hacks. I am living in Indonesia, but i am able to go abroad if needed.</p>
+
+<p>Please kindly contact me at mufid.afif[at]gmail[dot]com.</p>
+
+<p>Thank you very much,</p>
+
+<p>Mufid</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Fiddler Web Debugger]]></title>
+    <link href="http://mufid.github.io/2013/fiddler-web-debugger/"/>
+    <updated>2013-03-04T06:09:00+07:00</updated>
+    <id>http://mufid.github.io/2013/fiddler-web-debugger</id>
+    <content type="html"><![CDATA[<p><em>This tool is just amazing.</em></p>
+
+<p><img src="http://mufid.github.io/images/post/fiddler.png" alt="Fiddler" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[chmod dan 500 Internal Server Error]]></title>
+    <link href="http://mufid.github.io/2013/chmod/"/>
+    <updated>2013-02-21T04:47:00+07:00</updated>
+    <id>http://mufid.github.io/2013/chmod</id>
+    <content type="html"><![CDATA[<p>Untuk alasan keamanan, beberapa web server tidak
+mengizinkan permission eXecute ditampilkan oleh
+client. Maka dari itu yang harus dilakukan:</p>
+
+<pre><code>find /path/to/base/dir -type d -print0 | xargs -0 chmod 755 
+find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
+</code></pre>
+
+<p>Begitu saja #selfnote.</p>
+
+<p><a href="http://superuser.com/questions/91935/how-to-chmod-755-all-directories-but-no-file-recursively">sumber</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[AJAX No-Cache]]></title>
+    <link href="http://mufid.github.io/2013/ajax-no-cache/"/>
+    <updated>2013-02-10T14:09:00+07:00</updated>
+    <id>http://mufid.github.io/2013/ajax-no-cache</id>
+    <content type="html"><![CDATA[<p>Sebetulnya, ini tidak hanya berlaku pada URI yang mengandung <em>AJAX Call</em>, tetapi juga untuk semua URI yang datanya pasti berubah.</p>
+
+<figure class='code'><figcaption><span>header-no-cache.php </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Pragma: no-cache&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Cache-Control: no-cache, must-revalidate&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Meski Internet Explorer memiliki masalah pada pemanggilan AJAX (karena meski header ini sudah diset, IE tetap saja mengambil dari cache), dari tautan yang saya temui ada <a href="https://devcentral.f5.com/blogs/us/fixing-internet-explorer-amp-ajax">empat solusi atas semua ini</a>.</p>
+
+<p>Sumber: <a href="http://ellislab.com/forums/viewthread/155976/">http://ellislab.com/forums/viewthread/155976/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[FR: From Jakarta, Depok, Jogjakarta]]></title>
+    <link href="http://mufid.github.io/2013/fr-jogja/"/>
+    <updated>2013-02-09T07:14:00+07:00</updated>
+    <id>http://mufid.github.io/2013/fr-jogja</id>
+    <content type="html"><![CDATA[<p>BONUS: <a href="http://rizalbahriawan.blogspot.com/2013/02/field-report-fr-yogyakarta-north-to.html">Lihat juga FR-nya Rizal</a></p>
+
+<p>Jogjakarta murah? Kenapa tidak? Tanggal 5 Februari kemarin, Saya bersama teman-teman pergi ke Jogjakarta sebagai bentuk akhir perpisahan <a href="http://fuki.cs.ui.ac.id">FUKI 2012</a>. Ini adalah perjalanan <em>backpacking</em> kedua Saya, dan Alhamdulillah Saya bisa kembali lagi ke Jakarta dengan selamat.</p>
+
+<p>Berikut adalah Field Report untuk Jogjakarta</p>
+
+<!-- more -->
+
+
+<h3>Hari Pertama: 5 Februari 2013</h3>
+
+<h4>15.30: KRL</h4>
+
+<p>Setelah shalat Ashar, kita berangkat dengan KRL dari stasiun UI ke stasiun Gondangdia. Kita harus sampai di stasiun Senen pada pukul 20.35 (ya, itulah waktu berangkat keretanya). Sekitar pukul 16.30 kita sampai di stasiun Gondangdia dan naik P20 untuk ke stasiun senen. Sebetulnya perjalanannya tidak sampai 20 menit untuk rute P20 (Gondangdia-Terminal Senen) dan tidak sampai 30 menit untuk rute KRL (stasiun UI-Gondangdia), tetapi kita harus menunggu dulu teman-teman yang berada pada kereta yang terpisah.</p>
+
+<p><img src="http://mufid.github.io/images/post/jogja-ryan.JPG" alt="Ryan di KRL" /></p>
+
+<blockquote><p>TIPS: Daerah Gondangdia-Senen, P20 khususnya, adalah daerah yang rawan sekali pencurian, kejahatan, dan percopetan. Jagalah barang-barang Anda, tetaplah <em>conscious</em> pada setiap keadaan untuk beberapa menit saja. Situasi relatif lebih aman di stasiun Senen, tapi tidak di rute P20 dan terminal.</p></blockquote>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>FREE untuk KRL (Anda bisa menggunakkan tiket kereta luar kota untuk KRL di hari yang sama dengan tiket)</li>
+<li>Rp2.000, P20</li>
+</ul>
+
+
+<h4>18.40: Shalat Maghrib</h4>
+
+<p>Di dekat stasiun senen, berjalan sedikit keluar di sebelah tugu persis ada masjid. Kita shalat maghrib, makan dan shakat isya di sana.</p>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Rp9.000 makan malam lele pinggir jalan</li>
+</ul>
+
+
+<h4>20.00: Stand by di stasiun</h4>
+
+<p>Kita pergi dengan menggunakkan tiket ekonomi Progo ke Jogjakarta. Kita berhenti di stasiun Leumpuyangan. Hebatnya, kereta tidak ngaret parah! Berbeda sekali dengan enam tahun lalu saat pulang kampung ke Surabaya.</p>
+
+<blockquote><p>Tips: beberapa orang lebih suka tidur di bawah agar kakinya bisa lurus. Anda mungkin akan tertarik untuk berlatih tidur sambil duduk, atau mencari gaya tidur baru.</p>
+
+<p>Tips: Kata Rizal, pedagang di sepanjang kereta ada beberapa yang kurang dapat dipercaya. Rizal pernah membeli salak yang katanya salak itu jenis salak X tapi ternyata saat di makan itu adalah salak rasa jenis Y.</p></blockquote>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Sewa bantal: Rp5.000</li>
+</ul>
+
+
+<h3>6 Februari 2013</h3>
+
+<h4>07.30: Sampai di Leumpuyangan</h4>
+
+<p>Wow, hanya ngaret 10 menit-an! Sunggu cukup tepat waktu. Estimasinya luar biasa baik. Sampai di sana kita disambut oleh Gaby dengan so-called-taxy (baiklah, taksi itu adalah kendaraan seperti kendaraan pribadi seperti ojek tapi ini bentuknya mobil).</p>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Nyewa mobil untuk angkut barang ke hotel di malioboro: Rp5.000 untuk masing-masing orang (total: x12)</li>
+</ul>
+
+
+<h4>07.50: Sampai di Hotel Indonesia</h4>
+
+<p>Kami sampai di hotel Indonesia, sebuah hotel yang sederhana di jalan Sastrowijoyo. Penjaga di sana sangat baik. Kami segera unload barang-barang kami, mandi, dan berangkat lagi ke&hellip;</p>
+
+<h4>09.00: The Journey Begins</h4>
+
+<p>Kami merencanakan untuk pergi ke:</p>
+
+<ul>
+<li>Rumah Bude Inas</li>
+<li>Merapi</li>
+<li>Prambanan</li>
+<li>Pantai Parangtritis</li>
+<li>Alun-alun Jogjakarta</li>
+</ul>
+
+
+<p>Kamu pergi dengan mobil sewaan dari 1Wan Transport. Orang di sana baik banget, gak perlu DP tapi percaya aja. Benar-benar sistem kepercayaan yang bagus banget a&#8217;la online shopping. Saya sebelumnya (H-7) telah menelepon 1Wan Transport. Mereka bilang OK untuk dipakai 6 Februari. Kami menyewa Elf.</p>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Elf (All in): Rp550.000</li>
+</ul>
+
+
+<h4>09.30: Rumah bude Inas</h4>
+
+<p>Kita ke rumah bude Inas. Budenya baik banget, kita dioleh-olehin salak pulang dari sana.</p>
+
+<p><img src="http://mufid.github.io/images/post/jogja-budeinas.JPG" alt="Bude Inas" /></p>
+
+<h4>11.00: Merapi</h4>
+
+<p>Kita sampai di Merapi. Saya kira ini bakal seperti wisata Chernobyl, jalan-jalan di tempat yang rusak. Dan ya itu benar, tetapi tidak seseram Chernobyl kok. Alamnya sangat indah, udaranya dingin, dan tidak tercium abu vulkanik. Subhanallah.</p>
+
+<p>Perjalanan sampai rumah mbah Maridjan sekitar 30 menit, berjalan dalam kondisi santai. Kalau Anda lari bisa lebih cepat lagi. Tidak terlalu melelahkan.</p>
+
+<p><img src="http://mufid.github.io/images/post/jogja-merapi1.JPG" alt="Merapi" /></p>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Parkir merapi: Rp30.000/mobil</li>
+<li>Offroad merapi: Rp50.000 &ndash; Rp200.000 per orang.</li>
+<li>Makan siang di merapi (nasi rames): Rp7.000 per porsi (yeah, dan porsinya lumayan banyak!)</li>
+</ul>
+
+
+<h4>13.00: Touch down Prambanan!</h4>
+
+<p>.. kita sampai di Prambanan sekitar jam 12an (atau jam 13.00 kita telah ada di dalam candinya). Sesuai kata Gaby di Whatsapp, candi itu sangat panas. Kenapa begitu? Mungkin karena sekitarnya minim sekali pohon, dan di candinya itu sendiri memang tidak ada pohon. Saat kita ke sana, kita diberi helm layaknya insinyur. Tetapi untuk apa? Saya kira akan ada batu-batu yang berguguran dari atas. Saya sadari ketika saya masuk, saya kepala saya <em>kejedot</em> langit-langit candi yang pendek. Tidak yakin fungsinya itu, tetapi lakukan saja.</p>
+
+<blockquote><p>Tips: Anda mungkin tertarik utuk tidak berpakaian layaknya pakaian hari raya. Anda akan banyak berkeringat dan sedikit kotor karena debu. Pakaian safari mungkin akan cocok.</p></blockquote>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Prambanan: Rp30.000 per orang</li>
+</ul>
+
+
+<h4>16.30: Touch down Parangtritis!</h4>
+
+<p>Kita sempat melihat matahari terbenam di parangtritis. Katanya, pantainya bagus. Saya sama sekali tidak dapat membedakan mana tempat outdoor yang bagus dan mana yang buruk (ya, saya sudah bosan melihat gedung-gedung tinggi yang arsitekturnya tidak menarik). Yang saya lihat adalah <em>cliff</em> atau tebing. Di sana ada <em>cliff</em>! Alhamdulillah, setelah hidup beberapa belas tahun akhirnya saya bisa melihat <em>cliff</em> langsung, bukan di Natgeo. Memang tidak mirip Grand Canyon, tetapi lumayan lah.</p>
+
+<p><img src="http://mufid.github.io/images/post/jogja-cliff.JPG" alt="Cliff" /></p>
+
+<p><strong>Pricing:</strong></p>
+
+<ul>
+<li>Masuk parangtrits: Rp3.000 per orang</li>
+</ul>
+
+
+<h4>19.00: Sampai kembali ke Jogja</h4>
+
+<p>Kita sampai kembali ke Jogja kemudian kita makan. Saya lupa tempat makannya, lumayan mahal. Dua kali lipat lebih mahal dibandingkan harga sarapan. Tidak apa kalau hanya sekali. Kita makan nasi gudeg di sana. Bagi Anda yang tidak suka makanan manis mungkin akan kesulitan untuk memakannya. Hal yang tidak kalah penting adalah tidak ada salahnya mencoba makanan khas jogja, sekalipun mungkin Anda tidak suka. Yaaa, sekali seumur hidup lah.</p>
+
+<h4>22.00: Night Malioboro</h4>
+
+<p>Di malam hari setelah shalat, mandi, makan, kita berjalan menyusuri Malioboro. Di 0 KM Jogja kita melihat ada banyak orang-orang dengan komunitasnya masing-masing. Ada yang foto-foto, ada yang bermain sepatu roda, dan lain-lain. Saya gak yakin mereka semua turis, tapi saya gak yakin mereka semua adalah penduduk setempat. Saya bermain gambar <em>long shutter</em> di sini, tetapi Saya lupa untuk foto HDR (dan saya tidak yakin dengan hanya tripod dan kamera Saya, saya bisa mengamblik HDR).</p>
+
+<p>Jauh berbeda dengan Jakarta atau pun Depok, meski sepi, kota tetap terlihat hidup di malam hari. Tidak ada kejadian yang menyeramkam, dan jalanan pun tetap teratur. Mobil dan motor tetap mengikuti lampu lalu lintas dan tidak ada yang melangkahi <em>zebra cross</em>. Wow!</p>
+
+<h3>Day 3: Around Jogja</h3>
+
+<p>Kita berjalan mengelilingi Jogjakarta di hari ini. Di pagi harinya kita ke Museum Benteng, harga masuknya hanya Rp2.000, kemudian agak siang kita ke Kraton, kita mengamati bagaimana kehidupan Sultan. Selanjutnya, yang akhwat pada belanja, dan yang ikhwan melanjutkan penysuruan: kita ke UGM. UGM bisa dicapai dengan Transjogja. Menariknya, kami tidak melihat ada angkot. Kota yang sungguh sangat teratur! Wajar saja kalau turis suka tinggal di sini.</p>
+
+<p>Kita mulai persiapan untuk pulang pukul 17.00. Kita naik taksi ke stasiun (hanya Rp25.000 saja), dan kita sampai di stasiun kurang dari jam 18.00 (di tiket, kereta akan tiba pukul 18.15, dan sampai di Jakarta pukul 04.00an). Dan wow, keretanya lagi-lagi tidak terlambat signifikan!</p>
+
+<h3>Day 4: Back to Depok</h3>
+
+<p>Alhamdulillah, kami kembali lagi ke Depok dengan selamat. Saya bisa tidur nyenyak di kereta sehingga di hari kepulangan itu saya masih bisa beraktivitas tanpa lelah.</p>
+
+<p>Alhamdulillah, terima kasih banyak semuanya yang telah mendukung perjalanan ini.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hacktivism Indonesia Lagi!]]></title>
+    <link href="http://mufid.github.io/2013/hacktivism/"/>
+    <updated>2013-01-31T07:27:00+07:00</updated>
+    <id>http://mufid.github.io/2013/hacktivism</id>
+    <content type="html"><![CDATA[<p>Anda sudah tahu tentang hacker presidensby yang digugat enam tahun plus plus? While angelina sondakh hanya 4 tahun?</p>
+
+<p>Well, sekarang beberapa web telah dideface untuk &ldquo;menunjukkan sikap solidaritas&rdquo;</p>
+
+<p>Tentu akan ada yang menghina, tetapi kita nikmati saja angin yang berlalu ini :)</p>
+
+<p>Silahkan tambahkan di comment jika Anda punya tambahan</p>
+
+<h3><a href="http://kpu-tangerangkab.go.id/">http://kpu-tangerangkab.go.id/</a></h3>
+
+<p><img src="http://mufid.github.io/images/post/hacktivis-kpu-tangerangkab.go.id.png" alt="Image of Defaced http://kpu-tangerangkab.go.id/" /></p>
+
+<h3><a href="http://pa-solok.go.id/">http://pa-solok.go.id/</a></h3>
+
+<p><img src="http://mufid.github.io/images/post/hacktivis-pa-solok.go.id.png" alt="Image of Defaced http://pa-solok.go.id/" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Komunitas]]></title>
+    <link href="http://mufid.github.io/2013/komunitas/"/>
+    <updated>2013-01-27T06:42:00+07:00</updated>
+    <id>http://mufid.github.io/2013/komunitas</id>
+    <content type="html"><![CDATA[<p>Berapa banyak komunitas di Fasilkom UI? Ada tiga komunitas
+(non BEM dan non kegiatan keagamaan)</p>
+
+<ul>
+<li>ASCIIPELLA</li>
+<li>XML</li>
+<li>XML</li>
+<li>RISTEK</li>
+</ul>
+
+
+<p>Ada berapa banyak komunitas di Depok? Setahu saya ada
+Depok Blogger (deblogger), ada Depok Digital, DepokMobi.
+Kemudian apalagi?</p>
+
+<p><a href="http://www.flickr.com/photos/cobalt/2161081787/" title="So Many Things to be Happy About oleh cobalt123, di Flickr"><img src="http://farm3.staticflickr.com/2163/2161081787_30953a364c.jpg" width="375" height="500" alt="So Many Things to be Happy About"></a></p>
+
+<p>Komunitas sejatinya punya peranan penting dalam
+mengakomodir &ldquo;kebahagiaan&rdquo; para anggotanya. Sekarang
+gw lagi terlibat dalam beberapa komunitas, dan
+Alhamdulillah gw menemukan sesuatu yang keren:
+<em>Passion</em>. Loh, passion? Bukankah semua komunitas
+seperti itu?</p>
+
+<p>Jika iya, kenapa banyak komunitas yang mati?</p>
+
+<p>Jika iya, kenapa banyak komunitas yang gak pernah
+gathering?</p>
+
+<p>Jika iya, kenapa ada komunitas yang di dalamnya
+terlihat tidak benar-benar nurut dan runtut,
+sehingga tidak terlihat ada keterkaitan antar
+aktivitas di komunitas tersebut?</p>
+
+<p>Ah. Sesungguhnya komunitas itu tidak punya passion
+kalau begitu caranya. Keikutsertaan anggotanya di
+komunitas tersebut dipertanyakan. Apa yang menjadi
+dasar anggotanya untuk bertahan juga patut dipertanyakan.</p>
+
+<p>Seharusnya, kalau komunitas itu berjalan dengan baik,
+mereka punya satu tujuan bersama: mengusung mimpi semua
+anggota komunitas tersebut.</p>
+
+<p>Seharusnya, komunitas punya mimpi yang sama di setiap
+anggotanya. Sehingga tidak ada mastermind. Pemimpin
+komunitas hanya sebagai moderator karena tidak ada yang
+perlu dipimpin. Pikiran kita semua sudah sama.</p>
+
+<p><em>Bagaimana kalau kamu membuat komunitas sendiri?</em></p>
+
+<p><em>Tertarik kamu membuat komunitas sendiri di lingkunganmu?</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Tentang Web]]></title>
+    <link href="http://mufid.github.io/2013/tentang-web/"/>
+    <updated>2013-01-25T15:00:00+07:00</updated>
+    <id>http://mufid.github.io/2013/tentang-web</id>
+    <content type="html"><![CDATA[<!-- more -->
+
+
+<p>Beberapa hal yang sering ditanyakan tentang web ke saya:</p>
+
+<h4>Apa yang Paling Penting dalam Web?</h4>
+
+<p>Mohon maaf saya bukan orang komunikasi, jadi saya pikir tentang bagaimana pesan media itu sampai ke web bukanlah ranah saya. Tetapi jika saya diizinkan berbicara dalam kapasitas saya, saya pikir yang paling penting dalam web itu adalah tujuan dari web itu dibentuk.</p>
+
+<p>Sama halnya seperti baliho yang Anda lihat di jalan atau bahkan tempelan &ldquo;pasang antena&rdquo; yang Anda lihat di tiang listrik. Tujuannya agar semua orang mengetahui pesan yang ingin disampaikan. Desain adalah urusan lain, tetapi konten menjadi yang utama.</p>
+
+<p>Tidak sedikit web dengan desain yang biasa saja tetapi dengan konten yang menarik. Katakanlah web <a href="http://raspberrypi.org">Raspberry</a> yang sederhana tapi isinya selalu mutakhir. Percayalah, konten di atas segalanya. Untuk apa kita bersusah payah membuat tampilan yang indah kalau kontennya tidak update? Kecuali kita membuat konten kampanye pergerakan.</p>
+
+<h4>Referensi Web Keren?</h4>
+
+<p><a href="http://cssdesignawards.com">CSSDA</a>, <a href="http://awwwards.com">Awwwards</a>, <a href="http://behance.net">Behance</a></p>
+
+<h4>Bikin Web itu Pakai Apa?</h4>
+
+<p>Halaman web ditaruh di sebuah server (atau ada yang menyebut hosting). Halaman web itu ada pemrosesnya agar teks yang hanya berisi record entri database yang tidak semua orang mengerti menjadi sebuah tampilan yang indah. Pemroses ini dinamakan Content Management System (CMS). Dengan CMS, semua orang dapat hidup lebih menyenangkan: unggah program CMS ke server, install di server, dan server Anda menampilkan tampilan seperti blog atau berita.</p>
+
+<p>Ada banyak CMS di dunia ini. <a href="http://wordpress.org">Wordpress</a> yang paling banyak digunakan. Meski ada <a href="http://joomla.org">Joomla</a>, <a href="http://forkcms.com/">Fork</a>, <a href="http://drupal.org/">Drupal</a>. Kalau Anda merasa gak sreg dengan CMS yang ada, Anda dapat <a href="http://mufid.github.io/blog/2012/should-i-hire-a-programmer/">meminta programmer membuatkan CMS untuk Anda</a>.</p>
+
+<p>Beberapa web dibuat dengan static page. Tidak dibuat dengan CMS, tapi murni dibuat &ldquo;dengan tangan&rdquo; bukan &ldquo;dengan mesin komputer&rdquo;. Web static page cocok untuk web yang kontennya tidak banyak berubah, seperti misalnya web <a href="http://www.browserawarenessday.com">pergerakan</a> atau <a href="http://mailchimp.com/2012/">infografis</a>.</p>
+
+<h4>Saya ingin buat dengan subdomain .ui.ac.id, semisal komunitasganteng.ui.ac.id</h4>
+
+<p>Sila kontak PPSI-UI terkait hal ini.</p>
+
+<h4>Berapa biaya bikin web?</h4>
+
+<p>Yang sudah pasti adalah nyewa server atau sering disebut &ldquo;hosting&rdquo;. Selain menyewa server, Anda harus menyewa nama untuk alamat web Anda, atau sering disebut sewa &ldquo;domain&rdquo;. Anda search di Google atau Kaskus, maka Anda akan melihat banyak perusahaan yang menawarkan jasa ini.</p>
+
+<p>Untuk kebutuhan standar, paket hosting adalah 10 ribu rupiah per bulan. Harga domain rata-rata tidak jauh berbeda, berkisar antara 70 ribu rupiah hingga 100 ribu rupiah per tahun.</p>
+
+<h4>SEO itu Apa?</h4>
+
+<p>Search Engine semacam Google bukan hanya mendata konten dari suatu halaman web, tetapi juga mendata metadata web itu seperti deskripsi, judul, bahasa, kata kunci utama (seperti dalam jurnal atau skripsi). Search Engine Optimation adalah teknik agar metadata dan konten di web kita berada di peringkat #1 Google saat dicari.</p>
+
+<p>Btw, <a href="http://webdesign.tutsplus.com/articles/general/optimizing-content-for-search-engines-and-users/">Saya agak kurang percaya dengan teknik SEO</a>.</p>
+
+<h4>Berapa harga template?</h4>
+
+<p>Kalau Anda main-main ke &lt;themeforest.net>, Anda akan melihat harga satu buah template berkisar antara 40 hingga 50 dolar AS. Dengan membeli template yang keren, Anda membuat tampilan web Anda indah dalam waktu singkat dan tanpa perlu usaha.</p>
+
+<p>Meski, banyak template yang gratis yang bisa Anda cari seperti di situs resmi masing-masing CMS.</p>
+
+<h4>Hosting Rekomendasi?</h4>
+
+<p>Cari saja yang paling murah, dan customer servicenya sigap membalas pesan Anda. Tidak ingin kan saat web down kemudian customer service tidak dapat dihubungi?</p>
+
+<h4>Paket Apa yang Sebaiknya Saya Pakai?</h4>
+
+<p>Dalam banyak kasus, space 100 MB saja sudah kebanyakan dan hampir jarang penuh. Sebagai gambaran, jika Anda menggunakkan wordpress, maka wordpress itu sendiri hanya mengabiskan 12 MB di server Anda. Jika Anda mengunggah gambar, gambar akan diresize oleh wordpress dan paling hanya membutuhkan 200 KB per gambar. Artinya, Anda masih dapat menyimpan 500++ gambar di server dengan space 100 MB</p>
+
+<p>Anda pasti akan mempertimbangkan hosting dengan kapasitas yang lebih besar jika Anda sering menambah konten di web.</p>
+
+<h4>Saya mau dibuatkan web custom, seperti Facebook tapi bisa ini bisa itu. Berapa biayanya?</h4>
+
+<p>Hm, web developer seperti memiliki &ldquo;standar harga&rdquo; yang kita semua &ldquo;punya perjanjian&rdquo; &ldquo;agar tidak menurunkan harga standar&rdquo;. Beberapa web developer lain mematok harga berdasarkan jam kerja mereka. Beberapa pekerjaan voluntir dibayar gratis.</p>
+
+<p>Anda lebih baik pergi ke creative agency untuk bertanya tentang ini. Sila email mereka. Tenang saja, mereka semua orang-orang baik kok.</p>
+
+<h4>Bandwidth itu apa?</h4>
+
+<p>Ini istilah yang salah, harusnya disebut In/Out traffic. Artinya berapa banyak data yang masuk dan data yang keluar. Untuk hosting di luar Indonesia biasanya harus bayar traffic tambahan jika <em>jumlah pengakses</em> web kita sudah melebihi batas yang ditetapkan.</p>
+
+<h4>IIX itu Apa?</h4>
+
+<p>Indonesia Internet Exchange. Artinya server ada di wilayah Indonesia. Biasanya lebih cepat, traffic/bandwidth gratis, tetapi entah kenapa lebih mahal.</p>
+
+<h4>Jika Dikerjakan secara profesional, bagaimana workflow dari pembuatan web?</h4>
+
+<p>Sebaiknya Anda mengambil kuliah <a href="http://en.wikipedia.org/wiki/Software_engineering">rekayasa perangkat lunak</a>. Tentu awalnya agensi web akan bertanya kepada Anda tentang tujuan web ini dibuat, pesan yang ingin disampaikan, dan cara penyampainnya. Agensi kemudian akan menentukan web apa yang cocok, CMSnya apa, hostingnya sebaiknya seperti apa, dan lainnya.</p>
+
+<p>Dalam bekerja, pada umumnya akan ditemui dua tipe pekerja teknis: desainer dan developer. Desainer mengatur tampilan dari web dan developer akan menyulap tampilan itu menjadi kode-kode yang berjalan di server.</p>
+
+<h4>Cloud itu Apa? PaaS itu apa?</h4>
+
+<p>It so hard to explain! Anggap sebuah apartemen yang di kamar-kamar. Apartemen itu ibarat penyedia layanan hosting dan kamar itu hostingnya. Ada salah satu kamar atau lebih yang itu milik Anda karena Anda telah menyewanya.</p>
+
+<p>Cloud adalah apartemen yang tidak memiliki kamar. Penyewa bebas menggunakkan ruangan yang tersedia, mau kecil mau besar. Itulah sebabnya cloud sering digunakan untuk skala besar, karena perawatannya yang mudah (kalau &ldquo;tamu&rdquo; alias pengunjung webnya sedang banyak, sewa ruangan yang besar). Pengubahan ukuran ruangan bisa dilakukan suka-suka penyewa, kapan saja.</p>
+
+<p>Mengapa ini bisa terjadi? Thanks to parallel programming and distributed system.</p>
+
+<p>PaaS adalah menyewa apartemen yang sudah tersedia perkakas ekstrim untuk bekerja di dalamnya (Platform-as-a-service).</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Aptana dan Codeigniter]]></title>
+    <link href="http://mufid.github.io/2013/aptana-dan-codeigniter/"/>
+    <updated>2013-01-25T02:05:00+07:00</updated>
+    <id>http://mufid.github.io/2013/aptana-dan-codeigniter</id>
+    <content type="html"><![CDATA[<p>Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI?</p>
+
+<p>Sederhana. Simpan file ini sebagai php dalam project CI Anda. Simpan dimanapun, terserah Anda.</p>
+
+<figure class='code'><figcaption><span>aptana-ci-autocomplete.php </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">_</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>    <span class="k">function</span> <span class="nf">_</span><span class="p">()</span>
+</span><span class='line'>    <span class="p">{</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// any classes you want included in autocompletion                </span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">load</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Loader</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">config</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Config</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">email</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Email</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">encrypt</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Encrypt</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">pagination</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Pagination</span><span class="p">;</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">session</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Session</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">driver</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Driver</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">benchmark</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Benchmark</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">typography</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Typography</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">form_validation</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Form_validation</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">profiler</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Profiler</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">image_lib</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Image_lib</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">math</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">Math</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">calendar</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Calendar</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">db</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_DB_active_record</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Table</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">table</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">MY_Table</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">ftp</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_FTP</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Output</span><span class="p">();</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">javascript</span> <span class="o">=</span> <span class="k">new</span> <span class="nx">CI_Javascript</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="c1">// note you&#39;ll need to use $this-&gt;CI = &amp; getInstance() in extended libs</span>
+</span><span class='line'>    <span class="c1">// in order for the CI to autocomplete</span>
+</span><span class='line'>    <span class="nv">$this</span><span class="o">-&gt;</span><span class="na">CI</span><span class="o">=</span><span class="k">new</span> <span class="nx">CI_Controller</span><span class="p">();</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="c1">// any classes you want autocomplete for</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">CI_Controller</span> <span class="k">extends</span> <span class="nx">_</span> <span class="p">{}</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">CI_Model</span> <span class="k">extends</span> <span class="nx">_</span> <span class="p">{}</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">CI_Form_validation</span> <span class="k">extends</span> <span class="nx">_</span> <span class="p">{}</span>
+</span><span class='line'><span class="k">class</span> <span class="nc">CI_Table</span> <span class="k">extends</span> <span class="nx">_</span> <span class="p">{}</span>
+</span><span class='line'><span class="cp">?&gt;</span><span class="x"> </span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Jika Anda memiliki kepustakaan tersendiri yang ingin dimasukkan dalam autocomplete, Saya pikir Anda sudah mendapatkan idenya. Tambahkan ke dalam $this.</p>
+
+<p><a href="http://ellislab.com/forums/viewthread/187641/">http://ellislab.com/forums/viewthread/187641/</a></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Dukung MDN]]></title>
+    <link href="http://mufid.github.io/2013/dukung-mdn/"/>
+    <updated>2013-01-19T11:48:00+07:00</updated>
+    <id>http://mufid.github.io/2013/dukung-mdn</id>
+    <content type="html"><![CDATA[<p><img src="http://mufid.github.io/images/post/betterjs.png" alt="Promoto for BetterJS" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[On Your Mark, ETA, ETD]]></title>
+    <link href="http://mufid.github.io/2013/military-term/"/>
+    <updated>2013-01-19T11:28:00+07:00</updated>
+    <id>http://mufid.github.io/2013/military-term</id>
+    <content type="html"><![CDATA[<p>Begini:</p>
+
+<ul>
+<li><em>On Your Mark</em>: Aba aba di kamu</li>
+<li><em>ETA: Estimation Time Arrival</em>, kira-kira kapan sampai</li>
+<li><em>ETD: Estimation Time Departure</em>, kira-kira kapan berangkat</li>
+</ul>
+
+
+<p>Tiga <em>term</em> itu sering dipakai untuk situasi genting.
+Tidak sedikit orang yang sudah paham <em>temr</em> militer tersebut.
+Sepertinya membawa ide ini ke kehidupan sehari-hari
+bukan ide yang buruk.</p>
+
+<ul>
+<li>Cuy, minta ETA (Kapan sampai?)</li>
+<li>19.30 cuy, ETD 18.00 (Berangkat jam 18)</li>
+<li>Okeh, gue berangkat. On your mark yah (Gue nunggu aba-aba dari lu
+baru gw beraksi).</li>
+</ul>
+
+
+<p>Btw, ETA sering disalahgunakan. Contoh:</p>
+
+<blockquote><p>Cuy ETA? Dua jam lagi</p></blockquote>
+
+<p>Padahal ETA seharusnya mengembalikan waktu absolut, bukan
+waktu relatif.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[CDN 1Cak]]></title>
+    <link href="http://mufid.github.io/2013/cdn-1cak/"/>
+    <updated>2013-01-06T05:33:00+07:00</updated>
+    <id>http://mufid.github.io/2013/cdn-1cak</id>
+    <content type="html"><![CDATA[<pre><code>C:\Users\Mufid&gt;curl --head cdn1.1cak.com
+HTTP/1.1 302 Found
+Date: Sat, 05 Jan 2013 22:15:06 GMT
+Server: Apache/2.2.11 (FreeBSD) mod_ssl/2.2.11 OpenSSL/0.9.8e DAV/2 PHP/5.2.9 with Suhosin-Patch mod_gzip/2.1.0
+X-Powered-By: PHP/5.2.9
+Location: http://cdn1.blog.students.ittelkom.ac.id
+Content-Type: text/html
+Connection: close
+</code></pre>
+
+<p>Wow. :) Nice job, IF Telkom.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Redirection, Pikir Dua Kali!]]></title>
+    <link href="http://mufid.github.io/2013/redirection/"/>
+    <updated>2013-01-04T08:33:00+07:00</updated>
+    <id>http://mufid.github.io/2013/redirection</id>
+    <content type="html"><![CDATA[<p>Jadi ceritanya saya dikasih tautan oleh teman tautan berikut:</p>
+
+<pre><code>http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+</code></pre>
+
+<p>Wait, kenapa saya malah diarahkan ke halaman depan? Menghapus <strong>m.</strong> merupakan solusi. Jadi ceritanya:</p>
+
+<pre><code>C:\Users\Mufid&gt;curl --head http://m.kompasiana.com/post/politik/2013/01/02/mari-
+menghujat-pks/
+HTTP/1.1 302 Found
+Date: Fri, 04 Jan 2013 01:33:10 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Location: http://www.kompasiana.com/home
+Content-Type: text/html; charset=UTF-8
+Connection: close
+</code></pre>
+
+<p>.. maksud Kompasiana itu sangat baik, jika dibuka dari mobile maka redirect ke versi m. Tetapi jika sebaliknya, membuka versi m dari desktop, justru diredirectnya ke halaman depan. Hmm.. Tidak intuitif sama sekali.</p>
+
+<pre><code>C:\Users\Mufid\octopress&gt;curl -A "Mozilla/5.0 (Linux;U; Android 2.1; en-us; Nexus One Build/ERD62) AppleWebKit/530.17 (KHTML, like Gecko) Version/4.0 Mobile Safari/530.17" --head http://m.kompasiana.com/post/politik/2013/01/02/mari-menghujat-pks/
+HTTP/1.1 200 OK
+Date: Fri, 04 Jan 2013 01:38:00 GMT
+Server: Apache/2.2.3 (Red Hat)
+X-Powered-By: PHP/5.3.17
+Content-Type: text/html; charset=UTF-8
+Connection: Keep-Alive
+Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
+-Jan-2013 01:38:00 GMT
+</code></pre>
+
+<p>Moral of the story: Hati-hati dalam menggunakkan redirect yah.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Should I Hire a Programmer?]]></title>
+    <link href="http://mufid.github.io/2012/should-i-hire-a-programmer/"/>
+    <updated>2012-12-31T07:48:00+07:00</updated>
+    <id>http://mufid.github.io/2012/should-i-hire-a-programmer</id>
+    <content type="html"><![CDATA[<p>Akhir tahun! Yay! :D</p>
+
+<p>Singkat saja, apakah seharusnya saya menghire programmer untuk ini untuk itu, anda merasa butuh dukungan atau support? Atau merasa perlu diassist dalam setiap kegiatan digital Anda? Jangan terlalu cepat berpikir bahwa Anda perlu menghire programmer. Dan jangan kecewa jika ada programmer yang menolak inquiry Anda.</p>
+
+<p>Sebenarnya yang programmer lakukan <strong>bukan hanya menyelesaikan masalah Anda</strong>, tetapi juga membantu Anda untuk terhindar dari masalah yang sama lagi. Dan ini bukan perkara yang mudah, yang mungkin Anda pikir dengan menghire programmer semuanya selesai. Sulit sekali bagi programmer tidak tanggung jawab terhadap apa yang telah terjadi. Inilah kenapa kepustakaan (library) yang buruk tetapi terus menerus dikembangkan lebih disukai daripada kepustakaan yang lama tetapi dukungannya legacy dan tidak dikembangkan lagi.</p>
+
+<p>Semisal, Anda meminta agar membuat custom apps untuk blog. Saya yakin banyak yang akan menolak membuat custom apps ini. Kebanyakan dalih adalah <em>kan sudah ada wordpress</em>. <em>There&rsquo;s app for that, why you should make a new similar app that do the same?</em> <em>There&rsquo;s a plugin for that also</em>.</p>
+
+<p>Kebanyakan <em>client</em> sanggat menginginkan custom apps sebenarnya <strong>karena bosan terhadap yang ada sekarang</strong>. Bukan custom appsnya yang penting. Tapi yang berbedanya yang penting.</p>
+
+<p>Untuk engineering apps baru, butuh waktu dan proses. Banyak yang menganalogikan sebagai segitiga dua pilihan. Perlu waktu untuk menguji desain, melakukan implementasi, dan.. sederetan teknis engineering lainnya. Anda hanya boleh memilih dua dari pilihan ini:</p>
+
+<ul>
+<li>Berkualitas tinggi</li>
+<li>Murah</li>
+<li>Cepat Jadi</li>
+</ul>
+
+
+<h2>Jadi, Anda butuh Apps?</h2>
+
+<p>Anda butuh apps? Baiklah, tetap tenang dan pikirkan beberapa alternatif ini:</p>
+
+<ul>
+<li>Anda butuh blog dengan tampilan bagus? Anda punya kartu kredit? Silahkan beli tema yang bagus dari &lt;themeforest.net>. Saya jauh lebih menyarankan ini karena tidak sedikit juga desainer di Indonesia yang justru mematok harga jauh lebih tinggi dari tema di Themeforest. Not to mention Anda bisa mencari marketplace lain untuk tema.</li>
+<li>Anda butuh custom apps? Coba main-main ke Google dan masukkan kebutuhan Anda. Untuk aplikasi e-commerce, Anda pasti pernah dengan opencart. Butuh aplikasi untuk chat enterprise? Coba lihat-lihat Campfire. Private wiki untuk perusahaan? Coba mindtouch. Dan sederet apps lain.</li>
+</ul>
+
+
+<p><em>Hiring a programmer is about engineering process. Make use of available tools is about getting-things-done process.</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Ngeblog? Command Line Donk]]></title>
+    <link href="http://mufid.github.io/2012/ngeblog-command-line-donk/"/>
+    <updated>2012-12-02T11:08:00+07:00</updated>
+    <id>http://mufid.github.io/2012/ngeblog-command-line-donk</id>
+    <content type="html"><![CDATA[<p>Namanya pakai <code>octopress</code>: <a href="http://octopress.org/">http://octopress.org/</a></p>
+
+<h1>You Control Your Blog. Every data is on your hand</h1>
+
+<p>Yep. Semua data tersimpan secara offline. Anda memegang data Anda sendiri. Menyenangkan sekali yah?</p>
+
+<p>Kalau bikin post tinggal:</p>
+
+<pre><code>rake new_post["Ngeblog? Command Line Donk!"]
+</code></pre>
+
+<p>Kalau mau upload ke server tinggal</p>
+
+<pre><code>rake generate
+rake deploy
+</code></pre>
+
+<p>Selesai.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[NTP UI]]></title>
+    <link href="http://mufid.github.io/2012/ntp-ui/"/>
+    <updated>2012-12-01T07:18:00+07:00</updated>
+    <id>http://mufid.github.io/2012/ntp-ui</id>
+    <content type="html"><![CDATA[<p><code>ntp.ui.ac.id</code>, yes, that&rsquo;s true.</p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/19vHXKqg.png" alt="NTP UI" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hacking Social: A Guide [for] Silence Programmer]]></title>
+    <link href="http://mufid.github.io/2012/hacking-social/"/>
+    <updated>2012-11-27T11:09:00+07:00</updated>
+    <id>http://mufid.github.io/2012/hacking-social</id>
+    <content type="html"><![CDATA[<blockquote><p>TLDR; Hidup ini dinamis. Berdoalah kepada Tuhan dan hadapi tantangan yang ada :D</p></blockquote>
+
+<p>Saya merasa menemukan kepekaan sosial tertinggi selama SMA. Teruntuk teman-teman Electrico, terima kasih karena kalian sangat solid. Tentu ada yang bilang kita gak solid, tetapi <em>saya pernah menemukan lingkungan yang jauh lebih tidak solid lagi</em>.</p>
+
+<p>Bagaimana menemukan kesolidan sosial? Bagaimana untuk koder seperti saya mencari kehidupan sosial yang abadi? Tentu kehidupan yang abadi dan yang sangat ideal nanti akan kita temui insyaAllah di surga nanti. Tetapi berhubung menyambung silaturahim itu penting,..</p>
+
+<!-- more -->
+
+
+<p>.. mau tidak mau kita harus retas kehidupan kita. Kita semua peretas, mari kita retas.</p>
+
+<p>Saya pikir, untuk semua programmer bisa melakukan ini. Saya berikan beberapa hal yang saya lakukan yang alhamdulillah itu sedikit mengubah kehidupan saya.</p>
+
+<h1>Why?</h1>
+
+<p>Sebelumnya, kenapa kita harus melakukan ini?</p>
+
+<p>Beberapa dari Anda mungkin memiliki sifat tidak membutuhkan orang lain untuk bahagia. Ini tidak masalah, dan baguslah. Anda tidak terpengaruh oleh lingkungan Anda. Dan itu alhamdulillah sedikit banyak ada dalam diri saya &mdash; di saat sekelas saya yakin menyontek saya habis-habisan mempersiapkan materi dan menghindari penyontekan.</p>
+
+<p>Tapi jangan senang dulu, menjadi tidak peka terhadap sosial adalah hal yang salah. Untuk banyak koder, pentingkan saja kualitas kodenya dan tidak usah peduli lingkungan sosial yang ada. Ini masalah: Anda tidak bisa tidak peduli karena Anda memiliki kewajiban untuk membaikkan kehidupan lingkungan Anda.</p>
+
+<p>Kehidupan ini tentang <em>apa yang bisa kita beri untuk orang lain</em>. Satu-satunya cara untuk mendapatkan hal yang baik adalah dengan membaikkan kehidupan orang lain.</p>
+
+<p>Jadi, tugas Anda bukan untuk bersosial atau bergaul. Silaturahim itu lebih dari bergaul. Anda lebih suka waktu Anda digunakan untuk menulis baris baris kode, tidak masalah karena itu Anda. Tetapi, apakah Anda mungkin membaikkan kehidupan orang lain tanpa bergaul dengan mereka? Dengan amat kecewa saya katakan <strong>mungkin</strong>, tapi itu tidak bisa saya jelaskan di tulisan ini. Ini membutuhkan tingkat peretasan yang lebih mahir lagi.</p>
+
+<p>Yang lebih penting lagi adalah ketika Anda haus akan sosial. Anda serasa energi Anda sangat lemah dan membutuhkan untuk berbicara dengan orang lain dan bercerita dengannya untuk membangkitkan semangat Anda kembali. Anda ingin keluar dari kesendirian dan mencoba ingin hidup lebih tenang.</p>
+
+<p>Alhamdulillah, menurut saya, kita perlu melakukan cara-cara ini:</p>
+
+<h1>Sadari Kesendirian</h1>
+
+<p>Jika Anda merasakan kesendirian, jangan khawatir. Pahami bahkan setiap orang tidak jarang dalam kesendirian. Anda melakukan tugas Anda sendiri, menyetir motor sendiri, menulis baris-baris kode sendiri, mengerjakan pekerjaan sendiri, makan sendiri. Banyak yang sebenarnya Anda lakukan sendiri. Jadi, kesendirian adalah hal yang wajar.</p>
+
+<p>Tapi percayalah kesendirian Anda akan sirna. Kesendirian itu hanyalah waktu sementara. Percayalah. Justru itu bagus. While Anda dalam kesendirian, lakukanlah hal-hal yang bermanfaat yang itu tidak bisa Anda lakukan saat dalam keramaian. Menulis blog, menulis buku, mengerjakan proyek, mengerjakan <a href="http://uhunt.felix-halim.net/">online judge</a>, mengirim [patch] dalam komunitas kode sumber terbuka, membaca buku yang baru Anda beli tapi belum Anda baca.</p>
+
+<p>Dan percayalah lebih dalam lagi, Anda akan sendirian dalam waktu yang lebih sebentar daripada wkatu Anda dalam keramaian. Maka pergunakan waktu tersebut sebaik-baiknya.</p>
+
+<h1>Senyum, Sapa, Santun</h1>
+
+<p>Senyum dapat dengan segera menciptakan persahabatan di antara dua insan manusia. Dengan senyum, Anda akan dianggap developer yang baik hati (baca: memungkinkan lebih banyak orang kenal dengan Anda, memungkinkan lebih banyak orang bekerja sama dengan Anda, dan memungkinkan lebih banyak orang yang hidupnya terbantu karena pekerjaan Anda karena kerja sama ynag Anda lakukan dan karena anda kenal dengan orang-orang yang mengenal Anda dari senyum tulus Anda).</p>
+
+<p>Menyapa dan berkata-kata dengan santun adalah proses setelah senyuman. Senyuman adalah impresi dan kesantunan adalah hal yang diingat setelah orang terimpresi dengan senyuman Anda.</p>
+
+<p>Jika Anda sulit untuk menyapa orang, cukup berkata santun kepada setiap orang yang Anda temui. Carilah padanan kata yang lebih baik dan lebih enak didengar. Mungkin lingkungan Anda keras, tetapi kata-kata santun yang Anda ucapkan akan mencegah orang-orang yang berniat tidak baik dengan Anda terenyuh melunak dan membatalkan niat tidak baiknya tersebut.</p>
+
+<p>Jika Anda sulit melakukan ketiga hal di atas, cukup lakukan kepada orang yang Anda kenal. Tidak perlu merasa memiliki target lebih. Dalam waktu singkat reflek ini akan juga terjadi ke orang yang belum Anda kenal &mdash; lebih membuat dampak kebaikan Anda lebih luas.</p>
+
+<h1>Menyebalkan</h1>
+
+<p>Pernah bertemu orang yang Anda pikir menyebalkan? Selamat datang di dunia nyata, di mana ekspetasi Anda mungkin tidak tersampaikan ke orang yang berhadapan dengan Anda. Jangan khawatir, ini wajar. Sampaikan saja ekspetasi Anda terhadap orang tertentu bahwa ada tindakan yang tidak mengenakan di hati Anda, semisal Anda tidak suka orang-orang yang menggunakkan baju berwarna cerah, atau merokok, atau berkata yang tidak baik.</p>
+
+<p>Sayangnya, dunia ini adalah tentang cara mengerti orang lain.</p>
+
+<blockquote><p>Anda dapat lebih mudah berteman jika Anda lebih tertarik kepada orang lain (Dale Carnegie, How to Win Friends and Influence People)</p></blockquote>
+
+<p>Anda mungkin tidak pernah bisa mengubah orang lain, tetapi Anda sudah pasti bisa mengubah diri Anda. <em>Double check</em> sebelum mengkritik orang lain, apakah kritik itu sudah pantas ditolak dalam diri kita?</p>
+
+<h1>Don&rsquo;t Be Shy</h1>
+
+<p>Jangan malu. Jangan merasa rendah. Tetap optimis lah. Anda akan malu melakukan hal yang baru. Tetapi, Anda tidak akan malu jika berbuat kesalahan karena Anda berbuat kebaikan. Anda mungkin akan malu pertama kali menyapa orang, tetapi Anda sadari itu kebaikan, tidak perlu malu. Malulah jika itu untuk ketidakbaikan.</p>
+
+<p><em>Fine, so what&rsquo;s next?</em></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Indonesia Berkibar]]></title>
+    <link href="http://mufid.github.io/2012/indonesia-berkibar/"/>
+    <updated>2012-11-16T20:56:00+07:00</updated>
+    <id>http://mufid.github.io/2012/indonesia-berkibar</id>
+    <content type="html"><![CDATA[<p>Jadi Saya ngebuka web <a href="http://www.indonesiaberkibar.org/">Indonesia Berkibar</a>.</p>
+
+<p>Terus? Saya ngelihat webnya keren sekali:</p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/S7AG7uH.png" alt="IDBerkibar" /></p>
+
+<p>Iseng-iseng saya menghapus backgroundnya:</p>
+
+<p><img src="http://pasteboard.s3.amazonaws.com/images/S7wxgDG.png" alt="IDBerkibar Tanpa Latar" /></p>
+
+<p>Ternyata, background memiliki peranan penting. Bisa membuat elegan, bisa membuat lebih keren, bisa membuat lebih hancur, atau bisa membuat lebih nyaman dilihat.</p>
+
+<p>Perhatikan bahwa web ini memiliki dua latar: Latar pertama adalah latar beberapa ratus piksel yang hanya ada di bagian atas, latar yang kedua adalah <em>pattern</em> persegi diagonal.</p>
+
+<p>Alhamdulillah, pengalaman baru.</p>
+]]></content>
+  </entry>
+  
+</feed>
