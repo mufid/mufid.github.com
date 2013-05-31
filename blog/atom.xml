@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2013-05-24T06:04:19+07:00</updated>
+  <updated>2013-05-31T09:00:45+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,29 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Achieve]]></title>
+    <link href="http://mufid.github.io/2013/achieve/"/>
+    <updated>2013-05-31T08:47:00+07:00</updated>
+    <id>http://mufid.github.io/2013/achieve</id>
+    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/0uaquGZKx_0 "></iframe></div>
+
+
+<blockquote><p>when you find your passion, you are unstoppable
+you can make amazing things happen
+it&rsquo;s been proven true</p></blockquote>
+
+<p>&hellip;</p>
+
+<blockquote><p>.. who will get out of bed one morning and say
+&ldquo;you know what i think i can build a space
+zone&rdquo;. I think that if we become afraid to take these
+great big risks, we stop inspiring</p></blockquote>
+
+<p>Yeah!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Twitter Spam]]></title>
@@ -879,29 +902,6 @@ rake deploy
 <p>Jangan malu. Jangan merasa rendah. Tetap optimis lah. Anda akan malu melakukan hal yang baru. Tetapi, Anda tidak akan malu jika berbuat kesalahan karena Anda berbuat kebaikan. Anda mungkin akan malu pertama kali menyapa orang, tetapi Anda sadari itu kebaikan, tidak perlu malu. Malulah jika itu untuk ketidakbaikan.</p>
 
 <p><em>Fine, so what&rsquo;s next?</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Indonesia Berkibar]]></title>
-    <link href="http://mufid.github.io/2012/indonesia-berkibar/"/>
-    <updated>2012-11-16T20:56:00+07:00</updated>
-    <id>http://mufid.github.io/2012/indonesia-berkibar</id>
-    <content type="html"><![CDATA[<p>Jadi Saya ngebuka web <a href="http://www.indonesiaberkibar.org/">Indonesia Berkibar</a>.</p>
-
-<p>Terus? Saya ngelihat webnya keren sekali:</p>
-
-<p><img src="http://pasteboard.s3.amazonaws.com/images/S7AG7uH.png" alt="IDBerkibar" /></p>
-
-<p>Iseng-iseng saya menghapus backgroundnya:</p>
-
-<p><img src="http://pasteboard.s3.amazonaws.com/images/S7wxgDG.png" alt="IDBerkibar Tanpa Latar" /></p>
-
-<p>Ternyata, background memiliki peranan penting. Bisa membuat elegan, bisa membuat lebih keren, bisa membuat lebih hancur, atau bisa membuat lebih nyaman dilihat.</p>
-
-<p>Perhatikan bahwa web ini memiliki dua latar: Latar pertama adalah latar beberapa ratus piksel yang hanya ada di bagian atas, latar yang kedua adalah <em>pattern</em> persegi diagonal.</p>
-
-<p>Alhamdulillah, pengalaman baru.</p>
 ]]></content>
   </entry>
   
