@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2013-05-31T09:00:45+07:00</updated>
+  <updated>2013-06-23T17:34:04+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,50 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Banyak Orang Baik di Indonesia]]></title>
+    <link href="http://mufid.github.io/2013/banyak-orang-baik-di-indonesia/"/>
+    <updated>2013-06-23T17:09:00+07:00</updated>
+    <id>http://mufid.github.io/2013/banyak-orang-baik-di-indonesia</id>
+    <content type="html"><![CDATA[<p>Ini berisi dari kisah nyata saya pribadi. Anda mungkin punya pengalaman yang berbeda, tetapi untuk apa? Maafkan saja mereka.</p>
+
+<!-- more -->
+
+
+<h3>Kehabisan Bensin</h3>
+
+<p>Itu sekitar pukul 20.00 malam, oh atau mungkin lebih malam. Saya kehabisan bensin, pom bensin terdekat sekitar 2 km lagi. Karena tidak ada jalan lain, saya dorong saja motor saya. Tiba-tiba, ada orang dengan nada yang sangat ramah(1) menghampiri saya (seriously, dia sangat ramah!), &ldquo;Bensinya habis mas? Mau didorong?&rdquo; Kebetulan sekali! Tapi saya tanya dulu dia mau ke arah mana. Karena genting, saya gak dengar, yang saya ingat dia mau menolong saya mendorong motor.</p>
+
+<p>OK. Kemudian Dalam waktu 2 menit saja saya sampai di pom bensin. Kemudian saya tanya sedikit ke dia, &ldquo;Wah mas makasih banyak banget nih. Dari mana mas? Tinggal dimana?&rdquo; &ldquo;Kerja. Rumah saya di Depok 2.&rdquo; Terdiam sejenak pembicaraannya, tidak sampai 10 detik dia pamit undur diri. Baik sekali itu orang : ) Btw, baca footnote 1 ya :)</p>
+
+<h3>Hilangnya Ponsel</h3>
+
+<p>Ponsel saya pernah hilang, kalau kata orang &ldquo;digesek&rdquo;. Saya diingatkan oleh teman Saya, Salinov, dia menanyakan ke Saya, &ldquo;Fid, gak ada yang aneh kan?&rdquo; Memang karena di bis tadi ada kejadian-kejadian yang aneh, setelah saya memegang kantong saya, dompet OK. Panik dan tak tahu lagi harus berbuat apa. Kemudian ada seorang yang terlihat seperti karyawan kantoran mencoba menolong mengejar malingnya, tapi tidak dapat, dia menghilang. Anyway, makasih pak udah mau berniat baik. Ponsel saya tidak ditemukan, tapi mudah-mudahan kebaikan bapak dibalas Allah.</p>
+
+<h3>Plat Nomor</h3>
+
+<p>Motor saya plat nomornya agak seok dan terlihat mau jatuh. Hanya terlihat sebetulnya, karena saya sangat sadar persis murnya masih terpasang dengan baik, meski hanya satu. Tetapi di perjalanan saya selalu diingatkan orang, &ldquo;mas plat nomornya mau jatuh tuh.&rdquo; Trims, stranger! :)</p>
+
+<h3>Motor Mogok</h3>
+
+<p>Motor saya mogok. Kali ini ceritanya berbeda, saya ditolong oleh orang yang sangat ramah. Luarnya sih seperti anak-anak <em>gaul</em> gitu, merokok. Tetapi saat saya senyum, dia membalas. Ah, great. Motor saya tidak sembuh sempurna, tetapi it&rsquo;s okay.</p>
+
+<h3>And.. My parents, my family, my lovely brother, kak Faiz, and all of my friends.</h3>
+
+<p>Thanks, terima kasih semuanya, kalian orang-orang baik. Orang tua saya yang sangat sabar merawat saya dulu waktu saya masih kecil (guess what? Saya dulu terlambat untuk bisa bicara, saya dulu pernah sakit yang mengharuskan bedrest sangat lama, ayah saya yang rela membelikan saya high-end computing device untuk kesenangan saya, ibu saya yang memberikan nutrisi terbaik hingga saya berumur.. umm.. 3.5 tahun++, ande many others!)</p>
+
+<p>dan semua teman saya. Menolong saya saat kecelakaan yang cukup berdarah, yang tersenyum menyapa di pagi hari, dan.. dan.. dan everything, saya tentu saja tidak bisa menyebutkan satu per satu *ciyesubjektif</p>
+
+<p><em>Odd enough, jarang-jarang nulis beginian</em></p>
+
+<p>Saya percaya banyak orang baik di Indonesia. Orang yang akan membuat Anda menangis karena kebaikan hatinya <em>tsaah</em> <em>aduh maaf ya ngerusak kebeningan jiwa anda</em></p>
+
+<p>Bye!</p>
+
+<p>(1) ya, beliau sangat ramah, sampai saya baru kepikiran setelah selesai isi bensin, &ldquo;ah, tadi dia jangan-jangan minta imbalan dan saya sangat tidak sadar hal tersebut. Mungkin dia langsung pergi setelah saya bilang saya mahasiswa.&rdquo; Ya sudah, semoga Allah memberikan kebaikan kepada orang itu.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Achieve]]></title>
@@ -832,76 +876,6 @@ rake deploy
     <content type="html"><![CDATA[<p><code>ntp.ui.ac.id</code>, yes, that&rsquo;s true.</p>
 
 <p><img src="http://pasteboard.s3.amazonaws.com/images/19vHXKqg.png" alt="NTP UI" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hacking Social: A Guide [for] Silence Programmer]]></title>
-    <link href="http://mufid.github.io/2012/hacking-social/"/>
-    <updated>2012-11-27T11:09:00+07:00</updated>
-    <id>http://mufid.github.io/2012/hacking-social</id>
-    <content type="html"><![CDATA[<blockquote><p>TLDR; Hidup ini dinamis. Berdoalah kepada Tuhan dan hadapi tantangan yang ada :D</p></blockquote>
-
-<p>Saya merasa menemukan kepekaan sosial tertinggi selama SMA. Teruntuk teman-teman Electrico, terima kasih karena kalian sangat solid. Tentu ada yang bilang kita gak solid, tetapi <em>saya pernah menemukan lingkungan yang jauh lebih tidak solid lagi</em>.</p>
-
-<p>Bagaimana menemukan kesolidan sosial? Bagaimana untuk koder seperti saya mencari kehidupan sosial yang abadi? Tentu kehidupan yang abadi dan yang sangat ideal nanti akan kita temui insyaAllah di surga nanti. Tetapi berhubung menyambung silaturahim itu penting,..</p>
-
-<!-- more -->
-
-
-<p>.. mau tidak mau kita harus retas kehidupan kita. Kita semua peretas, mari kita retas.</p>
-
-<p>Saya pikir, untuk semua programmer bisa melakukan ini. Saya berikan beberapa hal yang saya lakukan yang alhamdulillah itu sedikit mengubah kehidupan saya.</p>
-
-<h1>Why?</h1>
-
-<p>Sebelumnya, kenapa kita harus melakukan ini?</p>
-
-<p>Beberapa dari Anda mungkin memiliki sifat tidak membutuhkan orang lain untuk bahagia. Ini tidak masalah, dan baguslah. Anda tidak terpengaruh oleh lingkungan Anda. Dan itu alhamdulillah sedikit banyak ada dalam diri saya &mdash; di saat sekelas saya yakin menyontek saya habis-habisan mempersiapkan materi dan menghindari penyontekan.</p>
-
-<p>Tapi jangan senang dulu, menjadi tidak peka terhadap sosial adalah hal yang salah. Untuk banyak koder, pentingkan saja kualitas kodenya dan tidak usah peduli lingkungan sosial yang ada. Ini masalah: Anda tidak bisa tidak peduli karena Anda memiliki kewajiban untuk membaikkan kehidupan lingkungan Anda.</p>
-
-<p>Kehidupan ini tentang <em>apa yang bisa kita beri untuk orang lain</em>. Satu-satunya cara untuk mendapatkan hal yang baik adalah dengan membaikkan kehidupan orang lain.</p>
-
-<p>Jadi, tugas Anda bukan untuk bersosial atau bergaul. Silaturahim itu lebih dari bergaul. Anda lebih suka waktu Anda digunakan untuk menulis baris baris kode, tidak masalah karena itu Anda. Tetapi, apakah Anda mungkin membaikkan kehidupan orang lain tanpa bergaul dengan mereka? Dengan amat kecewa saya katakan <strong>mungkin</strong>, tapi itu tidak bisa saya jelaskan di tulisan ini. Ini membutuhkan tingkat peretasan yang lebih mahir lagi.</p>
-
-<p>Yang lebih penting lagi adalah ketika Anda haus akan sosial. Anda serasa energi Anda sangat lemah dan membutuhkan untuk berbicara dengan orang lain dan bercerita dengannya untuk membangkitkan semangat Anda kembali. Anda ingin keluar dari kesendirian dan mencoba ingin hidup lebih tenang.</p>
-
-<p>Alhamdulillah, menurut saya, kita perlu melakukan cara-cara ini:</p>
-
-<h1>Sadari Kesendirian</h1>
-
-<p>Jika Anda merasakan kesendirian, jangan khawatir. Pahami bahkan setiap orang tidak jarang dalam kesendirian. Anda melakukan tugas Anda sendiri, menyetir motor sendiri, menulis baris-baris kode sendiri, mengerjakan pekerjaan sendiri, makan sendiri. Banyak yang sebenarnya Anda lakukan sendiri. Jadi, kesendirian adalah hal yang wajar.</p>
-
-<p>Tapi percayalah kesendirian Anda akan sirna. Kesendirian itu hanyalah waktu sementara. Percayalah. Justru itu bagus. While Anda dalam kesendirian, lakukanlah hal-hal yang bermanfaat yang itu tidak bisa Anda lakukan saat dalam keramaian. Menulis blog, menulis buku, mengerjakan proyek, mengerjakan <a href="http://uhunt.felix-halim.net/">online judge</a>, mengirim [patch] dalam komunitas kode sumber terbuka, membaca buku yang baru Anda beli tapi belum Anda baca.</p>
-
-<p>Dan percayalah lebih dalam lagi, Anda akan sendirian dalam waktu yang lebih sebentar daripada wkatu Anda dalam keramaian. Maka pergunakan waktu tersebut sebaik-baiknya.</p>
-
-<h1>Senyum, Sapa, Santun</h1>
-
-<p>Senyum dapat dengan segera menciptakan persahabatan di antara dua insan manusia. Dengan senyum, Anda akan dianggap developer yang baik hati (baca: memungkinkan lebih banyak orang kenal dengan Anda, memungkinkan lebih banyak orang bekerja sama dengan Anda, dan memungkinkan lebih banyak orang yang hidupnya terbantu karena pekerjaan Anda karena kerja sama ynag Anda lakukan dan karena anda kenal dengan orang-orang yang mengenal Anda dari senyum tulus Anda).</p>
-
-<p>Menyapa dan berkata-kata dengan santun adalah proses setelah senyuman. Senyuman adalah impresi dan kesantunan adalah hal yang diingat setelah orang terimpresi dengan senyuman Anda.</p>
-
-<p>Jika Anda sulit untuk menyapa orang, cukup berkata santun kepada setiap orang yang Anda temui. Carilah padanan kata yang lebih baik dan lebih enak didengar. Mungkin lingkungan Anda keras, tetapi kata-kata santun yang Anda ucapkan akan mencegah orang-orang yang berniat tidak baik dengan Anda terenyuh melunak dan membatalkan niat tidak baiknya tersebut.</p>
-
-<p>Jika Anda sulit melakukan ketiga hal di atas, cukup lakukan kepada orang yang Anda kenal. Tidak perlu merasa memiliki target lebih. Dalam waktu singkat reflek ini akan juga terjadi ke orang yang belum Anda kenal &mdash; lebih membuat dampak kebaikan Anda lebih luas.</p>
-
-<h1>Menyebalkan</h1>
-
-<p>Pernah bertemu orang yang Anda pikir menyebalkan? Selamat datang di dunia nyata, di mana ekspetasi Anda mungkin tidak tersampaikan ke orang yang berhadapan dengan Anda. Jangan khawatir, ini wajar. Sampaikan saja ekspetasi Anda terhadap orang tertentu bahwa ada tindakan yang tidak mengenakan di hati Anda, semisal Anda tidak suka orang-orang yang menggunakkan baju berwarna cerah, atau merokok, atau berkata yang tidak baik.</p>
-
-<p>Sayangnya, dunia ini adalah tentang cara mengerti orang lain.</p>
-
-<blockquote><p>Anda dapat lebih mudah berteman jika Anda lebih tertarik kepada orang lain (Dale Carnegie, How to Win Friends and Influence People)</p></blockquote>
-
-<p>Anda mungkin tidak pernah bisa mengubah orang lain, tetapi Anda sudah pasti bisa mengubah diri Anda. <em>Double check</em> sebelum mengkritik orang lain, apakah kritik itu sudah pantas ditolak dalam diri kita?</p>
-
-<h1>Don&rsquo;t Be Shy</h1>
-
-<p>Jangan malu. Jangan merasa rendah. Tetap optimis lah. Anda akan malu melakukan hal yang baru. Tetapi, Anda tidak akan malu jika berbuat kesalahan karena Anda berbuat kebaikan. Anda mungkin akan malu pertama kali menyapa orang, tetapi Anda sadari itu kebaikan, tidak perlu malu. Malulah jika itu untuk ketidakbaikan.</p>
-
-<p><em>Fine, so what&rsquo;s next?</em></p>
 ]]></content>
   </entry>
   
