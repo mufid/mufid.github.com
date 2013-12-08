@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2013-08-20T04:42:07+07:00</updated>
+  <updated>2013-12-08T15:37:41+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,606 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Membuat Proxy Server di Python 3]]></title>
+    <link href="http://mufid.github.io/2013/proxy-in-python-3/"/>
+    <updated>2013-12-08T04:58:00+07:00</updated>
+    <id>http://mufid.github.io/2013/proxy-in-python-3</id>
+    <content type="html"><![CDATA[<p>Wah lama gak ngepost :D</p>
+
+<p>Baiklah, jadi ceritanya ada tugas jaringan komputer dan ini membuat Proxy. Kebanyakan mahasiswa membuat kesalahan tidak di proxynya, tetapi tidak mengerti bagaimana proxy bekerja. Mari kita buat hidup kita lebih sederhana dengan memahami bagaimana proxy bekerja.</p>
+
+<p>Berhubung ini adalah post Proof of Concept, maka post kali ini akan sangat panjang. Pastikan Anda sudah membeli Siomay atau Pizza untuk menemani Anda membaca post ini. Atau Anda juga dapat <a href="http://myanimelist.net/anime/6547/Angel_Beats!">menyiapkan anime yang menggugah semangat untuk menambah semangat Anda dalam membaca post ini</a>.</p>
+
+<p>Selamat menikmati! (makanan dan postnya, tentu saja).</p>
+
+<!-- more -->
+
+
+<h2>The Proxy</h2>
+
+<p><code>mahasiswa.cs.ui.ac.id</code> adalah sebuah server web yang melayani halaman <code>public_html</code> dari setiap mahasiswa CSUI ke internet publik. Mari kita lihat apa yang terjadi apabila saya membuka halaman web mahasiswa.cs.ui.ac.id. Tentu saja, di sini saya memakai &ldquo;debug mode&rdquo;. Kita gunakan <code>curl</code> dengan verbose mode agar dapat mengetahui apa yang sebenarnya terjadi.</p>
+
+<pre><code>D:\tmp&gt;curl -v mahasiswa.cs.ui.ac.id
+* Adding handle: conn: 0x4c2cf0
+* Adding handle: send: 0
+* Adding handle: recv: 0
+* Curl_addHandleToPipeline: length: 1
+* - Conn 0 (0x4c2cf0) send_pipe: 1, recv_pipe: 0
+* About to connect() to mahasiswa.cs.ui.ac.id port 80 (#0)
+*   Trying 152.118.148.93...
+* Connected to mahasiswa.cs.ui.ac.id (152.118.148.93) port 80 (#0)
+&gt; GET / HTTP/1.1
+&gt; User-Agent: curl/7.30.0
+&gt; Host: mahasiswa.cs.ui.ac.id
+&gt; Accept: */*
+&gt;
+&lt; HTTP/1.1 200 OK
+&lt; Date: Sat, 07 Dec 2013 22:01:58 GMT
+* Server Apache/2.2.22 (Debian) is not blacklisted
+&lt; Server: Apache/2.2.22 (Debian)
+&lt; Last-Modified: Tue, 27 Mar 2012 14:08:11 GMT
+&lt; ETag: "5ba68-b1-4bc3a055dc8c0"
+&lt; Accept-Ranges: bytes
+&lt; Content-Length: 177
+&lt; Vary: Accept-Encoding
+&lt; Content-Type: text/html
+&lt; Via: 1.1 mahasiswa.cs.ui.ac.id
+&lt;
+&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;
+&lt;p&gt;This is the default web page for this server.&lt;/p&gt;
+&lt;p&gt;The web server software is running but no content has been added, yet.&lt;/p&gt;
+&lt;/body&gt;&lt;/html&gt;
+* Connection #0 to host mahasiswa.cs.ui.ac.id left intact
+
+D:\tmp&gt;
+</code></pre>
+
+<p><strong>Apa yang sebenarnya terjadi?</strong></p>
+
+<p>Dalam mengakses internet, client (bisa browser, bisa program kecil seperti curl/wget, etc.) akan membuka koneksi ke server melalui socket. Apa yang client kirimkan setelah membuka koneksi? Mengirimkan baris-baris yang ditandai dengan <code>&gt;</code>. Setelah <code>\r\n</code> kosong, server akan menganggap client selesai mengirimkan <strong>HTTP Request</strong> dan akan memulai memberikan respons (<strong>HTTP Response</strong>) yang ditandai dengan <code>&lt;</code>.</p>
+
+<p>Tugas Proxy sederhana. Dia menjadi jembatan antara Client dan Server. Tetapi yang menarik adalah <strong>Proxy behave sebagai server sungguhan dengan hanya menyunting satu baris saja</strong>. Kita lihat apa yang terjadi jika kita mengatur proxy di komputer kita. Kali ini saya akan memakai proxy fiktif. Fokus kita di sini adalah mengetahui bagian apa yang berubah.</p>
+
+<pre><code>D:\tmp&gt;set HTTP_PROXY=http://example.com:80
+
+D:\tmp&gt;curl mahasiswa.cs.ui.ac.id -v
+* Adding handle: conn: 0x4c2d10
+* Adding handle: send: 0
+* Adding handle: recv: 0
+* Curl_addHandleToPipeline: length: 1
+* - Conn 0 (0x4c2d10) send_pipe: 1, recv_pipe: 0
+* About to connect() to proxy example.com port 80 (#0)
+*   Trying 93.184.216.119...
+* Connected to example.com (93.184.216.119) port 80 (#0)
+&gt; GET HTTP://mahasiswa.cs.ui.ac.id/ HTTP/1.1
+&gt; User-Agent: curl/7.30.0
+&gt; Host: mahasiswa.cs.ui.ac.id
+&gt; Accept: */*
+&gt; Proxy-Connection: Keep-Alive
+&gt;
+* HTTP 1.0, assume close after body
+&lt; HTTP/1.0 400 Bad Request
+&lt; Content-Type: text/html
+&lt; Content-Length: 349
+&lt; Connection: close
+&lt; Date: Sat, 07 Dec 2013 22:10:10 GMT
+&lt; Server: ECSF (cpm/F9B9)
+&lt;
+&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
+&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
+&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
+        &lt;head&gt;
+                &lt;title&gt;400 - Bad Request&lt;/title&gt;
+        &lt;/head&gt;
+        &lt;body&gt;
+                &lt;h1&gt;400 - Bad Request&lt;/h1&gt;
+        &lt;/body&gt;
+&lt;/html&gt;
+* Closing connection 0
+
+D:\tmp&gt;
+</code></pre>
+
+<p>Lihat bagian yang berubah? Pertama lihat baris pertama. Tadinya adalah alamat relatif terhadap host. Sekarang adalah alamat absolut. Yosh, hanya bagian itu saja. Sisanya, proxy hanya meneruskan data-data dari server (sebetulnya bisa iseng sedikit seperti mengambil password, tetapi itu di luar bahasan kita).</p>
+
+<h2>In a Nutshell (Dalam Kulit Kacang)</h2>
+
+<pre><code>Client
+  |       Proxy bertindak seolah-olah sebagai server*
+  |       jika dilihat oleh client
+  |
+Proxy
+  |       Proxy bertindak seolah-olah sebagai client
+  |       jika dilihat oleh server
+  |
+Server
+</code></pre>
+
+<h2>The Code</h2>
+
+<p>Kode Templatenya adalah sebagai berikut:</p>
+
+<pre><code>from socket import * 
+import sys
+
+# Create a server socket, bind it to a port and start listening 
+tcpSerSock = socket(AF_INET, SOCK_STREAM) 
+# Fill in start.
+# PART 1
+# Fill in end. 
+while 1: 
+  # Strat receiving data from the client
+  print ("Ready to serve...")
+  tcpCliSock, addr = tcpSerSock.accept()
+  message = # PART 2
+  print (message)
+  # Extract the filename from the given message
+  print (message.split()[1])
+  filename = message.split()[1].partition("/")[2]
+  print (filename)
+  fileExist = "false"
+  filetouse = "/" + filename
+  print (filetouse)
+
+  try:
+    # Check wether the file exist in the cache
+    f = open(filetouse[1:], "r")
+    outputdata = f.readlines()
+    fileExist = "true"
+    # ProxyServer finds a cache hit and generates a response message
+    tcpCliSock.send("HTTP/1.0 200 OK\r\n")
+    tcpCliSock.send("Content-Type:text/html\r\n")
+    # Fill in start. # PART 3
+    # Fill in end.
+    print ("Read from cache")
+    # Error handling for file not found in cache
+  except IOError:
+    if fileExist == "false":
+      # Create a socket on the proxyserver
+      # c = # Fill in start. # Fill in end. # PART 4
+      hostn = filename.replace("www.","",1)
+      print (hostn)
+      try:
+        # Connect to the socket to port 80
+        # Fill in start. # PART 5
+        # Fill in end.
+        # Create a temporary file on this socket and ask port 80 for the file requested by the client
+        fileobj = c.makefile('rwb', 0)
+        strHeader=str.encode("GET "+"http://" + filename + " HTTP/1.0\n\n")
+        fileobj.write(strHeader)
+        # Read the response into buffer
+        # Fill in start. # PART 6
+        # Fill in end.
+        # Create a new file in the cache for the requested file.
+        # Also send the response in the buffer to client socket
+        # and the corresponding file in the cache
+        tmpFile = open("./" + filename,"wb")
+        # Fill in start. # PART 7
+        # Fill in end.
+      except:
+       print ("Illegal request")
+    else:
+       # HTTP response message for file not found
+       # Fill in start. # PART 8
+       # Fill in end.
+       # Close the client and the server sockets
+       tcpCliSock.close()
+
+# Fill in start. # PART 9
+# Fill in end.
+</code></pre>
+
+<p>Mari kita mulai mengoding ~</p>
+
+<h2>Part 1</h2>
+
+<p>Bagian yang paling mudah. Karena proxy bertindak seolah-olah sebagai server terhadap client, maka proxy harus membuka koneksi port ke client.</p>
+
+<pre><code>tcpSerSock.bind(("127.0.0.1", 8888))
+tcpSerSock.listen(10)
+</code></pre>
+
+<p>Sepertinya baris kode tersebut self-explanatory, tidak perlu dijelaskan. Mungkin yang perlu Anda perhatikan di bagian <code>listen</code>. Apa maksud dari angka di <code>listen</code>? Baca <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.listen">dokumentasinya</a> saja ya :D</p>
+
+<blockquote><p><strong>socket.listen(backlog)</strong><br/>
+Listen for connections made to the socket. The backlog argument specifies the maximum number of queued connections and should be at least 0; the maximum value is system-dependent (usually 5), the minimum value is forced to 0.</p></blockquote>
+
+<h2>Part 2</h2>
+
+<p>Bagian ini adalah bagian menerima koneksi dari client. Bagian ini agak tricky, tapi kita mulai dengan hal yang paling sampah terlebih dahulu:</p>
+
+<pre><code>  data = tcpCliSock.recv(10)
+  print(data)
+  message = data
+</code></pre>
+
+<p>Mari kita coba bermain dengan curl lagi (jangan lupa menjalankan script python kesayangan kita ini terlebih dahulu). Tentu saja Anda dapat mengujinya dengan browser, tetapi buat saya atas-enter-atas-enter lebih menyenangkan daripada Alt-tab-mouse-klikkiri-go-f5-ctrlF5.</p>
+
+<pre><code>D:\tmp&gt;python proxy-keren.py
+Ready to serve...
+Received a connection from: ('127.0.0.1', 52799)
+b'GET HTTP:/'
+b'HTTP:/'
+</code></pre>
+
+<p>Kenapa kita hanya menerima 10 byte pertama saja? Karena kita mengatur buffer untuk proxy kita hanya 10 byte. Sebetulnya, kita tinggal mengganti saja menjadi > 10 byte. Tetapi ada constraint berikut di <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.recv">dokumentasi Python</a>:</p>
+
+<blockquote><p><strong>socket.recv(bufsize[, flags])</strong><br/>
+Receive data from the socket. The return value is a bytes object representing the data received. The maximum amount of data to be received at once is specified by bufsize. See the Unix manual page recv(2) for the meaning of the optional argument flags; it defaults to zero.</p></blockquote>
+
+<p>Kalau begitu, sebagaimana kita membaca file, mari kita baca socket hingga tidak ada isinya lagi. Ubah sedikit kodenya:</p>
+
+<pre><code>  emptybyte = False
+  message = bytes()
+  while (not emptybyte):
+    chunk = tcpCliSock.recv(16)
+    print ("Chunk is")
+    print (chunk)
+    if chunk == b'':
+      emptybyte = True
+    else:
+      message += chunk
+  print(message)
+</code></pre>
+
+<p><strong>Catatan Tambahan:</strong> Sebetulnya Anda bisa saja memperbesar jumlah buffernya dan tidak melakukan looping, tetapi itu bukan implementasi yang baik. Meski implementasi chunk di sini lebih baik dibandingkan memperbesar buffer and do nothing, Anda tetap harus memikirkan kondisi terburuk semisal koneksi terputus di tengah jalan. Meski demikian, kita akan mengabaikan hal-hal seperti ini. Kita tidak sedang membuat proxy terbaik, tetapi kita sedang membuat proof of concept dari proxy.</p>
+
+<p>Nanti dulu, kalau kita jalankan proxynya, kita akan terjebak dalam forever loop. NOOOO!!</p>
+
+<pre><code>D:\tmp&gt;python proxy-keren.py
+Ready to serve...
+Received a connection from: ('127.0.0.1', 53905)
+Chunk is
+b'GET HTTP://mahas'
+Chunk is
+b'iswa.cs.ui.ac.id'
+Chunk is
+b'/ HTTP/1.1\r\nUser'
+Chunk is
+b'-Agent: curl/7.3'
+Chunk is
+b'0.0\r\nHost: mahas'
+Chunk is
+b'iswa.cs.ui.ac.id'
+Chunk is
+b'\r\nAccept: */*\r\nP'
+Chunk is
+b'roxy-Connection:'
+Chunk is
+b' Keep-Alive\r\n\r\n'
+</code></pre>
+
+<p>Program berhenti di sana. Kenapa? Karena koneksi socket pasti akan selalu terjalin, kecuali client sudah menerima apa yang dia inginkan. Sedangkan di sini koneksi socket terjalin tetapi si client masih menunggu jawaban dari proxy. &ldquo;Woy gw minta halaman mahasiswa.cs.ui.ac.id donk!&rdquo; Dia akan terus menunggu dan menjalin hubungan hingga proxy memberikan balasannya. Maka dari itu kita terjebak dalam forever loop.</p>
+
+<p>Client selesai memberikan informasi &ldquo;gw butuh apa&rdquo; setelah ada <code>\r\n\r\n</code> sesuai dengan spesifikasi <a href="http://www.apps.ietf.org/rfc/rfc3507.html">RFC 3507</a>. Maka dari itu, mari kita ubah sedikit kodenya:</p>
+
+<pre><code>  emptybyte = False
+  message = bytes()
+  while (not emptybyte):
+    chunk = tcpCliSock.recv(16)
+    print("Chunk is ")
+    print(chunk)
+    message += chunk
+    if message.endswith(bytes('\r\n\r\n'.encode('utf-8'))):
+      emptybyte = True
+</code></pre>
+
+<p>Hasilnya:</p>
+
+<pre><code>D:\tmp&gt;python proxy-keren.py
+Ready to serve...
+Received a connection from: ('127.0.0.1', 53948)
+b'GET HTTP://mahasiswa.cs.ui.ac.id/ HTTP/1.1\r\nUser-Agent: curl/7.30.0\r\nHost: mahasiswa.cs.ui.ac.id\r\nAccept: */*\r\nProxy-Con
+nection: Keep-Alive\r\n\r\n'
+b'HTTP://mahasiswa.cs.ui.ac.id/'
+Traceback (most recent call last):
+  File "proxy-keren.py", line 26, in &lt;module&gt;
+    filename = message.split()[1].partition("/")[2]
+TypeError: expected bytes, bytearray or buffer compatible object
+</code></pre>
+
+<p>Terjadi kesalahan karena pada template asli, program berusaha untuk menganalisis data bytes yang dianggap sebagai string. Mudah sekali, ubah saja menjadi string</p>
+
+<pre><code>message_raw = message
+message = message.decode('utf-8')
+print (message)
+</code></pre>
+
+<p>Message asli saya preserve dalam message_raw untuk kebutuhan kita di masa depan. Anda akan mengerti setelah beberapa puluh paragraf ini.</p>
+
+<p>Tentu proxynya masih belum berjalan dengan baik dengan modifikasi ini. Mari kita lanjut ke part 4. What? Part 4? Iya, karena part 3 adalah fungsi membaca dari cache, sedangkan kita belum mengimplementasi fungsi menulis ke cache. Kalau tidak ada yang ditulis, mau baca apa?</p>
+
+<h2>Part 4</h2>
+
+<p>Bagian ini mengatur bagaimana koneksi proxy ke server. Skenario aslinya adalah:</p>
+
+<ul>
+<li>Jika cache hit (halaman tersedia di cache), maka baca dari cache (Part 3).</li>
+<li>Jika tidak, maka berikan client data dari server (Part 4, ini).</li>
+</ul>
+
+
+<p>Bagaimana kalau kita iseng? Jadi kita lakukan ini:</p>
+
+<ol>
+<li>Memberikan seluruh data dari client ke server</li>
+<li>Mengembalikan ke client seluruh data yang diterime oleh proxy dari server</li>
+</ol>
+
+
+<p>BRILLIANT IDEA!?</p>
+
+<p>No.</p>
+
+<p>Karena kita harus mengubah baris pertama dari HTTP Request. Tetapi, mari kita coba dengan cara yang naive terlebih dahulu.</p>
+
+<p>Tetapi sebelumnya, saya melihat kejanggalan di template ini. Mari kita lihat isi dari <code>filename</code> dari <code>hostn</code>:</p>
+
+<pre><code>  hostn = filename.replace("www.","",1)
+  print("filename is " + filename)
+  print("hostn is " + hostn)
+</code></pre>
+
+<p>Hasilnya:</p>
+
+<pre><code># window 1
+curl -v mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
+
+# window 2
+...
+filename is /mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
+hostn is /mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
+</code></pre>
+
+<p>Seriously, hostnamenya adalah URI?</p>
+
+<p>Kalau begitu, gunakan saja URI Parser dari Python.</p>
+
+<p>Import modul berikut:</p>
+
+<pre><code>from urllib.parse import urlparse
+</code></pre>
+
+<p>Ubah beberapa bagian di bawah Part 1:</p>
+
+<pre><code>  print (message.split()[1])
+  parsed_url = urlparse(message.split()[1])
+</code></pre>
+
+<p>Di part 4 menjadi:</p>
+
+<pre><code>  hostn = parsed_url.netloc
+  filename = parsed_url.path
+  port = 80 if None == parsed_url.port else parsed_url.port
+  full_path = hostn + filename
+  c = socket(AF_INET, SOCK_STREAM)
+</code></pre>
+
+<p>Jalankan kembali proxynya. Tadaaa!</p>
+
+<pre><code>filename is /dadadada/dadskjfkdsljfskdljf
+hostn is mahasiswa.cs.ui.ac.id
+</code></pre>
+
+<p>Baiklah, tinggal satu langkah lagi. Mari buat koneksi baru dan mulai segalanya dari sini.</p>
+
+<p><strong>Catatan</strong>: Di sini saya tidak membuat port default adalah 80, karena sangat jelas: akses HTTP belum tentu hanya di port 80. Practically, bisa dimanapun.</p>
+
+<p><strong>Catatan 2</strong>: Saya membuat full_path untuk menyimpan cache. Kita akan gunakan di part selanjutnya.</p>
+
+<h2>Part 5</h2>
+
+<p>Nothing to do here:</p>
+
+<pre><code>c.connect(hostn, port)
+</code></pre>
+
+<p>Melakukan sambungan harus dalam blok try-catch.</p>
+
+<h2>Part 5+</h2>
+
+<p>Saya menemukan kesalahan dalam template yang menggunakkan <code>\n\n</code> untuk line ending (yang seharusnya <code>\r\n</code>). Kemudian tidak adanya request header <code>Host</code> yang mana itu dibutuhkan oleh dispatcher / router untuk web worker. Baiklah, mari kita rubah sedikit pada bagian tersebut.</p>
+
+<pre><code>    strHeader = str.encode("GET " + full_path + " HTTP/1.0\r\n")
+    strHeader += str.encode("Host: " + hostn + "\r\n")
+    strHeader += str.encode("\r\n")
+    fileobj.write(strHeader)
+</code></pre>
+
+<h2>Part 6</h2>
+
+<p>Lakukan hal yang serupa seperti saat kita membaca socket dari client. Tetapi berhubung template kita sudah menggunakkan makefile, jadi kehidupan kita sedikit lebih mudah.</p>
+
+<blockquote><p><strong>Mengapa saat koneksi Client-Proxy kita tidak bisa menggunakkan makefile?</strong> Saya belum tahu. Dugaan saya adalah karena client masih menunggu jawaban, tetapi mungkin Anda tertarik untuk mencoba pendekatan yang lain. Sedangkan di sini yang menjadi client adalah proxy, dan proxy sudah mengirimkan semua informasi header yang sehingga penantian jawabannya adalah suatu kepastian (HTTP Request sudah dikirim semua, tinggal menunggu response).</p></blockquote>
+
+<pre><code>    tcpCliSock.sendall(fileobj.readall())
+</code></pre>
+
+<p>Btw, untuk sementara Anda bisa mengcomment bagian tmpFile agar program bisa berjalan dengan baik.</p>
+
+<p>Mari kita coba lihat hasilnya pada kondisi saat ini, yihaa program berjalan sebagaimana mestinya!</p>
+
+<pre><code>C:\Users\Mufid&gt;curl -v mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
+* Adding handle: conn: 0x982678
+* Adding handle: send: 0
+* Adding handle: recv: 0
+* Curl_addHandleToPipeline: length: 1
+* - Conn 0 (0x982678) send_pipe: 1, recv_pipe: 0
+* About to connect() to proxy localhost port 8888 (#0)
+*   Trying ::1...
+* Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8888 (#0)
+&gt; GET HTTP://mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf HTTP/1.1
+&gt; User-Agent: curl/7.30.0
+&gt; Host: mahasiswa.cs.ui.ac.id
+&gt; Accept: */*
+&gt; Proxy-Connection: Keep-Alive
+&gt;
+&lt; HTTP/1.1 404 Not Found
+&lt; Date: Sun, 08 Dec 2013 02:08:55 GMT
+* Server Apache/2.2.22 (Debian) is not blacklisted
+&lt; Server: Apache/2.2.22 (Debian)
+&lt; Vary: Accept-Encoding
+&lt; Content-Length: 313
+&lt; Content-Type: text/html; charset=iso-8859-1
+&lt; Via: 1.0 mahasiswa.cs.ui.ac.id
+&lt; Connection: close
+&lt;
+&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
+&lt;html&gt;&lt;head&gt;
+&lt;title&gt;404 Not Found&lt;/title&gt;
+&lt;/head&gt;&lt;body&gt;
+&lt;h1&gt;Not Found&lt;/h1&gt;
+&lt;p&gt;The requested URL /dadadada/dadskjfkdsljfskdljf was not found on this server.&lt;/p&gt;
+&lt;hr&gt;
+&lt;address&gt;Apache/2.2.22 (Debian) Server at mahasiswa.cs.ui.ac.id Port 80&lt;/address&gt;
+&lt;/body&gt;&lt;/html&gt;
+* Closing connection 0
+</code></pre>
+
+<h2>Next Up: 404</h2>
+
+<p>Berhubung di tugas disebutkan tidak ada data yang disimpan untuk halaman 404, maka ya cukup jangan simpan jika itu halaman 404. Tetapi saya agak bingung bagaimana mengimplementasi ini. Jadi saya justru melakukan perubahan di Part 6:</p>
+
+<pre><code>    if (response.decode('utf-8').split()[1].startswith('4')):
+      tcpCliSock.send("HTTP/1.1 404 Not Found".encode('utf-8'))
+      tcpCliSock.send("\0\r\n\r\n".encode('utf-8'))
+      tcpCliSock.close()
+      continue
+</code></pre>
+
+<p>Bukan hanya 404, melainkan juga 4xx. Hal ini karena status 4xx menandakan kesalahan di permintaan.</p>
+
+<pre><code>C:\Users\Mufid&gt;curl -v mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
+* Adding handle: conn: 0x1db2678
+* Adding handle: send: 0
+* Adding handle: recv: 0
+* Curl_addHandleToPipeline: length: 1
+* - Conn 0 (0x1db2678) send_pipe: 1, recv_pipe: 0
+* About to connect() to proxy localhost port 8888 (#0)
+*   Trying ::1...
+* Connection refused
+*   Trying 127.0.0.1...
+* Connected to localhost (127.0.0.1) port 8888 (#0)
+&gt; GET HTTP://mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf HTTP/1.1
+&gt; User-Agent: curl/7.30.0
+&gt; Host: mahasiswa.cs.ui.ac.id
+&gt; Accept: */*
+&gt; Proxy-Connection: Keep-Alive
+&gt;
+&lt; HTTP/1.1 404 Not Found
+* no chunk, no close, no size. Assume close to signal end
+&lt;
+* Closing connection 0
+</code></pre>
+
+<p>Okay, sudah lebih baik. Mari kita lanjut ke proses caching.</p>
+
+<h2>Next up: POST Request</h2>
+
+<p>Post Request ini sangat tricky. Karena di request post, request body tidak kosong. Mari kita lihat:</p>
+
+<pre><code>mingw $ curl -v mahasiswa.cs.ui.ac.id/~muhammad.mufid/ -XPOST -d ganteng=ya --trace-ascii /dev/stdout
+Warning: --trace-ascii overrides an earlier trace/verbose option
+== Info: Adding handle: conn: 0x1f739b8
+== Info: Adding handle: send: 0
+== Info: Adding handle: recv: 0
+== Info: Curl_addHandleToPipeline: length: 1
+== Info: - Conn 0 (0x1f739b8) send_pipe: 1, recv_pipe: 0
+== Info: About to connect() to proxy localhost port 8888 (#0)
+== Info:   Trying ::1...
+== Info: Connection refused
+== Info:   Trying 127.0.0.1...
+== Info: Connected to localhost (127.0.0.1) port 8888 (#0)
+=&gt; Send header, 229 bytes (0xe5)
+0000: POST HTTP://mahasiswa.cs.ui.ac.id/~muhammad.mufid/ HTTP/1.1
+003d: User-Agent: curl/7.30.0
+0056: Host: mahasiswa.cs.ui.ac.id
+0073: Accept: */*
+0080: Proxy-Connection: Keep-Alive
+009e: Content-Length: 10
+00b2: Content-Type: application/x-www-form-urlencoded
+00e3:
+=&gt; Send data, 10 bytes (0xa)
+0000: ganteng=ya
+== Info: upload completely sent off: 10 out of 10 bytes
+</code></pre>
+
+<p>.. dan &hellip; loop forever.</p>
+
+<p>Ini karena <code>\0\r\n\r\n</code> itu sebagai penanda antara request body dan request header. Maka dari itu, agar loopnya berjalan dengan baik, kita ubah sedikit programnya di bagian loop penerima request: Saya juga menambahkan <code>import re</code> di bagian tas karena kita akan menggunakkan regex agar hidup kita lebih menyenangkan</p>
+
+<pre><code>  CHUNK_SIZE = 16
+  emptybyte = False
+  message = bytes()
+  content_length = 0
+  while (not emptybyte):
+    chunk = tcpCliSock.recv(CHUNK_SIZE)
+    message += chunk
+    # Receive everything until the end of the time. No just kidding
+    # Until the end of HTTP Request. Please read RFC 3507
+    if message.endswith(b'\r\n\r\n'.encode('utf-8')):
+      emptybyte = True
+
+    # Detect end of POST request
+    regex_match = re.search(r"Content-Length: ([0-9]+)", message.decode('utf-8'))
+    if (regex_match):
+      content_length = (int) (regex_match.group(1))
+      # Check if everything has been send as expected
+      if (message[-content_length-4:-content_length] == b'\r\n\r\n'):
+        emptybyte = True
+</code></pre>
+
+<p>Dan juga jangan lupa agar proxy mengirim ke server juga dengan request body dari client</p>
+
+<pre><code>    fileobj = c.makefile('rwb', 0)
+    request_name = message_raw.split(b' ', 2)[0]
+    rest_of_request = message_raw.split(b'\r\n', 1)[1]
+    strHeader = str.encode(request_name.decode('utf-8') + " " + filename + " HTTP/1.0\r\n")
+    strHeader += rest_of_request
+    fileobj.write(strHeader)
+</code></pre>
+
+<h2>Part 7: Cache Write</h2>
+
+<p>Caching sederhana saja. Simpan segalanya di file. Tidak perlu membaca body, cukup simpan segala responsenya. Memang ini bukan praktik yang bagus, tetapi kita ingin mendapatkan segalanya serba cepat.</p>
+
+<p>Dan, di sini saya tidak akan membuat hirarki cache dalam bentuk folder. Ini akan menambah kerumitan apabila dia ada parameter GET, atau URL ada informasi yang diencode dalam unicode.</p>
+
+<p>Btw, saya juga tidak menyimpan cache apabila dia bukan method GET. Ya, agar lebih menyenangkan saja. Mosok iya kita ngirim form, terus dibalasnya lewat cache. Ibarat anda upload tugas, kemudian hasilnya selalu upload berhasil padahal sebenarnya telah lewat deadline (hal ini karena proxy membaca dari cache).</p>
+
+<pre><code>    if (request_name != b'POST'):
+      tmpFile = open("./" + full_path.replace("/", ""),"wb")
+      tmpFile.write(response)
+      tmpFile.close()
+</code></pre>
+
+<h2>Part 3: Cache Read</h2>
+
+<p>Tidak ada yang istimewa di sini ~</p>
+
+<pre><code># Check wether the file exist in the cache
+f = open(full_path.replace("/", ""), "rb")
+fileExist = True
+# ProxyServer finds a cache hit and generates a response message
+data = f.read()
+print(data)
+tcpCliSock.sendall(data)
+# Fill in start.
+# Fill in end.
+print ("Read from cache")
+tcpCliSock.close()
+</code></pre>
+
+<h2>Done!</h2>
+
+<p>Ya, itu adalah penjelasan mengenai proxy jadi-jadian kita. Tidak sempurna memang, tetapi setidaknya Anda telah mengetahui bagaimana konsep HTTP bekerja.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Banyak Orang Baik di Indonesia]]></title>
@@ -865,17 +1465,6 @@ rake deploy
 </code></pre>
 
 <p>Selesai.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[NTP UI]]></title>
-    <link href="http://mufid.github.io/2012/ntp-ui/"/>
-    <updated>2012-12-01T07:18:00+07:00</updated>
-    <id>http://mufid.github.io/2012/ntp-ui</id>
-    <content type="html"><![CDATA[<p><code>ntp.ui.ac.id</code>, yes, that&rsquo;s true.</p>
-
-<p><img src="http://pasteboard.s3.amazonaws.com/images/19vHXKqg.png" alt="NTP UI" /></p>
 ]]></content>
   </entry>
   
