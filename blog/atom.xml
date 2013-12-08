@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2013-12-08T16:23:55+07:00</updated>
+  <updated>2013-12-08T16:26:01+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -20,11 +20,13 @@
     <id>http://mufid.github.io/2013/proxy-in-python-3</id>
     <content type="html"><![CDATA[<p>Wah lama gak ngepost :D</p>
 
-<p>Baiklah, jadi ceritanya ada tugas jaringan komputer dan ini membuat Proxy. Kebanyakan mahasiswa membuat kesalahan tidak di proxynya, tetapi tidak mengerti bagaimana proxy bekerja. Mari kita buat hidup kita lebih sederhana dengan memahami bagaimana proxy bekerja.</p>
+<p>Baiklah, jadi ceritanya ada tugas jaringan komputer dan ini membuat Proxy. Mari kita buat hidup kita lebih sederhana dengan memahami bagaimana proxy bekerja.</p>
 
 <p>Berhubung ini adalah post Proof of Concept, maka post kali ini akan sangat panjang. Pastikan Anda sudah membeli Siomay atau Pizza untuk menemani Anda membaca post ini. Atau Anda juga dapat <a href="http://myanimelist.net/anime/6547/Angel_Beats!">menyiapkan anime yang menggugah semangat untuk menambah semangat Anda dalam membaca post ini</a>.</p>
 
 <p>Selamat menikmati! (makanan dan postnya, tentu saja).</p>
+
+<p>(Note: Saya mohon kritik Anda apabila penjelasan saya di sini ada yang misleading atau sulit dipahami. Dengan demikian saya bisa menghasilkan tulisan dengan kualitas tulisan yang lebih baik lagi ^_^)</p>
 
 <!-- more -->
 
