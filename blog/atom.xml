@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2013-12-08T16:26:01+07:00</updated>
+  <updated>2013-12-08T18:09:28+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -140,75 +140,145 @@ Server
 
 <p>Kode Templatenya adalah sebagai berikut:</p>
 
-<pre><code>from socket import * 
-import sys
+<figure class='code'><figcaption><span>proxy-keren.py </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+<span class='line-number'>50</span>
+<span class='line-number'>51</span>
+<span class='line-number'>52</span>
+<span class='line-number'>53</span>
+<span class='line-number'>54</span>
+<span class='line-number'>55</span>
+<span class='line-number'>56</span>
+<span class='line-number'>57</span>
+<span class='line-number'>58</span>
+<span class='line-number'>59</span>
+<span class='line-number'>60</span>
+<span class='line-number'>61</span>
+<span class='line-number'>62</span>
+<span class='line-number'>63</span>
+<span class='line-number'>64</span>
+<span class='line-number'>65</span>
+<span class='line-number'>66</span>
+<span class='line-number'>67</span>
+<span class='line-number'>68</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
+</span><span class='line'>  <span class="kn">import</span> <span class="nn">sys</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c"># Create a server socket, bind it to a port and start listening </span>
+</span><span class='line'>  <span class="n">tcpSerSock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span><span class='line'>  <span class="c"># Fill in start.</span>
+</span><span class='line'>  <span class="c"># PART 1</span>
+</span><span class='line'>  <span class="c"># Fill in end. </span>
+</span><span class='line'>  <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
+</span><span class='line'>    <span class="c"># Strat receiving data from the client</span>
+</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Ready to serve...&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">tcpCliSock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">tcpSerSock</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="c"># PART 2</span>
+</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span><span class='line'>    <span class="c"># Extract the filename from the given message</span>
+</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'>    <span class="n">filename</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">filename</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">fileExist</span> <span class="o">=</span> <span class="s">&quot;false&quot;</span>
+</span><span class='line'>    <span class="n">filetouse</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
+</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">filetouse</span><span class="p">)</span>
+</span><span class='line'>  
+</span><span class='line'>    <span class="k">try</span><span class="p">:</span>
+</span><span class='line'>      <span class="c"># Check wether the file exist in the cache</span>
+</span><span class='line'>      <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filetouse</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">outputdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
+</span><span class='line'>      <span class="n">fileExist</span> <span class="o">=</span> <span class="s">&quot;true&quot;</span>
+</span><span class='line'>      <span class="c"># ProxyServer finds a cache hit and generates a response message</span>
+</span><span class='line'>      <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;HTTP/1.0 200 OK</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;Content-Type:text/html</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="c"># Fill in start. # PART 3</span>
+</span><span class='line'>      <span class="c"># Fill in end.</span>
+</span><span class='line'>      <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Read from cache&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="c"># Error handling for file not found in cache</span>
+</span><span class='line'>    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">fileExist</span> <span class="o">==</span> <span class="s">&quot;false&quot;</span><span class="p">:</span>
+</span><span class='line'>        <span class="c"># Create a socket on the proxyserver</span>
+</span><span class='line'>        <span class="c"># c = # Fill in start. # Fill in end. # PART 4</span>
+</span><span class='line'>        <span class="n">hostn</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;www.&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">print</span> <span class="p">(</span><span class="n">hostn</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">try</span><span class="p">:</span>
+</span><span class='line'>          <span class="c"># Connect to the socket to port 80</span>
+</span><span class='line'>          <span class="c"># Fill in start. # PART 5</span>
+</span><span class='line'>          <span class="c"># Fill in end.</span>
+</span><span class='line'>          <span class="c"># Create a temporary file on this socket and ask port 80 for the file requested by the client</span>
+</span><span class='line'>          <span class="n">fileobj</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;rwb&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">strHeader</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;GET &quot;</span><span class="o">+</span><span class="s">&quot;http://&quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">fileobj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strHeader</span><span class="p">)</span>
+</span><span class='line'>          <span class="c"># Read the response into buffer</span>
+</span><span class='line'>          <span class="c"># Fill in start. # PART 6</span>
+</span><span class='line'>          <span class="c"># Fill in end.</span>
+</span><span class='line'>          <span class="c"># Create a new file in the cache for the requested file.</span>
+</span><span class='line'>          <span class="c"># Also send the response in the buffer to client socket</span>
+</span><span class='line'>          <span class="c"># and the corresponding file in the cache</span>
+</span><span class='line'>          <span class="n">tmpFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;./&quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="c"># Fill in start. # PART 7</span>
+</span><span class='line'>          <span class="c"># Fill in end.</span>
+</span><span class='line'>        <span class="k">except</span><span class="p">:</span>
+</span><span class='line'>         <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Illegal request&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>         <span class="c"># HTTP response message for file not found</span>
+</span><span class='line'>         <span class="c"># Fill in start. # PART 8</span>
+</span><span class='line'>         <span class="c"># Fill in end.</span>
+</span><span class='line'>         <span class="c"># Close the client and the server sockets</span>
+</span><span class='line'>         <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span class='line'>  
+</span><span class='line'>  <span class="c"># Fill in start. # PART 9</span>
+</span><span class='line'>  <span class="c"># Fill in end.</span>
+</span></code></pre></td></tr></table></div></figure>
 
-# Create a server socket, bind it to a port and start listening 
-tcpSerSock = socket(AF_INET, SOCK_STREAM) 
-# Fill in start.
-# PART 1
-# Fill in end. 
-while 1: 
-  # Strat receiving data from the client
-  print ("Ready to serve...")
-  tcpCliSock, addr = tcpSerSock.accept()
-  message = # PART 2
-  print (message)
-  # Extract the filename from the given message
-  print (message.split()[1])
-  filename = message.split()[1].partition("/")[2]
-  print (filename)
-  fileExist = "false"
-  filetouse = "/" + filename
-  print (filetouse)
-
-  try:
-    # Check wether the file exist in the cache
-    f = open(filetouse[1:], "r")
-    outputdata = f.readlines()
-    fileExist = "true"
-    # ProxyServer finds a cache hit and generates a response message
-    tcpCliSock.send("HTTP/1.0 200 OK\r\n")
-    tcpCliSock.send("Content-Type:text/html\r\n")
-    # Fill in start. # PART 3
-    # Fill in end.
-    print ("Read from cache")
-    # Error handling for file not found in cache
-  except IOError:
-    if fileExist == "false":
-      # Create a socket on the proxyserver
-      # c = # Fill in start. # Fill in end. # PART 4
-      hostn = filename.replace("www.","",1)
-      print (hostn)
-      try:
-        # Connect to the socket to port 80
-        # Fill in start. # PART 5
-        # Fill in end.
-        # Create a temporary file on this socket and ask port 80 for the file requested by the client
-        fileobj = c.makefile('rwb', 0)
-        strHeader=str.encode("GET "+"http://" + filename + " HTTP/1.0\n\n")
-        fileobj.write(strHeader)
-        # Read the response into buffer
-        # Fill in start. # PART 6
-        # Fill in end.
-        # Create a new file in the cache for the requested file.
-        # Also send the response in the buffer to client socket
-        # and the corresponding file in the cache
-        tmpFile = open("./" + filename,"wb")
-        # Fill in start. # PART 7
-        # Fill in end.
-      except:
-       print ("Illegal request")
-    else:
-       # HTTP response message for file not found
-       # Fill in start. # PART 8
-       # Fill in end.
-       # Close the client and the server sockets
-       tcpCliSock.close()
-
-# Fill in start. # PART 9
-# Fill in end.
-</code></pre>
 
 <p>Mari kita mulai mengoding ~</p>
 
@@ -216,9 +286,12 @@ while 1:
 
 <p>Bagian yang paling mudah. Karena proxy bertindak seolah-olah sebagai server terhadap client, maka proxy harus membuka koneksi port ke client.</p>
 
-<pre><code>tcpSerSock.bind(("127.0.0.1", 8888))
-tcpSerSock.listen(10)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="n">tcpSerSock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">))</span>
+</span><span class='line'>  <span class="n">tcpSerSock</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Sepertinya baris kode tersebut self-explanatory, tidak perlu dijelaskan. Mungkin yang perlu Anda perhatikan di bagian <code>listen</code>. Apa maksud dari angka di <code>listen</code>? Baca <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.listen">dokumentasinya</a> saja ya :D</p>
 
@@ -229,10 +302,14 @@ Listen for connections made to the socket. The backlog argument specifies the ma
 
 <p>Bagian ini adalah bagian menerima koneksi dari client. Bagian ini agak tricky, tapi kita mulai dengan hal yang paling sampah terlebih dahulu:</p>
 
-<pre><code>  data = tcpCliSock.recv(10)
-  print(data)
-  message = data
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="n">data</span> <span class="o">=</span> <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
+</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="n">data</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Mari kita coba bermain dengan curl lagi (jangan lupa menjalankan script python kesayangan kita ini terlebih dahulu). Tentu saja Anda dapat mengujinya dengan browser, tetapi buat saya atas-enter-atas-enter lebih menyenangkan daripada Alt-tab-mouse-klikkiri-go-f5-ctrlF5.</p>
 
@@ -250,18 +327,30 @@ Receive data from the socket. The return value is a bytes object representing th
 
 <p>Kalau begitu, sebagaimana kita membaca file, mari kita baca socket hingga tidak ada isinya lagi. Ubah sedikit kodenya:</p>
 
-<pre><code>  emptybyte = False
-  message = bytes()
-  while (not emptybyte):
-    chunk = tcpCliSock.recv(16)
-    print ("Chunk is")
-    print (chunk)
-    if chunk == b'':
-      emptybyte = True
-    else:
-      message += chunk
-  print(message)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">False</span>
+</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">emptybyte</span><span class="p">):</span>
+</span><span class='line'>      <span class="n">chunk</span> <span class="o">=</span> <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+</span><span class='line'>        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Chunk is&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">print</span> <span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">chunk</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;&#39;</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'>      <span class="k">else</span><span class="p">:</span>
+</span><span class='line'>        <span class="n">message</span> <span class="o">+=</span> <span class="n">chunk</span>
+</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><strong>Catatan Tambahan:</strong> Sebetulnya Anda bisa saja memperbesar jumlah buffernya dan tidak melakukan looping, tetapi itu bukan implementasi yang baik. Meski implementasi chunk di sini lebih baik dibandingkan memperbesar buffer and do nothing, Anda tetap harus memikirkan kondisi terburuk semisal koneksi terputus di tengah jalan. Meski demikian, kita akan mengabaikan hal-hal seperti ini. Kita tidak sedang membuat proxy terbaik, tetapi kita sedang membuat proof of concept dari proxy.</p>
 
@@ -294,16 +383,25 @@ b' Keep-Alive\r\n\r\n'
 
 <p>Client selesai memberikan informasi &ldquo;gw butuh apa&rdquo; setelah ada <code>\r\n\r\n</code> sesuai dengan spesifikasi <a href="http://www.apps.ietf.org/rfc/rfc3507.html">RFC 3507</a>. Maka dari itu, mari kita ubah sedikit kodenya:</p>
 
-<pre><code>  emptybyte = False
-  message = bytes()
-  while (not emptybyte):
-    chunk = tcpCliSock.recv(16)
-    print("Chunk is ")
-    print(chunk)
-    message += chunk
-    if message.endswith(bytes('\r\n\r\n'.encode('utf-8'))):
-      emptybyte = True
-</code></pre>
+<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>emptybyte = False
+</span><span class='line'>    message = bytes()
+</span><span class='line'>    while (not emptybyte):
+</span><span class='line'>      chunk = tcpCliSock.recv(16)
+</span><span class='line'>      print("Chunk is ")
+</span><span class='line'>      print(chunk)
+</span><span class='line'>      message += chunk
+</span><span class='line'>      if message.endswith(bytes('\r\n\r\n'.encode('utf-8'))):
+</span><span class='line'>        emptybyte = True</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Hasilnya:</p>
 
@@ -321,10 +419,14 @@ TypeError: expected bytes, bytearray or buffer compatible object
 
 <p>Terjadi kesalahan karena pada template asli, program berusaha untuk menganalisis data bytes yang dianggap sebagai string. Mudah sekali, ubah saja menjadi string</p>
 
-<pre><code>message_raw = message
-message = message.decode('utf-8')
-print (message)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="n">message_raw</span> <span class="o">=</span> <span class="n">message</span>
+</span><span class='line'>  <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Message asli saya preserve dalam message_raw untuk kebutuhan kita di masa depan. Anda akan mengerti setelah beberapa puluh paragraf ini.</p>
 
@@ -356,10 +458,14 @@ print (message)
 
 <p>Tetapi sebelumnya, saya melihat kejanggalan di template ini. Mari kita lihat isi dari <code>filename</code> dari <code>hostn</code>:</p>
 
-<pre><code>  hostn = filename.replace("www.","",1)
-  print("filename is " + filename)
-  print("hostn is " + hostn)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>      <span class="n">hostn</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;www.&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">print</span><span class="p">(</span><span class="s">&quot;filename is &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>
+</span><span class='line'>      <span class="k">print</span><span class="p">(</span><span class="s">&quot;hostn is &quot;</span> <span class="o">+</span> <span class="n">hostn</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Hasilnya:</p>
 
@@ -378,23 +484,34 @@ hostn is /mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
 
 <p>Import modul berikut:</p>
 
-<pre><code>from urllib.parse import urlparse
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Ubah beberapa bagian di bawah Part 1:</p>
 
-<pre><code>  print (message.split()[1])
-  parsed_url = urlparse(message.split()[1])
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+</span><span class='line'>    <span class="n">parsed_url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Di part 4 menjadi:</p>
 
-<pre><code>  hostn = parsed_url.netloc
-  filename = parsed_url.path
-  port = 80 if None == parsed_url.port else parsed_url.port
-  full_path = hostn + filename
-  c = socket(AF_INET, SOCK_STREAM)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>      <span class="n">hostn</span> <span class="o">=</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">netloc</span>
+</span><span class='line'>      <span class="n">filename</span> <span class="o">=</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">path</span>
+</span><span class='line'>      <span class="n">port</span> <span class="o">=</span> <span class="mi">80</span> <span class="k">if</span> <span class="bp">None</span> <span class="o">==</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">port</span> <span class="k">else</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">port</span>
+</span><span class='line'>    <span class="n">full_path</span> <span class="o">=</span> <span class="n">hostn</span> <span class="o">+</span> <span class="n">filename</span>
+</span><span class='line'>      <span class="n">c</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Jalankan kembali proxynya. Tadaaa!</p>
 
@@ -412,8 +529,10 @@ hostn is mahasiswa.cs.ui.ac.id
 
 <p>Nothing to do here:</p>
 
-<pre><code>c.connect(hostn, port)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostn</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Melakukan sambungan harus dalam blok try-catch.</p>
 
@@ -421,11 +540,16 @@ hostn is mahasiswa.cs.ui.ac.id
 
 <p>Saya menemukan kesalahan dalam template yang menggunakkan <code>\n\n</code> untuk line ending (yang seharusnya <code>\r\n</code>). Kemudian tidak adanya request header <code>Host</code> yang mana itu dibutuhkan oleh dispatcher / router untuk web worker. Baiklah, mari kita rubah sedikit pada bagian tersebut.</p>
 
-<pre><code>    strHeader = str.encode("GET " + full_path + " HTTP/1.0\r\n")
-    strHeader += str.encode("Host: " + hostn + "\r\n")
-    strHeader += str.encode("\r\n")
-    fileobj.write(strHeader)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="n">strHeader</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;GET &quot;</span> <span class="o">+</span> <span class="n">full_path</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">strHeader</span> <span class="o">+=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;Host: &quot;</span> <span class="o">+</span> <span class="n">hostn</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">strHeader</span> <span class="o">+=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">fileobj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strHeader</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>Part 6</h2>
 
@@ -433,8 +557,10 @@ hostn is mahasiswa.cs.ui.ac.id
 
 <blockquote><p><strong>Mengapa saat koneksi Client-Proxy kita tidak bisa menggunakkan makefile?</strong> Saya belum tahu. Dugaan saya adalah karena client masih menunggu jawaban, tetapi mungkin Anda tertarik untuk mencoba pendekatan yang lain. Sedangkan di sini yang menjadi client adalah proxy, dan proxy sudah mengirimkan semua informasi header yang sehingga penantian jawabannya adalah suatu kepastian (HTTP Request sudah dikirim semua, tinggal menunggu response).</p></blockquote>
 
-<pre><code>    tcpCliSock.sendall(fileobj.readall())
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">fileobj</span><span class="o">.</span><span class="n">readall</span><span class="p">())</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Btw, untuk sementara Anda bisa mengcomment bagian tmpFile agar program bisa berjalan dengan baik.</p>
 
@@ -483,12 +609,18 @@ hostn is mahasiswa.cs.ui.ac.id
 
 <p>Berhubung di tugas disebutkan tidak ada data yang disimpan untuk halaman 404, maka ya cukup jangan simpan jika itu halaman 404. Tetapi saya agak bingung bagaimana mengimplementasi ini. Jadi saya justru melakukan perubahan di Part 6:</p>
 
-<pre><code>    if (response.decode('utf-8').split()[1].startswith('4')):
-      tcpCliSock.send("HTTP/1.1 404 Not Found".encode('utf-8'))
-      tcpCliSock.send("\0\r\n\r\n".encode('utf-8'))
-      tcpCliSock.close()
-      continue
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;4&#39;</span><span class="p">)):</span>
+</span><span class='line'>          <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;HTTP/1.1 404 Not Found&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+</span><span class='line'>          <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\0\r\n\r\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+</span><span class='line'>          <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span><span class='line'>          <span class="k">continue</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Bukan hanya 404, melainkan juga 4xx. Hal ini karena status 4xx menandakan kesalahan di permintaan.</p>
 
@@ -551,36 +683,63 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
 
 <p>Ini karena <code>\0\r\n\r\n</code> itu sebagai penanda antara request body dan request header. Maka dari itu, agar loopnya berjalan dengan baik, kita ubah sedikit programnya di bagian loop penerima request: Saya juga menambahkan <code>import re</code> di bagian tas karena kita akan menggunakkan regex agar hidup kita lebih menyenangkan</p>
 
-<pre><code>  CHUNK_SIZE = 16
-  emptybyte = False
-  message = bytes()
-  content_length = 0
-  while (not emptybyte):
-    chunk = tcpCliSock.recv(CHUNK_SIZE)
-    message += chunk
-    # Receive everything until the end of the time. No just kidding
-    # Until the end of HTTP Request. Please read RFC 3507
-    if message.endswith(b'\r\n\r\n'.encode('utf-8')):
-      emptybyte = True
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
+</span><span class='line'>    <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">False</span>
+</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
+</span><span class='line'>    <span class="n">content_length</span> <span class="o">=</span> <span class="mi">0</span>
+</span><span class='line'>    <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">emptybyte</span><span class="p">):</span>
+</span><span class='line'>      <span class="n">chunk</span> <span class="o">=</span> <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">)</span>
+</span><span class='line'>      <span class="n">message</span> <span class="o">+=</span> <span class="n">chunk</span>
+</span><span class='line'>      <span class="c"># Receive everything until the end of the time. No just kidding</span>
+</span><span class='line'>      <span class="c"># Until the end of HTTP Request. Please read RFC 3507</span>
+</span><span class='line'>      <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n\r\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)):</span>
+</span><span class='line'>        <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'>  
+</span><span class='line'>      <span class="c"># Detect end of POST request</span>
+</span><span class='line'>      <span class="n">regex_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&quot;Content-Length: ([0-9]+)&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
+</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">regex_match</span><span class="p">):</span>
+</span><span class='line'>        <span class="n">content_length</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="p">(</span><span class="n">regex_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
+</span><span class='line'>        <span class="c"># Check if everything has been send as expected</span>
+</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="o">-</span><span class="n">content_length</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="n">content_length</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n\r\n</span><span class="s">&#39;</span><span class="p">):</span>
+</span><span class='line'>          <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
+</span></code></pre></td></tr></table></div></figure>
 
-    # Detect end of POST request
-    regex_match = re.search(r"Content-Length: ([0-9]+)", message.decode('utf-8'))
-    if (regex_match):
-      content_length = (int) (regex_match.group(1))
-      # Check if everything has been send as expected
-      if (message[-content_length-4:-content_length] == b'\r\n\r\n'):
-        emptybyte = True
-</code></pre>
 
 <p>Dan juga jangan lupa agar proxy mengirim ke server juga dengan request body dari client</p>
 
-<pre><code>    fileobj = c.makefile('rwb', 0)
-    request_name = message_raw.split(b' ', 2)[0]
-    rest_of_request = message_raw.split(b'\r\n', 1)[1]
-    strHeader = str.encode(request_name.decode('utf-8') + " " + filename + " HTTP/1.0\r\n")
-    strHeader += rest_of_request
-    fileobj.write(strHeader)
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="n">fileobj</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;rwb&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">request_name</span> <span class="o">=</span> <span class="n">message_raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+</span><span class='line'>        <span class="n">rest_of_request</span> <span class="o">=</span> <span class="n">message_raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
+</span><span class='line'>        <span class="n">strHeader</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">request_name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
+</span><span class='line'>        <span class="n">strHeader</span> <span class="o">+=</span> <span class="n">rest_of_request</span>
+</span><span class='line'>        <span class="n">fileobj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strHeader</span><span class="p">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>Part 7: Cache Write</h2>
 
@@ -590,28 +749,45 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
 
 <p>Btw, saya juga tidak menyimpan cache apabila dia bukan method GET. Ya, agar lebih menyenangkan saja. Mosok iya kita ngirim form, terus dibalasnya lewat cache. Ibarat anda upload tugas, kemudian hasilnya selalu upload berhasil padahal sebenarnya telah lewat deadline (hal ini karena proxy membaca dari cache).</p>
 
-<pre><code>    if (request_name != b'POST'):
-      tmpFile = open("./" + full_path.replace("/", ""),"wb")
-      tmpFile.write(response)
-      tmpFile.close()
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">request_name</span> <span class="o">!=</span> <span class="n">b</span><span class="s">&#39;POST&#39;</span><span class="p">):</span>
+</span><span class='line'>          <span class="n">tmpFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;./&quot;</span> <span class="o">+</span> <span class="n">full_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">),</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">tmpFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
+</span><span class='line'>          <span class="n">tmpFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>Part 3: Cache Read</h2>
 
 <p>Tidak ada yang istimewa di sini ~</p>
 
-<pre><code># Check wether the file exist in the cache
-f = open(full_path.replace("/", ""), "rb")
-fileExist = True
-# ProxyServer finds a cache hit and generates a response message
-data = f.read()
-print(data)
-tcpCliSock.sendall(data)
-# Fill in start.
-# Fill in end.
-print ("Read from cache")
-tcpCliSock.close()
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+</pre></td><td class='code'><pre><code class='python'><span class='line'>    <span class="c"># Check wether the file exist in the cache</span>
+</span><span class='line'>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">),</span> <span class="s">&quot;rb&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">fileExist</span> <span class="o">=</span> <span class="bp">True</span>
+</span><span class='line'>    <span class="c"># ProxyServer finds a cache hit and generates a response message</span>
+</span><span class='line'>    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
+</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
+</span><span class='line'>    <span class="c"># Fill in start.</span>
+</span><span class='line'>    <span class="c"># Fill in end.</span>
+</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Read from cache&quot;</span><span class="p">)</span>
+</span><span class='line'>    <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <h2>Done!</h2>
 
