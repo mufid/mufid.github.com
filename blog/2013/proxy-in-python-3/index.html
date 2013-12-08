@@ -111,9 +111,13 @@
 <!-- more -->
 
 
+<h2>The Tools</h2>
+
+<p>Agar hidup ini lebih menyenangkan saat menggunakkan Windows, saya menggunakkan beberapa perkakas seperti Mingw dan PyCharm. Semua tools tersebut tersedia gratis di internet.</p>
+
 <h2>The Proxy</h2>
 
-<p><code>mahasiswa.cs.ui.ac.id</code> adalah sebuah server web yang melayani halaman <code>public_html</code> dari setiap mahasiswa CSUI ke internet publik. Mari kita lihat apa yang terjadi apabila saya membuka halaman web mahasiswa.cs.ui.ac.id. Tentu saja, di sini saya memakai &ldquo;debug mode&rdquo;. Kita gunakan <code>curl</code> dengan verbose mode agar dapat mengetahui apa yang sebenarnya terjadi.</p>
+<p><code>mahasiswa.cs.ui.ac.id</code> adalah sebuah server web yang melayani halaman <code>public_html</code> dari setiap <code>~</code> (home folder) mahasiswa CSUI ke internet publik. Mari kita lihat apa yang terjadi apabila saya membuka halaman web mahasiswa.cs.ui.ac.id. Tentu saja, di sini saya memakai &ldquo;debug mode&rdquo;. Kita gunakan <code>curl</code> dengan verbose mode agar dapat mengetahui apa yang sebenarnya terjadi.</p>
 
 <pre><code>D:\tmp&gt;curl -v mahasiswa.cs.ui.ac.id
 * Adding handle: conn: 0x4c2cf0
@@ -123,7 +127,7 @@
 * - Conn 0 (0x4c2cf0) send_pipe: 1, recv_pipe: 0
 * About to connect() to mahasiswa.cs.ui.ac.id port 80 (#0)
 *   Trying 152.118.148.93...
-* Connected to mahasiswa.cs.ui.ac.id (152.118.148.93) port 80 (#0)
+* Connected to mahasiswa.cs.ui.ac.id (152.118.148.93) port a80 (#0)
 &gt; GET / HTTP/1.1
 &gt; User-Agent: curl/7.30.0
 &gt; Host: mahasiswa.cs.ui.ac.id
@@ -692,6 +696,17 @@ tcpCliSock.close()
 <h2>Done!</h2>
 
 <p>Ya, itu adalah penjelasan mengenai proxy jadi-jadian kita. Tidak sempurna memang, tetapi setidaknya Anda telah mengetahui bagaimana konsep HTTP bekerja.</p>
+
+<h2>Some Trouble(shooting)</h2>
+
+<ul>
+<li>Saat menjalankan di linux, socket tidak ditutup secara langsung jika kita mematikan proses pythonnya. Entah itu yang disebut zombie atau apa, tetapi yang pasti saya masih harus <code>kill -9</code> atau <code>killall</code> agar proxynya dapat berjalan setelah sebelumnya dimatikan.</li>
+<li>Dalam ngoding, saya kesulitan memahami tipe data Python. Akibatnya, saya menemui beberapa run time error terkait ini. Literal di python didefinisikan sebagai <code>L'sesuatu'</code> dengan <code>L</code> adalah simbol literalnya dan <code>sesuatu</code> adalah datanya. Anda tidak bisa melakukan concat (penggabungan) <code>b'Halo' + ' Dunia'</code>. Alih-alih, Anda harus melakukan penggabungan dalam tipe data yang sama</li>
+<li>Program proxy di atas tidak sempurna dan hanya diuji membuka <code>mahasiswa.cs.ui.ac.id/~muhammad.mufid</code>. Saat membuka web-web yang kompleks (misalnya scele), program tidak berjalan dengan baik. Masalah concurrency, i18n, tidak ditangani dengan baik.</li>
+<li>Melakukan decode dalam UTF-8 adalah ide yang buruk, tidak semua data diterima dalam UTF-8. Workaroundnya adalah hanya menggunakkan <code>byte</code> dalam setiap urusan pertukaran dan pemrosesan data.</li>
+<li>Part 8, seharusnya saya isi apa?</li>
+</ul>
+
 </div>
 
 
