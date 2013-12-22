@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2013-12-08T18:09:28+07:00</updated>
+  <updated>2013-12-22T07:01:44+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -971,7 +971,9 @@ dari Videoku. Seems they&rsquo;re not digging into security.</p>
     <link href="http://mufid.github.io/2013/intern/"/>
     <updated>2013-03-26T07:55:00+07:00</updated>
     <id>http://mufid.github.io/2013/intern</id>
-    <content type="html"><![CDATA[<p>I am Muhammad Mufid Afif. Currently i am third year student in Faculty of Computer Science.</p>
+    <content type="html"><![CDATA[<p>Update: Thanks <a href="http://turbo2010.wordpress.com/2013/06/24/kerja-praktik-di-pt-ice-house-cari-dapat-nyaris-telat-dan-jatuh-cinta/">IceHouse</a> for giving me opportunity to have great work! :D</p>
+
+<p>I am Muhammad Mufid Afif. Currently i am third year student in Faculty of <F24>Computer Science.</p>
 
 <p>I love to do hacks. See my <a href="https://github.com/mufid">Github</a> for my latest hacks. I love hacks in PHP and Rails. I love user interface design, though i am not master in design.</p>
 
