@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2013-12-22T07:01:44+07:00</updated>
+  <updated>2014-01-17T13:08:06+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,19 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Twitter dan Kelucuannya]]></title>
+    <link href="http://mufid.github.io/2014/twitter-wut/"/>
+    <updated>2014-01-17T13:01:00+07:00</updated>
+    <id>http://mufid.github.io/2014/twitter-wut</id>
+    <content type="html"><![CDATA[<p><em>Coba deh kosongin user description Twitter</em></p>
+
+<p><img src="http://mufid.github.io/images/post/twitter-konyol.png" alt="twitter-konyol" /></p>
+
+<p>Wow Twitter, selera humornya bagus sekali</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Membuat Proxy Server di Python 3]]></title>
@@ -1634,32 +1647,6 @@ Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
 
 
 <p><em>Hiring a programmer is about engineering process. Make use of available tools is about getting-things-done process.</em></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Ngeblog? Command Line Donk]]></title>
-    <link href="http://mufid.github.io/2012/ngeblog-command-line-donk/"/>
-    <updated>2012-12-02T11:08:00+07:00</updated>
-    <id>http://mufid.github.io/2012/ngeblog-command-line-donk</id>
-    <content type="html"><![CDATA[<p>Namanya pakai <code>octopress</code>: <a href="http://octopress.org/">http://octopress.org/</a></p>
-
-<h1>You Control Your Blog. Every data is on your hand</h1>
-
-<p>Yep. Semua data tersimpan secara offline. Anda memegang data Anda sendiri. Menyenangkan sekali yah?</p>
-
-<p>Kalau bikin post tinggal:</p>
-
-<pre><code>rake new_post["Ngeblog? Command Line Donk!"]
-</code></pre>
-
-<p>Kalau mau upload ke server tinggal</p>
-
-<pre><code>rake generate
-rake deploy
-</code></pre>
-
-<p>Selesai.</p>
 ]]></content>
   </entry>
   
