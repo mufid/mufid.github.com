@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2014-04-11T05:55:49+07:00</updated>
+  <updated>2014-04-11T05:58:39+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -25,7 +25,7 @@ menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p
 
 <h3><a href="https://github.com/umano/AndroidSlidingUpPanel/">Android Sliding Up Panel</a></h3>
 
-<p><img src="Sliding%20Up%20Panel" alt="/images/post/slidinguppanel.png" /></p>
+<p><img src="http://mufid.github.io/images/post/slidinguppanel.png" alt="sliding up panel" /></p>
 
 <p>Mari kita review beberapa hal tentang repo ini:</p>
 
