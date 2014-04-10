@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2014-04-11T06:01:02+07:00</updated>
+  <updated>2014-04-11T06:02:22+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -34,7 +34,7 @@ menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p
 akan kita bahas (kecuali kita sangat iseng)</li>
 <li><strong>Struktur kode:</strong> Saya tidak menganalisis secara mendalam kodenya, karena
 saya juga mau berangkat (well, alhamdulillah masih bisa nulis pagi-pagi).
-Tetapi Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</li>
+Tetapi <a href="https://github.com/umano/AndroidSlidingUpPanel/blob/master/library/src/com/sothree/slidinguppanel/SlidingUpPanelLayout.java">Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</a></li>
 <li><strong>Petunjuk Instalasi:</strong> ade ternyata tidak melihat bahwa repo ini sudah
 tersedia di Maven. Saya juga tidak menemukan di awalnya.
 <a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
