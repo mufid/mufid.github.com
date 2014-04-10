@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2014-03-23T11:37:05+07:00</updated>
+  <updated>2014-04-11T05:55:49+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,42 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Repo Review: Sliding Up (Android)]]></title>
+    <link href="http://mufid.github.io/2014/sliding-up/"/>
+    <updated>2014-04-11T05:41:00+07:00</updated>
+    <id>http://mufid.github.io/2014/sliding-up</id>
+    <content type="html"><![CDATA[<p>Anda mengetahui bahwa Google Maps dan Google Play Music memiliki fitur
+sliding up yang sangat keren. Anda geser bar bawah, Anda akan diberikan
+fragment yang berbeda. Rekan seperjuangan Saya, <a href="https://github.com/des-k">des-k</a>,
+menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p>
+
+<h3><a href="https://github.com/umano/AndroidSlidingUpPanel/">Android Sliding Up Panel</a></h3>
+
+<p><img src="Sliding%20Up%20Panel" alt="/images/post/slidinguppanel.png" /></p>
+
+<p>Mari kita review beberapa hal tentang repo ini:</p>
+
+<ul>
+<li><strong>Kegunaan:</strong> Jelas repo ini sangat berguna, kalau tidak berguna ya tidak
+akan kita bahas (kecuali kita sangat iseng)</li>
+<li><strong>Struktur kode:</strong> Saya tidak menganalisis secara mendalam kodenya, karena
+saya juga mau berangkat (well, alhamdulillah masih bisa nulis pagi-pagi).
+Tetapi Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</li>
+<li><strong>Petunjuk Instalasi:</strong> ade ternyata tidak melihat bahwa repo ini sudah
+tersedia di Maven. Saya juga tidak menemukan di awalnya.
+<a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
+tetapi beberapa sumber mengatakan ini fiktif. Saya pun
+<a href="mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersediadi Maven.</a></li>
+</ul>
+
+
+<p>Di masa depan, mungkin Anda butuh repo ini. Silahkan jangan sungkan men-star repo ini :D.</p>
+
+<p>Gambar dari <a href="https://raw.github.com/umano/AndroidSlidingUpPanel/master/slidinguppanel.png">repo asli</a>.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Internet dan Privasi]]></title>
@@ -1623,25 +1659,6 @@ baru gw beraksi).</li>
 
 <p>Padahal ETA seharusnya mengembalikan waktu absolut, bukan
 waktu relatif.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[CDN 1Cak]]></title>
-    <link href="http://mufid.github.io/2013/cdn-1cak/"/>
-    <updated>2013-01-06T05:33:00+07:00</updated>
-    <id>http://mufid.github.io/2013/cdn-1cak</id>
-    <content type="html"><![CDATA[<pre><code>C:\Users\Mufid&gt;curl --head cdn1.1cak.com
-HTTP/1.1 302 Found
-Date: Sat, 05 Jan 2013 22:15:06 GMT
-Server: Apache/2.2.11 (FreeBSD) mod_ssl/2.2.11 OpenSSL/0.9.8e DAV/2 PHP/5.2.9 with Suhosin-Patch mod_gzip/2.1.0
-X-Powered-By: PHP/5.2.9
-Location: http://cdn1.blog.students.ittelkom.ac.id
-Content-Type: text/html
-Connection: close
-</code></pre>
-
-<p>Wow. :) Nice job, IF Telkom.</p>
 ]]></content>
   </entry>
   
