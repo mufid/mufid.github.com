@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2014-04-11T05:58:39+07:00</updated>
+  <updated>2014-04-11T06:00:00+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -39,7 +39,7 @@ Tetapi Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</l
 tersedia di Maven. Saya juga tidak menemukan di awalnya.
 <a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
 tetapi beberapa sumber mengatakan ini fiktif. Saya pun
-<a href="mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersediadi Maven.</a></li>
+<a href="http://mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersediadi Maven.</a></li>
 </ul>
 
 
