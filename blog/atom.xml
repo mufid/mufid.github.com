@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2014-09-20T08:13:53+07:00</updated>
+  <updated>2014-09-20T08:15:51+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -24,6 +24,9 @@ ajaib, saya browsing apapun terasa cepat sekali.
 Akan tetapi, saya tidak merasa ada penurunan
 kecepatan internet. Saya curiga ada masalah di DNS.
 Oleh karena itu, mari kita cari tahu.</p>
+
+<!-- more -->
+
 
 <p>Pertama, VPN saya <em>by default</em> menggunakan Google
 DNS. Saya pastikan bahwa saya tidak bohong dan
