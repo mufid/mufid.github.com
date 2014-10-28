@@ -5,13 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Aku - Mufid's Code blog</title>
+  <title>A simple pattern in Java: equals - Mufid's Code blog</title>
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="My lovely country is indeed awesome! Source
-More
-">
+  <meta name="description" content="Di Java, kita menggunakan .equals() untuk membandingkan suatu instance apakah bernilai sama atau tidak. Yang masalah adalah ketika Anda membandingkan &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -20,7 +18,7 @@ More
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.io/2014/aku/">
+  <link rel="canonical" href="http://mufid.github.io/2014/pattern-java-equals/">
   <link href="/blog/favicon.png" rel="icon">
   <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/blog/javascripts/modernizr-2.0.js"></script>
@@ -76,7 +74,7 @@ More
   <header>
     
       
-        <h1 class="entry-title">Aku</h1>
+        <h1 class="entry-title">A simple pattern in Java: equals</h1>
       
     
     
@@ -93,7 +91,7 @@ More
   
 
 
-<time datetime="2014-10-12T12:41:00+07:00" pubdate data-updated="true">Oct 12<span>th</span>, 2014</time>
+<time datetime="2014-10-28T20:16:00+07:00" pubdate data-updated="true">Oct 28<span>th</span>, 2014</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -102,12 +100,43 @@ More
   </header>
 
 
-<div class="entry-content"><p><em>My lovely country is indeed awesome!</em></p>
+<div class="entry-content"><p>Di Java, kita menggunakan <code>.equals()</code> untuk membandingkan suatu <em>instance</em> apakah bernilai sama atau tidak. Yang masalah adalah ketika Anda membandingkan nilai null. Mari kita ambil contoh kasus sederhana: validasi apakah suatu email dari user berhak mendapatkan bingkisan spesial atau tidak dari nilai yang sudah ditentukan. Misalnya kodenya seperti ini:</p>
 
-<p><img src="/blog/images/post/indonesia-lang.jpg" alt="" /></p>
+<pre><code>String email = request.getEmail();
+if (email.equals("yui.hirasawa@example.com")) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
 
-<p><a href="https://www.facebook.com/Languages.Alino1/photos/a.320819614683664.71044.318757448223214/670023456429943/?type=1&amp;theater">Source</a>
-<a href="http://www.latg.org/2014/09/indonesian-language.html">More</a></p>
+<p>Ada yang aneh dari kode di atas? Tidak ada. Kode di atas sempurna, sampai Anda menyadari bahwa <strong>email bisa bernilai null</strong>. Akhirnya, equals akan dipanggil ke null. Hal ini menyebabkan NullPointerException. Sehingga, Anda perlu menambahkan hal seperti ini:</p>
+
+<pre><code>String email = request.getEmail();
+if (email == null) {
+  condition.fail();
+  return;
+}
+if (email.equals("yui.hirasawa@example.com")) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>Well&hellip; bisa sih, tapi sebetulnya agak melelahkan. Coba perhatikan bahwa predefined email sudah pasti ada, tetapi email input bisa saja null. Kita bisa mencegah exception karena NullPointerException tanpa menambah baris kode sama sekali:</p>
+
+<pre><code>String email = request.getEmail();
+if ("yui.hirasawa@example.com".equals(email)) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>TL;DR: Di Java, jika Anda menggunakan equals, dan salah satu objek dari dua objek yang dibandingkan mungkin mengandung nilai null, maka <strong>panggil <code>.equals()</code> dari objek yang sudah pasti bukan null</strong>.</p>
+
+<p>Happy Coding!</p>
 </div>
 
 
@@ -130,7 +159,7 @@ More
   
 
 
-<time datetime="2014-10-12T12:41:00+07:00" pubdate data-updated="true">Oct 12<span>th</span>, 2014</time>
+<time datetime="2014-10-28T20:16:00+07:00" pubdate data-updated="true">Oct 28<span>th</span>, 2014</time>
       
 
 
@@ -138,7 +167,7 @@ More
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2014/aku/" data-via="" data-counturl="http://mufid.github.io/2014/aku/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2014/pattern-java-equals/" data-via="" data-counturl="http://mufid.github.io/2014/pattern-java-equals/" >Tweet</a>
   
   
   
@@ -147,10 +176,8 @@ More
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2014/speedy-dns-slow/" title="Previous Post: DNS Speedy Lambat">&laquo; DNS Speedy Lambat</a>
+        <a class="basic-alignment left articlenav" href="/blog/2014/aku/" title="Previous Post: Aku">&laquo; Aku</a>
       
-      
-        <a class="basic-alignment right articlenav" href="/blog/2014/pattern-java-equals/" title="Next Post: A simple pattern in Java: equals">A simple pattern in Java: equals &raquo;</a>
       
     </p>
   </footer>
@@ -186,8 +213,8 @@ More
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mufid.github.io/2014/aku/';
-        var disqus_url = 'http://mufid.github.io/2014/aku/';
+        var disqus_identifier = 'http://mufid.github.io/2014/pattern-java-equals/';
+        var disqus_url = 'http://mufid.github.io/2014/pattern-java-equals/';
         var disqus_script = 'embed.js';
       
     (function () {
