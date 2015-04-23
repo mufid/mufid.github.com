@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2015-04-22T05:42:56+07:00</updated>
+  <updated>2015-04-23T21:41:54+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,112 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Having Fun with Java's Null]]></title>
+    <link href="http://mufid.github.io/2015/null/"/>
+    <updated>2015-04-23T20:52:00+07:00</updated>
+    <id>http://mufid.github.io/2015/null</id>
+    <content type="html"><![CDATA[<p>So lately i have been diving really deep (or not really) into Java. I found Java&rsquo;s null is interesting. I think, i hate <code>NullPointerException</code> very much. And most of the time, i hate my own way to deal with those things.</p>
+
+<p>Btw, if you hate compiling Java&rsquo;s code just to test a one-line command, you may use <a href="https://github.com/albertlatacz/java-repl">JavaRepl</a>, which will give you an interactive mode of Java compiler.</p>
+
+<h2>String Concatenation</h2>
+
+<p>This is interesting. If you run</p>
+
+<pre><code>String result = object + " is cool";
+</code></pre>
+
+<p>will invoke <code>toString</code> of the object <strong>only if the object is not null</strong>. If the object is null, <code>toString</code> will not be invoked and it will be replaced with <code>null</code> instead</p>
+
+<pre><code>String result = new Object() + " is cool";
+java.lang.Object@55c8a526 is cool
+
+String result = new Object().toString() + " is cool";
+java.lang.Object@55c8a526 is cool
+
+String result = null + " is cool";
+null is cool
+</code></pre>
+
+<p>But, you can&rsquo;t really invoke toString :))</p>
+
+<pre><code>Object o = null;
+String result = o.toString() + " is cool";
+java.lang.NullPointerException
+</code></pre>
+
+<h2>Object Unboxing</h2>
+
+<p>Well, since my code may be executed at another machine, serializing is very usual. And sometimes, i find it is also interesting how Java&rsquo;s boxing and unboxing work.</p>
+
+<p>This routine will always work:</p>
+
+<pre><code>long l = ...;
+Long boxedLong = l;
+</code></pre>
+
+<p>But how about this?</p>
+
+<pre><code>Long boxedLong = ...;
+long l = boxedLong;
+</code></pre>
+
+<p>Yes, as you might expect, it may throw <code>NullPointerException</code>. Let&rsquo;s play with it:</p>
+
+<pre><code>long l = (Long) null;
+java.lang.NullPointerException
+</code></pre>
+
+<p>It is not fun. Really. For primitive-in-boxed object, we may want to use <code>itsTypeValue</code>. But in fact, you can&rsquo;t do that with Long. Meanwhile, you can do that with Boolean.</p>
+
+<pre><code>long l = ((Long) null).longValue();
+java.lang.NullPointerException
+
+long l = new Long(null).longValue();
+java.lang.NumberFormatException: null
+
+new Boolean(null).booleanValue();
+false
+</code></pre>
+
+<p>What really happened to those? I don&rsquo;t know.</p>
+
+<h2>if not null and not null</h2>
+
+<p>Sometimes, my flawless code merely run into this horrible lengthy operators:</p>
+
+<pre><code>if (provider != null &amp;&amp; provider.getGlobalInfo() != null) {
+    InfoBase globalInfo = provider.getGlobalInfo();
+    doSomethingWith(globalInfo);
+}
+</code></pre>
+
+<p>Well&hellip; what if i have something longer than that? Simply add null check before <code>doSomethingWith(that)</code>!</p>
+
+<pre><code>if (provider != null &amp;&amp; provider.getProviderCoordinate() != null &amp;&amp; provider.getProviderCoordinate().getLatidudeBase() != null ) {
+    Coordinate c = provider.getProviderCoordinate().getLatidudeBase();
+    doSomethingWith(globalInfo);
+}
+</code></pre>
+
+<p>Well.. still too long. <strong>You don&rsquo;t really need to get into that detail.</strong> Take care of your object&rsquo;s contract. Why don&rsquo;t we give a default value instead of null?</p>
+
+<pre><code>class ProviderBase {
+  InfoBase globalInfo;
+  InfoBase getGlobalIInfo() {
+    if (globalInfo == null) {
+      return InfoFactory.getDefaultInfo();
+    }
+    return globalInfo;
+  }
+}
+</code></pre>
+
+<p>But still, <strong>if null is expected, then handle it with a better way.</strong> Just because i hate NPE, it is just better to give default value because most of the time null data is caused by serialization of not-yet-completed data model migration. You might have a better way other than default value (like, Annotation?), but you get the idea.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Instant Messaging (Including Whatsapp) Is Not For Mobile]]></title>
@@ -1655,176 +1761,6 @@ find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
 <p>Meski Internet Explorer memiliki masalah pada pemanggilan AJAX (karena meski header ini sudah diset, IE tetap saja mengambil dari cache), dari tautan yang saya temui ada <a href="https://devcentral.f5.com/blogs/us/fixing-internet-explorer-amp-ajax">empat solusi atas semua ini</a>.</p>
 
 <p>Sumber: <a href="http://ellislab.com/forums/viewthread/155976/">http://ellislab.com/forums/viewthread/155976/</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[FR: From Jakarta, Depok, Jogjakarta]]></title>
-    <link href="http://mufid.github.io/2013/fr-jogja/"/>
-    <updated>2013-02-09T07:14:00+07:00</updated>
-    <id>http://mufid.github.io/2013/fr-jogja</id>
-    <content type="html"><![CDATA[<p>BONUS: <a href="http://rizalbahriawan.blogspot.com/2013/02/field-report-fr-yogyakarta-north-to.html">Lihat juga FR-nya Rizal</a></p>
-
-<p>Jogjakarta murah? Kenapa tidak? Tanggal 5 Februari kemarin, Saya bersama teman-teman pergi ke Jogjakarta sebagai bentuk akhir perpisahan <a href="http://fuki.cs.ui.ac.id">FUKI 2012</a>. Ini adalah perjalanan <em>backpacking</em> kedua Saya, dan Alhamdulillah Saya bisa kembali lagi ke Jakarta dengan selamat.</p>
-
-<p>Berikut adalah Field Report untuk Jogjakarta</p>
-
-<!-- more -->
-
-
-<h3>Hari Pertama: 5 Februari 2013</h3>
-
-<h4>15.30: KRL</h4>
-
-<p>Setelah shalat Ashar, kita berangkat dengan KRL dari stasiun UI ke stasiun Gondangdia. Kita harus sampai di stasiun Senen pada pukul 20.35 (ya, itulah waktu berangkat keretanya). Sekitar pukul 16.30 kita sampai di stasiun Gondangdia dan naik P20 untuk ke stasiun senen. Sebetulnya perjalanannya tidak sampai 20 menit untuk rute P20 (Gondangdia-Terminal Senen) dan tidak sampai 30 menit untuk rute KRL (stasiun UI-Gondangdia), tetapi kita harus menunggu dulu teman-teman yang berada pada kereta yang terpisah.</p>
-
-<p><img src="http://mufid.github.io/images/post/jogja-ryan.JPG" alt="Ryan di KRL" /></p>
-
-<blockquote><p>TIPS: Daerah Gondangdia-Senen, P20 khususnya, adalah daerah yang rawan sekali pencurian, kejahatan, dan percopetan. Jagalah barang-barang Anda, tetaplah <em>conscious</em> pada setiap keadaan untuk beberapa menit saja. Situasi relatif lebih aman di stasiun Senen, tapi tidak di rute P20 dan terminal.</p></blockquote>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>FREE untuk KRL (Anda bisa menggunakkan tiket kereta luar kota untuk KRL di hari yang sama dengan tiket)</li>
-<li>Rp2.000, P20</li>
-</ul>
-
-
-<h4>18.40: Shalat Maghrib</h4>
-
-<p>Di dekat stasiun senen, berjalan sedikit keluar di sebelah tugu persis ada masjid. Kita shalat maghrib, makan dan shakat isya di sana.</p>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>Rp9.000 makan malam lele pinggir jalan</li>
-</ul>
-
-
-<h4>20.00: Stand by di stasiun</h4>
-
-<p>Kita pergi dengan menggunakkan tiket ekonomi Progo ke Jogjakarta. Kita berhenti di stasiun Leumpuyangan. Hebatnya, kereta tidak ngaret parah! Berbeda sekali dengan enam tahun lalu saat pulang kampung ke Surabaya.</p>
-
-<blockquote><p>Tips: beberapa orang lebih suka tidur di bawah agar kakinya bisa lurus. Anda mungkin akan tertarik untuk berlatih tidur sambil duduk, atau mencari gaya tidur baru.</p>
-
-<p>Tips: Kata Rizal, pedagang di sepanjang kereta ada beberapa yang kurang dapat dipercaya. Rizal pernah membeli salak yang katanya salak itu jenis salak X tapi ternyata saat di makan itu adalah salak rasa jenis Y.</p></blockquote>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>Sewa bantal: Rp5.000</li>
-</ul>
-
-
-<h3>6 Februari 2013</h3>
-
-<h4>07.30: Sampai di Leumpuyangan</h4>
-
-<p>Wow, hanya ngaret 10 menit-an! Sunggu cukup tepat waktu. Estimasinya luar biasa baik. Sampai di sana kita disambut oleh Gaby dengan so-called-taxy (baiklah, taksi itu adalah kendaraan seperti kendaraan pribadi seperti ojek tapi ini bentuknya mobil).</p>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>Nyewa mobil untuk angkut barang ke hotel di malioboro: Rp5.000 untuk masing-masing orang (total: x12)</li>
-</ul>
-
-
-<h4>07.50: Sampai di Hotel Indonesia</h4>
-
-<p>Kami sampai di hotel Indonesia, sebuah hotel yang sederhana di jalan Sastrowijoyo. Penjaga di sana sangat baik. Kami segera unload barang-barang kami, mandi, dan berangkat lagi ke&hellip;</p>
-
-<h4>09.00: The Journey Begins</h4>
-
-<p>Kami merencanakan untuk pergi ke:</p>
-
-<ul>
-<li>Rumah Bude Inas</li>
-<li>Merapi</li>
-<li>Prambanan</li>
-<li>Pantai Parangtritis</li>
-<li>Alun-alun Jogjakarta</li>
-</ul>
-
-
-<p>Kamu pergi dengan mobil sewaan dari 1Wan Transport. Orang di sana baik banget, gak perlu DP tapi percaya aja. Benar-benar sistem kepercayaan yang bagus banget a&#8217;la online shopping. Saya sebelumnya (H-7) telah menelepon 1Wan Transport. Mereka bilang OK untuk dipakai 6 Februari. Kami menyewa Elf.</p>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>Elf (All in): Rp550.000</li>
-</ul>
-
-
-<h4>09.30: Rumah bude Inas</h4>
-
-<p>Kita ke rumah bude Inas. Budenya baik banget, kita dioleh-olehin salak pulang dari sana.</p>
-
-<p><img src="http://mufid.github.io/images/post/jogja-budeinas.JPG" alt="Bude Inas" /></p>
-
-<h4>11.00: Merapi</h4>
-
-<p>Kita sampai di Merapi. Saya kira ini bakal seperti wisata Chernobyl, jalan-jalan di tempat yang rusak. Dan ya itu benar, tetapi tidak seseram Chernobyl kok. Alamnya sangat indah, udaranya dingin, dan tidak tercium abu vulkanik. Subhanallah.</p>
-
-<p>Perjalanan sampai rumah mbah Maridjan sekitar 30 menit, berjalan dalam kondisi santai. Kalau Anda lari bisa lebih cepat lagi. Tidak terlalu melelahkan.</p>
-
-<p><img src="http://mufid.github.io/images/post/jogja-merapi1.JPG" alt="Merapi" /></p>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>Parkir merapi: Rp30.000/mobil</li>
-<li>Offroad merapi: Rp50.000 &ndash; Rp200.000 per orang.</li>
-<li>Makan siang di merapi (nasi rames): Rp7.000 per porsi (yeah, dan porsinya lumayan banyak!)</li>
-</ul>
-
-
-<h4>13.00: Touch down Prambanan!</h4>
-
-<p>.. kita sampai di Prambanan sekitar jam 12an (atau jam 13.00 kita telah ada di dalam candinya). Sesuai kata Gaby di Whatsapp, candi itu sangat panas. Kenapa begitu? Mungkin karena sekitarnya minim sekali pohon, dan di candinya itu sendiri memang tidak ada pohon. Saat kita ke sana, kita diberi helm layaknya insinyur. Tetapi untuk apa? Saya kira akan ada batu-batu yang berguguran dari atas. Saya sadari ketika saya masuk, saya kepala saya <em>kejedot</em> langit-langit candi yang pendek. Tidak yakin fungsinya itu, tetapi lakukan saja.</p>
-
-<blockquote><p>Tips: Anda mungkin tertarik utuk tidak berpakaian layaknya pakaian hari raya. Anda akan banyak berkeringat dan sedikit kotor karena debu. Pakaian safari mungkin akan cocok.</p></blockquote>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>Prambanan: Rp30.000 per orang</li>
-</ul>
-
-
-<h4>16.30: Touch down Parangtritis!</h4>
-
-<p>Kita sempat melihat matahari terbenam di parangtritis. Katanya, pantainya bagus. Saya sama sekali tidak dapat membedakan mana tempat outdoor yang bagus dan mana yang buruk (ya, saya sudah bosan melihat gedung-gedung tinggi yang arsitekturnya tidak menarik). Yang saya lihat adalah <em>cliff</em> atau tebing. Di sana ada <em>cliff</em>! Alhamdulillah, setelah hidup beberapa belas tahun akhirnya saya bisa melihat <em>cliff</em> langsung, bukan di Natgeo. Memang tidak mirip Grand Canyon, tetapi lumayan lah.</p>
-
-<p><img src="http://mufid.github.io/images/post/jogja-cliff.JPG" alt="Cliff" /></p>
-
-<p><strong>Pricing:</strong></p>
-
-<ul>
-<li>Masuk parangtrits: Rp3.000 per orang</li>
-</ul>
-
-
-<h4>19.00: Sampai kembali ke Jogja</h4>
-
-<p>Kita sampai kembali ke Jogja kemudian kita makan. Saya lupa tempat makannya, lumayan mahal. Dua kali lipat lebih mahal dibandingkan harga sarapan. Tidak apa kalau hanya sekali. Kita makan nasi gudeg di sana. Bagi Anda yang tidak suka makanan manis mungkin akan kesulitan untuk memakannya. Hal yang tidak kalah penting adalah tidak ada salahnya mencoba makanan khas jogja, sekalipun mungkin Anda tidak suka. Yaaa, sekali seumur hidup lah.</p>
-
-<h4>22.00: Night Malioboro</h4>
-
-<p>Di malam hari setelah shalat, mandi, makan, kita berjalan menyusuri Malioboro. Di 0 KM Jogja kita melihat ada banyak orang-orang dengan komunitasnya masing-masing. Ada yang foto-foto, ada yang bermain sepatu roda, dan lain-lain. Saya gak yakin mereka semua turis, tapi saya gak yakin mereka semua adalah penduduk setempat. Saya bermain gambar <em>long shutter</em> di sini, tetapi Saya lupa untuk foto HDR (dan saya tidak yakin dengan hanya tripod dan kamera Saya, saya bisa mengamblik HDR).</p>
-
-<p>Jauh berbeda dengan Jakarta atau pun Depok, meski sepi, kota tetap terlihat hidup di malam hari. Tidak ada kejadian yang menyeramkam, dan jalanan pun tetap teratur. Mobil dan motor tetap mengikuti lampu lalu lintas dan tidak ada yang melangkahi <em>zebra cross</em>. Wow!</p>
-
-<h3>Day 3: Around Jogja</h3>
-
-<p>Kita berjalan mengelilingi Jogjakarta di hari ini. Di pagi harinya kita ke Museum Benteng, harga masuknya hanya Rp2.000, kemudian agak siang kita ke Kraton, kita mengamati bagaimana kehidupan Sultan. Selanjutnya, yang akhwat pada belanja, dan yang ikhwan melanjutkan penysuruan: kita ke UGM. UGM bisa dicapai dengan Transjogja. Menariknya, kami tidak melihat ada angkot. Kota yang sungguh sangat teratur! Wajar saja kalau turis suka tinggal di sini.</p>
-
-<p>Kita mulai persiapan untuk pulang pukul 17.00. Kita naik taksi ke stasiun (hanya Rp25.000 saja), dan kita sampai di stasiun kurang dari jam 18.00 (di tiket, kereta akan tiba pukul 18.15, dan sampai di Jakarta pukul 04.00an). Dan wow, keretanya lagi-lagi tidak terlambat signifikan!</p>
-
-<h3>Day 4: Back to Depok</h3>
-
-<p>Alhamdulillah, kami kembali lagi ke Depok dengan selamat. Saya bisa tidur nyenyak di kereta sehingga di hari kepulangan itu saya masih bisa beraktivitas tanpa lelah.</p>
-
-<p>Alhamdulillah, terima kasih banyak semuanya yang telah mendukung perjalanan ini.</p>
 ]]></content>
   </entry>
   
