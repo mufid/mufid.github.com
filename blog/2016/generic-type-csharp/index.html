@@ -5,15 +5,11 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Komunitas - Mufid's Code blog</title>
+  <title>Using Generics &lt;T&gt; Without the T in C# - Mufid's Code blog</title>
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Berapa banyak komunitas di Fasilkom UI? Ada tiga komunitas
-(non BEM dan non kegiatan keagamaan) ASCIIPELLA
-XML
-XML
-RISTEK Ada berapa banyak komunitas &hellip;">
+  <meta name="description" content="So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -22,7 +18,7 @@ RISTEK Ada berapa banyak komunitas &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.io/2013/komunitas/">
+  <link rel="canonical" href="http://mufid.github.io/2016/generic-type-csharp/">
   <link href="/blog/favicon.png" rel="icon">
   <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/blog/javascripts/modernizr-2.0.js"></script>
@@ -90,7 +86,7 @@ RISTEK Ada berapa banyak komunitas &hellip;">
   <header>
     
       
-        <h1 class="entry-title">Komunitas</h1>
+        <h1 class="entry-title">Using Generics &lt;T&gt; Without the T in C#</h1>
       
     
     
@@ -107,7 +103,7 @@ RISTEK Ada berapa banyak komunitas &hellip;">
   
 
 
-<time datetime="2013-01-27T06:42:00+07:00" pubdate data-updated="true">Jan 27<span>th</span>, 2013</time>
+<time datetime="2016-05-04T06:51:00+07:00" pubdate data-updated="true">May 4<span>th</span>, 2016</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -116,57 +112,53 @@ RISTEK Ada berapa banyak komunitas &hellip;">
   </header>
 
 
-<div class="entry-content"><p>Berapa banyak komunitas di Fasilkom UI? Ada tiga komunitas
-(non BEM dan non kegiatan keagamaan)</p>
+<div class="entry-content"><p>So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a class with generic type, but I don&rsquo;t know what is the generic type. Furthermore, I don&rsquo;t care what is the type of the generic.</p>
 
-<ul>
-<li>ASCIIPELLA</li>
-<li>XML</li>
-<li>XML</li>
-<li>RISTEK</li>
-</ul>
+<p>Imagine a situation like this: I have a class like this:</p>
 
+<pre><code>Wrapper&lt;T&gt; where T : IDestroyable
+{
+  T RetrieveValue() { /* body */ }
+  void Destroy() { /* body */ }
+}
+</code></pre>
 
-<p>Ada berapa banyak komunitas di Depok? Setahu saya ada
-Depok Blogger (deblogger), ada Depok Digital, DepokMobi.
-Kemudian apalagi?</p>
+<p>Let&rsquo;s go straight to the point: What if I want to call Destroy, but I don&rsquo;t care what is T? So I have</p>
 
-<p><a href="http://www.flickr.com/photos/cobalt/2161081787/" title="So Many Things to be Happy About oleh cobalt123, di Flickr"><img src="http://farm3.staticflickr.com/2163/2161081787_30953a364c.jpg" width="375" height="500" alt="So Many Things to be Happy About"></a></p>
+<pre><code>object x // instance of Wrapper
+</code></pre>
 
-<p>Komunitas sejatinya punya peranan penting dalam
-mengakomodir &ldquo;kebahagiaan&rdquo; para anggotanya. Sekarang
-gw lagi terlibat dalam beberapa komunitas, dan
-Alhamdulillah gw menemukan sesuatu yang keren:
-<em>Passion</em>. Loh, passion? Bukankah semua komunitas
-seperti itu?</p>
+<p><code>object x</code> is an instance of <code>Wrapper</code>. But I can&rsquo;t cast it into wrapper without knowing the exact value of the generic type. I can&rsquo;t do something like this:</p>
 
-<p>Jika iya, kenapa banyak komunitas yang mati?</p>
+<pre><code>Object x = something;
+(X as Wrapper&lt;?&gt;).Destroy();
+</code></pre>
 
-<p>Jika iya, kenapa banyak komunitas yang gak pernah
-gathering?</p>
+<p>Also, generic is tightly coupled in C#. Meanwhile, in Java, generic is optional. If you don&rsquo;t specify the generic, Java just simply treat the generic type as <code>Object</code>. In java you can write the code like below, but not in C#:</p>
 
-<p>Jika iya, kenapa ada komunitas yang di dalamnya
-terlihat tidak benar-benar nurut dan runtut,
-sehingga tidak terlihat ada keterkaitan antar
-aktivitas di komunitas tersebut?</p>
+<pre><code>(X as Wrapper).Destroy();
+</code></pre>
 
-<p>Ah. Sesungguhnya komunitas itu tidak punya passion
-kalau begitu caranya. Keikutsertaan anggotanya di
-komunitas tersebut dipertanyakan. Apa yang menjadi
-dasar anggotanya untuk bertahan juga patut dipertanyakan.</p>
+<p>So how do I call <code>Destroy</code> without knowing the <code>T</code>? Surprisingly, the solution is pretty simple. Just extract the <code>Destroy</code> method to an interface:</p>
 
-<p>Seharusnya, kalau komunitas itu berjalan dengan baik,
-mereka punya satu tujuan bersama: mengusung mimpi semua
-anggota komunitas tersebut.</p>
+<pre><code>interface IWrapperDestroyer
+{
+  void Destroy()
+}
 
-<p>Seharusnya, komunitas punya mimpi yang sama di setiap
-anggotanya. Sehingga tidak ada mastermind. Pemimpin
-komunitas hanya sebagai moderator karena tidak ada yang
-perlu dipimpin. Pikiran kita semua sudah sama.</p>
+Wrapper&lt;T&gt; : IWrapperDestroyer where T : IDestroyable
+{
+  T RetrieveValue()
+  void Destroy()
+}
+</code></pre>
 
-<p><em>Bagaimana kalau kamu membuat komunitas sendiri?</em></p>
+<p>So that I can simply call this:</p>
 
-<p><em>Tertarik kamu membuat komunitas sendiri di lingkunganmu?</em></p>
+<pre><code>(X as IDestroyer).Destroy()
+</code></pre>
+
+<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating something with MvvmCross.</p>
 </div>
 
 
@@ -189,7 +181,7 @@ perlu dipimpin. Pikiran kita semua sudah sama.</p>
   
 
 
-<time datetime="2013-01-27T06:42:00+07:00" pubdate data-updated="true">Jan 27<span>th</span>, 2013</time>
+<time datetime="2016-05-04T06:51:00+07:00" pubdate data-updated="true">May 4<span>th</span>, 2016</time>
       
 
 
@@ -197,7 +189,7 @@ perlu dipimpin. Pikiran kita semua sudah sama.</p>
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2013/komunitas/" data-via="" data-counturl="http://mufid.github.io/2013/komunitas/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2016/generic-type-csharp/" data-via="" data-counturl="http://mufid.github.io/2016/generic-type-csharp/" >Tweet</a>
   
   
   
@@ -206,10 +198,8 @@ perlu dipimpin. Pikiran kita semua sudah sama.</p>
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2013/tentang-web/" title="Previous Post: Tentang Web">&laquo; Tentang Web</a>
+        <a class="basic-alignment left articlenav" href="/blog/2015/null/" title="Previous Post: Having Fun with Java's Null">&laquo; Having Fun with Java's Null</a>
       
-      
-        <a class="basic-alignment right articlenav" href="/blog/2013/hacktivism/" title="Next Post: Hacktivism Indonesia Lagi!">Hacktivism Indonesia Lagi! &raquo;</a>
       
     </p>
   </footer>
@@ -245,8 +235,8 @@ perlu dipimpin. Pikiran kita semua sudah sama.</p>
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mufid.github.io/blog/2013/komunitas/';
-        var disqus_url = 'http://mufid.github.io/blog/2013/komunitas/';
+        var disqus_identifier = 'http://mufid.github.io/blog/2016/generic-type-csharp/';
+        var disqus_url = 'http://mufid.github.io/blog/2016/generic-type-csharp/';
         var disqus_script = 'embed.js';
       
     (function () {

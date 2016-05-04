@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
 <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="id"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
   <title>Membuat Proxy Server di Python 3 - Mufid's Code blog</title>
@@ -305,12 +305,12 @@ Server
 <span class='line-number'>68</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
 </span><span class='line'>  <span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="c"># Create a server socket, bind it to a port and start listening </span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c"># Create a server socket, bind it to a port and start listening</span>
 </span><span class='line'>  <span class="n">tcpSerSock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">)</span>
 </span><span class='line'>  <span class="c"># Fill in start.</span>
 </span><span class='line'>  <span class="c"># PART 1</span>
-</span><span class='line'>  <span class="c"># Fill in end. </span>
+</span><span class='line'>  <span class="c"># Fill in end.</span>
 </span><span class='line'>  <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
 </span><span class='line'>    <span class="c"># Strat receiving data from the client</span>
 </span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Ready to serve...&quot;</span><span class="p">)</span>
@@ -324,7 +324,7 @@ Server
 </span><span class='line'>    <span class="n">fileExist</span> <span class="o">=</span> <span class="s">&quot;false&quot;</span>
 </span><span class='line'>    <span class="n">filetouse</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
 </span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">filetouse</span><span class="p">)</span>
-</span><span class='line'>  
+</span><span class='line'>
 </span><span class='line'>    <span class="k">try</span><span class="p">:</span>
 </span><span class='line'>      <span class="c"># Check wether the file exist in the cache</span>
 </span><span class='line'>      <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filetouse</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
@@ -368,7 +368,7 @@ Server
 </span><span class='line'>         <span class="c"># Fill in end.</span>
 </span><span class='line'>         <span class="c"># Close the client and the server sockets</span>
 </span><span class='line'>         <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span class='line'>  
+</span><span class='line'>
 </span><span class='line'>  <span class="c"># Fill in start. # PART 9</span>
 </span><span class='line'>  <span class="c"># Fill in end.</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -389,7 +389,7 @@ Server
 
 <p>Sepertinya baris kode tersebut self-explanatory, tidak perlu dijelaskan. Mungkin yang perlu Anda perhatikan di bagian <code>listen</code>. Apa maksud dari angka di <code>listen</code>? Baca <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.listen">dokumentasinya</a> saja ya :D</p>
 
-<blockquote><p><strong>socket.listen(backlog)</strong><br/>
+<blockquote><p><strong>socket.listen(backlog)</strong>
 Listen for connections made to the socket. The backlog argument specifies the maximum number of queued connections and should be at least 0; the maximum value is system-dependent (usually 5), the minimum value is forced to 0.</p></blockquote>
 
 <h2>Part 2</h2>
@@ -416,7 +416,7 @@ b'HTTP:/'
 
 <p>Kenapa kita hanya menerima 10 byte pertama saja? Karena kita mengatur buffer untuk proxy kita hanya 10 byte. Sebetulnya, kita tinggal mengganti saja menjadi > 10 byte. Tetapi ada constraint berikut di <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.recv">dokumentasi Python</a>:</p>
 
-<blockquote><p><strong>socket.recv(bufsize[, flags])</strong><br/>
+<blockquote><p><strong>socket.recv(bufsize[, flags])</strong>
 Receive data from the socket. The return value is a bytes object representing the data received. The maximum amount of data to be received at once is specified by bufsize. See the Unix manual page recv(2) for the meaning of the optional argument flags; it defaults to zero.</p></blockquote>
 
 <p>Kalau begitu, sebagaimana kita membaca file, mari kita baca socket hingga tidak ada isinya lagi. Ubah sedikit kodenya:</p>
@@ -807,7 +807,7 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
 </span><span class='line'>      <span class="c"># Until the end of HTTP Request. Please read RFC 3507</span>
 </span><span class='line'>      <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n\r\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)):</span>
 </span><span class='line'>        <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'>  
+</span><span class='line'>
 </span><span class='line'>      <span class="c"># Detect end of POST request</span>
 </span><span class='line'>      <span class="n">regex_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&quot;Content-Length: ([0-9]+)&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
 </span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">regex_match</span><span class="p">):</span>
@@ -963,7 +963,7 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Mufid -
+  Copyright &copy; 2016 - Mufid -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
@@ -975,8 +975,8 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mufid.github.io/2013/proxy-in-python-3/';
-        var disqus_url = 'http://mufid.github.io/2013/proxy-in-python-3/';
+        var disqus_identifier = 'http://mufid.github.io/blog/2013/proxy-in-python-3/';
+        var disqus_url = 'http://mufid.github.io/blog/2013/proxy-in-python-3/';
         var disqus_script = 'embed.js';
       
     (function () {

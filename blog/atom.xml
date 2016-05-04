@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2015-04-23T21:42:48+07:00</updated>
+  <updated>2016-05-04T07:13:43+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,61 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Using Generics &lt;T&gt; Without the T in C#]]></title>
+    <link href="http://mufid.github.io/2016/generic-type-csharp/"/>
+    <updated>2016-05-04T06:51:00+07:00</updated>
+    <id>http://mufid.github.io/2016/generic-type-csharp</id>
+    <content type="html"><![CDATA[<p>So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a class with generic type, but I don&rsquo;t know what is the generic type. Furthermore, I don&rsquo;t care what is the type of the generic.</p>
+
+<p>Imagine a situation like this: I have a class like this:</p>
+
+<pre><code>Wrapper&lt;T&gt; where T : IDestroyable
+{
+  T RetrieveValue() { /* body */ }
+  void Destroy() { /* body */ }
+}
+</code></pre>
+
+<p>Let&rsquo;s go straight to the point: What if I want to call Destroy, but I don&rsquo;t care what is T? So I have</p>
+
+<pre><code>object x // instance of Wrapper
+</code></pre>
+
+<p><code>object x</code> is an instance of <code>Wrapper</code>. But I can&rsquo;t cast it into wrapper without knowing the exact value of the generic type. I can&rsquo;t do something like this:</p>
+
+<pre><code>Object x = something;
+(X as Wrapper&lt;?&gt;).Destroy();
+</code></pre>
+
+<p>Also, generic is tightly coupled in C#. Meanwhile, in Java, generic is optional. If you don&rsquo;t specify the generic, Java just simply treat the generic type as <code>Object</code>. In java you can write the code like below, but not in C#:</p>
+
+<pre><code>(X as Wrapper).Destroy();
+</code></pre>
+
+<p>So how do I call <code>Destroy</code> without knowing the <code>T</code>? Surprisingly, the solution is pretty simple. Just extract the <code>Destroy</code> method to an interface:</p>
+
+<pre><code>interface IWrapperDestroyer
+{
+  void Destroy()
+}
+
+Wrapper&lt;T&gt; : IWrapperDestroyer where T : IDestroyable
+{
+  T RetrieveValue()
+  void Destroy()
+}
+</code></pre>
+
+<p>So that I can simply call this:</p>
+
+<pre><code>(X as IDestroyer).Destroy()
+</code></pre>
+
+<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating something with MvvmCross.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Having Fun with Java's Null]]></title>
@@ -688,27 +743,27 @@ Pembahasan lebih diarahkan pada salah satu kalimat di sana yaitu <a href="http:/
 
 <blockquote><p>.. anak PUTRA menjadi jauh lebih sexually active daripada anak putri. Oleh karenanya pertanyaan putra mengenai seks dan seksualitas sangat liar dan jumlahnya mencapai 138 pertanyaan berbeda dari 50 responden</p>
 
-<p>Sedangkan pertanyaan putri masih sangat selugu usianya dan lebih banyak mengenai 갾kapan sih pacaran dibolehkan?갿 atau 갾menstruasi itu apa?갿</p>
+<p>Sedangkan pertanyaan putri masih sangat selugu usianya dan lebih banyak mengenai 혖gkapan sih pacaran dibolehkan?혖h atau 혖gmenstruasi itu apa?혖h</p>
 
-<p>Bahkan kakak-kakak DIAR pernah nemu gambar : anak kecil pacaran, dikepala masing-masing ada baloon, baloon di kepala cewe gambarnya 갻love-hati갽, tau ga baloon di kepala cowo gambarnya apa? gambar 갻love-hati갽 juga, tapi..</p>
+<p>Bahkan kakak-kakak DIAR pernah nemu gambar : anak kecil pacaran, dikepala masing-masing ada baloon, baloon di kepala cewe gambarnya 혖elove-hati혖f, tau ga baloon di kepala cowo gambarnya apa? gambar 혖elove-hati혖f juga, tapi..</p>
 
-<p>Jadi bilang sama adek-adek perempuan kita tersayang, 갾honey, jangan mau deh ditipu-tipu ama kata pacaran갿</p>
+<p>Jadi bilang sama adek-adek perempuan kita tersayang, 혖ghoney, jangan mau deh ditipu-tipu ama kata pacaran혖h</p>
 
 <p>Ibu Risma bercerita, anak-anak yang menjadi pelanggan PSK adalah juga anak-anak yang telah terpapar lingkungan lokalisasi. Artinya, stimulasi anak-anak itu terhadap aktifitas seksual sudah tidak dapat difilter. Mereka sangat sexually active. Bayangkan, dalam kondisi demikian, sedangkan teman sebaya mereka (anak putri) masih belum kepikiran yang begitu-begituan, mau lari kemana anak-anak putra kita tersebut? Ya! Lokalisasi jawabannya.</p></blockquote>
 
 <p>Tetapi, jadi luar biasa mindblown ketika masuk di paragraf berikut. Saya tidak bisa lagi men-skip paragraf demi paragraf tersebut.</p>
 
-<blockquote><p>Kita mundur ke belakang sedikit, mengenai paparan anak terhadap aktifitas seksual. Hey kalian para wanita yang kelak akan memiliki anak laki-laki, atau kalian yang punya adik laki-laki, dan kalian para lelaki yang akan menjadi penanggung jawab anggota keluarga kalian, berhati-hatilah.. jagalah mereka. Kenapa? Paparan itu halus. Kasus dari ibu Risma adalah paparan ekstrim. Tapi taukah bahwa paparan itu juga bisa sedikit-sedikit disisipi dari hal yang sama sekali tidak kita anggap 갻keterlaluan갽?</p>
+<blockquote><p>Kita mundur ke belakang sedikit, mengenai paparan anak terhadap aktifitas seksual. Hey kalian para wanita yang kelak akan memiliki anak laki-laki, atau kalian yang punya adik laki-laki, dan kalian para lelaki yang akan menjadi penanggung jawab anggota keluarga kalian, berhati-hatilah.. jagalah mereka. Kenapa? Paparan itu halus. Kasus dari ibu Risma adalah paparan ekstrim. Tapi taukah bahwa paparan itu juga bisa sedikit-sedikit disisipi dari hal yang sama sekali tidak kita anggap 혖eketerlaluan혖f?</p>
 
-<p>Iklan handuk, iklan pakaian dalam, iklan sabun, iklan parfum, ah iklan apapun yang menunjukkan keindahan tubuh wanita, itu adalah tombol ON untuk memasukkan konten 갻kotor갽 selanjutnya secara bertahap dan bertingkat. Pelaku industri pornografi tau betul hal ini. Riset mereka jauh lebih canggih dari yang kita bayangkan. Randy Hyde, seorang psikolog terapis pornografi sekaligus kolega pakar neurosains Donald Hilton mengatakan bahwa sekali tombol ON itu nyala, kita ga bisa matiin lagi. Kita cuma bisa ngerem dengan susah payah.
-Konten 갻kotor갽 itu masuk secara bertahap dan samar sekali. Bermula dari legal content seperti iklan, majalah remaja yang menampilkan pakaian kurang bahan, apapun lah yang diijinkan pemerintah kita, yang kita sendiri pun menganggap hal itu lumrah. Kemudian meningkat menjadi soft porn seperti majalah pria dewasa. Kemudian meningkat lagi ke komik dan film hollywood yang punya adegan lalalalanya. Kemudian meningkat lagi ke games tembak-tembakan yang kalo menang dapet hadiah cewe yang boleh diapa-apain (ini yang mengakibatkan munculnya istilah 갻cabe-cabean갽, ajib yaa.. bermula dari games!). Dan selanjutnya ke atas sampe muncullah berita-berita kasus perkosaan dan pembunuhan.</p>
+<p>Iklan handuk, iklan pakaian dalam, iklan sabun, iklan parfum, ah iklan apapun yang menunjukkan keindahan tubuh wanita, itu adalah tombol ON untuk memasukkan konten 혖ekotor혖f selanjutnya secara bertahap dan bertingkat. Pelaku industri pornografi tau betul hal ini. Riset mereka jauh lebih canggih dari yang kita bayangkan. Randy Hyde, seorang psikolog terapis pornografi sekaligus kolega pakar neurosains Donald Hilton mengatakan bahwa sekali tombol ON itu nyala, kita ga bisa matiin lagi. Kita cuma bisa ngerem dengan susah payah.
+Konten 혖ekotor혖f itu masuk secara bertahap dan samar sekali. Bermula dari legal content seperti iklan, majalah remaja yang menampilkan pakaian kurang bahan, apapun lah yang diijinkan pemerintah kita, yang kita sendiri pun menganggap hal itu lumrah. Kemudian meningkat menjadi soft porn seperti majalah pria dewasa. Kemudian meningkat lagi ke komik dan film hollywood yang punya adegan lalalalanya. Kemudian meningkat lagi ke games tembak-tembakan yang kalo menang dapet hadiah cewe yang boleh diapa-apain (ini yang mengakibatkan munculnya istilah 혖ecabe-cabean혖f, ajib yaa.. bermula dari games!). Dan selanjutnya ke atas sampe muncullah berita-berita kasus perkosaan dan pembunuhan.</p>
 
 <p>Apa yang terjadi pada anak yang terpapar? Kalo yang diliat masih iklan pakean renang sih paling pertama kali responnya kaget, jijik, malu sendiri. Nah, sebelum saya jelasin eskalasinya, saya mau jelasin isi kepala kita dulu ya : OTAK.</p>
 
 <p>Jadi ya temen-temen, Jordan Grafman, PhD, peneliti Neuroscience dari University of Wisconsin-Madison bilang, pada otak manusia, ada bagian yang didesain khusus oleh Tuhan untuk membedakan manusia dari spesies lain, sebagai spesies paling sempurna, yaitu memiliki kemampuan untuk memilih dan memiliki adab atau nilai-nilai fitrah (kebenaran). Artinya apa? ANAK ITU DILAHIRKAN GA POLOS, TAPI UDAH DI INSTALL NILAI-NILAI KEBAIKAN OLEH PENCIPTANYA.</p>
 
 <p>(gambar)
-Kabar buruknya, bagian itu matengnya baru di usia 25 tahun. Gue mendadak inget kalimatnya Uncle Ben di Spiderman 1 pas nyindir Peter yang bandel di usianya yang 25, 갾Peter, these are the years when a man changes into the man he갽s going to be for the rest of his life. Just be careful who you change into.갿. (OOT, pelem luar negri emang kuat banget risetnya yak). OLEH KARENA ITU JUGA, wahai orang dewasa, sabar sama anak-anak.. otaknya belum bersambungan.. berhenti marahin anak-anak dan berlaku kasar terhadap mereka, anaknya salah ya orangtuanya yang kudu bener ngasuhnya. Nah, kabar baiknya, kalo pola pengasuhan keluarganya baik, itu direktur bisa mateng lebih cepet.</p>
+Kabar buruknya, bagian itu matengnya baru di usia 25 tahun. Gue mendadak inget kalimatnya Uncle Ben di Spiderman 1 pas nyindir Peter yang bandel di usianya yang 25, 혖gPeter, these are the years when a man changes into the man he혖fs going to be for the rest of his life. Just be careful who you change into.혖h. (OOT, pelem luar negri emang kuat banget risetnya yak). OLEH KARENA ITU JUGA, wahai orang dewasa, sabar sama anak-anak.. otaknya belum bersambungan.. berhenti marahin anak-anak dan berlaku kasar terhadap mereka, anaknya salah ya orangtuanya yang kudu bener ngasuhnya. Nah, kabar baiknya, kalo pola pengasuhan keluarganya baik, itu direktur bisa mateng lebih cepet.</p>
 
 <p>Paparan pornografi dan nilai-nilai buruk bisa membunuh direktur sangat perlahan. Ini bukan saya yang bilang yaa.. itu yang bilang Dr. Donald Hilton Jr, Psikoterapis dan Ahli Neurosurgical dari University of Texas. Beliau sahabat Ibu Elly dan pernah diundang Buah Hati buat ngadain seminar bareng Kemenkes buat ngejelasin bahwa kerusakan otak orang yang adiksi pornografi itu kalo dilihat di MRI sama persis dengan kerusakan otak orang yang kecelakaan naik mobil ferrari dengan kecepatan sangat tinggi. Kalo narkoba ngerusak otak di 3 bagian, obesitas ngerusak otak di 2 bagian, pornografi ngerusak otak di LIMA bagian.</p></blockquote>
 
@@ -716,7 +771,7 @@ Kabar buruknya, bagian itu matengnya baru di usia 25 tahun. Gue mendadak inget k
 
 <p>summary ini saya tutup dengan paragraf yang mind blow:</p>
 
-<blockquote><p>Yang menyedihkan, matinya sang Direktur ini bahkan bisa membuat anak kehilangan atau kebingungan orientasi seksualnya. Maka muncul generasi LGBT. Lesbian. Gay. Biseksual. Transgender (kecuali yang sindrom Klinefelter). Cek lah, kalo disuruh cerita, udah bisa dipastiin perasaan 갾penyimpangan seksual갿 ini mulai dirasa anak sejak kecil walau ga jelas umurnya.</p></blockquote>
+<blockquote><p>Yang menyedihkan, matinya sang Direktur ini bahkan bisa membuat anak kehilangan atau kebingungan orientasi seksualnya. Maka muncul generasi LGBT. Lesbian. Gay. Biseksual. Transgender (kecuali yang sindrom Klinefelter). Cek lah, kalo disuruh cerita, udah bisa dipastiin perasaan 혖gpenyimpangan seksual혖h ini mulai dirasa anak sejak kecil walau ga jelas umurnya.</p></blockquote>
 ]]></content>
   </entry>
   
@@ -931,12 +986,12 @@ Server
 <span class='line-number'>68</span>
 </pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
 </span><span class='line'>  <span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'>  
-</span><span class='line'>  <span class="c"># Create a server socket, bind it to a port and start listening </span>
+</span><span class='line'>
+</span><span class='line'>  <span class="c"># Create a server socket, bind it to a port and start listening</span>
 </span><span class='line'>  <span class="n">tcpSerSock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">)</span>
 </span><span class='line'>  <span class="c"># Fill in start.</span>
 </span><span class='line'>  <span class="c"># PART 1</span>
-</span><span class='line'>  <span class="c"># Fill in end. </span>
+</span><span class='line'>  <span class="c"># Fill in end.</span>
 </span><span class='line'>  <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
 </span><span class='line'>    <span class="c"># Strat receiving data from the client</span>
 </span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Ready to serve...&quot;</span><span class="p">)</span>
@@ -950,7 +1005,7 @@ Server
 </span><span class='line'>    <span class="n">fileExist</span> <span class="o">=</span> <span class="s">&quot;false&quot;</span>
 </span><span class='line'>    <span class="n">filetouse</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
 </span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">filetouse</span><span class="p">)</span>
-</span><span class='line'>  
+</span><span class='line'>
 </span><span class='line'>    <span class="k">try</span><span class="p">:</span>
 </span><span class='line'>      <span class="c"># Check wether the file exist in the cache</span>
 </span><span class='line'>      <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filetouse</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
@@ -994,7 +1049,7 @@ Server
 </span><span class='line'>         <span class="c"># Fill in end.</span>
 </span><span class='line'>         <span class="c"># Close the client and the server sockets</span>
 </span><span class='line'>         <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span class='line'>  
+</span><span class='line'>
 </span><span class='line'>  <span class="c"># Fill in start. # PART 9</span>
 </span><span class='line'>  <span class="c"># Fill in end.</span>
 </span></code></pre></td></tr></table></div></figure>
@@ -1015,7 +1070,7 @@ Server
 
 <p>Sepertinya baris kode tersebut self-explanatory, tidak perlu dijelaskan. Mungkin yang perlu Anda perhatikan di bagian <code>listen</code>. Apa maksud dari angka di <code>listen</code>? Baca <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.listen">dokumentasinya</a> saja ya :D</p>
 
-<blockquote><p><strong>socket.listen(backlog)</strong><br/>
+<blockquote><p><strong>socket.listen(backlog)</strong>
 Listen for connections made to the socket. The backlog argument specifies the maximum number of queued connections and should be at least 0; the maximum value is system-dependent (usually 5), the minimum value is forced to 0.</p></blockquote>
 
 <h2>Part 2</h2>
@@ -1042,7 +1097,7 @@ b'HTTP:/'
 
 <p>Kenapa kita hanya menerima 10 byte pertama saja? Karena kita mengatur buffer untuk proxy kita hanya 10 byte. Sebetulnya, kita tinggal mengganti saja menjadi > 10 byte. Tetapi ada constraint berikut di <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.recv">dokumentasi Python</a>:</p>
 
-<blockquote><p><strong>socket.recv(bufsize[, flags])</strong><br/>
+<blockquote><p><strong>socket.recv(bufsize[, flags])</strong>
 Receive data from the socket. The return value is a bytes object representing the data received. The maximum amount of data to be received at once is specified by bufsize. See the Unix manual page recv(2) for the meaning of the optional argument flags; it defaults to zero.</p></blockquote>
 
 <p>Kalau begitu, sebagaimana kita membaca file, mari kita baca socket hingga tidak ada isinya lagi. Ubah sedikit kodenya:</p>
@@ -1433,7 +1488,7 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
 </span><span class='line'>      <span class="c"># Until the end of HTTP Request. Please read RFC 3507</span>
 </span><span class='line'>      <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n\r\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)):</span>
 </span><span class='line'>        <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'>  
+</span><span class='line'>
 </span><span class='line'>      <span class="c"># Detect end of POST request</span>
 </span><span class='line'>      <span class="n">regex_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&quot;Content-Length: ([0-9]+)&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
 </span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">regex_match</span><span class="p">):</span>
@@ -1734,33 +1789,6 @@ find /path/to/base/dir -type f -print0 | xargs -0 chmod 644
 <p>Begitu saja #selfnote.</p>
 
 <p><a href="http://superuser.com/questions/91935/how-to-chmod-755-all-directories-but-no-file-recursively">sumber</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[AJAX No-Cache]]></title>
-    <link href="http://mufid.github.io/2013/ajax-no-cache/"/>
-    <updated>2013-02-10T14:09:00+07:00</updated>
-    <id>http://mufid.github.io/2013/ajax-no-cache</id>
-    <content type="html"><![CDATA[<p>Sebetulnya, ini tidak hanya berlaku pada URI yang mengandung <em>AJAX Call</em>, tetapi juga untuk semua URI yang datanya pasti berubah.</p>
-
-<figure class='code'><figcaption><span>header-no-cache.php </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
-</span><span class='line'>
-</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Pragma: no-cache&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Cache-Control: no-cache, must-revalidate&#39;</span><span class="p">);</span>
-</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#39;</span><span class="p">);</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Meski Internet Explorer memiliki masalah pada pemanggilan AJAX (karena meski header ini sudah diset, IE tetap saja mengambil dari cache), dari tautan yang saya temui ada <a href="https://devcentral.f5.com/blogs/us/fixing-internet-explorer-amp-ajax">empat solusi atas semua ini</a>.</p>
-
-<p>Sumber: <a href="http://ellislab.com/forums/viewthread/155976/">http://ellislab.com/forums/viewthread/155976/</a></p>
 ]]></content>
   </entry>
   
