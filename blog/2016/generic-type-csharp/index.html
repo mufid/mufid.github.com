@@ -5,7 +5,7 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Using Generics &lt;T&gt; Without the T in C# - Mufid's Code blog</title>
+  <title>Using Class with Generics &lt;T&gt; Without the T in C# - Mufid's Code blog</title>
   <meta name="author" content="Mufid">
 
   
@@ -86,7 +86,7 @@
   <header>
     
       
-        <h1 class="entry-title">Using Generics &lt;T&gt; Without the T in C#</h1>
+        <h1 class="entry-title">Using Class with Generics &lt;T&gt; Without the T in C#</h1>
       
     
     
@@ -155,10 +155,10 @@ Wrapper&lt;T&gt; : IWrapperDestroyer where T : IDestroyable
 
 <p>So that I can simply call this:</p>
 
-<pre><code>(X as IDestroyer).Destroy()
+<pre><code>(X as IWrapperDestroyer).Destroy()
 </code></pre>
 
-<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating something with MvvmCross.</p>
+<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
 </div>
 
 

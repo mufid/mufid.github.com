@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2016-05-04T07:13:43+07:00</updated>
+  <updated>2016-05-04T08:09:01+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Using Generics &lt;T&gt; Without the T in C#]]></title>
+    <title type="html"><![CDATA[Using Class with Generics &lt;T&gt; Without the T in C#]]></title>
     <link href="http://mufid.github.io/2016/generic-type-csharp/"/>
     <updated>2016-05-04T06:51:00+07:00</updated>
     <id>http://mufid.github.io/2016/generic-type-csharp</id>
@@ -61,10 +61,10 @@ Wrapper&lt;T&gt; : IWrapperDestroyer where T : IDestroyable
 
 <p>So that I can simply call this:</p>
 
-<pre><code>(X as IDestroyer).Destroy()
+<pre><code>(X as IWrapperDestroyer).Destroy()
 </code></pre>
 
-<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating something with MvvmCross.</p>
+<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
 ]]></content>
   </entry>
   

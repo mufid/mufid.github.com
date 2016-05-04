@@ -89,7 +89,7 @@
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2016/generic-type-csharp/">Using Generics &lt;T&gt; Without the T in C#</a></h1>
+        <h1 class="entry-title"><a href="/blog/2016/generic-type-csharp/">Using Class with Generics &lt;T&gt; Without the T in C#</a></h1>
       
     
     
@@ -158,10 +158,10 @@ Wrapper&lt;T&gt; : IWrapperDestroyer where T : IDestroyable
 
 <p>So that I can simply call this:</p>
 
-<pre><code>(X as IDestroyer).Destroy()
+<pre><code>(X as IWrapperDestroyer).Destroy()
 </code></pre>
 
-<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating something with MvvmCross.</p>
+<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
 </div>
   
   
