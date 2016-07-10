@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2016-07-10T22:27:51+07:00</updated>
+  <updated>2016-07-10T23:06:22+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -76,9 +76,9 @@
 </span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;function _()</span>
 </span><span class='line'><span class="x">{</span>
 </span><span class='line'>
-</span><span class='line'><span class="x">// any classes you want included in autocompletion                </span>
+</span><span class='line'><span class="x">// any classes you want included in autocompletion</span>
 </span><span class='line'><span class="x">$this-&amp;gt;load = new CI_Loader();</span>
-</span><span class='line'><span class="x">$this-&amp;gt;config = new CI_Config();        </span>
+</span><span class='line'><span class="x">$this-&amp;gt;config = new CI_Config();</span>
 </span><span class='line'><span class="x">$this-&amp;gt;email = new CI_Email();</span>
 </span><span class='line'><span class="x">$this-&amp;gt;encrypt = new CI_Encrypt();</span>
 </span><span class='line'><span class="x">$this-&amp;gt;pagination = new CI_Pagination;</span>
