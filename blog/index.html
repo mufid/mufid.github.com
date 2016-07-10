@@ -9,7 +9,8 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a &hellip;">
+  <meta name="description" content="So if i write def hello puts 'world'
+end It will evaluate def, to which Ruby will &ldquo;create a method named hello in global scope, with puts & &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -82,6 +83,128 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2016/ruby-class-evaluation/">In Ruby, Everything is Evaluated</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-07-10T22:25:00+07:00" pubdate data-updated="true">Jul 10<span>th</span>, 2016</time>
+        
+         | <a href="/blog/2016/ruby-class-evaluation/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So if i write</p>
+
+<pre><code>def hello
+  puts 'world'
+end
+</code></pre>
+
+<p>It will evaluate <code>def</code>, to which Ruby will &ldquo;create a method named hello in global scope, with puts &lsquo;world&rsquo; as a block&rdquo;. We can change &ldquo;global scope&rdquo; to any object we want.</p>
+
+<pre><code>class Greeting
+  def hello
+    puts 'world'
+  end
+end
+</code></pre>
+
+<p>The class &ldquo;Greeting&rdquo; is actually EVALUATED, NOT DEFINED (e.g. In Java, after we define a signature of a class/method, we can&rsquo;t change it, except using reflection). So actually, we can put anything in &ldquo;Greeting&rdquo; block, like</p>
+
+<pre><code>class Greeting
+  puts "Will define hello in greeting"
+  def hello
+    puts 'world'
+  end
+end
+</code></pre>
+
+<p>Save above script as &ldquo;test.rb&rdquo; (or anything) and try to run it. It will show &ldquo;Will define hello in greeting&rdquo; EVEN you don&rsquo;t call &ldquo;Greeting&rdquo; class or &ldquo;hello&rdquo; class or you don&rsquo;t even need to instantiate &ldquo;Greeting&rdquo; class. This language feature allows meta programming, like what we see in Rails.</p>
+
+<p>This time i will use Class Attribute within active support. If you ever run Rails, you should have it, but you can <code>gem install active_support</code> if you don&rsquo;t.</p>
+
+<pre><code>require 'active_support/core_ext/class/attribute'
+
+module Greeting; end
+
+class Greeting::Base
+
+  class_attribute :blocks
+
+  def hello(name)
+    self.blocks[:greeting].call(name)
+    self.blocks[:hello].call(name)
+  end
+
+  protected
+  def self.define_greeting(sym, &amp;blk)
+    self.blocks ||= {}
+    self.blocks[sym] = blk
+  end
+end
+
+class Greeting::English &lt; Greeting::Base
+  define_greeting :greeting do |who|
+    puts "Hi #{who}, Ruby will greet you with hello world!"
+  end
+  define_greeting :hello do |who|
+    puts "Hello World, #{who}!"
+  end
+end
+
+class Greeting::Indonesian &lt; Greeting::Base
+  define_greeting :greeting do |who|
+    puts "Halo kakak #{who}, Ruby akan menyapamu dengan Halo Dunia!"
+  end
+  define_greeting :hello do |who|
+    puts "Halo dunia! Salam, #{who}!"
+  end
+end
+
+x = Greeting::English.new
+x.hello "Fido"
+# Hi Fido, Ruby will greet you with hello world!
+# Hello World, Fido!
+x = Greeting::Indonesian.new
+x.hello "Fido"
+# Halo kakak Fido, Ruby akan menyapamu dengan Halo Dunia!
+# Halo dunia! Salam, Fido!
+</code></pre>
+
+<p>Previously i want to move the class attribute logic to above code, but after i see the <a href="https://github.com/rails/rails/blob/e35b98e6f5c54330245645f2ed40d56c74538902/activesupport/lib/active_support/core_ext/class/attribute.rb">Active Support code</a>, it is pretty complex, so i just require it : /</p>
+
+<hr />
+
+<p>Previously, i posted <a href="https://www.reddit.com/r/ProgrammerTIL/comments/4s2vmr/ruby_til_in_ruby_everything_is_evaluated/">this in Reddit</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -741,56 +864,6 @@ tetapi beberapa sumber mengatakan ini fiktif. Saya pun
 <p>Di masa depan, mungkin Anda butuh repo ini. Silahkan jangan sungkan men-star repo ini :D.</p>
 
 <p>Gambar dari <a href="https://raw.github.com/umano/AndroidSlidingUpPanel/master/slidinguppanel.png">repo asli</a>.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2014/internet/">Internet dan Privasi</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-03-23T11:04:00+07:00" pubdate data-updated="true">Mar 23<span>rd</span>, 2014</time>
-        
-         | <a href="/blog/2014/internet/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Yay, akhirnya setelah sekian lama enggak nulis, kita bisa nulis lagi :D</p>
-
-<p>Kali ini adalah tentang internet dan privasi. Secara umum, terkait privasi, kita bisa membagi manusia menjadi dua golongan.</p>
-
-<p>Golongan pertama adalah yang mendukung informasi publik Anda di internet. Anda saat mendaftar Google+ dan Facebook diminta untuk memberikan identitas asli kan? Golongan kedua adalah yang mendukung informasi di internet harus anonim. Contohnya saat Anda mendaftar Kaskus atau forum-forum, pada umumnya Anda tidak diminta memasukkan nama asli dan identitas-identitas pribadi Anda (kecuali email).</p>
-
-<p>Saya termasuk pribadi yang mendukung golongan kedua dan saya memiliki alasan kenapa saya mendukung golongan kedua.</p>
-
-<p>Di Indonesia, masih terlalu banyak orang yang tidak merasa data pribadinya tidak penting. Padahal, bukankah dari kecil kita sudah diajarkan oleh orang tua kita untuk tidak memberikan alamat rumah dan nomor telepon kepada orang yang tidak kita kenal? Sekarang, kenapa kita mudah sekali memberikan data kita ke sebuah layanan yang bahkan Anda sendiri tidak tahu bagaimana data itu disimpan?</p>
-
-<p><em>Think again.</em></p>
 </div>
   
   
