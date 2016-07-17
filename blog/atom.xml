@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2016-07-10T23:06:22+07:00</updated>
+  <updated>2016-07-17T09:16:31+07:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -14,87 +14,264 @@
 
   
   <entry>
+    <title type="html"><![CDATA[Cara Googling]]></title>
+    <link href="http://mufid.github.io/2016/how-to-google/"/>
+    <updated>2016-07-16T22:25:00+07:00</updated>
+    <id>http://mufid.github.io/2016/how-to-google</id>
+    <content type="html"><![CDATA[<p>Beberapa orang mengeluhkan kepada saya karena gagal menemukan masalah
+pemrograman apa yang ingin dicari di Google. Berikut adalah panduan singkat
+berdasarkan keluhan-keluhan yang coba saya pahami.</p>
+
+<!-- more -->
+
+
+<h2>Mengetahui Etika dan Cara Bertanya yang Baik</h2>
+
+<p>Pastikan Anda telah mengetahui etika bertanya. Jika Anda belum membacanya,
+bacalah. Baca versi terjemahan dari &ldquo;How to Ask Question The Smart Way&rdquo;
+oleh Harry Sufehmi di sini: <a href="http://harry.sufehmi.com/archives/2012-11-07-2556/">http://harry.sufehmi.com/archives/2012-11-07-2556/</a></p>
+
+<h2>Menanyakan Hal yang Tepat</h2>
+
+<p>Selanjutnya, Google bukanlah mesin ajaib yang bisa membaca pikiran kita.
+Google hanya dapat menampilkan informasi dari apa yang telah diindeks olehnya.
+Oleh karena itu, pikirkan kira-kira kata kunci apa yang perlu dimasukkan di
+Google dan ada di dalam indeks Google.</p>
+
+<p>Kita ambil contoh untuk galat. &ldquo;repair&rdquo; adalah kata valid untuk memperbaiki.
+&ldquo;Fix&rdquo; pun kata yang valid untuk memperbaiki. Dua-duanya bisa dipakai. Akan
+tetapi, ketika digabungkan dengan &ldquo;bug&rdquo;, maka ternyata Google memiliki
+informasi &ldquo;fix bug&rdquo; lebih banyak daripada &ldquo;repair bug&rdquo;. Oleh karena itu,
+sebaiknya Anda menggunakan kata-kata &ldquo;fix&rdquo; dibanding &ldquo;repair&rdquo;.</p>
+
+<p><img src="http://mufid.github.io/images/post/trends-bug-repair.png" alt="Fix, Jangan Repair" /></p>
+
+<p>Beberapa orang tidak merekomendasikan pencarian yang mengandung kata kurang
+bermakna seperti &ldquo;How to X&rdquo; dan &ldquo;What is Y&rdquo;. Ini ada benarnya karena kata-kata
+yang tidak bermakna justru akan mengotori hasil pencarian. Contohnya Anda
+sedang ingin mencari nama komputer yang dibuat oleh Apple, maka dimanakah
+kira-kira Anda dapat melihat nama komputernya? Tentu di websitenya Apple. Meski
+demikian, memasukkan &ldquo;apple computer apple website&rdquo; menghasilkan</p>
+
+<h2>Mengetahui Konteks</h2>
+
+<p>Anda perlu mengetahui konteks terhadap apa yang ingin Anda cari. Sebagai contoh,
+Anda ingin mengetahui konsep &ldquo;bridge&rdquo; di dunia pemrograman. Anda perlu secara
+sadar memahami bahwa Anda sedang mencari konsep bridge, bukan jembatan fisik,
+atau apapun itu.</p>
+
+<p>Memasukkan &ldquo;bridge programming&rdquo; mungkin akan menemukan hal yang tidak
+bermakna. Ada banyak hal yang berkaitan dengan bridge. Jangan-jangan, kita
+malah menemukan bagaimana caranya membuat permainan kartu. Ya, penting
+bagi kita untuk mengetahui konteks bahwa ada permainan kartu bernama bridge.</p>
+
+<p>Maka dari itu, kita perlu memahami konteksnya. &ldquo;Bridge seperti apa yang kita
+cari?&rdquo; Kita perlu menilik bridge ini dekat ke apa. Apakah library? Bukan.
+Ini adalah konsep pemrograman. Maka kita perlu menilik lagi, &ldquo;Apa saja
+konteks yang ada di konsep pemrograman?&rdquo;</p>
+
+<p>Secara umum, kita bisa membuka buku pemrograman dasar seperti Big Java atau
+buku-buku di seri Heads Up dan melihat &ldquo;bridge&rdquo; ini lebih dekat ke mana.</p>
+
+<ul>
+<li>&ldquo;Data Structure&rdquo;. Apakah bridge ini termasuk ke struktur data? Semacam
+LinkedList? Sepertinya relevansinya kurang. Lanjut ke bab selanjutnya.</li>
+<li>&ldquo;User Interface&rdquo;. Tentu saja bukan gambar jembatan yang kita maksud</li>
+<li>&ldquo;Network&rdquo;. Baiklah, kita mulai menemukan masalah. Kalau Anda mencari &ldquo;bridge
+network&rdquo; maka Anda akan menemukan banyak sekali hasil yang terkesan relevan.
+Di sinilah penting untuk memahami konteks: Hasilnya terkesan relevan, tapi
+apakah ini yang Anda cari? Ketika menelusuri lebih dalam, ternyata ada istilah
+&ldquo;bridge&rdquo; juga di pemrograman jaringan, tetapi bukan konsep pemrograman itu
+yang sedang kita cari.</li>
+<li>&ldquo;Algorithm&rdquo;. Oke, ini kasusnya mirip dengan butir sebelumnya. Terkesan
+menjadi solusi padahal bukan ini yang kita cari.</li>
+<li>&ldquo;Design Pattern&rdquo;. Aha. Ketika kita mencari &ldquo;bridge design pattern&rdquo;, maka
+kita akan menemukan hal yang tepat!</li>
+</ul>
+
+
+<p>Pemahaman konteks juga penting agar kita menggunakan terminologi yang tepat.
+Di dunia terkait, banyak istilah yang sama tapi artinya berbeda.
+Semisal, &ldquo;instance&rdquo; itu bisa berarti
+kelas yang sudah di-construct (kelas yang telah di-instatiate), atau
+juga bisa berarti mesin-mesin VM yang hidup (&ldquo;EC2 Instance&rdquo; misalnya).</p>
+
+<h2>Lebih Umum, atau Lebih Spesifik</h2>
+
+<p>Ketika mencari error, panduan umumnya adalah googling saja pesan errornya.
+Atau, boleh jadi error itu intermitent (hanya kadang-kadang terjadi) sehingga
+kita perlu mencari hal yang lebih umum dari error yang bersangkutan. Atau,
+boleh jadi error tersebut sangat kontekstual sehingga kita perlu mencari
+tingkatan yang lebih umum.</p>
+
+<p>Misalnya, errornya terjadi karena NullPointerException. Ini sudah cukup jelas;
+kesalahan terjadi karena Anda mencoba mengakses objek yang nilainya null. Akan
+tetapi, Anda tidak sedang mem-pass parameter yang null. Oleh karena itu, coba
+lihat lagi secara lebih umum. Meng-google &ldquo;NullPointerException java&rdquo; akan
+menghasilkan hasil pencarian yang sampah. Hindari.</p>
+
+<p>Akan tetapi, misalnya Anda ternyata menggunakan library Spring dengan modul
+Autowired. Coba ini saja yang dicari, jadi &ldquo;NullPointerException spring
+autowired&rdquo;.</p>
+
+<h2>Forum!</h2>
+
+<p>Ketika Anda telah melakukan itu semua, tetapi belum menemukan jawabannya,
+selamat, masalah Anda ternyata tidak
+ada di Google. Akan tetapi, Anda telah sangat mengerti permasalahan yang
+Anda alami. Bertanyalah di forum atau StackOverflow. Atau, beberapa
+komunitas juga memiliki Slack. Coba tanya di sana. Anda akan dibalas dengan
+cepat. Percayalah, orang-orang di internet akan sangat menghargai Anda
+jika Anda telah melakukan usaha memahami dulu apa yang hendak Anda tenyakan.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[In Ruby, Everything is Evaluated]]></title>
     <link href="http://mufid.github.io/2016/ruby-class-evaluation/"/>
     <updated>2016-07-10T22:25:00+07:00</updated>
     <id>http://mufid.github.io/2016/ruby-class-evaluation</id>
     <content type="html"><![CDATA[<p>So if i write</p>
 
-<pre><code>def hello
-  puts 'world'
-end
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>It will evaluate <code>def</code>, to which Ruby will &ldquo;create a method named hello in global scope, with puts &lsquo;world&rsquo; as a block&rdquo;. We can change &ldquo;global scope&rdquo; to any object we want.</p>
 
-<pre><code>class Greeting
-  def hello
-    puts 'world'
-  end
-end
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Greeting</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>The class &ldquo;Greeting&rdquo; is actually EVALUATED, NOT DEFINED (e.g. In Java, after we define a signature of a class/method, we can&rsquo;t change it, except using reflection). So actually, we can put anything in &ldquo;Greeting&rdquo; block, like</p>
 
-<pre><code>class Greeting
-  puts "Will define hello in greeting"
-  def hello
-    puts 'world'
-  end
-end
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Greeting</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Will define hello in greeting&quot;</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Save above script as &ldquo;test.rb&rdquo; (or anything) and try to run it. It will show &ldquo;Will define hello in greeting&rdquo; EVEN you don&rsquo;t call &ldquo;Greeting&rdquo; class or &ldquo;hello&rdquo; class or you don&rsquo;t even need to instantiate &ldquo;Greeting&rdquo; class. This language feature allows meta programming, like what we see in Rails.</p>
 
 <p>This time i will use Class Attribute within active support. If you ever run Rails, you should have it, but you can <code>gem install active_support</code> if you don&rsquo;t.</p>
 
-<pre><code>require 'active_support/core_ext/class/attribute'
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;active_support/core_ext/class/attribute&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">Greeting</span><span class="p">;</span> <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">class_attribute</span> <span class="ss">:blocks</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="ss">:greeting</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="ss">:hello</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">protected</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">define_greeting</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">||=</span> <span class="p">{}</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="n">sym</span><span class="o">]</span> <span class="o">=</span> <span class="n">blk</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">English</span> <span class="o">&lt;</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:greeting</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Hi </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">, Ruby will greet you with hello world!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:hello</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Hello World, </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">Indonesian</span> <span class="o">&lt;</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:greeting</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Halo kakak </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">, Ruby akan menyapamu dengan Halo Dunia!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:hello</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Halo dunia! Salam, </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:English</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">x</span><span class="o">.</span><span class="n">hello</span> <span class="s2">&quot;Fido&quot;</span>
+</span><span class='line'><span class="c1"># Hi Fido, Ruby will greet you with hello world!</span>
+</span><span class='line'><span class="c1"># Hello World, Fido!</span>
+</span><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Indonesian</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">x</span><span class="o">.</span><span class="n">hello</span> <span class="s2">&quot;Fido&quot;</span>
+</span><span class='line'><span class="c1"># Halo kakak Fido, Ruby akan menyapamu dengan Halo Dunia!</span>
+</span><span class='line'><span class="c1"># Halo dunia! Salam, Fido!</span>
+</span></code></pre></td></tr></table></div></figure>
 
-module Greeting; end
-
-class Greeting::Base
-
-  class_attribute :blocks
-
-  def hello(name)
-    self.blocks[:greeting].call(name)
-    self.blocks[:hello].call(name)
-  end
-
-  protected
-  def self.define_greeting(sym, &amp;blk)
-    self.blocks ||= {}
-    self.blocks[sym] = blk
-  end
-end
-
-class Greeting::English &lt; Greeting::Base
-  define_greeting :greeting do |who|
-    puts "Hi #{who}, Ruby will greet you with hello world!"
-  end
-  define_greeting :hello do |who|
-    puts "Hello World, #{who}!"
-  end
-end
-
-class Greeting::Indonesian &lt; Greeting::Base
-  define_greeting :greeting do |who|
-    puts "Halo kakak #{who}, Ruby akan menyapamu dengan Halo Dunia!"
-  end
-  define_greeting :hello do |who|
-    puts "Halo dunia! Salam, #{who}!"
-  end
-end
-
-x = Greeting::English.new
-x.hello "Fido"
-# Hi Fido, Ruby will greet you with hello world!
-# Hello World, Fido!
-x = Greeting::Indonesian.new
-x.hello "Fido"
-# Halo kakak Fido, Ruby akan menyapamu dengan Halo Dunia!
-# Halo dunia! Salam, Fido!
-</code></pre>
 
 <p>Previously i want to move the class attribute logic to above code, but after i see the <a href="https://github.com/rails/rails/blob/e35b98e6f5c54330245645f2ed40d56c74538902/activesupport/lib/active_support/core_ext/class/attribute.rb">Active Support code</a>, it is pretty complex, so i just require it : /</p>
 
@@ -113,47 +290,73 @@ x.hello "Fido"
 
 <p>Imagine a situation like this: I have a class like this:</p>
 
-<pre><code>Wrapper&lt;T&gt; where T : IDestroyable
-{
-  T RetrieveValue() { /* body */ }
-  void Destroy() { /* body */ }
-}
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Let&rsquo;s go straight to the point: What if I want to call Destroy, but I don&rsquo;t care what is T? So I have</p>
 
-<pre><code>object x // instance of Wrapper
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">object</span> <span class="n">x</span> <span class="c1">// instance of Wrapper</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><code>object x</code> is an instance of <code>Wrapper</code>. But I can&rsquo;t cast it into wrapper without knowing the exact value of the generic type. I can&rsquo;t do something like this:</p>
 
-<pre><code>Object x = something;
-(X as Wrapper&lt;?&gt;).Destroy();
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Object</span> <span class="n">x</span> <span class="p">=</span> <span class="n">something</span><span class="p">;</span>
+</span><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">&lt;?&gt;).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Also, generic is tightly coupled in C#. Meanwhile, in Java, generic is optional. If you don&rsquo;t specify the generic, Java just simply treat the generic type as <code>Object</code>. In java you can write the code like below, but not in C#:</p>
 
-<pre><code>(X as Wrapper).Destroy();
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>So how do I call <code>Destroy</code> without knowing the <code>T</code>? Surprisingly, the solution is pretty simple. Just extract the <code>Destroy</code> method to an interface:</p>
 
-<pre><code>interface IWrapperDestroyer
-{
-  void Destroy()
-}
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">interface</span> <span class="n">IWrapperDestroyer</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">IWrapperDestroyer</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-Wrapper&lt;T&gt; : IWrapperDestroyer where T : IDestroyable
-{
-  T RetrieveValue()
-  void Destroy()
-}
-</code></pre>
 
 <p>So that I can simply call this:</p>
 
-<pre><code>(X as IWrapperDestroyer).Destroy()
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">IWrapperDestroyer</span><span class="p">).</span><span class="n">Destroy</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
 ]]></content>
@@ -1673,6 +1876,59 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
   </entry>
   
   <entry>
+    <title type="html"><![CDATA[Angkutan Jakarta: Revisited]]></title>
+    <link href="http://mufid.github.io/2013/angkutan-jakarta-revisited/"/>
+    <updated>2013-07-09T21:43:00+07:00</updated>
+    <id>http://mufid.github.io/2013/angkutan-jakarta-revisited</id>
+    <content type="html"><![CDATA[<p>Jadi ceritanya dalam beberapa waktu terakhir saya sedang melakukan internship. Kemudian saya pergi ke Jakarta setiap hari. Hampir semua jalur darat telah saya capai. Berikut reviewnya.</p>
+
+<h2>Angkot</h2>
+
+<p>Angkot adalah angkutan yang cukup mahal, tidak terlalu cepat, tetapi nyaman. Anda bisa duduk sepanjang perjalanan. Pengecualian untuk angkot pada jalur yang lebih tenang: Anda bisa saja <em>gelayutan</em> di angkot, tetapi itu pengecualian dan sangat jarang terjadi di angkot Jakarta.</p>
+
+<h2>Bis Kecil</h2>
+
+<p>Misalnya Kopaja atau Metromini. Bis ini rawan copet dan rampok. Hati-hati ketika turun. Kalau bisa, jangan main hape ketika perjalanan. Jangan juga menampakkan barang-barang berharga.</p>
+
+<h2>Bis Panjang</h2>
+
+<p>Ada dua jenis bis:</p>
+
+<ul>
+<li>Bis patas (AC), seperti Mayasari</li>
+<li>Bis non-patas (non-AC), seperti PPD</li>
+</ul>
+
+
+<p>Jika Anda berpikir di bis patas tidak ada yang merokok, Anda salah besar.</p>
+
+<h2>Ojek</h2>
+
+<p>Ojek mahal. Akan tetapi, sangat cepat. Btw, saya seringkali memejamkan kata ketika naik ojek karena cara menyalipnya sangat menyeramkan.</p>
+
+<h2>Taksi</h2>
+
+<p>Kalau jalan berempat, naik taksi aja. Jatuhnya bisa lebih murah. Dan lebih nyaman juga. Sebagai gambaran, dari Cawang ke Senopati hanya 40rb. Kalau jalan berempat ya kira-kira 10rb per orang. Biaya yang serupa dengan Anda naik Busway (plus ojek ke tempat tujuan).</p>
+
+<h2>Bajaj</h2>
+
+<p>Bisa naik berdua. Solusi yang cepat kalau tidak ada taksi (dan tidak mau naik ojek). Di siang hari, dibandingkan dengan ojek, ini bisa jadi pilihan karena setidaknya ada atapnya.</p>
+
+<h2>Busway</h2>
+
+<p>Pilihan yang sebaiknya Anda hindarkan karena bisa datang 20-60 menit sekali. Lebih baik naik yang lain. Meski demikian, di malam hari relatif lebih aman karena di haltenya ada yang menjaga.</p>
+
+<h2>KRL</h2>
+
+<p>Ini pilihan yang sangat reliabel di antara semua yang tidak dapat diandalkan.</p>
+
+<p>Beberapa tips:</p>
+
+<p>Coba ke gerbong ujung. Cenderung kosong. Kalaupun lagi jam sibuk, paksa saja masuk ke dalam gerbong. Berusahalah masuk ke tengah gerbong, ke depan tempat duduk. Jauhi pintu dan jalan keluar. Di sana cenderung kosong. Kalau mau tidak tergencet, ke pintu yang selalu ditutup.</p>
+]]></content>
+  </entry>
+  
+  <entry>
     <title type="html"><![CDATA[Banyak Orang Baik di Indonesia]]></title>
     <link href="http://mufid.github.io/2013/banyak-orang-baik-di-indonesia/"/>
     <updated>2013-06-23T17:09:00+07:00</updated>
@@ -1829,38 +2085,6 @@ belum tersentuh internet (atau bahkan belum mengenal).</p>
 dari Videoku. Seems they&rsquo;re not digging into security.</p>
 
 <p><img src="http://mufid.github.io/images/post/spam.png" alt="spam" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[I am Looking for Internship]]></title>
-    <link href="http://mufid.github.io/2013/intern/"/>
-    <updated>2013-03-26T07:55:00+07:00</updated>
-    <id>http://mufid.github.io/2013/intern</id>
-    <content type="html"><![CDATA[<p>Update: Thanks <a href="http://turbo2010.wordpress.com/2013/06/24/kerja-praktik-di-pt-ice-house-cari-dapat-nyaris-telat-dan-jatuh-cinta/">IceHouse</a> for giving me opportunity to have great work! :D</p>
-
-<p>I am Muhammad Mufid Afif. Currently i am third year student in Faculty of <F24>Computer Science.</p>
-
-<p>I love to do hacks. See my <a href="https://github.com/mufid">Github</a> for my latest hacks. I love hacks in PHP and Rails. I love user interface design, though i am not master in design.</p>
-
-<p>I am looking for intern this summer as part of my graduation prerequisites. I will do my best intern with my best attidude and surely i will do great hacks. I am living in Indonesia, but i am able to go abroad if needed.</p>
-
-<p>Please kindly contact me at mufid.afif[at]gmail[dot]com.</p>
-
-<p>Thank you very much,</p>
-
-<p>Mufid</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Fiddler Web Debugger]]></title>
-    <link href="http://mufid.github.io/2013/fiddler-web-debugger/"/>
-    <updated>2013-03-04T06:09:00+07:00</updated>
-    <id>http://mufid.github.io/2013/fiddler-web-debugger</id>
-    <content type="html"><![CDATA[<p><em>This tool is just amazing.</em></p>
-
-<p><img src="http://mufid.github.io/images/post/fiddler.png" alt="Fiddler" /></p>
 ]]></content>
   </entry>
   

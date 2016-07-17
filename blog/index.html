@@ -9,8 +9,8 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="So if i write def hello puts 'world'
-end It will evaluate def, to which Ruby will &ldquo;create a method named hello in global scope, with puts & &hellip;">
+  <meta name="description" content="Beberapa orang mengeluhkan kepada saya karena gagal menemukan masalah
+pemrograman apa yang ingin dicari di Google. Berikut adalah panduan singkat &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -90,6 +90,53 @@ end It will evaluate def, to which Ruby will &ldquo;create a method named hello 
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2016/how-to-google/">Cara Googling</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-07-16T22:25:00+07:00" pubdate data-updated="true">Jul 16<span>th</span>, 2016</time>
+        
+         | <a href="/blog/2016/how-to-google/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Beberapa orang mengeluhkan kepada saya karena gagal menemukan masalah
+pemrograman apa yang ingin dicari di Google. Berikut adalah panduan singkat
+berdasarkan keluhan-keluhan yang coba saya pahami.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2016/how-to-google/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
         <h1 class="entry-title"><a href="/blog/2016/ruby-class-evaluation/">In Ruby, Everything is Evaluated</a></h1>
       
     
@@ -118,81 +165,145 @@ end It will evaluate def, to which Ruby will &ldquo;create a method named hello 
 
   <div class="entry-content"><p>So if i write</p>
 
-<pre><code>def hello
-  puts 'world'
-end
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>It will evaluate <code>def</code>, to which Ruby will &ldquo;create a method named hello in global scope, with puts &lsquo;world&rsquo; as a block&rdquo;. We can change &ldquo;global scope&rdquo; to any object we want.</p>
 
-<pre><code>class Greeting
-  def hello
-    puts 'world'
-  end
-end
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Greeting</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>The class &ldquo;Greeting&rdquo; is actually EVALUATED, NOT DEFINED (e.g. In Java, after we define a signature of a class/method, we can&rsquo;t change it, except using reflection). So actually, we can put anything in &ldquo;Greeting&rdquo; block, like</p>
 
-<pre><code>class Greeting
-  puts "Will define hello in greeting"
-  def hello
-    puts 'world'
-  end
-end
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Greeting</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Will define hello in greeting&quot;</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Save above script as &ldquo;test.rb&rdquo; (or anything) and try to run it. It will show &ldquo;Will define hello in greeting&rdquo; EVEN you don&rsquo;t call &ldquo;Greeting&rdquo; class or &ldquo;hello&rdquo; class or you don&rsquo;t even need to instantiate &ldquo;Greeting&rdquo; class. This language feature allows meta programming, like what we see in Rails.</p>
 
 <p>This time i will use Class Attribute within active support. If you ever run Rails, you should have it, but you can <code>gem install active_support</code> if you don&rsquo;t.</p>
 
-<pre><code>require 'active_support/core_ext/class/attribute'
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;active_support/core_ext/class/attribute&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">Greeting</span><span class="p">;</span> <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">class_attribute</span> <span class="ss">:blocks</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="ss">:greeting</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="ss">:hello</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">protected</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">define_greeting</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">||=</span> <span class="p">{}</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="n">sym</span><span class="o">]</span> <span class="o">=</span> <span class="n">blk</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">English</span> <span class="o">&lt;</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:greeting</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Hi </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">, Ruby will greet you with hello world!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:hello</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Hello World, </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">Indonesian</span> <span class="o">&lt;</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:greeting</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Halo kakak </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">, Ruby akan menyapamu dengan Halo Dunia!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:hello</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Halo dunia! Salam, </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:English</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">x</span><span class="o">.</span><span class="n">hello</span> <span class="s2">&quot;Fido&quot;</span>
+</span><span class='line'><span class="c1"># Hi Fido, Ruby will greet you with hello world!</span>
+</span><span class='line'><span class="c1"># Hello World, Fido!</span>
+</span><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Indonesian</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">x</span><span class="o">.</span><span class="n">hello</span> <span class="s2">&quot;Fido&quot;</span>
+</span><span class='line'><span class="c1"># Halo kakak Fido, Ruby akan menyapamu dengan Halo Dunia!</span>
+</span><span class='line'><span class="c1"># Halo dunia! Salam, Fido!</span>
+</span></code></pre></td></tr></table></div></figure>
 
-module Greeting; end
-
-class Greeting::Base
-
-  class_attribute :blocks
-
-  def hello(name)
-    self.blocks[:greeting].call(name)
-    self.blocks[:hello].call(name)
-  end
-
-  protected
-  def self.define_greeting(sym, &amp;blk)
-    self.blocks ||= {}
-    self.blocks[sym] = blk
-  end
-end
-
-class Greeting::English &lt; Greeting::Base
-  define_greeting :greeting do |who|
-    puts "Hi #{who}, Ruby will greet you with hello world!"
-  end
-  define_greeting :hello do |who|
-    puts "Hello World, #{who}!"
-  end
-end
-
-class Greeting::Indonesian &lt; Greeting::Base
-  define_greeting :greeting do |who|
-    puts "Halo kakak #{who}, Ruby akan menyapamu dengan Halo Dunia!"
-  end
-  define_greeting :hello do |who|
-    puts "Halo dunia! Salam, #{who}!"
-  end
-end
-
-x = Greeting::English.new
-x.hello "Fido"
-# Hi Fido, Ruby will greet you with hello world!
-# Hello World, Fido!
-x = Greeting::Indonesian.new
-x.hello "Fido"
-# Halo kakak Fido, Ruby akan menyapamu dengan Halo Dunia!
-# Halo dunia! Salam, Fido!
-</code></pre>
 
 <p>Previously i want to move the class attribute logic to above code, but after i see the <a href="https://github.com/rails/rails/blob/e35b98e6f5c54330245645f2ed40d56c74538902/activesupport/lib/active_support/core_ext/class/attribute.rb">Active Support code</a>, it is pretty complex, so i just require it : /</p>
 
@@ -242,47 +353,73 @@ x.hello "Fido"
 
 <p>Imagine a situation like this: I have a class like this:</p>
 
-<pre><code>Wrapper&lt;T&gt; where T : IDestroyable
-{
-  T RetrieveValue() { /* body */ }
-  void Destroy() { /* body */ }
-}
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Let&rsquo;s go straight to the point: What if I want to call Destroy, but I don&rsquo;t care what is T? So I have</p>
 
-<pre><code>object x // instance of Wrapper
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">object</span> <span class="n">x</span> <span class="c1">// instance of Wrapper</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p><code>object x</code> is an instance of <code>Wrapper</code>. But I can&rsquo;t cast it into wrapper without knowing the exact value of the generic type. I can&rsquo;t do something like this:</p>
 
-<pre><code>Object x = something;
-(X as Wrapper&lt;?&gt;).Destroy();
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Object</span> <span class="n">x</span> <span class="p">=</span> <span class="n">something</span><span class="p">;</span>
+</span><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">&lt;?&gt;).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Also, generic is tightly coupled in C#. Meanwhile, in Java, generic is optional. If you don&rsquo;t specify the generic, Java just simply treat the generic type as <code>Object</code>. In java you can write the code like below, but not in C#:</p>
 
-<pre><code>(X as Wrapper).Destroy();
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>So how do I call <code>Destroy</code> without knowing the <code>T</code>? Surprisingly, the solution is pretty simple. Just extract the <code>Destroy</code> method to an interface:</p>
 
-<pre><code>interface IWrapperDestroyer
-{
-  void Destroy()
-}
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">interface</span> <span class="n">IWrapperDestroyer</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">IWrapperDestroyer</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
 
-Wrapper&lt;T&gt; : IWrapperDestroyer where T : IDestroyable
-{
-  T RetrieveValue()
-  void Destroy()
-}
-</code></pre>
 
 <p>So that I can simply call this:</p>
 
-<pre><code>(X as IWrapperDestroyer).Destroy()
-</code></pre>
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">IWrapperDestroyer</span><span class="p">).</span><span class="n">Destroy</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
 
 <p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
 </div>
@@ -799,73 +936,6 @@ kalau begitu, mari kita coba memasang Discourse!</p>
     <footer>
       <a rel="full-article" href="/blog/2014/discourse/">Read on &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2014/sliding-up/">Repo Review: Sliding Up (Android)</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-04-11T05:41:00+07:00" pubdate data-updated="true">Apr 11<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/sliding-up/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Anda mengetahui bahwa Google Maps dan Google Play Music memiliki fitur
-sliding up yang sangat keren. Anda geser bar bawah, Anda akan diberikan
-fragment yang berbeda. Rekan seperjuangan Saya, <a href="https://github.com/des-k">des-k</a>,
-menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p>
-
-<h3><a href="https://github.com/umano/AndroidSlidingUpPanel/">Android Sliding Up Panel</a></h3>
-
-<p><img src="/blog/images/post/slidinguppanel.png" alt="sliding up panel" /></p>
-
-<p>Mari kita review beberapa hal tentang repo ini:</p>
-
-<ul>
-<li><strong>Kegunaan:</strong> Jelas repo ini sangat berguna, kalau tidak berguna ya tidak
-akan kita bahas (kecuali kita sangat iseng)</li>
-<li><strong>Struktur kode:</strong> Saya tidak menganalisis secara mendalam kodenya, karena
-saya juga mau berangkat (well, alhamdulillah masih bisa nulis pagi-pagi).
-Tetapi <a href="https://github.com/umano/AndroidSlidingUpPanel/blob/master/library/src/com/sothree/slidinguppanel/SlidingUpPanelLayout.java">Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</a></li>
-<li><strong>Petunjuk Instalasi:</strong> ade ternyata tidak melihat bahwa repo ini sudah
-tersedia di Maven. Saya juga tidak menemukan di awalnya.
-<a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
-tetapi beberapa sumber mengatakan ini fiktif. Saya pun
-<a href="http://mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersedia di Maven.</a></li>
-</ul>
-
-
-<p>Di masa depan, mungkin Anda butuh repo ini. Silahkan jangan sungkan men-star repo ini :D.</p>
-
-<p>Gambar dari <a href="https://raw.github.com/umano/AndroidSlidingUpPanel/master/slidinguppanel.png">repo asli</a>.</p>
-</div>
-  
   
 
 
