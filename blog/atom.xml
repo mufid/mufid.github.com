@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2016-10-05T08:02:01+07:00</updated>
+  <updated>2016-10-05T01:07:28+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Cara Googling]]></title>
     <link href="http://mufid.github.io/2016/how-to-google/"/>
-    <updated>2016-07-16T22:25:00+07:00</updated>
+    <updated>2016-07-16T22:25:00+00:00</updated>
     <id>http://mufid.github.io/2016/how-to-google</id>
     <content type="html"><![CDATA[<p>Beberapa orang mengeluhkan kepada saya karena gagal menemukan masalah
 pemrograman apa yang ingin dicari di Google. Berikut adalah panduan singkat
@@ -129,7 +129,7 @@ jika Anda telah melakukan usaha memahami dulu apa yang hendak Anda tenyakan.</p>
   <entry>
     <title type="html"><![CDATA[In Ruby, Everything is Evaluated]]></title>
     <link href="http://mufid.github.io/2016/ruby-class-evaluation/"/>
-    <updated>2016-07-10T22:25:00+07:00</updated>
+    <updated>2016-07-10T22:25:00+00:00</updated>
     <id>http://mufid.github.io/2016/ruby-class-evaluation</id>
     <content type="html"><![CDATA[<p>So if i write</p>
 
@@ -284,7 +284,7 @@ jika Anda telah melakukan usaha memahami dulu apa yang hendak Anda tenyakan.</p>
   <entry>
     <title type="html"><![CDATA[Using Class with Generics &lt;T&gt; Without the T in C#]]></title>
     <link href="http://mufid.github.io/2016/generic-type-csharp/"/>
-    <updated>2016-05-04T06:51:00+07:00</updated>
+    <updated>2016-05-04T06:51:00+00:00</updated>
     <id>http://mufid.github.io/2016/generic-type-csharp</id>
     <content type="html"><![CDATA[<p>So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a class with generic type, but I don&rsquo;t know what is the generic type. Furthermore, I don&rsquo;t care what is the type of the generic.</p>
 
@@ -365,7 +365,7 @@ jika Anda telah melakukan usaha memahami dulu apa yang hendak Anda tenyakan.</p>
   <entry>
     <title type="html"><![CDATA[Having Fun with Java's Null]]></title>
     <link href="http://mufid.github.io/2015/null/"/>
-    <updated>2015-04-23T20:52:00+07:00</updated>
+    <updated>2015-04-23T20:52:00+00:00</updated>
     <id>http://mufid.github.io/2015/null</id>
     <content type="html"><![CDATA[<p>So lately i have been diving really deep (or not really) into Java. I found Java&rsquo;s null is interesting. I think, i hate <code>NullPointerException</code> very much. And most of the time, i hate my own way to deal with those things.</p>
 
@@ -471,7 +471,7 @@ false
   <entry>
     <title type="html"><![CDATA[Instant Messaging (Including Whatsapp) Is Not For Mobile]]></title>
     <link href="http://mufid.github.io/2015/no-im-at-least-for-now/"/>
-    <updated>2015-04-03T20:56:00+07:00</updated>
+    <updated>2015-04-03T20:56:00+00:00</updated>
     <id>http://mufid.github.io/2015/no-im-at-least-for-now</id>
     <content type="html"><![CDATA[<p>Well, it&rsquo;s been a while since i broke <a href="http://www.gsmarena.com/lenovo_p780-5544.php">my smartphone</a>. Since communication is very important these days, i should get a new phone ASAP. Fortunately i only need calling and texting, so i can simply buy <a href="http://www.samsung.com/levant/consumer/mobile-phones/feature-phones/feature-phones/GT-E1205ZOTTUN">a dumbphone</a> to fullfill my need.</p>
 
@@ -496,7 +496,7 @@ false
   <entry>
     <title type="html"><![CDATA[Kedewasaan Pengguna (Penggunaan) Internet Indonesia]]></title>
     <link href="http://mufid.github.io/2015/flamebait/"/>
-    <updated>2015-01-30T11:19:00+07:00</updated>
+    <updated>2015-01-30T11:19:00+00:00</updated>
     <id>http://mufid.github.io/2015/flamebait</id>
     <content type="html"><![CDATA[<p>Mari kita mulai dengan <a href="https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=it_net_user_p2&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:CHN:GBR:IDN&amp;ifdim=region&amp;hl=en&amp;dl=en&amp;ind=false&amp;icfg">data:</a></p>
 
@@ -565,7 +565,7 @@ Recipe&trade;Chicken, Tender Roast Chicken dll.</li>
   <entry>
     <title type="html"><![CDATA[A simple pattern in Java: equals]]></title>
     <link href="http://mufid.github.io/2014/pattern-java-equals/"/>
-    <updated>2014-10-28T20:16:00+07:00</updated>
+    <updated>2014-10-28T20:16:00+00:00</updated>
     <id>http://mufid.github.io/2014/pattern-java-equals</id>
     <content type="html"><![CDATA[<p>Di Java, kita menggunakan <code>.equals()</code> untuk membandingkan suatu <em>instance</em> apakah bernilai sama atau tidak. Yang masalah adalah ketika Anda membandingkan nilai null. Mari kita ambil contoh kasus sederhana: validasi apakah suatu email dari user berhak mendapatkan bingkisan spesial atau tidak dari nilai yang sudah ditentukan. Misalnya kodenya seperti ini:</p>
 
@@ -610,7 +610,7 @@ condition.fail();
   <entry>
     <title type="html"><![CDATA[Aku]]></title>
     <link href="http://mufid.github.io/2014/aku/"/>
-    <updated>2014-10-12T12:41:00+07:00</updated>
+    <updated>2014-10-12T12:41:00+00:00</updated>
     <id>http://mufid.github.io/2014/aku</id>
     <content type="html"><![CDATA[<p><em>My lovely country is indeed awesome!</em></p>
 
@@ -624,7 +624,7 @@ condition.fail();
   <entry>
     <title type="html"><![CDATA[DNS Speedy Lambat]]></title>
     <link href="http://mufid.github.io/2014/speedy-dns-slow/"/>
-    <updated>2014-09-20T07:54:00+07:00</updated>
+    <updated>2014-09-20T07:54:00+00:00</updated>
     <id>http://mufid.github.io/2014/speedy-dns-slow</id>
     <content type="html"><![CDATA[<p>Jadi, saya menghidupkan VPN di San Fransisco.
 Kalau saya sambungkan komputer saya ke VPN saya;
@@ -807,7 +807,7 @@ dari situ kita bisa saling periksa hasilnya.</p>
   <entry>
     <title type="html"><![CDATA[Memasang Discourse di Ubuntu Server 14.04]]></title>
     <link href="http://mufid.github.io/2014/discourse/"/>
-    <updated>2014-06-25T18:52:00+07:00</updated>
+    <updated>2014-06-25T18:52:00+00:00</updated>
     <id>http://mufid.github.io/2014/discourse</id>
     <content type="html"><![CDATA[<p>Discourse sepertinya akan menjadi hype. Sudah
 mulai banyak adopsi Discourse di beberapa forum.
@@ -963,7 +963,7 @@ dari browser.</p>
   <entry>
     <title type="html"><![CDATA[Repo Review: Sliding Up (Android)]]></title>
     <link href="http://mufid.github.io/2014/sliding-up/"/>
-    <updated>2014-04-11T05:41:00+07:00</updated>
+    <updated>2014-04-11T05:41:00+00:00</updated>
     <id>http://mufid.github.io/2014/sliding-up</id>
     <content type="html"><![CDATA[<p>Anda mengetahui bahwa Google Maps dan Google Play Music memiliki fitur
 sliding up yang sangat keren. Anda geser bar bawah, Anda akan diberikan
@@ -999,7 +999,7 @@ tetapi beberapa sumber mengatakan ini fiktif. Saya pun
   <entry>
     <title type="html"><![CDATA[Internet dan Privasi]]></title>
     <link href="http://mufid.github.io/2014/internet/"/>
-    <updated>2014-03-23T11:04:00+07:00</updated>
+    <updated>2014-03-23T11:04:00+00:00</updated>
     <id>http://mufid.github.io/2014/internet</id>
     <content type="html"><![CDATA[<p>Yay, akhirnya setelah sekian lama enggak nulis, kita bisa nulis lagi :D</p>
 
@@ -1018,7 +1018,7 @@ tetapi beberapa sumber mengatakan ini fiktif. Saya pun
   <entry>
     <title type="html"><![CDATA[Porno]]></title>
     <link href="http://mufid.github.io/2014/porn/"/>
-    <updated>2014-02-18T07:40:00+07:00</updated>
+    <updated>2014-02-18T07:40:00+00:00</updated>
     <id>http://mufid.github.io/2014/porn</id>
     <content type="html"><![CDATA[<p>Di Facebook sedang ramai membahas <a href="http://islamisfun.wordpress.com/2014/02/16/karena-bu-risma">Hal-hal yang memiliki korelasi dengan dialog Bu Risma di Mata Najwa</a>.
 Pembahasan lebih diarahkan pada salah satu kalimat di sana yaitu <a href="http://www.youtube.com/watch?v=hvrf1Img0C0&amp;feature=youtu.be&amp;t=27m">pelanggan PSK 60 tahun-an adalah anak SD-SMP</a>.</p>
@@ -1072,7 +1072,7 @@ Kabar buruknya, bagian itu matengnya baru di usia 25 tahun. Gue mendadak inget k
   <entry>
     <title type="html"><![CDATA[Twitter dan Kelucuannya]]></title>
     <link href="http://mufid.github.io/2014/twitter-wut/"/>
-    <updated>2014-01-17T13:01:00+07:00</updated>
+    <updated>2014-01-17T13:01:00+00:00</updated>
     <id>http://mufid.github.io/2014/twitter-wut</id>
     <content type="html"><![CDATA[<p><em>Coba deh kosongin user description Twitter</em></p>
 
@@ -1085,7 +1085,7 @@ Kabar buruknya, bagian itu matengnya baru di usia 25 tahun. Gue mendadak inget k
   <entry>
     <title type="html"><![CDATA[Membuat Proxy Server di Python 3]]></title>
     <link href="http://mufid.github.io/2013/proxy-in-python-3/"/>
-    <updated>2013-12-08T04:58:00+07:00</updated>
+    <updated>2013-12-08T04:58:00+00:00</updated>
     <id>http://mufid.github.io/2013/proxy-in-python-3</id>
     <content type="html"><![CDATA[<p>Wah lama gak ngepost :D</p>
 
@@ -1878,7 +1878,7 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
   <entry>
     <title type="html"><![CDATA[Angkutan Jakarta: Revisited]]></title>
     <link href="http://mufid.github.io/2013/angkutan-jakarta-revisited/"/>
-    <updated>2013-07-09T21:43:00+07:00</updated>
+    <updated>2013-07-09T21:43:00+00:00</updated>
     <id>http://mufid.github.io/2013/angkutan-jakarta-revisited</id>
     <content type="html"><![CDATA[<p>Jadi ceritanya dalam beberapa waktu terakhir saya sedang melakukan internship. Kemudian saya pergi ke Jakarta setiap hari. Hampir semua jalur darat telah saya capai. Berikut reviewnya.</p>
 
@@ -1931,7 +1931,7 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
   <entry>
     <title type="html"><![CDATA[Banyak Orang Baik di Indonesia]]></title>
     <link href="http://mufid.github.io/2013/banyak-orang-baik-di-indonesia/"/>
-    <updated>2013-06-23T17:09:00+07:00</updated>
+    <updated>2013-06-23T17:09:00+00:00</updated>
     <id>http://mufid.github.io/2013/banyak-orang-baik-di-indonesia</id>
     <content type="html"><![CDATA[<p>Ini berisi dari kisah nyata saya pribadi. Anda mungkin punya pengalaman yang berbeda, tetapi untuk apa? Maafkan saja mereka.</p>
 
@@ -1975,7 +1975,7 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
   <entry>
     <title type="html"><![CDATA[Achieve]]></title>
     <link href="http://mufid.github.io/2013/achieve/"/>
-    <updated>2013-05-31T08:47:00+07:00</updated>
+    <updated>2013-05-31T08:47:00+00:00</updated>
     <id>http://mufid.github.io/2013/achieve</id>
     <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/0uaquGZKx_0 "></iframe></div>
 
@@ -1998,7 +1998,7 @@ great big risks, we stop inspiring</p></blockquote>
   <entry>
     <title type="html"><![CDATA[Twitter Spam]]></title>
     <link href="http://mufid.github.io/2013/twitter-spam/"/>
-    <updated>2013-05-24T06:01:00+07:00</updated>
+    <updated>2013-05-24T06:01:00+00:00</updated>
     <id>http://mufid.github.io/2013/twitter-spam</id>
     <content type="html"><![CDATA[<p><em>SPAM Everywhere, kayanya mulai kemana-mana</em></p>
 
@@ -2009,7 +2009,7 @@ great big risks, we stop inspiring</p></blockquote>
   <entry>
     <title type="html"><![CDATA[Top Down, Bottom Up?]]></title>
     <link href="http://mufid.github.io/2013/top-down/"/>
-    <updated>2013-05-16T06:47:00+07:00</updated>
+    <updated>2013-05-16T06:47:00+00:00</updated>
     <id>http://mufid.github.io/2013/top-down</id>
     <content type="html"><![CDATA[<p>Pendekatan bisnis antara dua hal ini:
 dari atas dulu atau dari bawah dulu?</p>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: php | Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/blog/categories/php/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2016-10-05T08:02:01+07:00</updated>
+  <updated>2016-10-05T01:07:28+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -16,7 +16,7 @@
   <entry>
     <title type="html"><![CDATA[Aptana dan Codeigniter]]></title>
     <link href="http://mufid.github.io/2013/aptana-dan-codeigniter/"/>
-    <updated>2013-01-25T02:05:00+07:00</updated>
+    <updated>2013-01-25T02:05:00+00:00</updated>
     <id>http://mufid.github.io/2013/aptana-dan-codeigniter</id>
     <content type="html"><![CDATA[<p>Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI?</p>
 
