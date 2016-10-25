@@ -228,6 +228,31 @@ fungsi. Properti baru benar-benar didapatkan nilainya apa ketika dieksekusi.
 Jadi, sebenarnya yang melakukan dependency resolution adalah <code>eval</code> itu sendiri.
 Program ini tidak benar-benar membuat <em>dependency graph</em> seperti yang
 saya bayangkan sebelumnya.</p>
+
+<p>Sebagai contoh, ada formula <code>=A9*Math.cos(B2)</code>. Yang terjadi adalah Javascript
+<code>eval</code> akan mengevaluasi <code>A9 * Math.cos(B2)</code> ke dalam sel tersebut. <code>Math.cos</code>
+adalah fungsi bawaan Javascript sehingga tidak perlu dipertanyakan. Bagaimana
+dengan A9 dan B2? Dua variabel tersebut adalah property dalam objek <code>DATA</code>
+yang dapat diakses tanpa mengetikkan <code>DATA</code> berkat idiom <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with">with</a>. Apa nilai A9 dan B2? Belum tahu. Akan tetapi,
+karena A9 dan B2 itu sendiri merupakan property yang memiliki getter sendiri,
+maka kemudian <code>eval</code> akan mengeksekusi <code>DATA.A9</code>  dan <code>DATA.B2</code> &mdash; yang mana
+di dalam property tersebut akan melakukan <code>eval</code> lagi jika diawali dengan <code>=</code>.</p>
+
+<p>Bagaimana jika ada <em>circular reference</em>? Ini diakali dengan <em>try-catch</em>
+sederhana berikut:</p>
+
+<pre><code>INPUTS.forEach(function(elm) { try { elm.value = DATA[elm.id]; } catch(e) {} });
+</code></pre>
+
+<p>Jika terdapat <code>circular reference</code>, call-stack akan menjadi sangat panjang.
+Bayangkan B2 menggunakan nilai dari A1 dan A1 menggunakan nilai dari B2.
+Akan terjadi sebuah pemanggilan fungsi <code>getter</code> terhadap dua sel berbeda
+yang tidak ada habisnya. Ketika call stack sangat panjang, interpreter akan
+menghasilkan exception, yang ditangkap, dan diabaikan.</p>
+
+<p>Saya rubah kode asli agar menangkap exception dan mencetaknya. Beriktu hasilnya:</p>
+
+<p><img src="/blog/images/post/spreadsheet-js-too-much-recursion.png" alt="Recursion" /></p>
 </div>
 
 
