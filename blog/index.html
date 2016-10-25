@@ -51,8 +51,8 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Saya sudah berencana sejak lama sekali untuk mengganti monitor saya dari 17&#8221; dengan resolusi 1440x900
-yang menurut saya cukup kekecilan untuk &hellip;">
+  <meta name="description" content="Saya menjelajahi kembali beberapa tautan yang ada di penanda saya. Saya menemukan
+tautan yang sangat menarik beberapa tahun lampau: membuat lembar &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -125,6 +125,118 @@ yang menurut saya cukup kekecilan untuk &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2016/spreadsheet-js/">Lembar Kerja dalam Tiga Puluh Baris Javascript</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-10-25T08:00:00+00:00" pubdate data-updated="true">Oct 25<span>th</span>, 2016</time>
+        
+         | <a href="/blog/2016/spreadsheet-js/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/blog/images/post/spreadsheet-js.gif" alt="Spreadsheet" /></p>
+
+<p>Saya menjelajahi kembali beberapa tautan yang ada di penanda saya. Saya menemukan
+tautan yang sangat menarik beberapa tahun lampau: membuat lembar kerja dalam 30
+baris di Javascript. Woh!</p>
+
+<p>Baiklah, untuk membuat cerita lebih pendek, saya melihat kembali dimana keajaiban
+baris kode tersebut. Anda dapat melihat kode sumber aslinya di <a href="http://jsfiddle.net/ondras/hYfN3/">Codepen</a>
+(via <a href="https://news.ycombinator.com/item?id=6725387">HN</a>). Pertanyaan saya ada
+dua:</p>
+
+<ul>
+<li>Bagaimana menyelesaikan formula di sana?</li>
+<li>Bagaimana <em>dependency resolution</em> antar sel di lembar kerja tersebut?</li>
+</ul>
+
+
+<p>Mari kita bahas yang pertama. Ini menjadi hal yang menarik bagi saya karena
+penyelesaian formula berarti Anda membuat DSL sendiri, menerjemahkannya, dan
+mengeksekusinya. DSL yang digunakan oleh semua program lembar kerja serupa.
+DSL yang digunakan juga dekat dengan bahasa pemrograman pada umumnya. Ya,
+menguraikan formula menjadi hal yang dimengerti dan dieksekusi oleh mesin
+bukanlah hal yang sederhana.</p>
+
+<p>Ternyata, program Javascript ini tidak memiliki DSL sendiri. Alih-alih,
+program ini menggunakan perintah <code>eval</code> sederhana untuk menguraikan
+dan mengeksekusi formulanya. Yup, tentu saja jika Anda memasukkan
+perintah Javascript yang aneh-aneh &mdash;&ndash; bukan bentuk formula lembar
+kerja pada umumnya &mdash;&ndash; Anda akan menemukan sedikit kejanggalan. Anda
+dapat memberikan perintah <code>alert</code> pada perintahnya dan <code>alert</code> akan
+bena-benar muncul. Tentu saja bukan suatu hal yang akan Anda lakukan
+pada mesin produksi, tetapi ini sudah sangat baik sebagai sebuah PoC.</p>
+
+<p>Mari kita bahas yang kedua: bagaimana <em>dependency resolution</em> dilakukan?
+Anggap saya memiliki sel A1 berisi <code>=B2 * 5</code> dan B2 yang berisi <code>=100*C2</code>
+dan C2 yang berisi <code>99</code>? Bagaimana penyelesaian keterkaitan formula
+yang berbeda sel? Ah, &ldquo;keajaiban&rdquo; bahasa yang interpret di sini.</p>
+
+<p>Anda dapat melihat di kode tersebut: ada perintah yang membuat property.
+Lihat pada bagian ini:</p>
+
+<pre><code>var getter = function() {
+    var value = localStorage[elm.id] || "";
+    if (value.charAt(0) == "=") {
+        with (DATA) return eval(value.substring(1));
+    } else { return isNaN(parseFloat(value)) ? value : parseFloat(value); }
+};
+Object.defineProperty(DATA, elm.id, {get:getter});
+Object.defineProperty(DATA, elm.id.toLowerCase(), {get:getter});
+</code></pre>
+
+<p>Ini adalah dokumentasi dari <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MDN</a>:</p>
+
+<blockquote><p>Object.defineProperty(obj, prop, descriptor)</p>
+
+<p>Parameters</p>
+
+<ul>
+<li>obj<br/>
+The object on which to define the property.</li>
+<li>prop<br/>
+The name of the property to be defined or modified.</li>
+<li>descriptor<br/>
+The descriptor for the property being defined or modified.</li>
+</ul>
+</blockquote>
+
+<p>Jadi, pada dasarnya, <code>eval</code> akan dilakukan dengan property di dalam
+object bernama <code>DATA</code>. Property-nya sendiri bersifat dinamis, di dalam
+fungsi. Properti baru benar-benar didapatkan nilainya apa ketika dieksekusi.
+Jadi, sebenarnya yang melakukan dependency resolution adalah <code>eval</code> itu sendiri.
+Program ini tidak benar-benar membuat <em>dependency graph</em> seperti yang
+saya bayangkan sebelumnya.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1005,56 +1117,6 @@ condition.fail();
 <a href="http://www.latg.org/2014/09/indonesian-language.html">More</a></p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2014/speedy-dns-slow/">DNS Speedy Lambat</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-09-20T07:54:00+00:00" pubdate data-updated="true">Sep 20<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/speedy-dns-slow/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Jadi, saya menghidupkan VPN di San Fransisco.
-Kalau saya sambungkan komputer saya ke VPN saya;
-ajaib, saya browsing apapun terasa cepat sekali.
-Akan tetapi, saya tidak merasa ada penurunan
-kecepatan internet. Saya curiga ada masalah di DNS.
-Oleh karena itu, mari kita cari tahu.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/speedy-dns-slow/">Read on &rarr;</a>
-    </footer>
   
 
 
