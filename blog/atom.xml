@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2016-12-08T11:27:08+00:00</updated>
+  <updated>2016-12-08T11:31:41+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,78 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[FR: Sebuah Prediksi Cuaca yang Tidak Berlaku untuk Pulau Harapan]]></title>
+    <link href="http://mufid.github.io/blog/2016/fr-harapan/"/>
+    <updated>2016-12-08T14:00:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2016/fr-harapan</id>
+    <content type="html"><![CDATA[<p>Jadi, <a href="http://peentar.id">kantor saya yang sekarang</a> mengadakan acara jalan-jalan ke Pulau Harapan.
+Kali ini agak berbeda dengan <a href="https://mufid.github.io/blog/2013/fr-jogja/">FR saya sebelumnya</a>, saya
+<em>tidak</em> akan menulis tentang harga sama sekali karena semua akomodasi dibayarkan oleh kantor.</p>
+
+<blockquote><p>Catatan: FR ini akan diperbarui lagi ketika foto sudah diunggah <s>dan jika saya tidak malas</s>.</p></blockquote>
+
+<!-- more -->
+
+
+<h3>Piknik Peentar</h3>
+
+<p>H1 di atas buat SEO aja. Abaikan. LOL</p>
+
+<h3><em>Preflight</em> dan Hari ke-1</h3>
+
+<p>Sebelum berangkat, rekan saya menakut-nakuti dengan <a href="http://megapolitan.kompas.com/read/2016/12/03/06555671/jabodetabek.dan.provinsi.lainnya.diprediksi.hujan.disertai.angin.kencang">berita ini</a>:</p>
+
+<blockquote><p>Badan Meteorologi, Klimatologi dan Geofisika (BMKG) memprakirakan potensi hujan deras
+disertai petir dan angin kencang di sejumlah provinsi di Indonesia mulai Sabtu (3/12/2016)
+hingga Kamis (8/12/2016).</p></blockquote>
+
+<p>Astaga. Kalau begini caranya, saya membayangkan</p>
+
+<ul>
+<li>ombak yang besar,</li>
+<li>angin yang tidak bersahabat, serta</li>
+<li>hujan yang tiada henti.</li>
+</ul>
+
+
+<p>sehingga saya pastikan saya membawa Drybag serta membuat proteksi ganda dengan raincover
+untuk daypack saya. Andai terjadi hujan yang luar biasa, saya tidak perlu takut pakaian saya basah.</p>
+
+<p>Kami berangkat pada tanggal 6 Desember dengan taksi ke muara angke (yup, dibayarkan oleh kantor,
+tentu saja). Meski demikian, awalnya kami berpikir untuk Uber atau Grab saja, akan tetapi kami
+gagal menemukan driver pada laman <em>matchmaking</em> aplikasi. Pernah <em>sih</em> pencarian driver berhasil,
+tetapi kemudian dibatalkan oleh driver yang bersangkutan. Huft.</p>
+
+<p>Kami berangkat sekitar pukul 03.30 dini hari dan sampai pukul 04.30. Kami shalat subuh kemudian
+bersantai sejenak hingga pukul 06.00. Salah satu cerita kami saat bersantai kemarin adalah supirnya
+yang <a href="https://www.youtube.com/watch?v=6CO7Zsqx4h0">&ldquo;Light on Fire&rdquo;</a>. <em>Ngebut banget!</em> katanya.
+Akan tetapi, menurut saya, itu masih &ldquo;normal&rdquo;. Dulu saya naik bis malam lebih sadis lagi.</p>
+
+<p>Kami nge-tag tempat dan kapal baru benar-benar berangkat sekitar pukul 07.30.</p>
+
+<h3>Hari ke-2</h3>
+
+<h3>Hari ke-3</h3>
+
+<h3>Pasca Liburan</h3>
+
+<p>Seperti biasa, saya kembali bermain <a href="http://plays.tv/video/58493361b86d754b29/you-are-rushing-too-much-">kapal-kapalan</a>.
+Skill saya <s>yang memang tumpul</s> tampaknya perlu diasah lagi.</p>
+
+<p>Di luar itu, saya masih terasa pusing karena bergoyang-goyang di laut. Saya ingat, beberapa kali
+saya melewati laut, memang rasa goyang-goyangnya membekas hingga beberapa jam. Akan tetapi, tidak
+perlu khawatir berlebihan.  Terkadang, memang ada masalah yang hanya waktu yang
+bisa menjawab. Tidak perlu melakukan apapun, cukup istirahat dan bermain kapal-kapalan saja,
+mudah-mudahan rasa goyang-goyang ini segera hilang.</p>
+
+<h3>Eh, ada satu lagi!</h3>
+
+<p>Peentar lagi hiring sekarang. Kita menggunakan Rails di frontend dan Java di backend. Langsung
+saja lihat Joel Test nya Peentar di (<a href="http://peentar.id/career">http://peentar.id/career</a>)[Peentar Career].</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Lembar Kerja dalam Tiga Puluh Baris Javascript]]></title>
@@ -2169,29 +2241,6 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
 <p>Bye!</p>
 
 <p>(1) ya, beliau sangat ramah, sampai saya baru kepikiran setelah selesai isi bensin, &ldquo;ah, tadi dia jangan-jangan minta imbalan dan saya sangat tidak sadar hal tersebut. Mungkin dia langsung pergi setelah saya bilang saya mahasiswa.&rdquo; Ya sudah, semoga Allah memberikan kebaikan kepada orang itu.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Achieve]]></title>
-    <link href="http://mufid.github.io/blog/2013/achieve/"/>
-    <updated>2013-05-31T08:47:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2013/achieve</id>
-    <content type="html"><![CDATA[<div class="embed-video-container"><iframe src="http://www.youtube.com/embed/0uaquGZKx_0 "></iframe></div>
-
-
-<blockquote><p>when you find your passion, you are unstoppable
-you can make amazing things happen
-it&rsquo;s been proven true</p></blockquote>
-
-<p>&hellip;</p>
-
-<blockquote><p>.. who will get out of bed one morning and say
-&ldquo;you know what i think i can build a space
-zone&rdquo;. I think that if we become afraid to take these
-great big risks, we stop inspiring</p></blockquote>
-
-<p>Yeah!</p>
 ]]></content>
   </entry>
   
