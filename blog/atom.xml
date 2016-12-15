@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2016-12-09T00:18:53+00:00</updated>
+  <updated>2016-12-15T08:12:59+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,135 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Benchmarking ActiveRecord Load: #find_in_batches (or #find_each) and #each For Processing Bulk Records]]></title>
+    <link href="http://mufid.github.io/blog/2016/rails-batch-performance/"/>
+    <updated>2016-12-15T15:00:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2016/rails-batch-performance</id>
+    <content type="html"><![CDATA[<p>Currently i am building a small enough Rails application, but somehow on some
+endpoints, we process and iterate 10k records on a single request. Sure i am
+caching all of those requests, but 870ms response time for first request is
+still unacceptable for me.</p>
+
+<p>Some says it is problem with the JSON rendering. Then i installed oj gem, but
+the request didn&rsquo;t get a noticable faster rendering. And then i deleted all
+JSON rendering, the request still on 800-ish ms response time. All of these
+findings suggest me that the problem is in the model / query itself.</p>
+
+<p>When processing much records, it would be very easy to get out of memory
+problem if it is being done incorrectly. By default, when using <code>#each</code> method,
+Rails will load <em>all records</em> with specified filters (<code>where</code>, scope, etc)
+<em>into memory</em>. Thus, Rails&#8217; recommendation is to use <code>find_each</code> command,
+which internally using <code>find_in_batches</code> method. <code>find_in_batches</code> will not
+try to load all matched records in memory. Instead, it will load records by
+batch.</p>
+
+<p>The thing is, i was using <code>find_each</code>, but somehow, i was stuck on 2 seconds
+request. I think the problem was the <code>find_in_batches</code> so i changed the
+implementation to use <code>find_in_batches</code>. However, this way didn&rsquo;t help me.
+I still got 800-ish ms response time.</p>
+
+<p>Somehow, i was curious, was the problem is inside the find_in_batches? Or
+is it in the Ruby yield and loop? I am not sure since computer nowadays have
+gigahertz of computing power. However, i did the benchmark and the benchmark
+looks like this:</p>
+
+<pre><code>class Metadata &lt; ApplicationRecord
+  def build_summary
+    points = Metadata.where('retrieved_at &gt; \'2000-01-01 00:00:00\'')
+
+    logger.info 'Benchmark: #find_in_batches'
+    logger.info begin
+      Benchmark.measure do
+        points.find_in_batches do |dp|
+          logger.info "End finding batches. Found: #{dp.count}"
+        end
+      end
+    end
+
+    logger.info 'Benchmark: #all'
+    logger.info begin
+      Benchmark.measure do
+        points.each do |dp|
+          # yield nothing
+        end
+      end
+    end
+
+    logger.info 'Benchmark: 10k loop'
+    logger.info begin
+      Benchmark.measure do
+        (1..10_000).each do |i|
+          # yield no one
+        end
+      end
+    end
+  end
+end
+</code></pre>
+
+<p>I added &lsquo;normal&rsquo; loop, just curious if the problem is inside the
+Ruby&rsquo;s interpreter.</p>
+
+<p>Here is the result. I did this on Dual Core 4 GB RAM Virtualbox inside Intel
+Core i5 with 16 GB RAM. I used Ruby 2.3.1 and Rails 5.0.0.1. For database, i
+use PostgreSQL 9.6.</p>
+
+<pre><code>I, [2016-12-15T14:56:37.463516 #28376]  INFO -- : Benchmark: #find_in_batches
+I, [2016-12-15T14:56:37.511837 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.516353 #28376] DEBUG -- :   Metadata Load (3.2ms)
+I, [2016-12-15T14:56:37.550252 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.553774 #28376] DEBUG -- :   Metadata Load (2.8ms)
+I, [2016-12-15T14:56:37.596984 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.603011 #28376] DEBUG -- :   Metadata Load (5.4ms)
+I, [2016-12-15T14:56:37.645731 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.652892 #28376] DEBUG -- :   Metadata Load (6.5ms)
+I, [2016-12-15T14:56:37.692978 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.696923 #28376] DEBUG -- :   Metadata Load (3.1ms)
+I, [2016-12-15T14:56:37.738265 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.742807 #28376] DEBUG -- :   Metadata Load (3.5ms)
+I, [2016-12-15T14:56:37.787560 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.792086 #28376] DEBUG -- :   Metadata Load (3.1ms)
+I, [2016-12-15T14:56:37.828058 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.836220 #28376] DEBUG -- :   Metadata Load (7.2ms)
+I, [2016-12-15T14:56:37.907940 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.911302 #28376] DEBUG -- :   Metadata Load (2.8ms)
+I, [2016-12-15T14:56:37.943847 #28376]  INFO -- : End finding batches. Found: 1000
+D, [2016-12-15T14:56:37.945335 #28376] DEBUG -- :   Metadata Load (0.9ms)
+I, [2016-12-15T14:56:37.949258 #28376]  INFO -- : End finding batches. Found: 157
+I, [2016-12-15T14:56:37.949421 #28376]  INFO -- :   0.330000   0.010000   0.340000 (  0.485759)
+I, [2016-12-15T14:56:37.949613 #28376]  INFO -- : Benchmark: #all
+D, [2016-12-15T14:56:37.991020 #28376] DEBUG -- :   Metadata Load (40.9ms)
+I, [2016-12-15T14:56:38.218292 #28376]  INFO -- :   0.220000   0.000000   0.220000 (  0.268597)
+I, [2016-12-15T14:56:38.218840 #28376]  INFO -- : Benchmark: 10k loop
+I, [2016-12-15T14:56:38.219272 #28376]  INFO -- :   0.000000   0.000000   0.000000 (  0.000362)
+</code></pre>
+
+<p>Sure it is not the Ruby&rsquo;s interpreter problem since vanilla 10k loop only took
+0.3 msec. Comparable to native speed, huh? But we found several interesting
+findings:</p>
+
+<ul>
+<li>using #each is faster than using #find_in_batches (480 ms to 260 ms)</li>
+<li>&hellip; What &ldquo;{Model} Load (some ms)&rdquo; means? It does not even reflect the real
+load time. &ldquo;Metadata Load 40.9 ms&rdquo;, meanwhile the real load time is 268 ms.
+If we compare from logger timestamp, it is also around 268 ms (38.218 &ndash; 37.949).
+Seems like internally they use different measurement tip.</li>
+<li>For each group in find_in_batches, the &ldquo;Metadata Load&rdquo; itself does not reflect
+the real time to yield the method. If we compare each DEBUG line, it will be
+around 40ms (e.g.: Look 37.550252 &ndash; 37.516353), pretty far from 3.2ms.</li>
+</ul>
+
+
+<p>So what is my solution for processing 10k records? I don&rsquo;t know. The page itself
+will rarely change, so caching the request will help it much. But i am still
+curious, why processing only 10k records can took up to 800ms.</p>
+
+<p>Also, i am still curious why &ldquo;Model Load&rdquo; says faster than the time it is
+actually need. It took 40ms between yield but it says loaded in 3.2ms.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[FR: Sebuah Prediksi Cuaca yang Tidak Berlaku untuk Pulau Harapan]]></title>
@@ -2296,50 +2425,6 @@ Warning: --trace-ascii overrides an earlier trace/verbose option
 <p>Beberapa tips:</p>
 
 <p>Coba ke gerbong ujung. Cenderung kosong. Kalaupun lagi jam sibuk, paksa saja masuk ke dalam gerbong. Berusahalah masuk ke tengah gerbong, ke depan tempat duduk. Jauhi pintu dan jalan keluar. Di sana cenderung kosong. Kalau mau tidak tergencet, ke pintu yang selalu ditutup.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Banyak Orang Baik di Indonesia]]></title>
-    <link href="http://mufid.github.io/blog/2013/banyak-orang-baik-di-indonesia/"/>
-    <updated>2013-06-23T17:09:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2013/banyak-orang-baik-di-indonesia</id>
-    <content type="html"><![CDATA[<p>Ini berisi dari kisah nyata saya pribadi. Anda mungkin punya pengalaman yang berbeda, tetapi untuk apa? Maafkan saja mereka.</p>
-
-<!-- more -->
-
-
-<h3>Kehabisan Bensin</h3>
-
-<p>Itu sekitar pukul 20.00 malam, oh atau mungkin lebih malam. Saya kehabisan bensin, pom bensin terdekat sekitar 2 km lagi. Karena tidak ada jalan lain, saya dorong saja motor saya. Tiba-tiba, ada orang dengan nada yang sangat ramah(1) menghampiri saya (seriously, dia sangat ramah!), &ldquo;Bensinya habis mas? Mau didorong?&rdquo; Kebetulan sekali! Tapi saya tanya dulu dia mau ke arah mana. Karena genting, saya gak dengar, yang saya ingat dia mau menolong saya mendorong motor.</p>
-
-<p>OK. Kemudian Dalam waktu 2 menit saja saya sampai di pom bensin. Kemudian saya tanya sedikit ke dia, &ldquo;Wah mas makasih banyak banget nih. Dari mana mas? Tinggal dimana?&rdquo; &ldquo;Kerja. Rumah saya di Depok 2.&rdquo; Terdiam sejenak pembicaraannya, tidak sampai 10 detik dia pamit undur diri. Baik sekali itu orang : ) Btw, baca footnote 1 ya :)</p>
-
-<h3>Hilangnya Ponsel</h3>
-
-<p>Ponsel saya pernah hilang, kalau kata orang &ldquo;digesek&rdquo;. Saya diingatkan oleh teman Saya, Salinov, dia menanyakan ke Saya, &ldquo;Fid, gak ada yang aneh kan?&rdquo; Memang karena di bis tadi ada kejadian-kejadian yang aneh, setelah saya memegang kantong saya, dompet OK. Panik dan tak tahu lagi harus berbuat apa. Kemudian ada seorang yang terlihat seperti karyawan kantoran mencoba menolong mengejar malingnya, tapi tidak dapat, dia menghilang. Anyway, makasih pak udah mau berniat baik. Ponsel saya tidak ditemukan, tapi mudah-mudahan kebaikan bapak dibalas Allah.</p>
-
-<h3>Plat Nomor</h3>
-
-<p>Motor saya plat nomornya agak seok dan terlihat mau jatuh. Hanya terlihat sebetulnya, karena saya sangat sadar persis murnya masih terpasang dengan baik, meski hanya satu. Tetapi di perjalanan saya selalu diingatkan orang, &ldquo;mas plat nomornya mau jatuh tuh.&rdquo; Trims, stranger! :)</p>
-
-<h3>Motor Mogok</h3>
-
-<p>Motor saya mogok. Kali ini ceritanya berbeda, saya ditolong oleh orang yang sangat ramah. Luarnya sih seperti anak-anak <em>gaul</em> gitu, merokok. Tetapi saat saya senyum, dia membalas. Ah, great. Motor saya tidak sembuh sempurna, tetapi it&rsquo;s okay.</p>
-
-<h3>And.. My parents, my family, my lovely brother, kak Faiz, and all of my friends.</h3>
-
-<p>Thanks, terima kasih semuanya, kalian orang-orang baik. Orang tua saya yang sangat sabar merawat saya dulu waktu saya masih kecil (guess what? Saya dulu terlambat untuk bisa bicara, saya dulu pernah sakit yang mengharuskan bedrest sangat lama, ayah saya yang rela membelikan saya high-end computing device untuk kesenangan saya, ibu saya yang memberikan nutrisi terbaik hingga saya berumur.. umm.. 3.5 tahun++, ande many others!)</p>
-
-<p>dan semua teman saya. Menolong saya saat kecelakaan yang cukup berdarah, yang tersenyum menyapa di pagi hari, dan.. dan.. dan everything, saya tentu saja tidak bisa menyebutkan satu per satu *ciyesubjektif</p>
-
-<p><em>Odd enough, jarang-jarang nulis beginian</em></p>
-
-<p>Saya percaya banyak orang baik di Indonesia. Orang yang akan membuat Anda menangis karena kebaikan hatinya <em>tsaah</em> <em>aduh maaf ya ngerusak kebeningan jiwa anda</em></p>
-
-<p>Bye!</p>
-
-<p>(1) ya, beliau sangat ramah, sampai saya baru kepikiran setelah selesai isi bensin, &ldquo;ah, tadi dia jangan-jangan minta imbalan dan saya sangat tidak sadar hal tersebut. Mungkin dia langsung pergi setelah saya bilang saya mahasiswa.&rdquo; Ya sudah, semoga Allah memberikan kebaikan kepada orang itu.</p>
 ]]></content>
   </entry>
   

@@ -51,9 +51,7 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="My lovely country is indeed awesome! Source
-More
-">
+  <meta name="description" content="Di Java, kita menggunakan .equals() untuk membandingkan suatu instance apakah bernilai sama atau tidak. Yang masalah adalah ketika Anda membandingkan &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -126,6 +124,82 @@ More
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/pattern-java-equals/">A simple pattern in Java: equals</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-28T20:16:00+00:00" pubdate data-updated="true">Oct 28<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/pattern-java-equals/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Di Java, kita menggunakan <code>.equals()</code> untuk membandingkan suatu <em>instance</em> apakah bernilai sama atau tidak. Yang masalah adalah ketika Anda membandingkan nilai null. Mari kita ambil contoh kasus sederhana: validasi apakah suatu email dari user berhak mendapatkan bingkisan spesial atau tidak dari nilai yang sudah ditentukan. Misalnya kodenya seperti ini:</p>
+
+<pre><code>String email = request.getEmail();
+if (email.equals("yui.hirasawa@example.com")) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>Ada yang aneh dari kode di atas? Tidak ada. Kode di atas sempurna, sampai Anda menyadari bahwa <strong>email bisa bernilai null</strong>. Akhirnya, equals akan dipanggil ke null. Hal ini menyebabkan NullPointerException. Sehingga, Anda perlu menambahkan hal seperti ini:</p>
+
+<pre><code>String email = request.getEmail();
+if (email == null) {
+  condition.fail();
+  return;
+}
+if (email.equals("yui.hirasawa@example.com")) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>Well&hellip; bisa sih, tapi sebetulnya agak melelahkan. Coba perhatikan bahwa predefined email sudah pasti ada, tetapi email input bisa saja null. Kita bisa mencegah exception karena NullPointerException tanpa menambah baris kode sama sekali:</p>
+
+<pre><code>String email = request.getEmail();
+if ("yui.hirasawa@example.com".equals(email)) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>TL;DR: Di Java, jika Anda menggunakan equals, dan salah satu objek dari dua objek yang dibandingkan mungkin mengandung nilai null, maka <strong>panggil <code>.equals()</code> dari objek yang sudah pasti bukan null</strong>.</p>
+
+<p>Happy Coding!</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -612,51 +686,6 @@ Pembahasan lebih diarahkan pada salah satu kalimat di sana yaitu <a href="http:/
 <p>Coba ke gerbong ujung. Cenderung kosong. Kalaupun lagi jam sibuk, paksa saja masuk ke dalam gerbong. Berusahalah masuk ke tengah gerbong, ke depan tempat duduk. Jauhi pintu dan jalan keluar. Di sana cenderung kosong. Kalau mau tidak tergencet, ke pintu yang selalu ditutup.</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2013/banyak-orang-baik-di-indonesia/">Banyak Orang Baik di Indonesia</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2013-06-23T17:09:00+00:00" pubdate data-updated="true">Jun 23<span>rd</span>, 2013</time>
-        
-         | <a href="/blog/2013/banyak-orang-baik-di-indonesia/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Ini berisi dari kisah nyata saya pribadi. Anda mungkin punya pengalaman yang berbeda, tetapi untuk apa? Maafkan saja mereka.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2013/banyak-orang-baik-di-indonesia/">Read on &rarr;</a>
-    </footer>
   
 
 
