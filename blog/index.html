@@ -51,8 +51,8 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Currently i am building a small enough Rails application, but somehow on some
-endpoints, we process and iterate 10k records on a single request. Sure &hellip;">
+  <meta name="description" content="Latar Belakang Pada kesempatan kali ini saya iseng luar biasa ingin membuat termometer yang
+tersambung ke cloud. Istilah kerennya, &ldquo;Internet of &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -125,6 +125,163 @@ endpoints, we process and iterate 10k records on a single request. Sure &hellip;
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2017/thermofidz/">Thermofidz: Membaca Temperatur dengan Raspberry PI</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2017-02-07T15:30:00+00:00" pubdate data-updated="true">Feb 7<span>th</span>, 2017</time>
+        
+         | <a href="/blog/2017/thermofidz/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><h2>Latar Belakang</h2>
+
+<p>Pada kesempatan kali ini saya iseng luar biasa ingin membuat termometer yang
+tersambung ke cloud. Istilah kerennya, &ldquo;Internet of Things.&rdquo; Ide ini muncul
+karena akhir-akhir ini suhu udara tidak menentu. Terkadang saya gerah sekali
+ketika malam hari. Saya memiliki termometer &ldquo;offline&rdquo; yang selalu memberi tahu
+saya saat ini suhu udaranya berapa. Saya memiliki hipotesis, saya akan sangat
+gerah dan berkeringat luar biasa jika suhu udara di atas 32 derajat celcius dan
+saya akan merasa sejuk jika suhu udara di bawah 28 derajat celcius.</p>
+
+<p>Untuk memvalidasi hipotesis saya, tentu saja saya perlu memiliki catatan berapa
+suhu saat ini pada setiap waktu. Sayang sekali, termometer offline seharga
+Rp30.000an ini tidak memiliki catatan. Andai ada sebuah termometer yang
+memiliki catatan dan disimpan ke berkas, itu akan sangat membantu. Akhirnya
+tercetuslah ide membuat termometer sendiri.</p>
+
+<h2>Peralatan</h2>
+
+<p>Saya mengikuti tutorial dari <a href="https://learn.adafruit.com/adafruits-raspberry-pi-lesson-11-ds18b20-temperature-sensing/hardware">Adafruit</a>
+mengenai cara membaca temperatur dengan Raspberry. Di tutorial tersebut,
+mereka menggunakan sensor DS18B20. Saya segera mencari sensor tersebut di
+<a href="https://www.bukalapak.com/products/s?search%5Bkeywords%5D=ds18b20">Bukalapak</a>.
+di sana kita akan menemukan banyak produk, tetapi banyak pelapak yang tidak
+aktif juga. Saya kemarin membeli di <a href="https://www.bukalapak.com/p/rumah-tangga/elektronik-1111/lain-lain-220/lmm0-jual-sensor-suhu-ds18b20">lapak yang ini</a>.
+Dan iya, harga sensornya Rp30.000an &mdash; sudah sama mahalnya dengan termometer
+offline yang saya beli.</p>
+
+<p>Kemudian saya membeli breadboard di <a href="https://www.tokopedia.com/pcmelektrobik">toko elektronik dekat kantor</a>.
+Harganya Rp27.000. Saya juga membeli satu paket resistor Sparksfun di
+<a href="http://www.famosastudio.com/resistor-kit-025w-500-total">Famosa Studio</a>. Dengan
+peralatan yang sudah siap di tangan, saya bisa mengikuti tutorial dari Adafruit.
+Skematik yang diberikan cukup straightforward. Tada, ini dia hasilnya.</p>
+
+<p>!!!!!!!!!!!!!!!!!! photos goes here</p>
+
+<h2>Konfigurasi Raspberry</h2>
+
+<p>Selanjutnya adalah menyiapkan Raspberry. Saat itu saya mencoba dengan Raspberry
+generasi awal tipe B dengan memori 256 MB. Kemudian agar tidak lambat updatenya,
+saya memasang Raspbian versi terbaru ke SD Card dengan Win32DiskImager. Begitu
+saya tancap kabel power, Raspberry tidak tersambung ke jaringan. Bahkan dia
+tidak hidup, hanya ada 1 LED merah yang menyarah (power) dabntidak ada
+tanda-tanda kehidupan. Ups.</p>
+
+<p>Penasaran, saya pindahkan SD Card ke Raspberry PI saya yang satu lagi yang
+berukuran 512 MB. Hidup! Ada aktivitas disk! Ada aktivitas jaringan, tetapi
+gagal saya ssh. Ups. Saya coba login manual dengan menancapkan kabel HDMI ke
+monitor dan menancapkan kabel keyboard USB. Usut punya usut, ternyata SSH
+daemon harus diaktifkan secara manual. Oh. Oke, perkara sederhana.</p>
+
+<p>Meski demikian, saya masih penasaran mengapa versi terbaru tidak jalan di model
+256 MB. Oleh karenanya saya coba memasang versi yang berbeda di SD Card dan
+mencoba menancapkannya di masing-masing Raspberry yang saya miliki. Berikut
+hasilnya:</p>
+
+<table>
+<thead>
+<th>Model/Konfigurasi</th>
+<th>2016-03-18-raspbian-jessie-lite</th>
+<th>2017-01-11-raspbian-jessie-lite</th>
+</thead>
+<tbody>
+<tr>
+<td>Raspbery PI B (Gen. 1) 256 MB</td>
+<td>Jalan</td>
+<td>Tidak mau hidup, layar boot tidak muncul</td>
+</tr>
+<tr>
+<td>Raspbery PI B (Gen. 1) 512 MB</td>
+<td>Jalan</td>
+<td>Jalan</td>
+</tr>
+</tbody>
+</table>
+
+
+<p>Hmmmm. Cukup. Aneh. Entah saya yang terburu-buru, atau memang ada galat di
+versi terbaru. Saya tidak yakin yang terakhir. Tapi saya sudah melakukan
+rewrite berulang-ulang ke SD Card saya dan hasilnya sama saja. Oke, kita
+settle-kan saja dengan yang 512 MB dulu.</p>
+
+<p>Tutorial dari Adafruit cukup straightforward. Akan tetapi script Python nya
+terlalu panjang untuk saya. Saya akhirnya membuat Bash Script sederhana seperti
+ini:</p>
+
+<pre><code>$ cat worker.sh
+#!/bin/bash
+
+TARGET=$(find /sys/devices/w1_bus_master1/28* | grep w1_slave)
+TEMP=$(cat $TARGET | grep -o 't=.*')
+echo "Temperature reading is: $TEMP"
+</code></pre>
+
+<p>Mari kita lihat hasilnya</p>
+
+<pre><code>$ bash worker.sh
+Temperature reading is: t=29250
+</code></pre>
+
+<p>Woow berjalan dengan sempurna! Baiklah, seharusnya, saya tinggal membuat Cronjob
+kemudian menyimpan hasilnya ke berkas file. Jadilah sebuah pencatat temperatur.
+Kendati demikian, saya ingin membuat hal yang lebih menarik yaitu menyambungkan
+perangkat ini ke Cloud. Oleh karena saya malas membuat basis data yang kompleks,
+saya memilih untuk menggunakan Git saja.</p>
+
+<p>Sementara, hasil bacaan dari temperatur dapat dilihat pada akun Github saya:</p>
+
+<p><a class="embedly-card" href="http://github.com/mufid/thermofidz">mufid/thermofidz</a></p>
+
+<script async src="/blog//cdn.embedly.com/widgets/platform.js" charset="UTF-8"></script>
+
+
+<p>Btw, ini hasil rangkaiannya. Tidak jauh berbeda dengan yang ditunjukkan oleh
+Adafruit:</p>
+
+<p><img src="/blog/images/post/raspi-temp-electronics.jpg" alt="Hasil Utak Atik" /></p>
+
+<p>Yak, begitulah.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1135,106 +1292,6 @@ false
 
     </article>
   
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2015/flamebait/">Kedewasaan Pengguna (Penggunaan) Internet Indonesia</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-01-30T11:19:00+00:00" pubdate data-updated="true">Jan 30<span>th</span>, 2015</time>
-        
-         | <a href="/blog/2015/flamebait/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Mari kita mulai dengan <a href="https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=it_net_user_p2&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:CHN:GBR:IDN&amp;ifdim=region&amp;hl=en&amp;dl=en&amp;ind=false&amp;icfg">data:</a></p>
-
-<p><img src="/blog/images/post/internet-growth.png" alt="Pertumbuhan Internet di Indonesia" /></p>
-
-<p>Ada yang mengatakan Indonesia telat mengadopsi internet. Hal ini benar karena negara-negara barat seperti US dan UK yang sudah mulai mengadopsi secara masif sejak akhir 90an. Meski demikian, perkembangan internet di Indonesia sangatlah cepat. Menurut data dari Bank Dunia, ada 2,1% dari populasi Indonesia yang memiliki akses ke internet pada 2011. Dalam waktu 12 tahun, angka ini meningkat hingga hampir 8x-nya. Iya, delapan kalinya.</p>
-
-<p>Seperti apa 8x peningkatan itu? Misalnya Anda tadinya naik kereta harganya Rp16.000, kemudian menjadi hanya Rp2.000 saja. Ini peningkatan penghematan yang luar biasa, bukan?</p>
-
-<p>Akan tetapi, apa artinya peningkatan ini untuk Indonesia? <a href="http://priyadi.net/archives/category/internet/">Banyak</a>. Di antaranya, kita jadi <em>engeh</em> terhadap <a href="https://plus.google.com/+HarrySufehmi/posts/HrQDsKiVkaG">keuntungan yang bisa kita dapatkan</a> karena <a href="http://www.fastcoexist.com/1679559/want-to-boost-the-economy-boost-internet-speeds">memiliki akses internet cepat</a>.</p>
-
-<blockquote><p><em>Anyway,</em> di zaman yang sudah serba digital ini, dimana bahkan Nenek saya sudah biasa Skype / Facetime dengan anaknya di luar negeri, akses Internet sudah menjadi salah satu kebutuhan pokok banyak orang. Dan seperti yang sudah banyak diteliti &amp; dibahas, akses broadband / internet kecepatan tinggi akan membuka banyak peluang ekonomi bagi masyarakat.</p></blockquote>
-
-<p>Di sisi lain, kita juga menjadi paham bahwa <a href="http://en.wikipedia.org/wiki/Category:Internet_culture"><em>internet culture</em></a> tidak selamanya baik. Ya,&hellip; begitulah.</p>
-
-<p>Sebagai contoh, pada awal kemunculan milis dan IRC di awal 2000-an, kita sering sekali mendengar berita hoax atau berita yang tidak benar. Berita hoax ini biasanya mengejutkan, sehingga mungkin banyak orang langsung meneruskan informasi ini ke orang lain tanpa mengecek terlebih dahulu kebenarannya. Salah satu hoax yang terjadi pada saat itu adalah <a href="https://groups.yahoo.com/neo/groups/halal_baik_enak/conversations/topics/3387">hoax mengenai KFC:</a></p>
-
-<blockquote><p>Assalamu&#8217;alaikum wr.wb,</p>
-
-<p>Tentang berita ayam KFC itu adalah hoax email. Harian Suara karya kurang
-teliti dalam menanggapi berita ayam KFC yang sudah terlanjur tersebar di
-internet.</p>
-
-<p>Kenyataannya :</p>
-
-<ol>
-<li>Tidak pernah ada study tentang KFC dilakukan di University of New
-Hampshire.</li>
-<li>KFC biasanya tidak mengembangkan atau membiakkan sendiri ayamnya, tapi
-membeli dari peternak yang sudah dipilih.</li>
-<li>Kentucky Fried Chicken sudah berubah nama menjadi KFC sejak tahun
-1991, bukan baru-baru ini.</li>
-<li>KFC sendiri memberi nama produk ayamnya seperti Original
-Recipe&trade;Chicken, Tender Roast Chicken dll.</li>
-</ol>
-</blockquote>
-
-<p>Ya, hoax itu memang cerita lama. Saya pikir, pengguna internet sudah <em>aware</em> dengan hal-hal yang kredibilitasnya dipertanyakan seperti ini. Tetapi entah kenapa, <em>hal tersebut muncul lagi sekarang.</em> Hoax mengenai presiden dan pemilu. Hoax mengenai islam. Hoax mengenai&hellip;. ah, terlalu banyak.</p>
-
-<p><strong>Dan anehnya, banyak yang <em>nge-share</em> itu berita hoax itu di Facebook.</strong></p>
-
-<p>Bermunculanlah istilah-istilah seperti <em>flamebait</em>, <em>hoax</em>, dan&hellip;. <a href="http://en.wikipedia.org/wiki/Godwin%27s_law">Hukum Godwin:</a></p>
-
-<blockquote><p>Seiring diskusi di internet berjalan semakin panjang, kemungkinan munculnya perbandingan yang menyangkut Nazi atau Hitler semakin mendekati satu.</p></blockquote>
-
-<p>Ya, itu agak satir <em>sih,</em> intinya ada persepsi di kalangan pengguna internet bahwa beberapa diskusi di internet MUNGKIN menjadi irrasional pada waktu tertentu. Ya, sebagaimana Anda juga pasti memperhatikannya. Tahun lalu, media sosial cukup panas dengan berita-berita <em>flamebait.</em> <em>Oh well,</em> bahkan sampai sekarang saya masih melihat <a href="https://riemetalui.wordpress.com/2015/04/18/recent-economic-and-financial-indicators-report/">post-post blog yang isinya biasa saja tapi komentarnya panas luar biasa</a>.</p>
-
-<h4>But.. Why??</h4>
-
-<p>/huft</p>
-
-<p>Menurut saya, <strong>ini wajar.</strong> Ibarat manusia, mungkin kita masih anak 17an yang labil sekali dan meledak-ledak. Ya, kita baru saja mendapatkan sesuatu yang bernama internet. <em>Hey internet sudah lama loh, 1990an awal juga udah ada.</em> Ya, tapi <strong>dulu pengguna internet masih dalam kalangan terbatas.</strong> Sekarang, sudah lima belas persen. Bahkan di kota besar, <a href="http://apjii.or.id/v2/upload/Laporan/Profile%20of%20Indonesian%20Internet%20Users%202012%20(ENGLISH).pdf">pengguna internet sudah mencapai tiga puluh persen dari populasi</a>.</p>
-
-<p><img src="/blog/images/post/internet-jakarta.png" alt="Pengguna Internet di Jawa" /></p>
-
-<p>Tapi sampai kapan kita akan menemui flame bait seperti ini?</p>
-
-<p>Entahlah. Mungkin, sepuluh tahun lagi?</p>
-
-<p>Apa yang bisa kita perbuat untuk mengurangi flamebait?</p>
-
-<p>Entahlah. Kami pengguna internet sejak lama dan tidak tahu. <a href="http://www.theguardian.com/technology/2013/nov/26/youtube-spam-comments-google-plus">Youtube membuat komentar harus dibuat oleh manusia yang menampakkan jati dirinya.</a> Mungkin, Anda memiliki cara yang lebih baik?</p>
-</div>
-  
-  
-
-
-    </article>
-  
   <div class="pagination">
     
       <a class="prev" href="/blog/page/2/">&larr; Older</a>
@@ -1252,7 +1309,7 @@ Recipe&trade;Chicken, Tender Roast Chicken dll.</li>
     </div>
   </div>
   <footer role="contentinfo"><p>
-  Copyright &copy; 2016 - Mufid -
+  Copyright &copy; 2017 - Mufid -
   <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
 </p>
 
