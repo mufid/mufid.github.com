@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2017-08-06T05:07:18+00:00</updated>
+  <updated>2017-08-13T02:01:47+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -136,6 +136,203 @@ Adafruit:</p>
 <p><img src="http://mufid.github.io/images/post/raspi-temp-electronics.jpg" alt="Hasil Utak Atik" /></p>
 
 <p>Yak, begitulah.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Internet Positif, DNSCrypt, dan Internet yang Terkesan Melambat]]></title>
+    <link href="http://mufid.github.io/blog/2017/internet-positif-dns/"/>
+    <updated>2017-02-07T15:30:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2017/internet-positif-dns</id>
+    <content type="html"><![CDATA[<p>Masih ingat kasus pemblokiran Twitter di Turki?</p>
+
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">Twitter is blocked in Turkey. On the streets of Istanbul, the action against censorship is graffiti DNS addresses. <a href="http://t.co/XcsfN7lJvS">pic.twitter.com/XcsfN7lJvS</a></p>&mdash; Utku Can (@utku) <a href="https://twitter.com/utku/status/446956710502993920">March 21, 2014</a></blockquote>
+
+
+
+
+<!-- more -->
+
+
+<p>Semua orang menyarankan untuk menggunakan Google DNS. Akan tetapi, di
+Indonesia, Google DNS di-redirect oleh pemerintah kita lewat program bernama
+internet positif. Mari kita buktikan:</p>
+
+<pre><code>$ dig reddit.com @8.8.8.8
+
+; &lt;&lt;&gt;&gt; DiG 9.11.0-P3 &lt;&lt;&gt;&gt; reddit.com @8.8.8.8
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 2443
+;; flags: qr rd; QUERY: 1, ANSWER: 2, AUTHORITY: 1, ADDITIONAL: 0
+;; WARNING: recursion requested but not available
+
+;; QUESTION SECTION:
+;reddit.com.                    IN      A
+
+;; ANSWER SECTION:
+reddit.com.             604800  IN      CNAME   internet-positif.org.
+internet-positif.org.   30      IN      A       118.97.116.27
+
+;; AUTHORITY SECTION:
+telkomblacklisting.co.id. 604800 IN     SOA     localhost. root.localhost. 2017021207 3600 3600 604800 604800
+
+;; Query time: 2 msec
+;; SERVER: 8.8.8.8#53(8.8.8.8)
+;; WHEN: Sun Feb 12 07:43:20 SE Asia Standard Time 2017
+;; MSG SIZE  rcvd: 152
+</code></pre>
+
+<p>Anda bisa lihat pada baris <code>ANSWER</code>, saya mendapatkan balasan
+<code>internet-positif.org.</code> untuk pertanyaan <code>reddit.com.</code>. Aneh sekali, bukan?
+Padahal saya sudah meminta agar DNS Google (8.8.8.8) yang menjawab. Saya
+menduga, sebuah <em>firewall</em> atau semacamnya me-<em>redirect</em> <em>traffic</em> dari port
+DNS (53).
+Alih-alih tersambung ke DNS Google, paket saya di re-route ke DNS pemerintah.</p>
+
+<p>Oleh karenanya, saya menggunakan <a href="https://dnscrypt.org/">DNSCrypt</a>.</p>
+
+<p>Dalam banyak kasus, saya selalu menggunakan DNSCrypt. Alasan pertama adalah
+alasan kecepatan respons perintah DNS. Dalam beberapa kasus,
+DNS &ldquo;pemerintah&rdquo; terlalu lambat dan
+peramban saya menjadi tidak bekerja. Alasan kedua adalah ada beberapa situs
+yang justru tidak bisa diakses dengan DNS &ldquo;pemerintah&rdquo; pada beberapa kasus.
+Misalnya saja <a href="https://my.cl.ly">CloudApp</a>.</p>
+
+<p>Berhubung DNSCrypt bukanlah protokol DNS biasa, Anda perlu menggunakan perantara
+agar Anda dapat mulai menggunakan DNSCrypt. Perantara ini akan bertindak sebagai
+DNS Server biasa. Anda kemudian akan menyambungkan ke DNS Server ini. Di
+Windows, Anda dapat menggunakan perantara bernama
+<a href="https://simplednscrypt.org/">SimpleDNSCrypt</a>.</p>
+
+<p>Ketika DNSCrypt telah terpasang, dia akan hidup, <em>by default</em>, di <em>loopback</em>
+127.0.0.1 pada port 53. Mari kita coba bertanya alamat IP dari Reddit.com
+lewat DNSCrypt:</p>
+
+<pre><code>$ dig reddit.com @127.0.0.1
+
+; &lt;&lt;&gt;&gt; DiG 9.11.0-P3 &lt;&lt;&gt;&gt; reddit.com @127.0.0.1
+;; global options: +cmd
+;; Got answer:
+;; -&gt;&gt;HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 50641
+;; flags: qr rd ra; QUERY: 1, ANSWER: 4, AUTHORITY: 4, ADDITIONAL: 2
+
+;; OPT PSEUDOSECTION:
+; EDNS: version: 0, flags:; udp: 4096
+;; QUESTION SECTION:
+;reddit.com.                    IN      A
+
+;; ANSWER SECTION:
+ReDdit.COM.             262     IN      A       151.101.65.140
+ReDdit.COM.             262     IN      A       151.101.193.140
+ReDdit.COM.             262     IN      A       151.101.1.140
+ReDdit.COM.             262     IN      A       151.101.129.140
+
+;; AUTHORITY SECTION:
+ReDdit.COM.             67583   IN      NS      ns-378.awsdns-47.com.
+ReDdit.COM.             67583   IN      NS      ns-1029.awsdns-00.org.
+ReDdit.COM.             67583   IN      NS      ns-1887.awsdns-43.co.uk.
+ReDdit.COM.             67583   IN      NS      ns-557.awsdns-05.net.
+
+;; ADDITIONAL SECTION:
+ns-378.awsdns-47.COM.   172526  IN      A       205.251.193.122
+
+;; Query time: 392 msec
+;; SERVER: 127.0.0.1#53(127.0.0.1)
+;; WHEN: Sun Feb 12 07:43:40 SE Asia Standard Time 2017
+;; MSG SIZE  rcvd: 283
+</code></pre>
+
+<p>Baiklah. Sekarang saya bisa mengakses Reddit. Akan tetapi, masalah belum
+selesai. Beberapa web memang responnya lebih cepat (hostname query), tetapi
+kecepatan transfer menjadi lebih lambat. Hal ini CDN, ya, Content Delivery
+Network yang justru dirancang agar Anda dapat menikmati konten lebih cepat
+justru melambat dengan Anda menggunakan DNSCrypt. Ini karena beberapa CDN
+menggunakan DNS untuk mendeteksi mana server yang &ldquo;terdekat&rdquo; dengan kita.</p>
+
+<p>Contohnya adalah Origin. Saat saya mengunduh dari Origin, internet terasa lambat
+sekali. Saya menggunakan langganan 10 mbps, tetapi kecepatan yang saya dapat
+justru hanya sekitar sepersepuluhnya:</p>
+
+<p><img src="http://mufid.github.io/images/post/origin-slow.png" alt="" /></p>
+
+<p>Kalau saya matikan DNSCrypt, inilah yang terjadi:</p>
+
+<p><img src="http://mufid.github.io/images/post/origin-fast.png" alt="" /></p>
+
+<p>Mengapa seperti itu? Saat tidak menggunakan DNSCrypt, proses pencarian server
+terdekat oleh CDN terjadi secara &ldquo;natural&rdquo; karena memang kita menggunakan DNS
+yang terdekat dengan kita, dalam kasus ini adalah DNS Telkom. Akan tetapi,
+ketika menggunakan DNSCrypt, CDN akan &ldquo;dibodohi&rdquo; karena mereka tidak tahu
+bahwa DNS yang kita gunakan bukanlah DNS yang terdekat dengan kita. Dalam
+konteks saya, saya menggunakan server DNSCrypt di Eropa.</p>
+
+<p>Mari kita buktikan. Saya akan menggunakan <a href="https://docs.microsoft.com/en-us/sysinternals/downloads/process-explorer">Process Explorer</a> dari Sysinternals.
+Saya pilih Origin, klik kanan > Properties. Kemudian, saya pilih TCP/IP.</p>
+
+<p>Saat tersambung tanpa DNSCrypt, Origin tersambung ke jaringan berikut:</p>
+
+<pre><code>a104-93-98-193.deploy.static.akamaitechnologies.com
+36.66.10.126
+a104-93-87-243.deploy.static.akamaitechnologies.com
+</code></pre>
+
+<p>Mari kita ambil yang paling atas karena host tersebut memiliki sambungan
+paling banyak di komputer saya saat pengujian dilakukan. Lakukan <code>traceroute</code>
+ke host tersebut:</p>
+
+<pre><code>$ tracert a104-93-98-193.deploy.static.akamaitechnologies.com
+
+Tracing route to a104-93-98-193.deploy.static.akamaitechnologies.com [104.93.98.193]
+over a maximum of 30 hops:
+
+  1    &lt;1 ms    &lt;1 ms    &lt;1 ms  1.1.168.192.in-addr.arpa [192.168.1.1]
+  2     4 ms     1 ms     1 ms  36.77.192.1
+  3     1 ms     1 ms     1 ms  PE-BOO-HUAWEI.telkom.net.id [125.160.0.113]
+  4     1 ms     1 ms     1 ms  69.171.94.61.in-addr.arpa [61.94.171.69]
+  5     2 ms     7 ms     6 ms  a104-93-98-193.deploy.static.akamaitechnologies.com [104.93.98.193]
+
+Trace complete.
+</code></pre>
+
+<p>Sekarang, keluar dari Origin, sambungkan DNSCrypt, dan lihat sambungan yang
+terjadi. Ternyata banyak sambungan ke
+<code>a92-122-201-149.deploy.akamaitechnologies.com</code>. Jika kita traceroute:</p>
+
+<pre><code>$ tracert a92-122-201-149.deploy.akamaitechnologies.com
+
+Tracing route to a92-122-201-149.deploy.akamaitechnologies.com [92.122.201.149]
+over a maximum of 30 hops:
+
+  1    &lt;1 ms    &lt;1 ms    &lt;1 ms  192.168.1.1
+  2     5 ms     3 ms     3 ms  36.77.192.1
+  3     4 ms     1 ms     1 ms  125.160.0.113
+  4     1 ms     1 ms     1 ms  61.94.171.69
+  5    20 ms    23 ms    22 ms  180.240.191.42
+  6    17 ms    16 ms    16 ms  180.240.191.41
+  7   155 ms   154 ms   156 ms  180.240.196.33
+  8   167 ms   165 ms   165 ms  akamai.par.franceix.net [37.49.236.168]
+  9   164 ms   164 ms   164 ms  a92-122-201-149.deploy.akamaitechnologies.com [92.122.201.149]
+
+Trace complete.
+</code></pre>
+
+<p>Anda dapat lihat di sana, kita mengakses server CDN yang di Eropa. Cukup
+jelas mengapa kecepatan pengunduhan menjadi melambat.</p>
+
+<p><strong>UPDATE:</strong> Ternyata, ini tergantung dari server DNSCrypt yang dipilih.
+Tadinya saya hanya memilih Cisco OpenDNS. Pada
+saat post ini ditulis, saya tidak sadar ada server yang dekat, di Singapura.
+Saat ini saya selalu menggunakan DNSCrypt dan memilih server Singapura. Dengan
+demikian, tidak ada dampak negatif yang terasa. Ping tetap terasa tinggi
+dan kecepatan transfer tetap tinggi.</p>
+
+<p><strong>Update 2:</strong> Dokumen ini ditulis pada Februari 2017, tetapi saat saya coba lagi
+di Agustus 2017, kecepatan unduh Origin tidak selambat sebelumnya. Memang masih
+tetap lebih lambat daripada menggunakan CDN yang dekat, tetapi saat ini sudah
+jauh lebih baik. Saya mendapatkan kecepatan sekitar 800 kbps, alih-alih di bawah
+500 kbps beberapa bulan yang lalu. Sepertinya Telkom telah berbaik hati untuk
+melepas throttle ke server yang jauh dari Indonesia. Yay!</p>
 ]]></content>
   </entry>
   
@@ -1705,799 +1902,6 @@ Kabar buruknya, bagian itu matengnya baru di usia 25 tahun. Gue mendadak inget k
 <p><img src="http://mufid.github.io/images/post/twitter-konyol.png" alt="twitter-konyol" /></p>
 
 <p>Wow Twitter, selera humornya bagus sekali</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Membuat Proxy Server di Python 3]]></title>
-    <link href="http://mufid.github.io/blog/2013/proxy-in-python-3/"/>
-    <updated>2013-12-08T04:58:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2013/proxy-in-python-3</id>
-    <content type="html"><![CDATA[<p>Wah lama gak ngepost :D</p>
-
-<p>Baiklah, jadi ceritanya ada tugas jaringan komputer dan ini membuat Proxy. Mari kita buat hidup kita lebih sederhana dengan memahami bagaimana proxy bekerja.</p>
-
-<p>Berhubung ini adalah post Proof of Concept, maka post kali ini akan sangat panjang. Pastikan Anda sudah membeli Siomay atau Pizza untuk menemani Anda membaca post ini. Atau Anda juga dapat <a href="http://myanimelist.net/anime/6547/Angel_Beats!">menyiapkan anime yang menggugah semangat untuk menambah semangat Anda dalam membaca post ini</a>.</p>
-
-<p>Selamat menikmati! (makanan dan postnya, tentu saja).</p>
-
-<p>(Note: Saya mohon kritik Anda apabila penjelasan saya di sini ada yang misleading atau sulit dipahami. Dengan demikian saya bisa menghasilkan tulisan dengan kualitas tulisan yang lebih baik lagi ^_^)</p>
-
-<!-- more -->
-
-
-<h2>The Tools</h2>
-
-<p>Agar hidup ini lebih menyenangkan saat menggunakkan Windows, saya menggunakkan beberapa perkakas seperti Mingw dan PyCharm. Semua tools tersebut tersedia gratis di internet.</p>
-
-<h2>The Proxy</h2>
-
-<p><code>mahasiswa.cs.ui.ac.id</code> adalah sebuah server web yang melayani halaman <code>public_html</code> dari setiap <code>~</code> (home folder) mahasiswa CSUI ke internet publik. Mari kita lihat apa yang terjadi apabila saya membuka halaman web mahasiswa.cs.ui.ac.id. Tentu saja, di sini saya memakai &ldquo;debug mode&rdquo;. Kita gunakan <code>curl</code> dengan verbose mode agar dapat mengetahui apa yang sebenarnya terjadi.</p>
-
-<pre><code>D:\tmp&gt;curl -v mahasiswa.cs.ui.ac.id
-* Adding handle: conn: 0x4c2cf0
-* Adding handle: send: 0
-* Adding handle: recv: 0
-* Curl_addHandleToPipeline: length: 1
-* - Conn 0 (0x4c2cf0) send_pipe: 1, recv_pipe: 0
-* About to connect() to mahasiswa.cs.ui.ac.id port 80 (#0)
-*   Trying 152.118.148.93...
-* Connected to mahasiswa.cs.ui.ac.id (152.118.148.93) port a80 (#0)
-&gt; GET / HTTP/1.1
-&gt; User-Agent: curl/7.30.0
-&gt; Host: mahasiswa.cs.ui.ac.id
-&gt; Accept: */*
-&gt;
-&lt; HTTP/1.1 200 OK
-&lt; Date: Sat, 07 Dec 2013 22:01:58 GMT
-* Server Apache/2.2.22 (Debian) is not blacklisted
-&lt; Server: Apache/2.2.22 (Debian)
-&lt; Last-Modified: Tue, 27 Mar 2012 14:08:11 GMT
-&lt; ETag: "5ba68-b1-4bc3a055dc8c0"
-&lt; Accept-Ranges: bytes
-&lt; Content-Length: 177
-&lt; Vary: Accept-Encoding
-&lt; Content-Type: text/html
-&lt; Via: 1.1 mahasiswa.cs.ui.ac.id
-&lt;
-&lt;html&gt;&lt;body&gt;&lt;h1&gt;It works!&lt;/h1&gt;
-&lt;p&gt;This is the default web page for this server.&lt;/p&gt;
-&lt;p&gt;The web server software is running but no content has been added, yet.&lt;/p&gt;
-&lt;/body&gt;&lt;/html&gt;
-* Connection #0 to host mahasiswa.cs.ui.ac.id left intact
-
-D:\tmp&gt;
-</code></pre>
-
-<p><strong>Apa yang sebenarnya terjadi?</strong></p>
-
-<p>Dalam mengakses internet, client (bisa browser, bisa program kecil seperti curl/wget, etc.) akan membuka koneksi ke server melalui socket. Apa yang client kirimkan setelah membuka koneksi? Mengirimkan baris-baris yang ditandai dengan <code>&gt;</code>. Setelah <code>\r\n</code> kosong, server akan menganggap client selesai mengirimkan <strong>HTTP Request</strong> dan akan memulai memberikan respons (<strong>HTTP Response</strong>) yang ditandai dengan <code>&lt;</code>.</p>
-
-<p>Tugas Proxy sederhana. Dia menjadi jembatan antara Client dan Server. Tetapi yang menarik adalah <strong>Proxy behave sebagai server sungguhan dengan hanya menyunting satu baris saja</strong>. Kita lihat apa yang terjadi jika kita mengatur proxy di komputer kita. Kali ini saya akan memakai proxy fiktif. Fokus kita di sini adalah mengetahui bagian apa yang berubah.</p>
-
-<pre><code>D:\tmp&gt;set HTTP_PROXY=http://example.com:80
-
-D:\tmp&gt;curl mahasiswa.cs.ui.ac.id -v
-* Adding handle: conn: 0x4c2d10
-* Adding handle: send: 0
-* Adding handle: recv: 0
-* Curl_addHandleToPipeline: length: 1
-* - Conn 0 (0x4c2d10) send_pipe: 1, recv_pipe: 0
-* About to connect() to proxy example.com port 80 (#0)
-*   Trying 93.184.216.119...
-* Connected to example.com (93.184.216.119) port 80 (#0)
-&gt; GET HTTP://mahasiswa.cs.ui.ac.id/ HTTP/1.1
-&gt; User-Agent: curl/7.30.0
-&gt; Host: mahasiswa.cs.ui.ac.id
-&gt; Accept: */*
-&gt; Proxy-Connection: Keep-Alive
-&gt;
-* HTTP 1.0, assume close after body
-&lt; HTTP/1.0 400 Bad Request
-&lt; Content-Type: text/html
-&lt; Content-Length: 349
-&lt; Connection: close
-&lt; Date: Sat, 07 Dec 2013 22:10:10 GMT
-&lt; Server: ECSF (cpm/F9B9)
-&lt;
-&lt;?xml version="1.0" encoding="iso-8859-1"?&gt;
-&lt;!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-         "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"&gt;
-&lt;html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en"&gt;
-        &lt;head&gt;
-                &lt;title&gt;400 - Bad Request&lt;/title&gt;
-        &lt;/head&gt;
-        &lt;body&gt;
-                &lt;h1&gt;400 - Bad Request&lt;/h1&gt;
-        &lt;/body&gt;
-&lt;/html&gt;
-* Closing connection 0
-
-D:\tmp&gt;
-</code></pre>
-
-<p>Lihat bagian yang berubah? Pertama lihat baris pertama. Tadinya adalah alamat relatif terhadap host. Sekarang adalah alamat absolut. Yosh, hanya bagian itu saja. Sisanya, proxy hanya meneruskan data-data dari server (sebetulnya bisa iseng sedikit seperti mengambil password, tetapi itu di luar bahasan kita).</p>
-
-<h2>In a Nutshell (Dalam Kulit Kacang)</h2>
-
-<pre><code>Client
-  |       Proxy bertindak seolah-olah sebagai server*
-  |       jika dilihat oleh client
-  |
-Proxy
-  |       Proxy bertindak seolah-olah sebagai client
-  |       jika dilihat oleh server
-  |
-Server
-</code></pre>
-
-<h2>The Code</h2>
-
-<p>Kode Templatenya adalah sebagai berikut:</p>
-
-<figure class='code'><figcaption><span>proxy-keren.py </span></figcaption>
- <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-<span class='line-number'>26</span>
-<span class='line-number'>27</span>
-<span class='line-number'>28</span>
-<span class='line-number'>29</span>
-<span class='line-number'>30</span>
-<span class='line-number'>31</span>
-<span class='line-number'>32</span>
-<span class='line-number'>33</span>
-<span class='line-number'>34</span>
-<span class='line-number'>35</span>
-<span class='line-number'>36</span>
-<span class='line-number'>37</span>
-<span class='line-number'>38</span>
-<span class='line-number'>39</span>
-<span class='line-number'>40</span>
-<span class='line-number'>41</span>
-<span class='line-number'>42</span>
-<span class='line-number'>43</span>
-<span class='line-number'>44</span>
-<span class='line-number'>45</span>
-<span class='line-number'>46</span>
-<span class='line-number'>47</span>
-<span class='line-number'>48</span>
-<span class='line-number'>49</span>
-<span class='line-number'>50</span>
-<span class='line-number'>51</span>
-<span class='line-number'>52</span>
-<span class='line-number'>53</span>
-<span class='line-number'>54</span>
-<span class='line-number'>55</span>
-<span class='line-number'>56</span>
-<span class='line-number'>57</span>
-<span class='line-number'>58</span>
-<span class='line-number'>59</span>
-<span class='line-number'>60</span>
-<span class='line-number'>61</span>
-<span class='line-number'>62</span>
-<span class='line-number'>63</span>
-<span class='line-number'>64</span>
-<span class='line-number'>65</span>
-<span class='line-number'>66</span>
-<span class='line-number'>67</span>
-<span class='line-number'>68</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="kn">from</span> <span class="nn">socket</span> <span class="kn">import</span> <span class="o">*</span>
-</span><span class='line'>  <span class="kn">import</span> <span class="nn">sys</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c"># Create a server socket, bind it to a port and start listening</span>
-</span><span class='line'>  <span class="n">tcpSerSock</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">)</span>
-</span><span class='line'>  <span class="c"># Fill in start.</span>
-</span><span class='line'>  <span class="c"># PART 1</span>
-</span><span class='line'>  <span class="c"># Fill in end.</span>
-</span><span class='line'>  <span class="k">while</span> <span class="mi">1</span><span class="p">:</span>
-</span><span class='line'>    <span class="c"># Strat receiving data from the client</span>
-</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Ready to serve...&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">tcpCliSock</span><span class="p">,</span> <span class="n">addr</span> <span class="o">=</span> <span class="n">tcpSerSock</span><span class="o">.</span><span class="n">accept</span><span class="p">()</span>
-</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="c"># PART 2</span>
-</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</span><span class='line'>    <span class="c"># Extract the filename from the given message</span>
-</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
-</span><span class='line'>    <span class="n">filename</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">partition</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
-</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">filename</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">fileExist</span> <span class="o">=</span> <span class="s">&quot;false&quot;</span>
-</span><span class='line'>    <span class="n">filetouse</span> <span class="o">=</span> <span class="s">&quot;/&quot;</span> <span class="o">+</span> <span class="n">filename</span>
-</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="n">filetouse</span><span class="p">)</span>
-</span><span class='line'>
-</span><span class='line'>    <span class="k">try</span><span class="p">:</span>
-</span><span class='line'>      <span class="c"># Check wether the file exist in the cache</span>
-</span><span class='line'>      <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">filetouse</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="s">&quot;r&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="n">outputdata</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">readlines</span><span class="p">()</span>
-</span><span class='line'>      <span class="n">fileExist</span> <span class="o">=</span> <span class="s">&quot;true&quot;</span>
-</span><span class='line'>      <span class="c"># ProxyServer finds a cache hit and generates a response message</span>
-</span><span class='line'>      <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;HTTP/1.0 200 OK</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;Content-Type:text/html</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="c"># Fill in start. # PART 3</span>
-</span><span class='line'>      <span class="c"># Fill in end.</span>
-</span><span class='line'>      <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Read from cache&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="c"># Error handling for file not found in cache</span>
-</span><span class='line'>    <span class="k">except</span> <span class="ne">IOError</span><span class="p">:</span>
-</span><span class='line'>      <span class="k">if</span> <span class="n">fileExist</span> <span class="o">==</span> <span class="s">&quot;false&quot;</span><span class="p">:</span>
-</span><span class='line'>        <span class="c"># Create a socket on the proxyserver</span>
-</span><span class='line'>        <span class="c"># c = # Fill in start. # Fill in end. # PART 4</span>
-</span><span class='line'>        <span class="n">hostn</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;www.&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>        <span class="k">print</span> <span class="p">(</span><span class="n">hostn</span><span class="p">)</span>
-</span><span class='line'>        <span class="k">try</span><span class="p">:</span>
-</span><span class='line'>          <span class="c"># Connect to the socket to port 80</span>
-</span><span class='line'>          <span class="c"># Fill in start. # PART 5</span>
-</span><span class='line'>          <span class="c"># Fill in end.</span>
-</span><span class='line'>          <span class="c"># Create a temporary file on this socket and ask port 80 for the file requested by the client</span>
-</span><span class='line'>          <span class="n">fileobj</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;rwb&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>          <span class="n">strHeader</span><span class="o">=</span><span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;GET &quot;</span><span class="o">+</span><span class="s">&quot;http://&quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\n\n</span><span class="s">&quot;</span><span class="p">)</span>
-</span><span class='line'>          <span class="n">fileobj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strHeader</span><span class="p">)</span>
-</span><span class='line'>          <span class="c"># Read the response into buffer</span>
-</span><span class='line'>          <span class="c"># Fill in start. # PART 6</span>
-</span><span class='line'>          <span class="c"># Fill in end.</span>
-</span><span class='line'>          <span class="c"># Create a new file in the cache for the requested file.</span>
-</span><span class='line'>          <span class="c"># Also send the response in the buffer to client socket</span>
-</span><span class='line'>          <span class="c"># and the corresponding file in the cache</span>
-</span><span class='line'>          <span class="n">tmpFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;./&quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">,</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
-</span><span class='line'>          <span class="c"># Fill in start. # PART 7</span>
-</span><span class='line'>          <span class="c"># Fill in end.</span>
-</span><span class='line'>        <span class="k">except</span><span class="p">:</span>
-</span><span class='line'>         <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Illegal request&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">else</span><span class="p">:</span>
-</span><span class='line'>         <span class="c"># HTTP response message for file not found</span>
-</span><span class='line'>         <span class="c"># Fill in start. # PART 8</span>
-</span><span class='line'>         <span class="c"># Fill in end.</span>
-</span><span class='line'>         <span class="c"># Close the client and the server sockets</span>
-</span><span class='line'>         <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span class='line'>
-</span><span class='line'>  <span class="c"># Fill in start. # PART 9</span>
-</span><span class='line'>  <span class="c"># Fill in end.</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Mari kita mulai mengoding ~</p>
-
-<h2>Part 1</h2>
-
-<p>Bagian yang paling mudah. Karena proxy bertindak seolah-olah sebagai server terhadap client, maka proxy harus membuka koneksi port ke client.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="n">tcpSerSock</span><span class="o">.</span><span class="n">bind</span><span class="p">((</span><span class="s">&quot;127.0.0.1&quot;</span><span class="p">,</span> <span class="mi">8888</span><span class="p">))</span>
-</span><span class='line'>  <span class="n">tcpSerSock</span><span class="o">.</span><span class="n">listen</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Sepertinya baris kode tersebut self-explanatory, tidak perlu dijelaskan. Mungkin yang perlu Anda perhatikan di bagian <code>listen</code>. Apa maksud dari angka di <code>listen</code>? Baca <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.listen">dokumentasinya</a> saja ya :D</p>
-
-<blockquote><p><strong>socket.listen(backlog)</strong>
-Listen for connections made to the socket. The backlog argument specifies the maximum number of queued connections and should be at least 0; the maximum value is system-dependent (usually 5), the minimum value is forced to 0.</p></blockquote>
-
-<h2>Part 2</h2>
-
-<p>Bagian ini adalah bagian menerima koneksi dari client. Bagian ini agak tricky, tapi kita mulai dengan hal yang paling sampah terlebih dahulu:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="n">data</span> <span class="o">=</span> <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">10</span><span class="p">)</span>
-</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="n">data</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Mari kita coba bermain dengan curl lagi (jangan lupa menjalankan script python kesayangan kita ini terlebih dahulu). Tentu saja Anda dapat mengujinya dengan browser, tetapi buat saya atas-enter-atas-enter lebih menyenangkan daripada Alt-tab-mouse-klikkiri-go-f5-ctrlF5.</p>
-
-<pre><code>D:\tmp&gt;python proxy-keren.py
-Ready to serve...
-Received a connection from: ('127.0.0.1', 52799)
-b'GET HTTP:/'
-b'HTTP:/'
-</code></pre>
-
-<p>Kenapa kita hanya menerima 10 byte pertama saja? Karena kita mengatur buffer untuk proxy kita hanya 10 byte. Sebetulnya, kita tinggal mengganti saja menjadi > 10 byte. Tetapi ada constraint berikut di <a href="http://docs.python.org/3.3/library/socket.html#socket.socket.recv">dokumentasi Python</a>:</p>
-
-<blockquote><p><strong>socket.recv(bufsize[, flags])</strong>
-Receive data from the socket. The return value is a bytes object representing the data received. The maximum amount of data to be received at once is specified by bufsize. See the Unix manual page recv(2) for the meaning of the optional argument flags; it defaults to zero.</p></blockquote>
-
-<p>Kalau begitu, sebagaimana kita membaca file, mari kita baca socket hingga tidak ada isinya lagi. Ubah sedikit kodenya:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">False</span>
-</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
-</span><span class='line'>    <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">emptybyte</span><span class="p">):</span>
-</span><span class='line'>      <span class="n">chunk</span> <span class="o">=</span> <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
-</span><span class='line'>        <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Chunk is&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">print</span> <span class="p">(</span><span class="n">chunk</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">if</span> <span class="n">chunk</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;&#39;</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'>      <span class="k">else</span><span class="p">:</span>
-</span><span class='line'>        <span class="n">message</span> <span class="o">+=</span> <span class="n">chunk</span>
-</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p><strong>Catatan Tambahan:</strong> Sebetulnya Anda bisa saja memperbesar jumlah buffernya dan tidak melakukan looping, tetapi itu bukan implementasi yang baik. Meski implementasi chunk di sini lebih baik dibandingkan memperbesar buffer and do nothing, Anda tetap harus memikirkan kondisi terburuk semisal koneksi terputus di tengah jalan. Meski demikian, kita akan mengabaikan hal-hal seperti ini. Kita tidak sedang membuat proxy terbaik, tetapi kita sedang membuat proof of concept dari proxy.</p>
-
-<p>Nanti dulu, kalau kita jalankan proxynya, kita akan terjebak dalam forever loop. NOOOO!!</p>
-
-<pre><code>D:\tmp&gt;python proxy-keren.py
-Ready to serve...
-Received a connection from: ('127.0.0.1', 53905)
-Chunk is
-b'GET HTTP://mahas'
-Chunk is
-b'iswa.cs.ui.ac.id'
-Chunk is
-b'/ HTTP/1.1\r\nUser'
-Chunk is
-b'-Agent: curl/7.3'
-Chunk is
-b'0.0\r\nHost: mahas'
-Chunk is
-b'iswa.cs.ui.ac.id'
-Chunk is
-b'\r\nAccept: */*\r\nP'
-Chunk is
-b'roxy-Connection:'
-Chunk is
-b' Keep-Alive\r\n\r\n'
-</code></pre>
-
-<p>Program berhenti di sana. Kenapa? Karena koneksi socket pasti akan selalu terjalin, kecuali client sudah menerima apa yang dia inginkan. Sedangkan di sini koneksi socket terjalin tetapi si client masih menunggu jawaban dari proxy. &ldquo;Woy gw minta halaman mahasiswa.cs.ui.ac.id donk!&rdquo; Dia akan terus menunggu dan menjalin hubungan hingga proxy memberikan balasannya. Maka dari itu kita terjebak dalam forever loop.</p>
-
-<p>Client selesai memberikan informasi &ldquo;gw butuh apa&rdquo; setelah ada <code>\r\n\r\n</code> sesuai dengan spesifikasi <a href="http://www.apps.ietf.org/rfc/rfc3507.html">RFC 3507</a>. Maka dari itu, mari kita ubah sedikit kodenya:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>emptybyte = False
-</span><span class='line'>    message = bytes()
-</span><span class='line'>    while (not emptybyte):
-</span><span class='line'>      chunk = tcpCliSock.recv(16)
-</span><span class='line'>      print("Chunk is ")
-</span><span class='line'>      print(chunk)
-</span><span class='line'>      message += chunk
-</span><span class='line'>      if message.endswith(bytes('\r\n\r\n'.encode('utf-8'))):
-</span><span class='line'>        emptybyte = True</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Hasilnya:</p>
-
-<pre><code>D:\tmp&gt;python proxy-keren.py
-Ready to serve...
-Received a connection from: ('127.0.0.1', 53948)
-b'GET HTTP://mahasiswa.cs.ui.ac.id/ HTTP/1.1\r\nUser-Agent: curl/7.30.0\r\nHost: mahasiswa.cs.ui.ac.id\r\nAccept: */*\r\nProxy-Con
-nection: Keep-Alive\r\n\r\n'
-b'HTTP://mahasiswa.cs.ui.ac.id/'
-Traceback (most recent call last):
-  File "proxy-keren.py", line 26, in &lt;module&gt;
-    filename = message.split()[1].partition("/")[2]
-TypeError: expected bytes, bytearray or buffer compatible object
-</code></pre>
-
-<p>Terjadi kesalahan karena pada template asli, program berusaha untuk menganalisis data bytes yang dianggap sebagai string. Mudah sekali, ubah saja menjadi string</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="n">message_raw</span> <span class="o">=</span> <span class="n">message</span>
-</span><span class='line'>  <span class="n">message</span> <span class="o">=</span> <span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span>
-</span><span class='line'>  <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Message asli saya preserve dalam message_raw untuk kebutuhan kita di masa depan. Anda akan mengerti setelah beberapa puluh paragraf ini.</p>
-
-<p>Tentu proxynya masih belum berjalan dengan baik dengan modifikasi ini. Mari kita lanjut ke part 4. What? Part 4? Iya, karena part 3 adalah fungsi membaca dari cache, sedangkan kita belum mengimplementasi fungsi menulis ke cache. Kalau tidak ada yang ditulis, mau baca apa?</p>
-
-<h2>Part 4</h2>
-
-<p>Bagian ini mengatur bagaimana koneksi proxy ke server. Skenario aslinya adalah:</p>
-
-<ul>
-<li>Jika cache hit (halaman tersedia di cache), maka baca dari cache (Part 3).</li>
-<li>Jika tidak, maka berikan client data dari server (Part 4, ini).</li>
-</ul>
-
-
-<p>Bagaimana kalau kita iseng? Jadi kita lakukan ini:</p>
-
-<ol>
-<li>Memberikan seluruh data dari client ke server</li>
-<li>Mengembalikan ke client seluruh data yang diterime oleh proxy dari server</li>
-</ol>
-
-
-<p>BRILLIANT IDEA!?</p>
-
-<p>No.</p>
-
-<p>Karena kita harus mengubah baris pertama dari HTTP Request. Tetapi, mari kita coba dengan cara yang naive terlebih dahulu.</p>
-
-<p>Tetapi sebelumnya, saya melihat kejanggalan di template ini. Mari kita lihat isi dari <code>filename</code> dari <code>hostn</code>:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>      <span class="n">hostn</span> <span class="o">=</span> <span class="n">filename</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;www.&quot;</span><span class="p">,</span><span class="s">&quot;&quot;</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">print</span><span class="p">(</span><span class="s">&quot;filename is &quot;</span> <span class="o">+</span> <span class="n">filename</span><span class="p">)</span>
-</span><span class='line'>      <span class="k">print</span><span class="p">(</span><span class="s">&quot;hostn is &quot;</span> <span class="o">+</span> <span class="n">hostn</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Hasilnya:</p>
-
-<pre><code># window 1
-curl -v mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
-
-# window 2
-...
-filename is /mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
-hostn is /mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
-</code></pre>
-
-<p>Seriously, hostnamenya adalah URI?</p>
-
-<p>Kalau begitu, gunakan saja URI Parser dari Python.</p>
-
-<p>Import modul berikut:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="kn">from</span> <span class="nn">urllib.parse</span> <span class="kn">import</span> <span class="n">urlparse</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Ubah beberapa bagian di bawah Part 1:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="k">print</span> <span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
-</span><span class='line'>    <span class="n">parsed_url</span> <span class="o">=</span> <span class="n">urlparse</span><span class="p">(</span><span class="n">message</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">])</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Di part 4 menjadi:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>      <span class="n">hostn</span> <span class="o">=</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">netloc</span>
-</span><span class='line'>      <span class="n">filename</span> <span class="o">=</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">path</span>
-</span><span class='line'>      <span class="n">port</span> <span class="o">=</span> <span class="mi">80</span> <span class="k">if</span> <span class="bp">None</span> <span class="o">==</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">port</span> <span class="k">else</span> <span class="n">parsed_url</span><span class="o">.</span><span class="n">port</span>
-</span><span class='line'>    <span class="n">full_path</span> <span class="o">=</span> <span class="n">hostn</span> <span class="o">+</span> <span class="n">filename</span>
-</span><span class='line'>      <span class="n">c</span> <span class="o">=</span> <span class="n">socket</span><span class="p">(</span><span class="n">AF_INET</span><span class="p">,</span> <span class="n">SOCK_STREAM</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Jalankan kembali proxynya. Tadaaa!</p>
-
-<pre><code>filename is /dadadada/dadskjfkdsljfskdljf
-hostn is mahasiswa.cs.ui.ac.id
-</code></pre>
-
-<p>Baiklah, tinggal satu langkah lagi. Mari buat koneksi baru dan mulai segalanya dari sini.</p>
-
-<p><strong>Catatan</strong>: Di sini saya tidak membuat port default adalah 80, karena sangat jelas: akses HTTP belum tentu hanya di port 80. Practically, bisa dimanapun.</p>
-
-<p><strong>Catatan 2</strong>: Saya membuat full_path untuk menyimpan cache. Kita akan gunakan di part selanjutnya.</p>
-
-<h2>Part 5</h2>
-
-<p>Nothing to do here:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>   <span class="n">c</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">hostn</span><span class="p">,</span> <span class="n">port</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Melakukan sambungan harus dalam blok try-catch.</p>
-
-<h2>Part 5+</h2>
-
-<p>Saya menemukan kesalahan dalam template yang menggunakkan <code>\n\n</code> untuk line ending (yang seharusnya <code>\r\n</code>). Kemudian tidak adanya request header <code>Host</code> yang mana itu dibutuhkan oleh dispatcher / router untuk web worker. Baiklah, mari kita rubah sedikit pada bagian tersebut.</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="n">strHeader</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;GET &quot;</span> <span class="o">+</span> <span class="n">full_path</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="n">strHeader</span> <span class="o">+=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;Host: &quot;</span> <span class="o">+</span> <span class="n">hostn</span> <span class="o">+</span> <span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
-</span><span class='line'>      <span class="n">strHeader</span> <span class="o">+=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">fileobj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strHeader</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Part 6</h2>
-
-<p>Lakukan hal yang serupa seperti saat kita membaca socket dari client. Tetapi berhubung template kita sudah menggunakkan makefile, jadi kehidupan kita sedikit lebih mudah.</p>
-
-<blockquote><p><strong>Mengapa saat koneksi Client-Proxy kita tidak bisa menggunakkan makefile?</strong> Saya belum tahu. Dugaan saya adalah karena client masih menunggu jawaban, tetapi mungkin Anda tertarik untuk mencoba pendekatan yang lain. Sedangkan di sini yang menjadi client adalah proxy, dan proxy sudah mengirimkan semua informasi header yang sehingga penantian jawabannya adalah suatu kepastian (HTTP Request sudah dikirim semua, tinggal menunggu response).</p></blockquote>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">fileobj</span><span class="o">.</span><span class="n">readall</span><span class="p">())</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Btw, untuk sementara Anda bisa mengcomment bagian tmpFile agar program bisa berjalan dengan baik.</p>
-
-<p>Mari kita coba lihat hasilnya pada kondisi saat ini, yihaa program berjalan sebagaimana mestinya!</p>
-
-<pre><code>C:\Users\Mufid&gt;curl -v mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
-* Adding handle: conn: 0x982678
-* Adding handle: send: 0
-* Adding handle: recv: 0
-* Curl_addHandleToPipeline: length: 1
-* - Conn 0 (0x982678) send_pipe: 1, recv_pipe: 0
-* About to connect() to proxy localhost port 8888 (#0)
-*   Trying ::1...
-* Connection refused
-*   Trying 127.0.0.1...
-* Connected to localhost (127.0.0.1) port 8888 (#0)
-&gt; GET HTTP://mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf HTTP/1.1
-&gt; User-Agent: curl/7.30.0
-&gt; Host: mahasiswa.cs.ui.ac.id
-&gt; Accept: */*
-&gt; Proxy-Connection: Keep-Alive
-&gt;
-&lt; HTTP/1.1 404 Not Found
-&lt; Date: Sun, 08 Dec 2013 02:08:55 GMT
-* Server Apache/2.2.22 (Debian) is not blacklisted
-&lt; Server: Apache/2.2.22 (Debian)
-&lt; Vary: Accept-Encoding
-&lt; Content-Length: 313
-&lt; Content-Type: text/html; charset=iso-8859-1
-&lt; Via: 1.0 mahasiswa.cs.ui.ac.id
-&lt; Connection: close
-&lt;
-&lt;!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML 2.0//EN"&gt;
-&lt;html&gt;&lt;head&gt;
-&lt;title&gt;404 Not Found&lt;/title&gt;
-&lt;/head&gt;&lt;body&gt;
-&lt;h1&gt;Not Found&lt;/h1&gt;
-&lt;p&gt;The requested URL /dadadada/dadskjfkdsljfskdljf was not found on this server.&lt;/p&gt;
-&lt;hr&gt;
-&lt;address&gt;Apache/2.2.22 (Debian) Server at mahasiswa.cs.ui.ac.id Port 80&lt;/address&gt;
-&lt;/body&gt;&lt;/html&gt;
-* Closing connection 0
-</code></pre>
-
-<h2>Next Up: 404</h2>
-
-<p>Berhubung di tugas disebutkan tidak ada data yang disimpan untuk halaman 404, maka ya cukup jangan simpan jika itu halaman 404. Tetapi saya agak bingung bagaimana mengimplementasi ini. Jadi saya justru melakukan perubahan di Part 6:</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s">&#39;4&#39;</span><span class="p">)):</span>
-</span><span class='line'>          <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;HTTP/1.1 404 Not Found&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
-</span><span class='line'>          <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">send</span><span class="p">(</span><span class="s">&quot;</span><span class="se">\0\r\n\r\n</span><span class="s">&quot;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
-</span><span class='line'>          <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span><span class='line'>          <span class="k">continue</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Bukan hanya 404, melainkan juga 4xx. Hal ini karena status 4xx menandakan kesalahan di permintaan.</p>
-
-<pre><code>C:\Users\Mufid&gt;curl -v mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf
-* Adding handle: conn: 0x1db2678
-* Adding handle: send: 0
-* Adding handle: recv: 0
-* Curl_addHandleToPipeline: length: 1
-* - Conn 0 (0x1db2678) send_pipe: 1, recv_pipe: 0
-* About to connect() to proxy localhost port 8888 (#0)
-*   Trying ::1...
-* Connection refused
-*   Trying 127.0.0.1...
-* Connected to localhost (127.0.0.1) port 8888 (#0)
-&gt; GET HTTP://mahasiswa.cs.ui.ac.id/dadadada/dadskjfkdsljfskdljf HTTP/1.1
-&gt; User-Agent: curl/7.30.0
-&gt; Host: mahasiswa.cs.ui.ac.id
-&gt; Accept: */*
-&gt; Proxy-Connection: Keep-Alive
-&gt;
-&lt; HTTP/1.1 404 Not Found
-* no chunk, no close, no size. Assume close to signal end
-&lt;
-* Closing connection 0
-</code></pre>
-
-<p>Okay, sudah lebih baik. Mari kita lanjut ke proses caching.</p>
-
-<h2>Next up: POST Request</h2>
-
-<p>Post Request ini sangat tricky. Karena di request post, request body tidak kosong. Mari kita lihat:</p>
-
-<pre><code>mingw $ curl -v mahasiswa.cs.ui.ac.id/~muhammad.mufid/ -XPOST -d ganteng=ya --trace-ascii /dev/stdout
-Warning: --trace-ascii overrides an earlier trace/verbose option
-== Info: Adding handle: conn: 0x1f739b8
-== Info: Adding handle: send: 0
-== Info: Adding handle: recv: 0
-== Info: Curl_addHandleToPipeline: length: 1
-== Info: - Conn 0 (0x1f739b8) send_pipe: 1, recv_pipe: 0
-== Info: About to connect() to proxy localhost port 8888 (#0)
-== Info:   Trying ::1...
-== Info: Connection refused
-== Info:   Trying 127.0.0.1...
-== Info: Connected to localhost (127.0.0.1) port 8888 (#0)
-=&gt; Send header, 229 bytes (0xe5)
-0000: POST HTTP://mahasiswa.cs.ui.ac.id/~muhammad.mufid/ HTTP/1.1
-003d: User-Agent: curl/7.30.0
-0056: Host: mahasiswa.cs.ui.ac.id
-0073: Accept: */*
-0080: Proxy-Connection: Keep-Alive
-009e: Content-Length: 10
-00b2: Content-Type: application/x-www-form-urlencoded
-00e3:
-=&gt; Send data, 10 bytes (0xa)
-0000: ganteng=ya
-== Info: upload completely sent off: 10 out of 10 bytes
-</code></pre>
-
-<p>.. dan &hellip; loop forever.</p>
-
-<p>Ini karena <code>\0\r\n\r\n</code> itu sebagai penanda antara request body dan request header. Maka dari itu, agar loopnya berjalan dengan baik, kita ubah sedikit programnya di bagian loop penerima request: Saya juga menambahkan <code>import re</code> di bagian tas karena kita akan menggunakkan regex agar hidup kita lebih menyenangkan</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>     <span class="n">CHUNK_SIZE</span> <span class="o">=</span> <span class="mi">16</span>
-</span><span class='line'>    <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">False</span>
-</span><span class='line'>    <span class="n">message</span> <span class="o">=</span> <span class="nb">bytes</span><span class="p">()</span>
-</span><span class='line'>    <span class="n">content_length</span> <span class="o">=</span> <span class="mi">0</span>
-</span><span class='line'>    <span class="k">while</span> <span class="p">(</span><span class="ow">not</span> <span class="n">emptybyte</span><span class="p">):</span>
-</span><span class='line'>      <span class="n">chunk</span> <span class="o">=</span> <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">recv</span><span class="p">(</span><span class="n">CHUNK_SIZE</span><span class="p">)</span>
-</span><span class='line'>      <span class="n">message</span> <span class="o">+=</span> <span class="n">chunk</span>
-</span><span class='line'>      <span class="c"># Receive everything until the end of the time. No just kidding</span>
-</span><span class='line'>      <span class="c"># Until the end of HTTP Request. Please read RFC 3507</span>
-</span><span class='line'>      <span class="k">if</span> <span class="n">message</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n\r\n</span><span class="s">&#39;</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)):</span>
-</span><span class='line'>        <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'>
-</span><span class='line'>      <span class="c"># Detect end of POST request</span>
-</span><span class='line'>      <span class="n">regex_match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">search</span><span class="p">(</span><span class="s">r&quot;Content-Length: ([0-9]+)&quot;</span><span class="p">,</span> <span class="n">message</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">))</span>
-</span><span class='line'>      <span class="k">if</span> <span class="p">(</span><span class="n">regex_match</span><span class="p">):</span>
-</span><span class='line'>        <span class="n">content_length</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">)</span> <span class="p">(</span><span class="n">regex_match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">))</span>
-</span><span class='line'>        <span class="c"># Check if everything has been send as expected</span>
-</span><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">message</span><span class="p">[</span><span class="o">-</span><span class="n">content_length</span><span class="o">-</span><span class="mi">4</span><span class="p">:</span><span class="o">-</span><span class="n">content_length</span><span class="p">]</span> <span class="o">==</span> <span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n\r\n</span><span class="s">&#39;</span><span class="p">):</span>
-</span><span class='line'>          <span class="n">emptybyte</span> <span class="o">=</span> <span class="bp">True</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Dan juga jangan lupa agar proxy mengirim ke server juga dengan request body dari client</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="n">fileobj</span> <span class="o">=</span> <span class="n">c</span><span class="o">.</span><span class="n">makefile</span><span class="p">(</span><span class="s">&#39;rwb&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">request_name</span> <span class="o">=</span> <span class="n">message_raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39; &#39;</span><span class="p">,</span> <span class="mi">2</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
-</span><span class='line'>        <span class="n">rest_of_request</span> <span class="o">=</span> <span class="n">message_raw</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="n">b</span><span class="s">&#39;</span><span class="se">\r\n</span><span class="s">&#39;</span><span class="p">,</span> <span class="mi">1</span><span class="p">)[</span><span class="mi">1</span><span class="p">]</span>
-</span><span class='line'>        <span class="n">strHeader</span> <span class="o">=</span> <span class="nb">str</span><span class="o">.</span><span class="n">encode</span><span class="p">(</span><span class="n">request_name</span><span class="o">.</span><span class="n">decode</span><span class="p">(</span><span class="s">&#39;utf-8&#39;</span><span class="p">)</span> <span class="o">+</span> <span class="s">&quot; &quot;</span> <span class="o">+</span> <span class="n">filename</span> <span class="o">+</span> <span class="s">&quot; HTTP/1.0</span><span class="se">\r\n</span><span class="s">&quot;</span><span class="p">)</span>
-</span><span class='line'>        <span class="n">strHeader</span> <span class="o">+=</span> <span class="n">rest_of_request</span>
-</span><span class='line'>        <span class="n">fileobj</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">strHeader</span><span class="p">)</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Part 7: Cache Write</h2>
-
-<p>Caching sederhana saja. Simpan segalanya di file. Tidak perlu membaca body, cukup simpan segala responsenya. Memang ini bukan praktik yang bagus, tetapi kita ingin mendapatkan segalanya serba cepat.</p>
-
-<p>Dan, di sini saya tidak akan membuat hirarki cache dalam bentuk folder. Ini akan menambah kerumitan apabila dia ada parameter GET, atau URL ada informasi yang diencode dalam unicode.</p>
-
-<p>Btw, saya juga tidak menyimpan cache apabila dia bukan method GET. Ya, agar lebih menyenangkan saja. Mosok iya kita ngirim form, terus dibalasnya lewat cache. Ibarat anda upload tugas, kemudian hasilnya selalu upload berhasil padahal sebenarnya telah lewat deadline (hal ini karena proxy membaca dari cache).</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>        <span class="k">if</span> <span class="p">(</span><span class="n">request_name</span> <span class="o">!=</span> <span class="n">b</span><span class="s">&#39;POST&#39;</span><span class="p">):</span>
-</span><span class='line'>          <span class="n">tmpFile</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s">&quot;./&quot;</span> <span class="o">+</span> <span class="n">full_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">),</span><span class="s">&quot;wb&quot;</span><span class="p">)</span>
-</span><span class='line'>          <span class="n">tmpFile</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="n">response</span><span class="p">)</span>
-</span><span class='line'>          <span class="n">tmpFile</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Part 3: Cache Read</h2>
-
-<p>Tidak ada yang istimewa di sini ~</p>
-
-<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-</pre></td><td class='code'><pre><code class='python'><span class='line'>    <span class="c"># Check wether the file exist in the cache</span>
-</span><span class='line'>    <span class="n">f</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="n">full_path</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s">&quot;/&quot;</span><span class="p">,</span> <span class="s">&quot;&quot;</span><span class="p">),</span> <span class="s">&quot;rb&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">fileExist</span> <span class="o">=</span> <span class="bp">True</span>
-</span><span class='line'>    <span class="c"># ProxyServer finds a cache hit and generates a response message</span>
-</span><span class='line'>    <span class="n">data</span> <span class="o">=</span> <span class="n">f</span><span class="o">.</span><span class="n">read</span><span class="p">()</span>
-</span><span class='line'>    <span class="k">print</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">sendall</span><span class="p">(</span><span class="n">data</span><span class="p">)</span>
-</span><span class='line'>    <span class="c"># Fill in start.</span>
-</span><span class='line'>    <span class="c"># Fill in end.</span>
-</span><span class='line'>    <span class="k">print</span> <span class="p">(</span><span class="s">&quot;Read from cache&quot;</span><span class="p">)</span>
-</span><span class='line'>    <span class="n">tcpCliSock</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
-</span></code></pre></td></tr></table></div></figure>
-
-
-<h2>Done!</h2>
-
-<p>Ya, itu adalah penjelasan mengenai proxy jadi-jadian kita. Tidak sempurna memang, tetapi setidaknya Anda telah mengetahui bagaimana konsep HTTP bekerja.</p>
-
-<h2>Some Trouble(shooting)</h2>
-
-<ul>
-<li>Saat menjalankan di linux, socket tidak ditutup secara langsung jika kita mematikan proses pythonnya. Entah itu yang disebut zombie atau apa, tetapi yang pasti saya masih harus <code>kill -9</code> atau <code>killall</code> agar proxynya dapat berjalan setelah sebelumnya dimatikan.</li>
-<li>Dalam ngoding, saya kesulitan memahami tipe data Python. Akibatnya, saya menemui beberapa run time error terkait ini. Literal di python didefinisikan sebagai <code>L'sesuatu'</code> dengan <code>L</code> adalah simbol literalnya dan <code>sesuatu</code> adalah datanya. Anda tidak bisa melakukan concat (penggabungan) <code>b'Halo' + ' Dunia'</code>. Alih-alih, Anda harus melakukan penggabungan dalam tipe data yang sama</li>
-<li>Program proxy di atas tidak sempurna dan hanya diuji membuka <code>mahasiswa.cs.ui.ac.id/~muhammad.mufid</code>. Saat membuka web-web yang kompleks (misalnya scele), program tidak berjalan dengan baik. Masalah concurrency, i18n, tidak ditangani dengan baik.</li>
-<li>Melakukan decode dalam UTF-8 adalah ide yang buruk, tidak semua data diterima dalam UTF-8. Workaroundnya adalah hanya menggunakkan <code>byte</code> dalam setiap urusan pertukaran dan pemrosesan data.</li>
-<li>Part 8, seharusnya saya isi apa?</li>
-</ul>
-
 ]]></content>
   </entry>
   
