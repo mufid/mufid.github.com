@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2018-10-11T01:16:47+00:00</updated>
+  <updated>2018-10-11T01:21:07+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,23 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Mendapatkan Surel (Email) Phising]]></title>
+    <link href="http://mufid.github.io/blog/2018/email-phising/"/>
+    <updated>2018-10-11T07:40:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2018/email-phising</id>
+    <content type="html"><![CDATA[<p>Ini pertama kalinya saya mendapatkan surel Phising. Surel
+Phising ini sendiri adalah sebuah surel yang mirip
+seolah-olah seperti surel asli dengan tujuan mencuri
+data pengguna. Kalau di SMS, ini mirip seperti &ldquo;SELAMAT!
+NOMOR ANDA MENDAPAT HADIAH.&rdquo; Padahal hadiahnya tidak ada.</p>
+
+<p><img src="http://mufid.github.io/images/post/phising-1.png" alt="Phising 1" />
+<img src="http://mufid.github.io/images/post/phising-2.png" alt="Phising 2" />
+<img src="http://mufid.github.io/images/post/phising-3.png" alt="Phising 3" /></p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Internet Positif, DNSCrypt, dan Internet yang Terkesan Melambat]]></title>
@@ -1889,19 +1906,6 @@ Kabar buruknya, bagian itu matengnya baru di usia 25 tahun. Gue mendadak inget k
 <p>summary ini saya tutup dengan paragraf yang mind blow:</p>
 
 <blockquote><p>Yang menyedihkan, matinya sang Direktur ini bahkan bisa membuat anak kehilangan atau kebingungan orientasi seksualnya. Maka muncul generasi LGBT. Lesbian. Gay. Biseksual. Transgender (kecuali yang sindrom Klinefelter). Cek lah, kalo disuruh cerita, udah bisa dipastiin perasaan gpenyimpangan seksualh ini mulai dirasa anak sejak kecil walau ga jelas umurnya.</p></blockquote>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Twitter dan Kelucuannya]]></title>
-    <link href="http://mufid.github.io/blog/2014/twitter-wut/"/>
-    <updated>2014-01-17T13:01:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2014/twitter-wut</id>
-    <content type="html"><![CDATA[<p><em>Coba deh kosongin user description Twitter</em></p>
-
-<p><img src="http://mufid.github.io/images/post/twitter-konyol.png" alt="twitter-konyol" /></p>
-
-<p>Wow Twitter, selera humornya bagus sekali</p>
 ]]></content>
   </entry>
   

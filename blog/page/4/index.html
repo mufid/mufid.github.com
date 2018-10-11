@@ -51,7 +51,7 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="BONUS: Lihat juga FR-nya Rizal Jogjakarta murah? Kenapa tidak? Tanggal 5 Februari kemarin, Saya bersama teman-teman pergi ke Jogjakarta sebagai &hellip;">
+  <meta name="description" content="Sebetulnya, ini tidak hanya berlaku pada URI yang mengandung AJAX Call, tetapi juga untuk semua URI yang datanya pasti berubah. header-no-cache.php 1 &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -125,6 +125,64 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2013/ajax-no-cache/">AJAX No-Cache</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2013-02-10T14:09:00+00:00" pubdate data-updated="true">Feb 10<span>th</span>, 2013</time>
+        
+         | <a href="/blog/2013/ajax-no-cache/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Sebetulnya, ini tidak hanya berlaku pada URI yang mengandung <em>AJAX Call</em>, tetapi juga untuk semua URI yang datanya pasti berubah.</p>
+
+<figure class='code'><figcaption><span>header-no-cache.php </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="cp">&lt;?php</span>
+</span><span class='line'>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Pragma: no-cache&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Cache-Control: no-cache, must-revalidate&#39;</span><span class="p">);</span>
+</span><span class='line'><span class="nv">$this</span><span class="o">-&gt;</span><span class="na">output</span><span class="o">-&gt;</span><span class="na">set_header</span><span class="p">(</span><span class="s1">&#39;Expires: Mon, 26 Jul 1997 05:00:00 GMT&#39;</span><span class="p">);</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Meski Internet Explorer memiliki masalah pada pemanggilan AJAX (karena meski header ini sudah diset, IE tetap saja mengambil dari cache), dari tautan yang saya temui ada <a href="https://devcentral.f5.com/blogs/us/fixing-internet-explorer-amp-ajax">empat solusi atas semua ini</a>.</p>
+
+<p>Sumber: <a href="http://ellislab.com/forums/viewthread/155976/">http://ellislab.com/forums/viewthread/155976/</a></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -719,75 +777,6 @@ Set-Cookie: h_50e40345a03098a22901b00a=50e40345a03098a22901b00a; expires=Sat, 05
 </code></pre>
 
 <p>Moral of the story: Hati-hati dalam menggunakkan redirect yah.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/should-i-hire-a-programmer/">Should I Hire a Programmer?</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-12-31T07:48:00+00:00" pubdate data-updated="true">Dec 31<span>st</span>, 2012</time>
-        
-         | <a href="/blog/2012/should-i-hire-a-programmer/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Akhir tahun! Yay! :D</p>
-
-<p>Singkat saja, apakah seharusnya saya menghire programmer untuk ini untuk itu, anda merasa butuh dukungan atau support? Atau merasa perlu diassist dalam setiap kegiatan digital Anda? Jangan terlalu cepat berpikir bahwa Anda perlu menghire programmer. Dan jangan kecewa jika ada programmer yang menolak inquiry Anda.</p>
-
-<p>Sebenarnya yang programmer lakukan <strong>bukan hanya menyelesaikan masalah Anda</strong>, tetapi juga membantu Anda untuk terhindar dari masalah yang sama lagi. Dan ini bukan perkara yang mudah, yang mungkin Anda pikir dengan menghire programmer semuanya selesai. Sulit sekali bagi programmer tidak tanggung jawab terhadap apa yang telah terjadi. Inilah kenapa kepustakaan (library) yang buruk tetapi terus menerus dikembangkan lebih disukai daripada kepustakaan yang lama tetapi dukungannya legacy dan tidak dikembangkan lagi.</p>
-
-<p>Semisal, Anda meminta agar membuat custom apps untuk blog. Saya yakin banyak yang akan menolak membuat custom apps ini. Kebanyakan dalih adalah <em>kan sudah ada wordpress</em>. <em>There&rsquo;s app for that, why you should make a new similar app that do the same?</em> <em>There&rsquo;s a plugin for that also</em>.</p>
-
-<p>Kebanyakan <em>client</em> sanggat menginginkan custom apps sebenarnya <strong>karena bosan terhadap yang ada sekarang</strong>. Bukan custom appsnya yang penting. Tapi yang berbedanya yang penting.</p>
-
-<p>Untuk engineering apps baru, butuh waktu dan proses. Banyak yang menganalogikan sebagai segitiga dua pilihan. Perlu waktu untuk menguji desain, melakukan implementasi, dan.. sederetan teknis engineering lainnya. Anda hanya boleh memilih dua dari pilihan ini:</p>
-
-<ul>
-<li>Berkualitas tinggi</li>
-<li>Murah</li>
-<li>Cepat Jadi</li>
-</ul>
-
-
-<h2>Jadi, Anda butuh Apps?</h2>
-
-<p>Anda butuh apps? Baiklah, tetap tenang dan pikirkan beberapa alternatif ini:</p>
-
-<ul>
-<li>Anda butuh blog dengan tampilan bagus? Anda punya kartu kredit? Silahkan beli tema yang bagus dari &lt;themeforest.net>. Saya jauh lebih menyarankan ini karena tidak sedikit juga desainer di Indonesia yang justru mematok harga jauh lebih tinggi dari tema di Themeforest. Not to mention Anda bisa mencari marketplace lain untuk tema.</li>
-<li>Anda butuh custom apps? Coba main-main ke Google dan masukkan kebutuhan Anda. Untuk aplikasi e-commerce, Anda pasti pernah dengan opencart. Butuh aplikasi untuk chat enterprise? Coba lihat-lihat Campfire. Private wiki untuk perusahaan? Coba mindtouch. Dan sederet apps lain.</li>
-</ul>
-
-
-<p><em>Hiring a programmer is about engineering process. Make use of available tools is about getting-things-done process.</em></p>
 </div>
   
   

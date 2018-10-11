@@ -51,7 +51,9 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Masih ingat kasus pemblokiran Twitter di Turki? Twitter is blocked in Turkey. On the streets of Istanbul, the action against censorship is graffiti &hellip;">
+  <meta name="description" content="Ini pertama kalinya saya mendapatkan surel Phising. Surel
+Phising ini sendiri adalah sebuah surel yang mirip
+seolah-olah seperti surel asli dengan &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -125,6 +127,54 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2018/email-phising/">Mendapatkan Surel (Email) Phising</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2018-10-11T07:40:00+00:00" pubdate data-updated="true">Oct 11<span>th</span>, 2018</time>
+        
+         | <a href="/blog/2018/email-phising/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Ini pertama kalinya saya mendapatkan surel Phising. Surel
+Phising ini sendiri adalah sebuah surel yang mirip
+seolah-olah seperti surel asli dengan tujuan mencuri
+data pengguna. Kalau di SMS, ini mirip seperti &ldquo;SELAMAT!
+NOMOR ANDA MENDAPAT HADIAH.&rdquo; Padahal hadiahnya tidak ada.</p>
+
+<p><img src="/blog/images/post/phising-1.png" alt="Phising 1" />
+<img src="/blog/images/post/phising-2.png" alt="Phising 2" />
+<img src="/blog/images/post/phising-3.png" alt="Phising 3" /></p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -1142,143 +1192,6 @@ berdasarkan keluhan-keluhan yang coba saya pahami.</p>
 
 
 <p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2015/null/">Having Fun with Java&#8217;s Null</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2015-04-23T20:52:00+00:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2015</time>
-        
-         | <a href="/blog/2015/null/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>So lately i have been diving really deep (or not really) into Java. I found Java&rsquo;s null is interesting. I think, i hate <code>NullPointerException</code> very much. And most of the time, i hate my own way to deal with those things.</p>
-
-<p>Btw, if you hate compiling Java&rsquo;s code just to test a one-line command, you may use <a href="https://github.com/albertlatacz/java-repl">JavaRepl</a>, which will give you an interactive mode of Java compiler.</p>
-
-<h2>String Concatenation</h2>
-
-<p>This is interesting. If you run</p>
-
-<pre><code>String result = object + " is cool";
-</code></pre>
-
-<p>will invoke <code>toString</code> of the object <strong>only if the object is not null</strong>. If the object is null, <code>toString</code> will not be invoked and it will be replaced with <code>null</code> instead</p>
-
-<pre><code>String result = new Object() + " is cool";
-java.lang.Object@55c8a526 is cool
-
-String result = new Object().toString() + " is cool";
-java.lang.Object@55c8a526 is cool
-
-String result = null + " is cool";
-null is cool
-</code></pre>
-
-<p>But, you can&rsquo;t really invoke toString :))</p>
-
-<pre><code>Object o = null;
-String result = o.toString() + " is cool";
-java.lang.NullPointerException
-</code></pre>
-
-<h2>Object Unboxing</h2>
-
-<p>Well, since my code may be executed at another machine, serializing is very usual. And sometimes, i find it is also interesting how Java&rsquo;s boxing and unboxing work.</p>
-
-<p>This routine will always work:</p>
-
-<pre><code>long l = ...;
-Long boxedLong = l;
-</code></pre>
-
-<p>But how about this?</p>
-
-<pre><code>Long boxedLong = ...;
-long l = boxedLong;
-</code></pre>
-
-<p>Yes, as you might expect, it may throw <code>NullPointerException</code>. Let&rsquo;s play with it:</p>
-
-<pre><code>long l = (Long) null;
-java.lang.NullPointerException
-</code></pre>
-
-<p>It is not fun. Really. For primitive-in-boxed object, we may want to use <code>itsTypeValue</code>. But in fact, you can&rsquo;t do that with Long. Meanwhile, you can do that with Boolean.</p>
-
-<pre><code>long l = ((Long) null).longValue();
-java.lang.NullPointerException
-
-long l = new Long(null).longValue();
-java.lang.NumberFormatException: null
-
-new Boolean(null).booleanValue();
-false
-</code></pre>
-
-<p>What really happened to those? I don&rsquo;t know.</p>
-
-<h2>if not null and not null</h2>
-
-<p>Sometimes, my flawless code merely run into this horrible lengthy operators:</p>
-
-<pre><code>if (provider != null &amp;&amp; provider.getGlobalInfo() != null) {
-    InfoBase globalInfo = provider.getGlobalInfo();
-    doSomethingWith(globalInfo);
-}
-</code></pre>
-
-<p>Well&hellip; what if i have something longer than that? Simply add null check before <code>doSomethingWith(that)</code>!</p>
-
-<pre><code>if (provider != null &amp;&amp; provider.getProviderCoordinate() != null &amp;&amp; provider.getProviderCoordinate().getLatidudeBase() != null ) {
-    Coordinate c = provider.getProviderCoordinate().getLatidudeBase();
-    doSomethingWith(globalInfo);
-}
-</code></pre>
-
-<p>Well.. still too long. <strong>You don&rsquo;t really need to get into that detail.</strong> Take care of your object&rsquo;s contract. Why don&rsquo;t we give a default value instead of null?</p>
-
-<pre><code>class ProviderBase {
-  InfoBase globalInfo;
-  InfoBase getGlobalIInfo() {
-    if (globalInfo == null) {
-      return InfoFactory.getDefaultInfo();
-    }
-    return globalInfo;
-  }
-}
-</code></pre>
-
-<p>But still, <strong>if null is expected, then handle it with a better way.</strong> Just because i hate NPE, it is just better to give default value because most of the time null data is caused by serialization of not-yet-completed data model migration. You might have a better way other than default value (like, Annotation?), but you get the idea.</p>
 </div>
   
   
