@@ -51,7 +51,7 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="So lately i have been diving really deep (or not really) into Java. I found Java&rsquo;s null is interesting. I think, i hate NullPointerException &hellip;">
+  <meta name="description" content="So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -125,6 +125,118 @@
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2016/generic-type-csharp/">Using Class with Generics &lt;T&gt; Without the T in C#</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-05-04T06:51:00+00:00" pubdate data-updated="true">May 4<span>th</span>, 2016</time>
+        
+         | <a href="/blog/2016/generic-type-csharp/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a class with generic type, but I don&rsquo;t know what is the generic type. Furthermore, I don&rsquo;t care what is the type of the generic.</p>
+
+<p>Imagine a situation like this: I have a class like this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let&rsquo;s go straight to the point: What if I want to call Destroy, but I don&rsquo;t care what is T? So I have</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">object</span> <span class="n">x</span> <span class="c1">// instance of Wrapper</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>object x</code> is an instance of <code>Wrapper</code>. But I can&rsquo;t cast it into wrapper without knowing the exact value of the generic type. I can&rsquo;t do something like this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Object</span> <span class="n">x</span> <span class="p">=</span> <span class="n">something</span><span class="p">;</span>
+</span><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">&lt;?&gt;).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Also, generic is tightly coupled in C#. Meanwhile, in Java, generic is optional. If you don&rsquo;t specify the generic, Java just simply treat the generic type as <code>Object</code>. In java you can write the code like below, but not in C#:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So how do I call <code>Destroy</code> without knowing the <code>T</code>? Surprisingly, the solution is pretty simple. Just extract the <code>Destroy</code> method to an interface:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">interface</span> <span class="n">IWrapperDestroyer</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">IWrapperDestroyer</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So that I can simply call this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">IWrapperDestroyer</span><span class="p">).</span><span class="n">Destroy</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -750,55 +862,6 @@ tetapi beberapa sumber mengatakan ini fiktif. Saya pun
 <p><em>Think again.</em></p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2014/porn/">Porno</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2014-02-18T07:40:00+00:00" pubdate data-updated="true">Feb 18<span>th</span>, 2014</time>
-        
-         | <a href="/blog/2014/porn/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Di Facebook sedang ramai membahas <a href="http://islamisfun.wordpress.com/2014/02/16/karena-bu-risma">Hal-hal yang memiliki korelasi dengan dialog Bu Risma di Mata Najwa</a>.
-Pembahasan lebih diarahkan pada salah satu kalimat di sana yaitu <a href="http://www.youtube.com/watch?v=hvrf1Img0C0&amp;feature=youtu.be&amp;t=27m">pelanggan PSK 60 tahun-an adalah anak SD-SMP</a>.</p>
-
-<p>Sayangnya, artikel tersebut cukup panjang. Jika Anda cukup malas untuk membacanya, Anda bisa menggunakkan text summarizer seperti
-<a href="http://www.textteaser.com/">TextTeaser</a>. Atau, saya telah mengambil beberapa poin penting di artikel tersebut.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2014/porn/">Read on &rarr;</a>
-    </footer>
   
 
 
