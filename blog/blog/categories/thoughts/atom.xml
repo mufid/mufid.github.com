@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: thoughts | Mufid's Code blog]]></title>
+  <link href="http://mufid.github.io/blog/categories/thoughts/atom.xml" rel="self"/>
+  <link href="http://mufid.github.io/"/>
+  <updated>2019-09-28T08:19:10+00:00</updated>
+  <id>http://mufid.github.io/</id>
+  <author>
+    <name><![CDATA[Mufid]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Top Down, Bottom Up?]]></title>
+    <link href="http://mufid.github.io/2013/top-down/"/>
+    <updated>2013-05-16T06:47:00+00:00</updated>
+    <id>http://mufid.github.io/2013/top-down</id>
+    <content type="html"><![CDATA[<p>Pendekatan bisnis antara dua hal ini:
+dari atas dulu atau dari bawah dulu?</p>
+
+<p>Dalam banyak kasus, keduanya bisa saja berhasil. Akan tetapi,
+mari kita lihat beberapa studi kasus terlebih dahulu. Kita
+coba lihat kang Onno.</p>
+
+<!-- more -->
+
+
+<h2>Linux dan Kang Onno</h2>
+
+<p>Kang Onno membangun komunitas linux dari bawah. Kang Onno
+masuk ke SMK-SMK, membuat workshop, membuat ITCamp, dan hal-hal
+lain (yang saya tahu hanya sebatas ini). Saya sempat mengikuti
+workshop untuk anak SMK kang Onno dulu, sekitar 6 tahun yang lalu.
+Acaranya mengundang banyak anak SMK (mungkin saya satu-satunya dari
+SMA). Menurut Saya workshopnya kurang berhasil membahas secara
+mendetail, tetapi Saya suka sekali bagaimana kang Onno berhasil
+menggaet komunitas.</p>
+
+<p>Jika kang Onno ingin membuat gerakan yang lebih masif, tentu kang
+Onno bisa dengan mudah masuk ke pemerintahan. Tetapi kang Onno
+tidak ingin (meskipun kang Onno kenal dengan banyak orang dalam
+pemerintahan di sana). Hal ini saya dengar sendiri langsung dari
+kang Onno saat ITCamp dua tahun yang lalu.</p>
+
+<p>Sekarang mari kita lihat beberapa gerakan Top-Down. Kita lihat
+contoh AnakUI.com dan Videoku.TV. Kita mulai dari yang terakhir
+terlebih dahulu.</p>
+
+<h2>Videoku.TV</h2>
+
+<p>Pernah dengar Videoku.TV? Baiklah, jangan melakukan penelusuran
+Google. Anda tidak akan menemukannya karena sekarang sudah down.</p>
+
+<p>Videoku.TV adalah layanan hosted video sharing. Persis seperti
+YouTube, tapi dengan konten-konten lokal. Anda dapat mengunggah
+konten apapun ke Videoku.TV.</p>
+
+<p>Terdengar menarik?</p>
+
+<p>Tidak.</p>
+
+<p>Apa diferensiasi Videoku.TV dengan Youtube?</p>
+
+<p>Akan tetapi saya melihat hal yang lebih krusial lagi: Untuk
+apa membuat Videoku.TV? Apakah <em>demand</em> masyarakat internet
+Indonesia untuk video streaming sudah seperti Korea, Jepang,
+atau Singapura?</p>
+
+<p>Internet kabel sendiri saya rasa sudah cukup cepat, tetapi
+kesiapan masyarakat Indonesia terhadap <em>demand</em> ini seperti
+cerita yang berbeda.</p>
+
+<p><em>Oh, well&hellip; dari awal saya sudah yakin target Videoku.TV
+sudah salah</em>. Tapi itu bukan satu-satunya concern saya
+tentang Top Down Approach.</p>
+
+<p>Mereka memulai terlalu besar: mengajak artis
+untuk masuk dan membuat akun di Videoku.TV. Selain itu,
+Videoku.TV pada akhirnya sebagian besar berisi
+video-video gosip selebriti. Menurut Saya, menargetkan
+gosip untuk masyarakat internet Indonesia sepertinya bukan
+langkah yang tepat, mengingat pada awalnya internet Indonesia
+digunakan untuk akademisi, dan sebagian masyarakat yang lain
+belum tersentuh internet (atau bahkan belum mengenal).</p>
+
+<p>Nah, they shut down now. More services shutdown.</p>
+
+<p>Oh sebelum berganti topik, Saya sering sekali terkena spam
+dari Videoku. Seems they&rsquo;re not digging into security.</p>
+
+<p><img src="/images/post/spam.png" alt="spam" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Hacking Social: A Guide [for] Silence Programmer]]></title>
+    <link href="http://mufid.github.io/2012/hacking-social/"/>
+    <updated>2012-11-27T11:09:00+00:00</updated>
+    <id>http://mufid.github.io/2012/hacking-social</id>
+    <content type="html"><![CDATA[<blockquote><p>TLDR; Hidup ini dinamis. Berdoalah kepada Tuhan dan hadapi tantangan yang ada :D</p></blockquote>
+
+<p>Saya merasa menemukan kepekaan sosial tertinggi selama SMA. Teruntuk teman-teman Electrico, terima kasih karena kalian sangat solid. Tentu ada yang bilang kita gak solid, tetapi <em>saya pernah menemukan lingkungan yang jauh lebih tidak solid lagi</em>.</p>
+
+<p>Bagaimana menemukan kesolidan sosial? Bagaimana untuk koder seperti saya mencari kehidupan sosial yang abadi? Tentu kehidupan yang abadi dan yang sangat ideal nanti akan kita temui insyaAllah di surga nanti. Tetapi berhubung menyambung silaturahim itu penting,..</p>
+
+<!-- more -->
+
+
+<p>.. mau tidak mau kita harus retas kehidupan kita. Kita semua peretas, mari kita retas.</p>
+
+<p>Saya pikir, untuk semua programmer bisa melakukan ini. Saya berikan beberapa hal yang saya lakukan yang alhamdulillah itu sedikit mengubah kehidupan saya.</p>
+
+<h1>Why?</h1>
+
+<p>Sebelumnya, kenapa kita harus melakukan ini?</p>
+
+<p>Beberapa dari Anda mungkin memiliki sifat tidak membutuhkan orang lain untuk bahagia. Ini tidak masalah, dan baguslah. Anda tidak terpengaruh oleh lingkungan Anda. Dan itu alhamdulillah sedikit banyak ada dalam diri saya &mdash; di saat sekelas saya yakin menyontek saya habis-habisan mempersiapkan materi dan menghindari penyontekan.</p>
+
+<p>Tapi jangan senang dulu, menjadi tidak peka terhadap sosial adalah hal yang salah. Untuk banyak koder, pentingkan saja kualitas kodenya dan tidak usah peduli lingkungan sosial yang ada. Ini masalah: Anda tidak bisa tidak peduli karena Anda memiliki kewajiban untuk membaikkan kehidupan lingkungan Anda.</p>
+
+<p>Kehidupan ini tentang <em>apa yang bisa kita beri untuk orang lain</em>. Satu-satunya cara untuk mendapatkan hal yang baik adalah dengan membaikkan kehidupan orang lain.</p>
+
+<p>Jadi, tugas Anda bukan untuk bersosial atau bergaul. Silaturahim itu lebih dari bergaul. Anda lebih suka waktu Anda digunakan untuk menulis baris baris kode, tidak masalah karena itu Anda. Tetapi, apakah Anda mungkin membaikkan kehidupan orang lain tanpa bergaul dengan mereka? Dengan amat kecewa saya katakan <strong>mungkin</strong>, tapi itu tidak bisa saya jelaskan di tulisan ini. Ini membutuhkan tingkat peretasan yang lebih mahir lagi.</p>
+
+<p>Yang lebih penting lagi adalah ketika Anda haus akan sosial. Anda serasa energi Anda sangat lemah dan membutuhkan untuk berbicara dengan orang lain dan bercerita dengannya untuk membangkitkan semangat Anda kembali. Anda ingin keluar dari kesendirian dan mencoba ingin hidup lebih tenang.</p>
+
+<p>Alhamdulillah, menurut saya, kita perlu melakukan cara-cara ini:</p>
+
+<h1>Sadari Kesendirian</h1>
+
+<p>Jika Anda merasakan kesendirian, jangan khawatir. Pahami bahkan setiap orang tidak jarang dalam kesendirian. Anda melakukan tugas Anda sendiri, menyetir motor sendiri, menulis baris-baris kode sendiri, mengerjakan pekerjaan sendiri, makan sendiri. Banyak yang sebenarnya Anda lakukan sendiri. Jadi, kesendirian adalah hal yang wajar.</p>
+
+<p>Tapi percayalah kesendirian Anda akan sirna. Kesendirian itu hanyalah waktu sementara. Percayalah. Justru itu bagus. While Anda dalam kesendirian, lakukanlah hal-hal yang bermanfaat yang itu tidak bisa Anda lakukan saat dalam keramaian. Menulis blog, menulis buku, mengerjakan proyek, mengerjakan <a href="http://uhunt.felix-halim.net/">online judge</a>, mengirim [patch] dalam komunitas kode sumber terbuka, membaca buku yang baru Anda beli tapi belum Anda baca.</p>
+
+<p>Dan percayalah lebih dalam lagi, Anda akan sendirian dalam waktu yang lebih sebentar daripada wkatu Anda dalam keramaian. Maka pergunakan waktu tersebut sebaik-baiknya.</p>
+
+<h1>Senyum, Sapa, Santun</h1>
+
+<p>Senyum dapat dengan segera menciptakan persahabatan di antara dua insan manusia. Dengan senyum, Anda akan dianggap developer yang baik hati (baca: memungkinkan lebih banyak orang kenal dengan Anda, memungkinkan lebih banyak orang bekerja sama dengan Anda, dan memungkinkan lebih banyak orang yang hidupnya terbantu karena pekerjaan Anda karena kerja sama ynag Anda lakukan dan karena anda kenal dengan orang-orang yang mengenal Anda dari senyum tulus Anda).</p>
+
+<p>Menyapa dan berkata-kata dengan santun adalah proses setelah senyuman. Senyuman adalah impresi dan kesantunan adalah hal yang diingat setelah orang terimpresi dengan senyuman Anda.</p>
+
+<p>Jika Anda sulit untuk menyapa orang, cukup berkata santun kepada setiap orang yang Anda temui. Carilah padanan kata yang lebih baik dan lebih enak didengar. Mungkin lingkungan Anda keras, tetapi kata-kata santun yang Anda ucapkan akan mencegah orang-orang yang berniat tidak baik dengan Anda terenyuh melunak dan membatalkan niat tidak baiknya tersebut.</p>
+
+<p>Jika Anda sulit melakukan ketiga hal di atas, cukup lakukan kepada orang yang Anda kenal. Tidak perlu merasa memiliki target lebih. Dalam waktu singkat reflek ini akan juga terjadi ke orang yang belum Anda kenal &mdash; lebih membuat dampak kebaikan Anda lebih luas.</p>
+
+<h1>Menyebalkan</h1>
+
+<p>Pernah bertemu orang yang Anda pikir menyebalkan? Selamat datang di dunia nyata, di mana ekspetasi Anda mungkin tidak tersampaikan ke orang yang berhadapan dengan Anda. Jangan khawatir, ini wajar. Sampaikan saja ekspetasi Anda terhadap orang tertentu bahwa ada tindakan yang tidak mengenakan di hati Anda, semisal Anda tidak suka orang-orang yang menggunakkan baju berwarna cerah, atau merokok, atau berkata yang tidak baik.</p>
+
+<p>Sayangnya, dunia ini adalah tentang cara mengerti orang lain.</p>
+
+<blockquote><p>Anda dapat lebih mudah berteman jika Anda lebih tertarik kepada orang lain (Dale Carnegie, How to Win Friends and Influence People)</p></blockquote>
+
+<p>Anda mungkin tidak pernah bisa mengubah orang lain, tetapi Anda sudah pasti bisa mengubah diri Anda. <em>Double check</em> sebelum mengkritik orang lain, apakah kritik itu sudah pantas ditolak dalam diri kita?</p>
+
+<h1>Don&rsquo;t Be Shy</h1>
+
+<p>Jangan malu. Jangan merasa rendah. Tetap optimis lah. Anda akan malu melakukan hal yang baru. Tetapi, Anda tidak akan malu jika berbuat kesalahan karena Anda berbuat kebaikan. Anda mungkin akan malu pertama kali menyapa orang, tetapi Anda sadari itu kebaikan, tidak perlu malu. Malulah jika itu untuk ketidakbaikan.</p>
+
+<p><em>Fine, so what&rsquo;s next?</em></p>
+]]></content>
+  </entry>
+  
+</feed>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: aptana, | Mufid's Code blog]]></title>
+  <link href="http://mufid.github.io/blog/categories/aptana/atom.xml" rel="self"/>
+  <link href="http://mufid.github.io/"/>
+  <updated>2019-09-28T08:19:10+00:00</updated>
+  <id>http://mufid.github.io/</id>
+  <author>
+    <name><![CDATA[Mufid]]></name>
+    
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Aptana dan Codeigniter]]></title>
+    <link href="http://mufid.github.io/2013/aptana-dan-codeigniter/"/>
+    <updated>2013-01-25T02:05:00+00:00</updated>
+    <id>http://mufid.github.io/2013/aptana-dan-codeigniter</id>
+    <content type="html"><![CDATA[<p>Baiklah, Anda ingin agar Aptana Anda menjalankan autocompletenya CI?</p>
+
+<p>Sederhana. Simpan file ini sebagai php dalam project CI Anda. Simpan dimanapun, terserah Anda.</p>
+
+<p><div class='bogus-wrapper'><notextile><figure class='code'><figcaption><span>aptana-ci-autocomplete.php </span></figcaption>
+ <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+</pre></td><td class='code'><pre><code class='php'><span class='line'><span class="x">&amp;lt;?php&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;class _</span>
+</span><span class='line'><span class="x">{&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;pre&gt;&lt;code&gt;function _()</span>
+</span><span class='line'><span class="x">{</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">// any classes you want included in autocompletion</span>
+</span><span class='line'><span class="x">$this-&amp;gt;load = new CI_Loader();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;config = new CI_Config();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;email = new CI_Email();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;encrypt = new CI_Encrypt();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;pagination = new CI_Pagination;</span>
+</span><span class='line'><span class="x">$this-&amp;gt;session = new CI_Session();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;driver = new CI_Driver();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;benchmark = new CI_Benchmark();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;typography = new CI_Typography();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;form_validation = new CI_Form_validation();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;profiler = new CI_Profiler();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;image_lib = new CI_Image_lib();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;math = new Math();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;calendar = new CI_Calendar();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;db = new CI_DB_active_record();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;table = new CI_Table();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;table = new MY_Table();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;ftp = new CI_FTP();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;output = new CI_Output();</span>
+</span><span class='line'><span class="x">$this-&amp;gt;javascript = new CI_Javascript();</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">// note you&#39;ll need to use $this-&amp;gt;CI = &amp;amp; getInstance() in extended libs</span>
+</span><span class='line'><span class="x">// in order for the CI to autocomplete</span>
+</span><span class='line'><span class="x">$this-&amp;gt;CI=new CI_Controller();</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">}</span>
+</span><span class='line'><span class="x">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;}&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="x">&lt;p&gt;// any classes you want autocomplete for</span>
+</span><span class='line'><span class="x">class CI_Controller extends _ {}</span>
+</span><span class='line'><span class="x">class CI_Model extends _ {}</span>
+</span><span class='line'><span class="x">class CI_Form_validation extends _ {}</span>
+</span><span class='line'><span class="x">class CI_Table extends _ {}</span>
+</span><span class='line'><span class="x">?&gt;</span>
+</span></code></pre></td></tr></table></div></figure></notextile></div></p>
+
+<p>Jika Anda memiliki kepustakaan tersendiri yang ingin dimasukkan dalam autocomplete, Saya pikir Anda sudah mendapatkan idenya. Tambahkan ke dalam $this.</p>
+
+<p><a href="http://ellislab.com/forums/viewthread/187641/">http://ellislab.com/forums/viewthread/187641/</a></p>
+]]></content>
+  </entry>
+  
+</feed>

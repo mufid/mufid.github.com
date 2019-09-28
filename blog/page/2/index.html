@@ -1,0 +1,1070 @@
+
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                  hai :)
+                                                  apa kabar? : )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>Mufid's Code blog</title>
+  <meta name="author" content="Mufid">
+
+  
+  <meta name="description" content="So if i write 1
+2
+3
+def hello puts &#39;world&#39;
+end It will evaluate def, to which Ruby will &ldquo;create a method named hello in global scope, &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mufid.github.io/page/2/">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="/blog/javascripts/ender.js"></script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <link href="/atom.xml" rel="alternate" title="Mufid's Code blog" type="application/atom+xml">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-61504096-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText">fidz</div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/blog/">Mufid's Code blog</a></h1>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mufid.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div class="blog-index">
+  
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2016/ruby-class-evaluation/">In Ruby, Everything is Evaluated</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-07-10T22:25:00+00:00" pubdate data-updated="true">Jul 10<span>th</span>, 2016</time>
+        
+         | <a href="/blog/2016/ruby-class-evaluation/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So if i write</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>It will evaluate <code>def</code>, to which Ruby will &ldquo;create a method named hello in global scope, with puts &lsquo;world&rsquo; as a block&rdquo;. We can change &ldquo;global scope&rdquo; to any object we want.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Greeting</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>The class &ldquo;Greeting&rdquo; is actually EVALUATED, NOT DEFINED (e.g. In Java, after we define a signature of a class/method, we can&rsquo;t change it, except using reflection). So actually, we can put anything in &ldquo;Greeting&rdquo; block, like</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="k">class</span> <span class="nc">Greeting</span>
+</span><span class='line'>  <span class="nb">puts</span> <span class="s2">&quot;Will define hello in greeting&quot;</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s1">&#39;world&#39;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Save above script as &ldquo;test.rb&rdquo; (or anything) and try to run it. It will show &ldquo;Will define hello in greeting&rdquo; EVEN you don&rsquo;t call &ldquo;Greeting&rdquo; class or &ldquo;hello&rdquo; class or you don&rsquo;t even need to instantiate &ldquo;Greeting&rdquo; class. This language feature allows meta programming, like what we see in Rails.</p>
+
+<p>This time i will use Class Attribute within active support. If you ever run Rails, you should have it, but you can <code>gem install active_support</code> if you don&rsquo;t.</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='ruby'><span class='line'><span class="nb">require</span> <span class="s1">&#39;active_support/core_ext/class/attribute&#39;</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">module</span> <span class="nn">Greeting</span><span class="p">;</span> <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">Base</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="n">class_attribute</span> <span class="ss">:blocks</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="k">def</span> <span class="nf">hello</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="ss">:greeting</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="ss">:hello</span><span class="o">].</span><span class="n">call</span><span class="p">(</span><span class="nb">name</span><span class="p">)</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'>  <span class="kp">protected</span>
+</span><span class='line'>  <span class="k">def</span> <span class="nc">self</span><span class="o">.</span><span class="nf">define_greeting</span><span class="p">(</span><span class="n">sym</span><span class="p">,</span> <span class="o">&amp;</span><span class="n">blk</span><span class="p">)</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span> <span class="o">||=</span> <span class="p">{}</span>
+</span><span class='line'>    <span class="nb">self</span><span class="o">.</span><span class="n">blocks</span><span class="o">[</span><span class="n">sym</span><span class="o">]</span> <span class="o">=</span> <span class="n">blk</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">English</span> <span class="o">&lt;</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:greeting</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Hi </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">, Ruby will greet you with hello world!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:hello</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Hello World, </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="k">class</span> <span class="nc">Greeting</span><span class="o">::</span><span class="no">Indonesian</span> <span class="o">&lt;</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Base</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:greeting</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Halo kakak </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">, Ruby akan menyapamu dengan Halo Dunia!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'>  <span class="n">define_greeting</span> <span class="ss">:hello</span> <span class="k">do</span> <span class="o">|</span><span class="n">who</span><span class="o">|</span>
+</span><span class='line'>    <span class="nb">puts</span> <span class="s2">&quot;Halo dunia! Salam, </span><span class="si">#{</span><span class="n">who</span><span class="si">}</span><span class="s2">!&quot;</span>
+</span><span class='line'>  <span class="k">end</span>
+</span><span class='line'><span class="k">end</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:English</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">x</span><span class="o">.</span><span class="n">hello</span> <span class="s2">&quot;Fido&quot;</span>
+</span><span class='line'><span class="c1"># Hi Fido, Ruby will greet you with hello world!</span>
+</span><span class='line'><span class="c1"># Hello World, Fido!</span>
+</span><span class='line'><span class="n">x</span> <span class="o">=</span> <span class="ss">Greeting</span><span class="p">:</span><span class="ss">:Indonesian</span><span class="o">.</span><span class="n">new</span>
+</span><span class='line'><span class="n">x</span><span class="o">.</span><span class="n">hello</span> <span class="s2">&quot;Fido&quot;</span>
+</span><span class='line'><span class="c1"># Halo kakak Fido, Ruby akan menyapamu dengan Halo Dunia!</span>
+</span><span class='line'><span class="c1"># Halo dunia! Salam, Fido!</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Previously i want to move the class attribute logic to above code, but after i see the <a href="https://github.com/rails/rails/blob/e35b98e6f5c54330245645f2ed40d56c74538902/activesupport/lib/active_support/core_ext/class/attribute.rb">Active Support code</a>, it is pretty complex, so i just require it : /</p>
+
+<hr />
+
+<p>Previously, i posted <a href="https://www.reddit.com/r/ProgrammerTIL/comments/4s2vmr/ruby_til_in_ruby_everything_is_evaluated/">this in Reddit</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2016/generic-type-csharp/">Using Class with Generics &lt;T&gt; Without the T in C#</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2016-05-04T06:51:00+00:00" pubdate data-updated="true">May 4<span>th</span>, 2016</time>
+        
+         | <a href="/blog/2016/generic-type-csharp/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So lately I have been developing a C# application with Xamarin. Then I faced a design problem where I should be able to call a function inside a class with generic type, but I don&rsquo;t know what is the generic type. Furthermore, I don&rsquo;t care what is the type of the generic.</p>
+
+<p>Imagine a situation like this: I have a class like this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span> <span class="p">{</span> <span class="cm">/* body */</span> <span class="p">}</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Let&rsquo;s go straight to the point: What if I want to call Destroy, but I don&rsquo;t care what is T? So I have</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="kt">object</span> <span class="n">x</span> <span class="c1">// instance of Wrapper</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p><code>object x</code> is an instance of <code>Wrapper</code>. But I can&rsquo;t cast it into wrapper without knowing the exact value of the generic type. I can&rsquo;t do something like this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="n">Object</span> <span class="n">x</span> <span class="p">=</span> <span class="n">something</span><span class="p">;</span>
+</span><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">&lt;?&gt;).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Also, generic is tightly coupled in C#. Meanwhile, in Java, generic is optional. If you don&rsquo;t specify the generic, Java just simply treat the generic type as <code>Object</code>. In java you can write the code like below, but not in C#:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">Wrapper</span><span class="p">).</span><span class="n">Destroy</span><span class="p">();</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So how do I call <code>Destroy</code> without knowing the <code>T</code>? Surprisingly, the solution is pretty simple. Just extract the <code>Destroy</code> method to an interface:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="k">interface</span> <span class="n">IWrapperDestroyer</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span><span class='line'>
+</span><span class='line'><span class="n">Wrapper</span><span class="p">&lt;</span><span class="n">T</span><span class="p">&gt;</span> <span class="p">:</span> <span class="n">IWrapperDestroyer</span> <span class="k">where</span> <span class="n">T</span> <span class="p">:</span> <span class="n">IDestroyable</span>
+</span><span class='line'><span class="p">{</span>
+</span><span class='line'>  <span class="n">T</span> <span class="nf">RetrieveValue</span><span class="p">()</span>
+</span><span class='line'>  <span class="k">void</span> <span class="nf">Destroy</span><span class="p">()</span>
+</span><span class='line'><span class="p">}</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>So that I can simply call this:</p>
+
+<figure class='code'> <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='csharp'><span class='line'><span class="p">(</span><span class="n">X</span> <span class="k">as</span> <span class="n">IWrapperDestroyer</span><span class="p">).</span><span class="n">Destroy</span><span class="p">()</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+<p>Perhaps the next question is, why we get <code>x</code> as an <code>object</code> type at the first place? Why don&rsquo;t we just simply make it stronger type to <code>Wrapper</code> with known <code>T</code>? I don&rsquo;t know. Perhaps because I am working too much with reflection since I am creating Xamarin-based Android and iOS application with MvvmCross.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2015/null/">Having Fun with Java&#8217;s Null</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-23T20:52:00+00:00" pubdate data-updated="true">Apr 23<span>rd</span>, 2015</time>
+        
+         | <a href="/blog/2015/null/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>So lately i have been diving really deep (or not really) into Java. I found Java&rsquo;s null is interesting. I think, i hate <code>NullPointerException</code> very much. And most of the time, i hate my own way to deal with those things.</p>
+
+<p>Btw, if you hate compiling Java&rsquo;s code just to test a one-line command, you may use <a href="https://github.com/albertlatacz/java-repl">JavaRepl</a>, which will give you an interactive mode of Java compiler.</p>
+
+<h2>String Concatenation</h2>
+
+<p>This is interesting. If you run</p>
+
+<pre><code>String result = object + " is cool";
+</code></pre>
+
+<p>will invoke <code>toString</code> of the object <strong>only if the object is not null</strong>. If the object is null, <code>toString</code> will not be invoked and it will be replaced with <code>null</code> instead</p>
+
+<pre><code>String result = new Object() + " is cool";
+java.lang.Object@55c8a526 is cool
+
+String result = new Object().toString() + " is cool";
+java.lang.Object@55c8a526 is cool
+
+String result = null + " is cool";
+null is cool
+</code></pre>
+
+<p>But, you can&rsquo;t really invoke toString :))</p>
+
+<pre><code>Object o = null;
+String result = o.toString() + " is cool";
+java.lang.NullPointerException
+</code></pre>
+
+<h2>Object Unboxing</h2>
+
+<p>Well, since my code may be executed at another machine, serializing is very usual. And sometimes, i find it is also interesting how Java&rsquo;s boxing and unboxing work.</p>
+
+<p>This routine will always work:</p>
+
+<pre><code>long l = ...;
+Long boxedLong = l;
+</code></pre>
+
+<p>But how about this?</p>
+
+<pre><code>Long boxedLong = ...;
+long l = boxedLong;
+</code></pre>
+
+<p>Yes, as you might expect, it may throw <code>NullPointerException</code>. Let&rsquo;s play with it:</p>
+
+<pre><code>long l = (Long) null;
+java.lang.NullPointerException
+</code></pre>
+
+<p>It is not fun. Really. For primitive-in-boxed object, we may want to use <code>itsTypeValue</code>. But in fact, you can&rsquo;t do that with Long. Meanwhile, you can do that with Boolean.</p>
+
+<pre><code>long l = ((Long) null).longValue();
+java.lang.NullPointerException
+
+long l = new Long(null).longValue();
+java.lang.NumberFormatException: null
+
+new Boolean(null).booleanValue();
+false
+</code></pre>
+
+<p>What really happened to those? I don&rsquo;t know.</p>
+
+<h2>if not null and not null</h2>
+
+<p>Sometimes, my flawless code merely run into this horrible lengthy operators:</p>
+
+<pre><code>if (provider != null &amp;&amp; provider.getGlobalInfo() != null) {
+    InfoBase globalInfo = provider.getGlobalInfo();
+    doSomethingWith(globalInfo);
+}
+</code></pre>
+
+<p>Well&hellip; what if i have something longer than that? Simply add null check before <code>doSomethingWith(that)</code>!</p>
+
+<pre><code>if (provider != null &amp;&amp; provider.getProviderCoordinate() != null &amp;&amp; provider.getProviderCoordinate().getLatidudeBase() != null ) {
+    Coordinate c = provider.getProviderCoordinate().getLatidudeBase();
+    doSomethingWith(globalInfo);
+}
+</code></pre>
+
+<p>Well.. still too long. <strong>You don&rsquo;t really need to get into that detail.</strong> Take care of your object&rsquo;s contract. Why don&rsquo;t we give a default value instead of null?</p>
+
+<pre><code>class ProviderBase {
+  InfoBase globalInfo;
+  InfoBase getGlobalIInfo() {
+    if (globalInfo == null) {
+      return InfoFactory.getDefaultInfo();
+    }
+    return globalInfo;
+  }
+}
+</code></pre>
+
+<p>But still, <strong>if null is expected, then handle it with a better way.</strong> Just because i hate NPE, it is just better to give default value because most of the time null data is caused by serialization of not-yet-completed data model migration. You might have a better way other than default value (like, Annotation?), but you get the idea.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2015/no-im-at-least-for-now/">Instant Messaging (Including Whatsapp) Is Not For Mobile</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-04-03T20:56:00+00:00" pubdate data-updated="true">Apr 3<span>rd</span>, 2015</time>
+        
+         | <a href="/blog/2015/no-im-at-least-for-now/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Well, it&rsquo;s been a while since i broke <a href="http://www.gsmarena.com/lenovo_p780-5544.php">my smartphone</a>. Since communication is very important these days, i should get a new phone ASAP. Fortunately i only need calling and texting, so i can simply buy <a href="http://www.samsung.com/levant/consumer/mobile-phones/feature-phones/feature-phones/GT-E1205ZOTTUN">a dumbphone</a> to fullfill my need.</p>
+
+<p>What? A dumbphone for today&rsquo;s communication? What on earth am  i actually doing? Because i only need SMS and GSM call. Even though my friends is actually on LINE, Whatsapp, Telegram, Skype, etc; <em>those are actually a decoy to a more horrible communication</em>. Let me tell you why i am doing this.</p>
+
+<p>The first one, i am still able to contact my friend via phone call. So, no big deal.</p>
+
+<p>The second one, i constantly use <a href="http://slack.com">Slack</a> for office-related communication. Release, hotfix, bug, &ldquo;random chit-chat&rdquo;. And since i use my office&rsquo;s notebook with real keyboard, typing feels very convenient. Copy-paste log into Slack and let my coworker see them. Screenshot? Simply drag and drop. Need to notify someone about your new deployment? Private message her/him. Still does not work? We can switch back communication to email anytime we want.</p>
+
+<p>The last one and the most important thing, i don&rsquo;t need IM in my phone. Seriously. It is very handy to consume content on mobile, but not for producing it, including typing in it for 30 minutes or more. If we need to get something serious, we should do it within a big keyboard, where we can respond it fast and type it fast. But that&rsquo;s just one problem.</p>
+
+<p>Another problem is its distraction. Enough is enough. Even though i use Slack on my computer, i don&rsquo;t need Slack on my mobile phone. When i had my smartphone, i didn&rsquo;t install it too. A simple notification &ldquo;Hey your build is broken,&rdquo; to my phone simply could break my mood when it comes in weekend. Also, if it is really important thing, people won&rsquo;t message me. They will call me. So, who need IM in mobile, anyway?</p>
+
+<p>How about last-minute notification when i have a meetup? &ldquo;Hey Mufid, i am sorry, the venue was changed. Now we are in Coffee shop, no more in Cafe. See you soon!&rdquo; NO. If we plan it well, we will never have a last-minute information or last-minute-to-do-asap. Remember when we didn&rsquo;t have a phone and/or when we were still using <a href="http://en.wikipedia.org/wiki/Pager">a pager</a>? Remember how we planned everything very well so we minimize last-minute communication since at that time it was very hard to notify someone if we changed our plan in the last minute?</p>
+
+<p>I will using my dumbphone, at least until i know why IM in Mobile is actually good for me.</p>
+
+<p>Edit: sorry for my English. Feel free to give feedback. I will very happy if someone could help improve my English. I am not a native unfortunately : (</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2015/flamebait/">Kedewasaan Pengguna (Penggunaan) Internet Indonesia</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2015-01-30T11:19:00+00:00" pubdate data-updated="true">Jan 30<span>th</span>, 2015</time>
+        
+         | <a href="/blog/2015/flamebait/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Mari kita mulai dengan <a href="https://www.google.com/publicdata/explore?ds=d5bncppjof8f9_&amp;ctype=l&amp;strail=false&amp;bcs=d&amp;nselm=h&amp;met_y=it_net_user_p2&amp;scale_y=lin&amp;ind_y=false&amp;rdim=region&amp;idim=country:USA:CHN:GBR:IDN&amp;ifdim=region&amp;hl=en&amp;dl=en&amp;ind=false&amp;icfg">data:</a></p>
+
+<p><img src="/blog/images/post/internet-growth.png" alt="Pertumbuhan Internet di Indonesia" /></p>
+
+<p>Ada yang mengatakan Indonesia telat mengadopsi internet. Hal ini benar karena negara-negara barat seperti US dan UK yang sudah mulai mengadopsi secara masif sejak akhir 90an. Meski demikian, perkembangan internet di Indonesia sangatlah cepat. Menurut data dari Bank Dunia, ada 2,1% dari populasi Indonesia yang memiliki akses ke internet pada 2011. Dalam waktu 12 tahun, angka ini meningkat hingga hampir 8x-nya. Iya, delapan kalinya.</p>
+
+<p>Seperti apa 8x peningkatan itu? Misalnya Anda tadinya naik kereta harganya Rp16.000, kemudian menjadi hanya Rp2.000 saja. Ini peningkatan penghematan yang luar biasa, bukan?</p>
+
+<p>Akan tetapi, apa artinya peningkatan ini untuk Indonesia? <a href="http://priyadi.net/archives/category/internet/">Banyak</a>. Di antaranya, kita jadi <em>engeh</em> terhadap <a href="https://plus.google.com/+HarrySufehmi/posts/HrQDsKiVkaG">keuntungan yang bisa kita dapatkan</a> karena <a href="http://www.fastcoexist.com/1679559/want-to-boost-the-economy-boost-internet-speeds">memiliki akses internet cepat</a>.</p>
+
+<blockquote><p><em>Anyway,</em> di zaman yang sudah serba digital ini, dimana bahkan Nenek saya sudah biasa Skype / Facetime dengan anaknya di luar negeri, akses Internet sudah menjadi salah satu kebutuhan pokok banyak orang. Dan seperti yang sudah banyak diteliti &amp; dibahas, akses broadband / internet kecepatan tinggi akan membuka banyak peluang ekonomi bagi masyarakat.</p></blockquote>
+
+<p>Di sisi lain, kita juga menjadi paham bahwa <a href="http://en.wikipedia.org/wiki/Category:Internet_culture"><em>internet culture</em></a> tidak selamanya baik. Ya,&hellip; begitulah.</p>
+
+<p>Sebagai contoh, pada awal kemunculan milis dan IRC di awal 2000-an, kita sering sekali mendengar berita hoax atau berita yang tidak benar. Berita hoax ini biasanya mengejutkan, sehingga mungkin banyak orang langsung meneruskan informasi ini ke orang lain tanpa mengecek terlebih dahulu kebenarannya. Salah satu hoax yang terjadi pada saat itu adalah <a href="https://groups.yahoo.com/neo/groups/halal_baik_enak/conversations/topics/3387">hoax mengenai KFC:</a></p>
+
+<blockquote><p>Assalamu&#8217;alaikum wr.wb,</p>
+
+<p>Tentang berita ayam KFC itu adalah hoax email. Harian Suara karya kurang
+teliti dalam menanggapi berita ayam KFC yang sudah terlanjur tersebar di
+internet.</p>
+
+<p>Kenyataannya :</p>
+
+<ol>
+<li>Tidak pernah ada study tentang KFC dilakukan di University of New
+Hampshire.</li>
+<li>KFC biasanya tidak mengembangkan atau membiakkan sendiri ayamnya, tapi
+membeli dari peternak yang sudah dipilih.</li>
+<li>Kentucky Fried Chicken sudah berubah nama menjadi KFC sejak tahun
+1991, bukan baru-baru ini.</li>
+<li>KFC sendiri memberi nama produk ayamnya seperti Original
+Recipe&trade;Chicken, Tender Roast Chicken dll.</li>
+</ol>
+</blockquote>
+
+<p>Ya, hoax itu memang cerita lama. Saya pikir, pengguna internet sudah <em>aware</em> dengan hal-hal yang kredibilitasnya dipertanyakan seperti ini. Tetapi entah kenapa, <em>hal tersebut muncul lagi sekarang.</em> Hoax mengenai presiden dan pemilu. Hoax mengenai islam. Hoax mengenai&hellip;. ah, terlalu banyak.</p>
+
+<p><strong>Dan anehnya, banyak yang <em>nge-share</em> itu berita hoax itu di Facebook.</strong></p>
+
+<p>Bermunculanlah istilah-istilah seperti <em>flamebait</em>, <em>hoax</em>, dan&hellip;. <a href="http://en.wikipedia.org/wiki/Godwin%27s_law">Hukum Godwin:</a></p>
+
+<blockquote><p>Seiring diskusi di internet berjalan semakin panjang, kemungkinan munculnya perbandingan yang menyangkut Nazi atau Hitler semakin mendekati satu.</p></blockquote>
+
+<p>Ya, itu agak satir <em>sih,</em> intinya ada persepsi di kalangan pengguna internet bahwa beberapa diskusi di internet MUNGKIN menjadi irrasional pada waktu tertentu. Ya, sebagaimana Anda juga pasti memperhatikannya. Tahun lalu, media sosial cukup panas dengan berita-berita <em>flamebait.</em> <em>Oh well,</em> bahkan sampai sekarang saya masih melihat <a href="https://riemetalui.wordpress.com/2015/04/18/recent-economic-and-financial-indicators-report/">post-post blog yang isinya biasa saja tapi komentarnya panas luar biasa</a>.</p>
+
+<h4>But.. Why??</h4>
+
+<p>/huft</p>
+
+<p>Menurut saya, <strong>ini wajar.</strong> Ibarat manusia, mungkin kita masih anak umur tujuh belas tahunan yang labil sekali dan meledak-ledak. Ya, kita baru saja mendapatkan sesuatu yang bernama internet. <em>Hey internet sudah lama loh, 1990an awal juga udah ada.</em> Ya, tapi <strong>dulu pengguna internet masih dalam kalangan terbatas.</strong> Sekarang, sudah lima belas persen. Bahkan di kota besar, <a href="http://apjii.or.id/v2/upload/Laporan/Profile%20of%20Indonesian%20Internet%20Users%202012%20(ENGLISH).pdf">pengguna internet sudah mencapai tiga puluh persen dari populasi</a>. (<a href="http://fs.skyandmurmur.com/apjii/Profile%20of%20Indonesian%20Internet%20Users%202012%20%28ENGLISH%29.pdf">mirror</a>)</p>
+
+<p><img src="/blog/images/post/internet-jakarta.png" alt="Pengguna Internet di Jawa" /></p>
+
+<p>Tapi sampai kapan kita akan menemui flame bait seperti ini?</p>
+
+<p>Entahlah. Berkaca pada perkembangan internet di US dari grafik di atas dan beberapa fakta sejarah <em>internet culture</em>, mungkin, kita harus menghadapi ini sampai sepuluh tahun lagi?</p>
+
+<p>Apa yang bisa kita perbuat untuk mengurangi flamebait?</p>
+
+<p>Entahlah. Kami pengguna internet sejak lama dan tidak tahu. Jika Anda ingin melakukan studi banding, <a href="http://www.theguardian.com/technology/2013/nov/26/youtube-spam-comments-google-plus">Youtube membuat komentar harus dibuat oleh manusia yang menampakkan jati dirinya.</a>. Mungkin, Anda memiliki cara yang lebih baik?</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/pattern-java-equals/">A simple pattern in Java: equals</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-28T20:16:00+00:00" pubdate data-updated="true">Oct 28<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/pattern-java-equals/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Di Java, kita menggunakan <code>.equals()</code> untuk membandingkan suatu <em>instance</em> apakah bernilai sama atau tidak. Yang masalah adalah ketika Anda membandingkan nilai null. Mari kita ambil contoh kasus sederhana: validasi apakah suatu email dari user berhak mendapatkan bingkisan spesial atau tidak dari nilai yang sudah ditentukan. Misalnya kodenya seperti ini:</p>
+
+<pre><code>String email = request.getEmail();
+if (email.equals("yui.hirasawa@example.com")) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>Ada yang aneh dari kode di atas? Tidak ada. Kode di atas sempurna, sampai Anda menyadari bahwa <strong>email bisa bernilai null</strong>. Akhirnya, equals akan dipanggil ke null. Hal ini menyebabkan NullPointerException. Sehingga, Anda perlu menambahkan hal seperti ini:</p>
+
+<pre><code>String email = request.getEmail();
+if (email == null) {
+  condition.fail();
+  return;
+}
+if (email.equals("yui.hirasawa@example.com")) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>Well&hellip; bisa sih, tapi sebetulnya agak melelahkan. Coba perhatikan bahwa predefined email sudah pasti ada, tetapi email input bisa saja null. Kita bisa mencegah exception karena NullPointerException tanpa menambah baris kode sama sekali:</p>
+
+<pre><code>String email = request.getEmail();
+if ("yui.hirasawa@example.com".equals(email)) {
+  condition.fullfilled();
+  return;
+}
+condition.fail();
+</code></pre>
+
+<p>TL;DR: Di Java, jika Anda menggunakan equals, dan salah satu objek dari dua objek yang dibandingkan mungkin mengandung nilai null, maka <strong>panggil <code>.equals()</code> dari objek yang sudah pasti bukan null</strong>.</p>
+
+<p>Happy Coding!</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/aku/">Aku</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-10-12T12:41:00+00:00" pubdate data-updated="true">Oct 12<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/aku/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><em>My lovely country is indeed awesome!</em></p>
+
+<p><img src="/blog/images/post/indonesia-lang.jpg" alt="" /></p>
+
+<p><a href="https://www.facebook.com/Languages.Alino1/photos/a.320819614683664.71044.318757448223214/670023456429943/?type=1&amp;theater">Source</a>
+<a href="http://www.latg.org/2014/09/indonesian-language.html">More</a></p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/speedy-dns-slow/">DNS Speedy Lambat</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-09-20T07:54:00+00:00" pubdate data-updated="true">Sep 20<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/speedy-dns-slow/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Jadi, saya menghidupkan VPN di San Fransisco.
+Kalau saya sambungkan komputer saya ke VPN saya;
+ajaib, saya browsing apapun terasa cepat sekali.
+Akan tetapi, saya tidak merasa ada penurunan
+kecepatan internet. Saya curiga ada masalah di DNS.
+Oleh karena itu, mari kita cari tahu.</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/speedy-dns-slow/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/discourse/">Memasang Discourse di Ubuntu Server 14.04</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-06-25T18:52:00+00:00" pubdate data-updated="true">Jun 25<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/discourse/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Discourse sepertinya akan menjadi hype. Sudah
+mulai banyak adopsi Discourse di beberapa forum.
+Anda sendiri juga bisa melakukannya. Baiklah,
+kalau begitu, mari kita coba memasang Discourse!</p>
+
+</div>
+  
+  
+    <footer>
+      <a rel="full-article" href="/blog/2014/discourse/">Read on &rarr;</a>
+    </footer>
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2014/sliding-up/">Repo Review: Sliding Up (Android)</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2014-04-11T05:41:00+00:00" pubdate data-updated="true">Apr 11<span>th</span>, 2014</time>
+        
+         | <a href="/blog/2014/sliding-up/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Anda mengetahui bahwa Google Maps dan Google Play Music memiliki fitur
+sliding up yang sangat keren. Anda geser bar bawah, Anda akan diberikan
+fragment yang berbeda. Rekan seperjuangan Saya, <a href="https://github.com/des-k">des-k</a>,
+menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p>
+
+<h3><a href="https://github.com/umano/AndroidSlidingUpPanel/">Android Sliding Up Panel</a></h3>
+
+<p><img src="/blog/images/post/slidinguppanel.png" alt="sliding up panel" /></p>
+
+<p>Mari kita review beberapa hal tentang repo ini:</p>
+
+<ul>
+<li><strong>Kegunaan:</strong> Jelas repo ini sangat berguna, kalau tidak berguna ya tidak
+akan kita bahas (kecuali kita sangat iseng)</li>
+<li><strong>Struktur kode:</strong> Saya tidak menganalisis secara mendalam kodenya, karena
+saya juga mau berangkat (well, alhamdulillah masih bisa nulis pagi-pagi).
+Tetapi <a href="https://github.com/umano/AndroidSlidingUpPanel/blob/master/library/src/com/sothree/slidinguppanel/SlidingUpPanelLayout.java">Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</a></li>
+<li><strong>Petunjuk Instalasi:</strong> ade ternyata tidak melihat bahwa repo ini sudah
+tersedia di Maven. Saya juga tidak menemukan di awalnya.
+<a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
+tetapi beberapa sumber mengatakan ini fiktif. Saya pun
+<a href="http://mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersedia di Maven.</a></li>
+</ul>
+
+
+<p>Di masa depan, mungkin Anda butuh repo ini. Silahkan jangan sungkan men-star repo ini :D.</p>
+
+<p>Gambar dari <a href="https://raw.github.com/umano/AndroidSlidingUpPanel/master/slidinguppanel.png">repo asli</a>.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  <div class="pagination">
+    
+      <a class="prev" href="/blog/page/3/">&larr; Older</a>
+    
+    <a href="/blog/blog/archives">Blog Archives</a>
+    
+    <a class="next" href="/blog/">Newer &rarr;</a>
+    
+  </div>
+</div>
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2019 - Mufid -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'fidblog';
+      
+        
+        var disqus_script = 'count.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'https://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'https://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
