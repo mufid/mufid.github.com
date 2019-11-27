@@ -182,6 +182,150 @@ Then I found following <a href="https://stackoverflow.com/questions/12608424/ser
   <header>
     
       <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2019/moving-wordpress-16-04/">Memindahkan Data Wordpress Pada Apache dan Ubuntu 16.04</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2019-09-28T15:34:00+00:00" pubdate data-updated="true">Sep 28<span>th</span>, 2019</time>
+        
+         | <a href="/blog/2019/moving-wordpress-16-04/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p>Cara-cara:</p>
+
+<ul>
+<li>Siapkan mesin baru</li>
+<li>Backup data dari mesin lama</li>
+<li>Restore data ke mesin baru</li>
+<li>Done</li>
+</ul>
+
+
+<h2>Menyiapkan Mesin Baru</h2>
+
+<p>Sebelum memulai, pastikan DNS sudah propagate ke mesin baru.</p>
+
+<p>Spin up mesin baru kemudian perbaru dulu</p>
+
+<pre><code># apt-get update
+# apt-get upgrade
+</code></pre>
+
+<p>Lakukan instalasi Apache dan Mariadb</p>
+
+<pre><code># apt-get install apache2 mariadb
+</code></pre>
+
+<p>Konfigurasikan Mariadb ke default yang aman:</p>
+
+<pre><code># mysql_secure_installation
+</code></pre>
+
+<p>Lakukan instalasi Certbot</p>
+
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository universe
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install certbot python-certbot-apache 
+</code></pre>
+
+<p>Instalasi apache2 SSL dari Certbot:</p>
+
+<pre><code>$ sudo certbot --apache
+</code></pre>
+
+<p>Virtual Host biasanya akan kosong. Tidak masalah, nanti pilih saja yang di le-ssl.</p>
+
+<p>Lakukan instalasi PHP 7.0:</p>
+
+<pre><code># apt-get install php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-mbstring php7.0-gd php7.0-xml php7.0-xmlrpc php7.0-intl php7.0-soap php7.0-zip
+</code></pre>
+
+<h2>Backup dari mesin lama</h2>
+
+<p>Backup HTML:</p>
+
+<pre><code>$ cd /var/www
+$ tar cvf www-backup.tar.gz www
+</code></pre>
+
+<p>Kirim ke mesin baru:</p>
+
+<pre><code>$ scp www-backup.tar.gz root@mesinbaru:~
+</code></pre>
+
+<p>Backup SQL</p>
+
+<pre><code>$ mysqldump -u [user] -p [database_name] &gt; mysqlbackup.sql
+</code></pre>
+
+<p>Kirim ke mesin baru:</p>
+
+<pre><code>$ scp mysqlbackup.sql root@mesinbaru:~
+</code></pre>
+
+<h2>Restore Mesin Baru</h2>
+
+<p>Extract dan salin arsip HTML:</p>
+
+<pre><code>$ tar xvf www-backup.tar.gz
+$ cp html /var/www -r
+$ cd /var/www
+$ chown www-data:www-data www -r
+</code></pre>
+
+<p>Buat akun Mariadb:</p>
+
+<pre><code>$ mariadb
+mariadb&gt; CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'passwordyangdiinginkan';
+mariadb&gt; GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+mariadb&gt; FLUSH PRIVILEGES;
+</code></pre>
+
+<p>Buat database wordpress-nya:</p>
+
+<pre><code>$ mariadb
+mariadb&gt; CREATE DATABASE databasenya;
+</code></pre>
+
+<p>Restore database:</p>
+
+<pre><code>$ mysql -u newuser -p databasenya &lt; mysqlbackup.sql
+</code></pre>
+
+<p>Selesai. Bagian akhir dari dokumen.</p>
+</div>
+  
+  
+
+
+    </article>
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
         <h1 class="entry-title"><a href="/blog/2018/startup-technical-strategy/">Beberapa Strategi Pengembangan dalam Membangun Perusahaan Rintisan Digital</a></h1>
       
     
@@ -980,53 +1124,6 @@ saya.</p>
 <p>Tentu saja, ppi yang nyaman untuk setiap orang berbeda-beda :D</p>
 </div>
   
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2016/how-to-google/">Cara Googling</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-07-16T22:25:00+00:00" pubdate data-updated="true">Jul 16<span>th</span>, 2016</time>
-        
-         | <a href="/blog/2016/how-to-google/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Beberapa orang mengeluhkan kepada saya karena gagal menemukan masalah
-pemrograman apa yang ingin dicari di Google. Berikut adalah panduan singkat
-berdasarkan keluhan-keluhan yang coba saya pahami.</p>
-
-</div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2016/how-to-google/">Read on &rarr;</a>
-    </footer>
   
 
 

@@ -47,12 +47,14 @@
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="id"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Beberapa Strategi Pengembangan dalam Membangun Perusahaan Rintisan Digital - Mufid's Code blog</title>
+  <title>Memindahkan Data Wordpress Pada Apache dan Ubuntu 16.04 - Mufid's Code blog</title>
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Membuat perusahaan rintisan tidak lagi sebuah tren. Anda dapat membangun perusahaan
-Anda sendiri dengan modal kurang dari lima belas juta rupiah saja &hellip;">
+  <meta name="description" content="Cara-cara: Siapkan mesin baru
+Backup data dari mesin lama
+Restore data ke mesin baru
+Done Menyiapkan Mesin Baru Sebelum memulai, pastikan DNS sudah &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -61,7 +63,7 @@ Anda sendiri dengan modal kurang dari lima belas juta rupiah saja &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.io/2018/startup-technical-strategy/">
+  <link rel="canonical" href="http://mufid.github.io/2019/moving-wordpress-16-04/">
   <link href="/blog/favicon.png" rel="icon">
   <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/blog/javascripts/modernizr-2.0.js"></script>
@@ -130,7 +132,7 @@ Anda sendiri dengan modal kurang dari lima belas juta rupiah saja &hellip;">
   <header>
     
       
-        <h1 class="entry-title">Beberapa Strategi Pengembangan dalam Membangun Perusahaan Rintisan Digital</h1>
+        <h1 class="entry-title">Memindahkan Data Wordpress Pada Apache dan Ubuntu 16.04</h1>
       
     
     
@@ -147,7 +149,7 @@ Anda sendiri dengan modal kurang dari lima belas juta rupiah saja &hellip;">
   
 
 
-<time datetime="2018-11-16T07:40:00+00:00" pubdate data-updated="true">Nov 16<span>th</span>, 2018</time>
+<time datetime="2019-09-28T15:34:00+00:00" pubdate data-updated="true">Sep 28<span>th</span>, 2019</time>
         
          | <a href="#disqus_thread">Comments</a>
         
@@ -156,50 +158,111 @@ Anda sendiri dengan modal kurang dari lima belas juta rupiah saja &hellip;">
   </header>
 
 
-<div class="entry-content">Membuat perusahaan rintisan tidak lagi sebuah tren. Anda dapat membangun perusahaan
-Anda sendiri dengan modal kurang dari lima belas juta rupiah saja. DNA dari
-sebuah perusahaan digital adalah perangkat lunak itu sendiri. Selama Saya membantu
-membangun [Peentar](https://peentar.id) dari awal, saya mempelajari banyak sekali
-strategi membangun perangkat lunak dan mencobanya. Dalam tulisan ini, saya akan
-memaparkan strategi-strategi yang pernah kami coba.
+<div class="entry-content"><p>Cara-cara:</p>
 
-## 1. Membangun Arahan Perusahaan dan Perencanaan Keuangan
+<ul>
+<li>Siapkan mesin baru</li>
+<li>Backup data dari mesin lama</li>
+<li>Restore data ke mesin baru</li>
+<li>Done</li>
+</ul>
 
-Dalam perusahaan manapun, keuangan merupakan hal yang utama. Akan tetapi, ini
-agak sulit karena 
 
-## 2. Pembangunan
+<h2>Menyiapkan Mesin Baru</h2>
 
-**Penerapan: Peningkatan Bertahap.** Dalam banyak dokumen, ini sering disebut
-*capacity planning,* tetapi kami menyederhanakan menjadi tiga bagian:
+<p>Sebelum memulai, pastikan DNS sudah propagate ke mesin baru.</p>
 
-- Reliability: apakah di masa depan sistem tetap hidup, meski kita tidak
-  melakukan operasi apapun? Apakah sistem dapat mati tiba-tiba, meski tidak
-  ada permintaan yang melonjak tiba-tiba?
-- Scalability: seberapa besar sistem saat ini dapat menangani permintaan?
-  Jika terjadi lonjakan, berapa maksimal permintaan?
-- Maintainability: andai kita mau menambah fitur baru, seberapa mudah fitur
-  tersebut ditambah? Apakah fitur tersebut akan merusak fitur lainnya?
-  Bagaimana **coupling** dari sistem tersebut?
+<p>Spin up mesin baru kemudian perbaru dulu</p>
 
-Setiap perencanaan, seyogyanya ada 
+<pre><code># apt-get update
+# apt-get upgrade
+</code></pre>
 
-### Pengukuran
+<p>Lakukan instalasi Apache dan Mariadb</p>
 
-### A. Membuat dari awal
+<pre><code># apt-get install apache2 mariadb
+</code></pre>
 
-### B. Membuat dari solusi perangkat lunak sumber terbuka
+<p>Konfigurasikan Mariadb ke default yang aman:</p>
 
-### C. Membuat perangkat lunak sumber terbuka
+<pre><code># mysql_secure_installation
+</code></pre>
 
-### D. Menyerahkan ke Vendor
+<p>Lakukan instalasi Certbot</p>
 
-## 3. Maintenance
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository universe
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install certbot python-certbot-apache 
+</code></pre>
 
-Kode pastinya tidak luput dari galat. Bagaimana ketika galat terjadi?
+<p>Instalasi apache2 SSL dari Certbot:</p>
 
-## Apendiks: Peran Agile
+<pre><code>$ sudo certbot --apache
+</code></pre>
 
+<p>Virtual Host biasanya akan kosong. Tidak masalah, nanti pilih saja yang di le-ssl.</p>
+
+<p>Lakukan instalasi PHP 7.0:</p>
+
+<pre><code># apt-get install php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-mbstring php7.0-gd php7.0-xml php7.0-xmlrpc php7.0-intl php7.0-soap php7.0-zip
+</code></pre>
+
+<h2>Backup dari mesin lama</h2>
+
+<p>Backup HTML:</p>
+
+<pre><code>$ cd /var/www
+$ tar cvf www-backup.tar.gz www
+</code></pre>
+
+<p>Kirim ke mesin baru:</p>
+
+<pre><code>$ scp www-backup.tar.gz root@mesinbaru:~
+</code></pre>
+
+<p>Backup SQL</p>
+
+<pre><code>$ mysqldump -u [user] -p [database_name] &gt; mysqlbackup.sql
+</code></pre>
+
+<p>Kirim ke mesin baru:</p>
+
+<pre><code>$ scp mysqlbackup.sql root@mesinbaru:~
+</code></pre>
+
+<h2>Restore Mesin Baru</h2>
+
+<p>Extract dan salin arsip HTML:</p>
+
+<pre><code>$ tar xvf www-backup.tar.gz
+$ cp html /var/www -r
+$ cd /var/www
+$ chown www-data:www-data www -r
+</code></pre>
+
+<p>Buat akun Mariadb:</p>
+
+<pre><code>$ mariadb
+mariadb&gt; CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'passwordyangdiinginkan';
+mariadb&gt; GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+mariadb&gt; FLUSH PRIVILEGES;
+</code></pre>
+
+<p>Buat database wordpress-nya:</p>
+
+<pre><code>$ mariadb
+mariadb&gt; CREATE DATABASE databasenya;
+</code></pre>
+
+<p>Restore database:</p>
+
+<pre><code>$ mysql -u newuser -p databasenya &lt; mysqlbackup.sql
+</code></pre>
+
+<p>Selesai. Bagian akhir dari dokumen.</p>
 </div>
 
 
@@ -222,7 +285,7 @@ Kode pastinya tidak luput dari galat. Bagaimana ketika galat terjadi?
   
 
 
-<time datetime="2018-11-16T07:40:00+00:00" pubdate data-updated="true">Nov 16<span>th</span>, 2018</time>
+<time datetime="2019-09-28T15:34:00+00:00" pubdate data-updated="true">Sep 28<span>th</span>, 2019</time>
       
 
 
@@ -230,7 +293,7 @@ Kode pastinya tidak luput dari galat. Bagaimana ketika galat terjadi?
     
       <div class="sharing">
   
-  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2018/startup-technical-strategy/" data-via="" data-counturl="http://mufid.github.io/2018/startup-technical-strategy/" >Tweet</a>
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2019/moving-wordpress-16-04/" data-via="" data-counturl="http://mufid.github.io/2019/moving-wordpress-16-04/" >Tweet</a>
   
   
   
@@ -239,10 +302,10 @@ Kode pastinya tidak luput dari galat. Bagaimana ketika galat terjadi?
     
     <p class="meta">
       
-        <a class="basic-alignment left articlenav" href="/blog/2018/email-phising/" title="Previous Post: Mendapatkan Surel (Email) Phising">&laquo; Mendapatkan Surel (Email) Phising</a>
+        <a class="basic-alignment left articlenav" href="/blog/2018/startup-technical-strategy/" title="Previous Post: Beberapa Strategi Pengembangan dalam Membangun Perusahaan Rintisan Digital">&laquo; Beberapa Strategi Pengembangan dalam Membangun Perusahaan Rintisan Digital</a>
       
       
-        <a class="basic-alignment right articlenav" href="/blog/2019/moving-wordpress-16-04/" title="Next Post: Memindahkan Data Wordpress Pada Apache dan Ubuntu 16.04">Memindahkan Data Wordpress Pada Apache dan Ubuntu 16.04 &raquo;</a>
+        <a class="basic-alignment right articlenav" href="/blog/2019/rails-static-router/" title="Next Post: Rails Static Router">Rails Static Router &raquo;</a>
       
     </p>
   </footer>
@@ -278,8 +341,8 @@ Kode pastinya tidak luput dari galat. Bagaimana ketika galat terjadi?
       
         
         // var disqus_developer = 1;
-        var disqus_identifier = 'http://mufid.github.io/blog/2018/startup-technical-strategy/';
-        var disqus_url = 'http://mufid.github.io/blog/2018/startup-technical-strategy/';
+        var disqus_identifier = 'http://mufid.github.io/blog/2019/moving-wordpress-16-04/';
+        var disqus_url = 'http://mufid.github.io/blog/2019/moving-wordpress-16-04/';
         var disqus_script = 'embed.js';
       
     (function () {

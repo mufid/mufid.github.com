@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2019-10-03T04:39:14+00:00</updated>
+  <updated>2019-11-27T06:28:54+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -60,6 +60,119 @@ the library is compatible with the latest Rails version.</p>
 <a href="https://github.com/mufid/rails-static-router">visit the repo and install it into your Rails project</a>.</p>
 
 <p>Hope it helps!</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Memindahkan Data Wordpress Pada Apache dan Ubuntu 16.04]]></title>
+    <link href="http://mufid.github.io/blog/2019/moving-wordpress-16-04/"/>
+    <updated>2019-09-28T15:34:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2019/moving-wordpress-16-04</id>
+    <content type="html"><![CDATA[<p>Cara-cara:</p>
+
+<ul>
+<li>Siapkan mesin baru</li>
+<li>Backup data dari mesin lama</li>
+<li>Restore data ke mesin baru</li>
+<li>Done</li>
+</ul>
+
+
+<h2>Menyiapkan Mesin Baru</h2>
+
+<p>Sebelum memulai, pastikan DNS sudah propagate ke mesin baru.</p>
+
+<p>Spin up mesin baru kemudian perbaru dulu</p>
+
+<pre><code># apt-get update
+# apt-get upgrade
+</code></pre>
+
+<p>Lakukan instalasi Apache dan Mariadb</p>
+
+<pre><code># apt-get install apache2 mariadb
+</code></pre>
+
+<p>Konfigurasikan Mariadb ke default yang aman:</p>
+
+<pre><code># mysql_secure_installation
+</code></pre>
+
+<p>Lakukan instalasi Certbot</p>
+
+<pre><code>$ sudo apt-get update
+$ sudo apt-get install software-properties-common
+$ sudo add-apt-repository universe
+$ sudo add-apt-repository ppa:certbot/certbot
+$ sudo apt-get update
+$ sudo apt-get install certbot python-certbot-apache 
+</code></pre>
+
+<p>Instalasi apache2 SSL dari Certbot:</p>
+
+<pre><code>$ sudo certbot --apache
+</code></pre>
+
+<p>Virtual Host biasanya akan kosong. Tidak masalah, nanti pilih saja yang di le-ssl.</p>
+
+<p>Lakukan instalasi PHP 7.0:</p>
+
+<pre><code># apt-get install php7.0 libapache2-mod-php7.0 php7.0-mysql php7.0-curl php7.0-mbstring php7.0-gd php7.0-xml php7.0-xmlrpc php7.0-intl php7.0-soap php7.0-zip
+</code></pre>
+
+<h2>Backup dari mesin lama</h2>
+
+<p>Backup HTML:</p>
+
+<pre><code>$ cd /var/www
+$ tar cvf www-backup.tar.gz www
+</code></pre>
+
+<p>Kirim ke mesin baru:</p>
+
+<pre><code>$ scp www-backup.tar.gz root@mesinbaru:~
+</code></pre>
+
+<p>Backup SQL</p>
+
+<pre><code>$ mysqldump -u [user] -p [database_name] &gt; mysqlbackup.sql
+</code></pre>
+
+<p>Kirim ke mesin baru:</p>
+
+<pre><code>$ scp mysqlbackup.sql root@mesinbaru:~
+</code></pre>
+
+<h2>Restore Mesin Baru</h2>
+
+<p>Extract dan salin arsip HTML:</p>
+
+<pre><code>$ tar xvf www-backup.tar.gz
+$ cp html /var/www -r
+$ cd /var/www
+$ chown www-data:www-data www -r
+</code></pre>
+
+<p>Buat akun Mariadb:</p>
+
+<pre><code>$ mariadb
+mariadb&gt; CREATE USER 'newuser'@'localhost' IDENTIFIED BY 'passwordyangdiinginkan';
+mariadb&gt; GRANT ALL PRIVILEGES ON * . * TO 'newuser'@'localhost';
+mariadb&gt; FLUSH PRIVILEGES;
+</code></pre>
+
+<p>Buat database wordpress-nya:</p>
+
+<pre><code>$ mariadb
+mariadb&gt; CREATE DATABASE databasenya;
+</code></pre>
+
+<p>Restore database:</p>
+
+<pre><code>$ mysql -u newuser -p databasenya &lt; mysqlbackup.sql
+</code></pre>
+
+<p>Selesai. Bagian akhir dari dokumen.</p>
 ]]></content>
   </entry>
   
@@ -1899,42 +2012,6 @@ instruksi di halaman webnya saja
 dari browser.</p>
 
 <p><img src="http://mufid.github.io/images/post/discourse-welcome.png" alt="Welcome to Discourse" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Repo Review: Sliding Up (Android)]]></title>
-    <link href="http://mufid.github.io/blog/2014/sliding-up/"/>
-    <updated>2014-04-11T05:41:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2014/sliding-up</id>
-    <content type="html"><![CDATA[<p>Anda mengetahui bahwa Google Maps dan Google Play Music memiliki fitur
-sliding up yang sangat keren. Anda geser bar bawah, Anda akan diberikan
-fragment yang berbeda. Rekan seperjuangan Saya, <a href="https://github.com/des-k">des-k</a>,
-menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p>
-
-<h3><a href="https://github.com/umano/AndroidSlidingUpPanel/">Android Sliding Up Panel</a></h3>
-
-<p><img src="http://mufid.github.io/images/post/slidinguppanel.png" alt="sliding up panel" /></p>
-
-<p>Mari kita review beberapa hal tentang repo ini:</p>
-
-<ul>
-<li><strong>Kegunaan:</strong> Jelas repo ini sangat berguna, kalau tidak berguna ya tidak
-akan kita bahas (kecuali kita sangat iseng)</li>
-<li><strong>Struktur kode:</strong> Saya tidak menganalisis secara mendalam kodenya, karena
-saya juga mau berangkat (well, alhamdulillah masih bisa nulis pagi-pagi).
-Tetapi <a href="https://github.com/umano/AndroidSlidingUpPanel/blob/master/library/src/com/sothree/slidinguppanel/SlidingUpPanelLayout.java">Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</a></li>
-<li><strong>Petunjuk Instalasi:</strong> ade ternyata tidak melihat bahwa repo ini sudah
-tersedia di Maven. Saya juga tidak menemukan di awalnya.
-<a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
-tetapi beberapa sumber mengatakan ini fiktif. Saya pun
-<a href="http://mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersedia di Maven.</a></li>
-</ul>
-
-
-<p>Di masa depan, mungkin Anda butuh repo ini. Silahkan jangan sungkan men-star repo ini :D.</p>
-
-<p>Gambar dari <a href="https://raw.github.com/umano/AndroidSlidingUpPanel/master/slidinguppanel.png">repo asli</a>.</p>
 ]]></content>
   </entry>
   
