@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2019-11-27T06:28:54+00:00</updated>
+  <updated>2019-11-27T06:31:03+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -76,6 +76,9 @@ the library is compatible with the latest Rails version.</p>
 <li>Restore data ke mesin baru</li>
 <li>Done</li>
 </ul>
+
+
+<!-- more -->
 
 
 <h2>Menyiapkan Mesin Baru</h2>
