@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2019-11-27T06:33:13+00:00</updated>
+  <updated>2019-11-27T06:35:28+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -176,58 +176,6 @@ mariadb&gt; CREATE DATABASE databasenya;
 </code></pre>
 
 <p>Selesai. Bagian akhir dari dokumen.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Beberapa Strategi Pengembangan dalam Membangun Perusahaan Rintisan Digital]]></title>
-    <link href="http://mufid.github.io/blog/2018/startup-technical-strategy/"/>
-    <updated>2018-11-16T07:40:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2018/startup-technical-strategy</id>
-    <content type="html"><![CDATA[Membuat perusahaan rintisan tidak lagi sebuah tren. Anda dapat membangun perusahaan
-Anda sendiri dengan modal kurang dari lima belas juta rupiah saja. DNA dari
-sebuah perusahaan digital adalah perangkat lunak itu sendiri. Selama Saya membantu
-membangun [Peentar](https://peentar.id) dari awal, saya mempelajari banyak sekali
-strategi membangun perangkat lunak dan mencobanya. Dalam tulisan ini, saya akan
-memaparkan strategi-strategi yang pernah kami coba.
-
-## 1. Membangun Arahan Perusahaan dan Perencanaan Keuangan
-
-Dalam perusahaan manapun, keuangan merupakan hal yang utama. Akan tetapi, ini
-agak sulit karena 
-
-## 2. Pembangunan
-
-**Penerapan: Peningkatan Bertahap.** Dalam banyak dokumen, ini sering disebut
-*capacity planning,* tetapi kami menyederhanakan menjadi tiga bagian:
-
-- Reliability: apakah di masa depan sistem tetap hidup, meski kita tidak
-  melakukan operasi apapun? Apakah sistem dapat mati tiba-tiba, meski tidak
-  ada permintaan yang melonjak tiba-tiba?
-- Scalability: seberapa besar sistem saat ini dapat menangani permintaan?
-  Jika terjadi lonjakan, berapa maksimal permintaan?
-- Maintainability: andai kita mau menambah fitur baru, seberapa mudah fitur
-  tersebut ditambah? Apakah fitur tersebut akan merusak fitur lainnya?
-  Bagaimana **coupling** dari sistem tersebut?
-
-Setiap perencanaan, seyogyanya ada 
-
-### Pengukuran
-
-### A. Membuat dari awal
-
-### B. Membuat dari solusi perangkat lunak sumber terbuka
-
-### C. Membuat perangkat lunak sumber terbuka
-
-### D. Menyerahkan ke Vendor
-
-## 3. Maintenance
-
-Kode pastinya tidak luput dari galat. Bagaimana ketika galat terjadi?
-
-## Apendiks: Peran Agile
-
 ]]></content>
   </entry>
   
@@ -2015,6 +1963,42 @@ instruksi di halaman webnya saja
 dari browser.</p>
 
 <p><img src="http://mufid.github.io/images/post/discourse-welcome.png" alt="Welcome to Discourse" /></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Repo Review: Sliding Up (Android)]]></title>
+    <link href="http://mufid.github.io/blog/2014/sliding-up/"/>
+    <updated>2014-04-11T05:41:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2014/sliding-up</id>
+    <content type="html"><![CDATA[<p>Anda mengetahui bahwa Google Maps dan Google Play Music memiliki fitur
+sliding up yang sangat keren. Anda geser bar bawah, Anda akan diberikan
+fragment yang berbeda. Rekan seperjuangan Saya, <a href="https://github.com/des-k">des-k</a>,
+menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p>
+
+<h3><a href="https://github.com/umano/AndroidSlidingUpPanel/">Android Sliding Up Panel</a></h3>
+
+<p><img src="http://mufid.github.io/images/post/slidinguppanel.png" alt="sliding up panel" /></p>
+
+<p>Mari kita review beberapa hal tentang repo ini:</p>
+
+<ul>
+<li><strong>Kegunaan:</strong> Jelas repo ini sangat berguna, kalau tidak berguna ya tidak
+akan kita bahas (kecuali kita sangat iseng)</li>
+<li><strong>Struktur kode:</strong> Saya tidak menganalisis secara mendalam kodenya, karena
+saya juga mau berangkat (well, alhamdulillah masih bisa nulis pagi-pagi).
+Tetapi <a href="https://github.com/umano/AndroidSlidingUpPanel/blob/master/library/src/com/sothree/slidinguppanel/SlidingUpPanelLayout.java">Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</a></li>
+<li><strong>Petunjuk Instalasi:</strong> ade ternyata tidak melihat bahwa repo ini sudah
+tersedia di Maven. Saya juga tidak menemukan di awalnya.
+<a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
+tetapi beberapa sumber mengatakan ini fiktif. Saya pun
+<a href="http://mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersedia di Maven.</a></li>
+</ul>
+
+
+<p>Di masa depan, mungkin Anda butuh repo ini. Silahkan jangan sungkan men-star repo ini :D.</p>
+
+<p>Gambar dari <a href="https://raw.github.com/umano/AndroidSlidingUpPanel/master/slidinguppanel.png">repo asli</a>.</p>
 ]]></content>
   </entry>
   
