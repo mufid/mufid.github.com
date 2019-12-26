@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2019-12-19T03:05:22+00:00</updated>
+  <updated>2019-12-26T02:18:14+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,31 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Melakukan Analisis Log Nginx dengan GoAccess]]></title>
+    <link href="http://mufid.github.io/blog/2019/goaccess/"/>
+    <updated>2019-12-26T06:28:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2019/goaccess</id>
+    <content type="html"><![CDATA[<p>Dokumen ini valid saat waktu penulisan. Saya menggunakan Ubuntu 18.04 dengan GoAccess versi 1.3.</p>
+
+<p>Lakukan instalasi GoAccess: [<a href="https://goaccess.io/download">sumber</a>]</p>
+
+<pre><code>echo "deb http://deb.goaccess.io/ $(lsb_release -cs) main" | sudo tee -a /etc/apt/sources.list.d/goaccess.list
+wget -O - https://deb.goaccess.io/gnugpg.key | sudo apt-key add -
+sudo apt-get update
+sudo apt-get install goaccess
+</code></pre>
+
+<p>Buka hasilnya [<a href="https://stackoverflow.com/q/39232741/518091">sumber</a>]</p>
+
+<pre><code>cd /var/log/nginx
+zcat -f access.log* | goaccess --log-format=COMBINED
+</code></pre>
+
+<p>Voila, selesai!</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Memindahkan Data Wordpress Pada Apache dan Ubuntu 16.04]]></title>
@@ -1963,42 +1988,6 @@ instruksi di halaman webnya saja
 dari browser.</p>
 
 <p><img src="http://mufid.github.io/images/post/discourse-welcome.png" alt="Welcome to Discourse" /></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Repo Review: Sliding Up (Android)]]></title>
-    <link href="http://mufid.github.io/blog/2014/sliding-up/"/>
-    <updated>2014-04-11T05:41:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2014/sliding-up</id>
-    <content type="html"><![CDATA[<p>Anda mengetahui bahwa Google Maps dan Google Play Music memiliki fitur
-sliding up yang sangat keren. Anda geser bar bawah, Anda akan diberikan
-fragment yang berbeda. Rekan seperjuangan Saya, <a href="https://github.com/des-k">des-k</a>,
-menemukan sebuah kepustakaan yang keren sekali (Thanks, Ade, for mentioning!)</p>
-
-<h3><a href="https://github.com/umano/AndroidSlidingUpPanel/">Android Sliding Up Panel</a></h3>
-
-<p><img src="http://mufid.github.io/images/post/slidinguppanel.png" alt="sliding up panel" /></p>
-
-<p>Mari kita review beberapa hal tentang repo ini:</p>
-
-<ul>
-<li><strong>Kegunaan:</strong> Jelas repo ini sangat berguna, kalau tidak berguna ya tidak
-akan kita bahas (kecuali kita sangat iseng)</li>
-<li><strong>Struktur kode:</strong> Saya tidak menganalisis secara mendalam kodenya, karena
-saya juga mau berangkat (well, alhamdulillah masih bisa nulis pagi-pagi).
-Tetapi <a href="https://github.com/umano/AndroidSlidingUpPanel/blob/master/library/src/com/sothree/slidinguppanel/SlidingUpPanelLayout.java">Anda mungkin tertarik untuk melihat kode utamanya dan menilai sendiri.</a></li>
-<li><strong>Petunjuk Instalasi:</strong> ade ternyata tidak melihat bahwa repo ini sudah
-tersedia di Maven. Saya juga tidak menemukan di awalnya.
-<a href="https://github.com/umano/AndroidSlidingUpPanel/issues/83">Perlu sedikit trik agar saya dapat menemukan paket instalasi Maven</a>. Saya belum mengujinya,
-tetapi beberapa sumber mengatakan ini fiktif. Saya pun
-<a href="http://mvnrepository.com/search.html?query=com.sothree.slidinguppanel">tidak menemukan ini tersedia di Maven.</a></li>
-</ul>
-
-
-<p>Di masa depan, mungkin Anda butuh repo ini. Silahkan jangan sungkan men-star repo ini :D.</p>
-
-<p>Gambar dari <a href="https://raw.github.com/umano/AndroidSlidingUpPanel/master/slidinguppanel.png">repo asli</a>.</p>
 ]]></content>
   </entry>
   
