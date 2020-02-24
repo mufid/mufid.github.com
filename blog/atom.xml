@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2019-12-26T02:18:14+00:00</updated>
+  <updated>2020-02-24T04:40:17+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,47 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Masuk dengan MFA pada antarmuka AWS CLI]]></title>
+    <link href="http://mufid.github.io/blog/2019/mfa-aws-cli/"/>
+    <updated>2019-12-26T06:28:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2019/mfa-aws-cli</id>
+    <content type="html"><![CDATA[<p>MFA (multi-factor authentication) menawarkan mekanisme login yang lebih aman.
+Pada AWS, kita bisa memaksa setiap pengguna agar menghidupkan MFA. Setiap kali
+kita login, kita akan ditanya token untuk MFA. MFA yang cukup lazim adalah
+menggunakan TOTP seperti Google Authenticator atau Authy.</p>
+
+<p>Pada kasus kali ini, saya mengasumsikan setiap akun IAM memiliki akses yang
+terbatas (hanya read). Jika akun pengguna tersebut mau melakukan akses
+tulis, mereka harus melakukan Switch Role.</p>
+
+<p>Berikut adalah script yang bisa digunakan untuk switch role melalui MFA</p>
+
+<pre><code># Ganti ini ke ARN perangkat Anda
+export DEVICE_ARN="arn:aws:iam::054121719833:mfa/mufid"
+
+read -p "Enter token from MFA(from $DEVICE_ARN): " TOKEN
+RESULT=$(aws sts get-session-token --serial-number $DEVICE_ARN --token-code $TOKEN)
+export AWS_SECRET_ACCESS_KEY=$(echo "$RESULT" | yq -r '.Credentials.SecretAccessKey')
+export AWS_SESSION_TOKEN=$(echo "$RESULT" | yq -r '.Credentials.SessionToken')
+export AWS_ACCESS_KEY_ID=$(echo "$RESULT" | yq -r '.Credentials.AccessKeyId')
+
+echo "SecretAccessKey = $AWS_SECRET_ACCESS_KEY"
+echo "SessionToken = $AWS_SESSION_TOKEN"
+echo "AccessKeyId = $AWS_ACCESS_KEY_ID"
+
+aws configure set profile.mfa.aws_secret_access_key "$AWS_SECRET_ACCESS_KEY"
+aws configure set profile.mfa.aws_access_key_id "$AWS_ACCESS_KEY_ID"
+aws configure set profile.mfa.aws_session_token "$AWS_SESSION_TOKEN"
+
+echo "Selesai! Lakukan perintah ini untuk mengakses role baru"
+echo
+echo "         export AWS_PROFILE=secureadmin"
+echo
+</code></pre>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Melakukan Analisis Log Nginx dengan GoAccess]]></title>
@@ -1832,162 +1873,6 @@ Anda cek, Anda konek ke VPN Anda, kemudian ping ke 8.8.8.8.
 Catat hasilnya, putuskan sambungan ke VPN Anda, kemudian
 ping ke 118.98.44.10 dan apakah hasilnya sama? Mungkin
 dari situ kita bisa saling periksa hasilnya.</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Memasang Discourse di Ubuntu Server 14.04]]></title>
-    <link href="http://mufid.github.io/blog/2014/discourse/"/>
-    <updated>2014-06-25T18:52:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2014/discourse</id>
-    <content type="html"><![CDATA[<p>Discourse sepertinya akan menjadi hype. Sudah
-mulai banyak adopsi Discourse di beberapa forum.
-Anda sendiri juga bisa melakukannya. Baiklah,
-kalau begitu, mari kita coba memasang Discourse!</p>
-
-<!-- more -->
-
-
-<h2>In ASCIINema</h2>
-
-<script type="text/javascript" src="https://asciinema.org/a/10462.js" id="asciicast-10462" async></script>
-
-
-<p><a href="https://asciinema.org/a/10462">https://asciinema.org/a/10462</a></p>
-
-<h2>Persiapan VirtualBox</h2>
-
-<p>Saya menggunakan VirtualBox 4 dengan port
-forwarding (agar bisa langsung mengakses localhost).
-Adapun konfigurasi port forwardingnya sebagai
-berikut:</p>
-
-<pre><code>coming soon...
-</code></pre>
-
-<h2>Menginstall Discourse</h2>
-
-<p>Well, H1 ini cuman iseng. Abaikan. Biar
-SEOnya bagus, <em>gitu</em>.</p>
-
-<p>Btw, semua instruksi di sini sudah saya uji coba
-ulang dengan VirtualBox. Seharusnya, Anda bisa
-mengikuti semua instruksi di sini tanpa
-ada masalah.</p>
-
-<h2>Bumbu Masak</h2>
-
-<p><a href="https://github.com/discourse/discourse/blob/master/docs/INSTALL.md">Sesuai saran dari tim Discourse sendiri</a>,
-instalasi sebaiknya menggunakan Docker. Hal ini
-karena Discourse membutuhkan banyak sekali <em>dependency</em>.
-<em>Dependency</em> ini akan cukup repot jika dipasang
-secara terpisah. Oleh karena itu, gunakan saja
-Docker.</p>
-
-<p>Di sini, saya akan menguji coba instalasi dengan
-Ubuntu Server 14.04. Anda bisa mendapatkan
-<em>image</em> dari Ubuntu Server 14.04 dari <a href="http://kambing.ui.ac.id/iso/ubuntu/releases/14.04/">kambing.ui.ac.id</a>.
-Jangan lupa, x64 (sesuai yang disarankan). Oh iya,
-di dokumen resmi Docker, Ubuntu 14.04 tidak termasuk
-dalam sistem operasi yang didukung. Tidak masalah,
-kita coba saja, yay!</p>
-
-<p><img src="http://mufid.github.io/images/post/download-ubuntu.png" alt="Menyenangkan sekali download dari UI" /></p>
-
-<p>Saya akan mencoba ini semua di VirtualBox. Lakukan
-instalasi seperti biasa. Kita akan kembali setelah Anda
-melakukan instalasi OSnya.</p>
-
-<h2>Memulai Instalasi Docker</h2>
-
-<p>Anda sudah mengetahui bahwa Discourse merupakan
-aplikasi Rails. Pada kenyataannya, Anda tidak
-perlu install Rails. Anda juga tidak perlu install
-Redis dan kawan-kawannya, meski ini dibutuhkan
-oleh Discourse. Hal ini karena semua
-instalasi akan diabstrasikan oleh Docker.
-Kalau begitu, kita lanjutkan saja
-dengan <a href="http://docs.docker.com/installation/ubuntulinux/">menginstall Docker</a>.</p>
-
-<pre><code>sudo apt-get install curl
-curl -s https://get.docker.io/ubuntu/ | sudo sh
-</code></pre>
-
-<blockquote><p>Catatan: Instruksi di atas berlaku untuk
-Ubuntu 14.04, yang mana <em>kernel</em>nya sudah
-kompatibel dengan virtualisasi Docker</p></blockquote>
-
-<p>Okeh, sekarang Docker sudah dipasang. Anda bisa
-pastikan dengan melihat versinya:</p>
-
-<pre><code>docker --version
-</code></pre>
-
-<p>Setelah itu, buat sebuah folder discourse docker:</p>
-
-<pre><code>install -g docker -m 2775 -d /var/docker
-</code></pre>
-
-<p>Tambahkan user Anda ke user Docker agar kita bisa
-utak-atik. Dalam hal ini, nama user saya adalah maru:</p>
-
-<pre><code>usermod -a -G docker maru # Sesuaikan
-</code></pre>
-
-<h2>Memasang <code>discourse_docker</code></h2>
-
-<p>Sekarang, saatnya memasang docker dengan resep
-Discourse.</p>
-
-<ol>
-<li><p>Clone</p>
-
-<pre><code> git clone https://github.com/discourse/discourse_docker.git /var/docker
-</code></pre></li>
-<li><p>Pergi ke repo docker_discourse</p>
-
-<pre><code> cd /var/docker
-</code></pre></li>
-<li><p>Salin konfigurasi default</p>
-
-<pre><code> cp samples/standalone.yml containers/app.yml
-</code></pre>
-
-<p> Sebetulnya Anda bisa langsung lanjut ke langkah
- selanjutnya. Akan tetapi, mungkin Anda tertarik
- untuk melihat isi konfigurasi <em>expose</em> dari
- <code>app.yml</code> ini. Ubah semua isi <code>app.yml</code> yang
- jika dirasa dibutuhkan. Anda mungkin tertarik
- untuk melihat konfigurasi pada bagian <code>bindings</code>
- dan <code>volumes</code>.</p></li>
-<li><p>Lakukan <em>boostrapping</em>. Tepat sekali, proses ini
-agak lama, jadi silahkan buat kopi dan nikmati
-sejenak. Atau, Anda dapat menyaksikan
-tayangan-tayangan yang <a href="http://hummingbird.me/anime/clannad-after-story">menggugah hati,
-menyayat pikiran, dan memberikan inspirasi</a>. Pengalaman
-Saya, ini membutuhkan waktu kurang lebih 60 menit.</p>
-
-<pre><code> sudo ./launcher bootstrap app
- # Yeah, hanya satu baris, tapi lama, banget.
-</code></pre></li>
-<li><p>Fiyuh, setelah semua <em>dependency</em> diselesaikan,
-akhirnya kita bisa memulai <em>image</em>-nya:</p>
-
-<pre><code> sudo ./launcher start app
-</code></pre></li>
-</ol>
-
-
-<p>Selesai! Mari kita lakukan web config</p>
-
-<h2>Konfigurasi <em>on-site</em> Discourse</h2>
-
-<p>Cihuy, Discourse sudah bisa digunakan!
-Sekarang, Anda tinggal mengikuti
-instruksi di halaman webnya saja
-dari browser.</p>
-
-<p><img src="http://mufid.github.io/images/post/discourse-welcome.png" alt="Welcome to Discourse" /></p>
 ]]></content>
   </entry>
   
