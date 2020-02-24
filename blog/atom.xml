@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2020-02-24T04:40:17+00:00</updated>
+  <updated>2020-02-24T04:42:25+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -15,9 +15,9 @@
   
   <entry>
     <title type="html"><![CDATA[Masuk dengan MFA pada antarmuka AWS CLI]]></title>
-    <link href="http://mufid.github.io/blog/2019/mfa-aws-cli/"/>
-    <updated>2019-12-26T06:28:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2019/mfa-aws-cli</id>
+    <link href="http://mufid.github.io/blog/2020/mfa-aws-cli/"/>
+    <updated>2020-02-24T05:28:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2020/mfa-aws-cli</id>
     <content type="html"><![CDATA[<p>MFA (multi-factor authentication) menawarkan mekanisme login yang lebih aman.
 Pada AWS, kita bisa memaksa setiap pengguna agar menghidupkan MFA. Setiap kali
 kita login, kita akan ditanya token untuk MFA. MFA yang cukup lazim adalah
