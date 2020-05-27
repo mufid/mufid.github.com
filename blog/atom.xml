@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2020-05-27T07:52:52+00:00</updated>
+  <updated>2020-05-27T08:05:37+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,81 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[RAID untuk Kebutuhan Pribadi]]></title>
+    <link href="http://mufid.github.io/blog/2020/raid/"/>
+    <updated>2020-05-27T05:28:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2020/raid</id>
+    <content type="html"><![CDATA[<p><img src="http://mufid.github.io/images/post/raid.png" alt="RAID" /></p>
+
+<p>Saya sudah lama menggunakan RAID 1 untuk komputer pribadi saya. Sudah sejak 2017. Empat tahun lebih.
+Sejauh ini saya luar biasa puas dengan hasilnya. Mengapa saya memilih RAID 1 yang notabene harganya
+menjadi dua kali lipat?</p>
+
+<p>Hal ini karena komputer merupakan aset yang sangat berharga bagi saya.
+Melakukan riset dan eksperimen pribadi, bermain, hingga hiburan saya lakukan semuanya di komputer
+Saya. Jika hard disk rusak, saya tidak bisa menggunakan komputer Saya. Pernah beberapa kali hard
+disknya rusak. Saya haru melakukan pemasangan ulang Windows dan melakukan pemasangan ulang semua
+perangkat lunak yang saya butuhkan. Seluruh proses penyelamatan memakan waktu 2 hari lebih! Seluruh
+akhir pekan saya didgunakan hanya untuk penyelamatan dan pemasangan. Tidak efisien.</p>
+
+<p>Hard Disk saya rusak karena banyak hal. Biasanya karena masalah kelistrikan dan umur. Namun saya mencurigai
+kerusakannya di kelistrikan. Biasanya, Windows tidak mau boot setelah listrik padam secara tiba-tiba dan
+komputer sedang dinyalakan. Solusi termudahnya adalah beli UPS, tetapi UPS hanya menyelesaikan masalah
+hard disk yang rusak karena listrik padam tiba-tiba. Tidak menyelesaikan masalah karena umur atau hal lainnya.
+RAID Mirroring menyelesaikan masalah &ldquo;masa iya kedua hard disk rusak berbarengan untuk sektor yang sama.&rdquo;</p>
+
+<p>Saya menggunakan RST atau Intel Rapid Storage — fungsi RAID bawaan dari perangkat keras yang saya miliki.
+Pertimbangannya saya menggunakan perangkat keras RAID adalah sebagai berikut:</p>
+
+<ul>
+<li>Dukungan driver native dari untuk Windows Vista ke atas</li>
+<li>Tidak perlu konfigurasi apapun di perangkat lunak dan OS</li>
+<li>Instalasi yang mudah, hanya perlu konfigurasi di BIOS</li>
+</ul>
+
+
+<p>Adapun salah satu hal yang kurang menyenangkan dalam penggunaan RAID ini adalah kewajiban untuk menjalan RAID
+verification saat listrik padam tiba-tiba. Pada hard disk dengan kapasitas 3 TB yang saya miliki,
+proses verifikasi membutuhkan waktu hingga delapan jam lebih! Meski bisa kita lewati, proses
+verifikasi sudah terjadi saat driver dimuat. Artinya, proses verifikasi sudah dimulai sejak Windows
+Boot. Jadi, ketika listrik padam, penghidupan komputer selanjutnya akan memperlambat proses boot.
+Hal ini karena boot, startup, dan verifikasi RAID terjadi bersamaan. Kita baru bisa mengabaikan
+proses verifikasi ketika menjalankan UI Intel Rapid Storage — yaitu saat sudah login.</p>
+
+<p>Kekurangan lainnya adalah tidak bisa menambah array dengan mudah. Um, ini bukan hanya masalah RAID, sih.
+Ini masalah yang akan dihadapi kalau kita memiliki lebih dari satu disk. Tanpa RAID pun, menambah disk
+berarti sudah menambah mount point.</p>
+
+<p><img src="http://mufid.github.io/images/post/raid-verify.png" alt="RAID" /></p>
+
+<p>Tentu saja untuk build selanjutnya saya akan menggunakan RAID 1 lagi. Mungkin juga saya akan pertimbangkan
+RAID 10. Yang pasti mirroring ini membantu kehidupan saya sekali. Tidak perlu takut bad sector dan hard
+disk mati tiba-tiba.</p>
+
+<p>Saya tidak mempertimbangkan RAID 5 atau RAID 6 karena terlalu boros untuk pengguna rumahan seperti Saya.
+Dua disk saja sudah terlalu banyak, apalagi 3 disk atau malah 4 disk. Memang RAID 5 dan RAID 6 menawarkan
+kecepatan yang lebih tinggi. Akan tetapi, saya akan memilih M.2 SSD jika alasannya adalah kecepatan.
+Untuk availability yang tinggi seperti RAID 1, kita bisa menggunakan skenario sebagai berikut:</p>
+
+<ul>
+<li>SSD digunakan untuk sistem</li>
+<li>Setup RAID 1 untuk 2 disk</li>
+<li>Backup full SSD ke disk di RAID 1</li>
+<li>Andai SSD rusak tiba-tiba, tinggal restore image dari disk di RAID 1 ke SSD.</li>
+</ul>
+
+
+<p>Bagaimana dengan NAS?</p>
+
+<p>Sepertinya NAS adalah hal yang berbeda — terlepas dukungan RAID yang ditawarkan oleh NAS.
+NAS tidak bisa digunakan untuk menyimpan berkas sistem. Meski ada yang menawarkan Network
+Boot dari NAS, itu tidak memenuhi kebutuhan rumahan seperti saya. Latency network boot terlalu
+tinggi. Lagipula, NAS memindahkan risiko fisik dari komputer saya ke luar — yang mana saya juga tidak butuh.
+Terlalu banyak fitur-fiturnya yang mubazir.</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Masuk dengan MFA pada antarmuka AWS CLI]]></title>
@@ -1690,189 +1765,6 @@ condition.fail();
 
 <p><a href="https://www.facebook.com/Languages.Alino1/photos/a.320819614683664.71044.318757448223214/670023456429943/?type=1&amp;theater">Source</a>
 <a href="http://www.latg.org/2014/09/indonesian-language.html">More</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[DNS Speedy Lambat]]></title>
-    <link href="http://mufid.github.io/blog/2014/speedy-dns-slow/"/>
-    <updated>2014-09-20T07:54:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2014/speedy-dns-slow</id>
-    <content type="html"><![CDATA[<p>Jadi, saya menghidupkan VPN di San Fransisco.
-Kalau saya sambungkan komputer saya ke VPN saya;
-ajaib, saya browsing apapun terasa cepat sekali.
-Akan tetapi, saya tidak merasa ada penurunan
-kecepatan internet. Saya curiga ada masalah di DNS.
-Oleh karena itu, mari kita cari tahu.</p>
-
-<!-- more -->
-
-
-<p>Pertama, VPN saya <em>by default</em> menggunakan Google
-DNS. Saya pastikan bahwa saya tidak bohong dan
-tidak dibohongi:</p>
-
-<figure class='code'><figcaption><span>mark:14 </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@classifier:/vagrant$ dig -x 8.8.8.8
-</span><span class='line'>
-</span><span class='line'>    ; &lt;&lt;>> DiG 9.8.1-P1 &lt;&lt;>> -x 8.8.8.8
-</span><span class='line'>    ;; global options: +cmd
-</span><span class='line'>    ;; Got answer:
-</span><span class='line'>    ;; ->>HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 64887
-</span><span class='line'>    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 0, ADDITIONAL: 0
-</span><span class='line'>
-</span><span class='line'>    ;; QUESTION SECTION:
-</span><span class='line'>    ;8.8.8.8.in-addr.arpa.          IN      PTR
-</span><span class='line'>
-</span><span class='line'>    ;; ANSWER SECTION:
-</span><span class='line'>    8.8.8.8.in-addr.arpa.   86361   IN      PTR     google-public-dns-a.google.com.
-</span><span class='line'>
-</span><span class='line'>    ;; Query time: 85 msec
-</span><span class='line'>    ;; SERVER: 10.0.2.3#53(10.0.2.3)
-</span><span class='line'>    ;; WHEN: Sat Sep 20 00:51:33 2014
-</span><span class='line'>    ;; MSG SIZE  rcvd: 82</span></code></pre></td></tr></table></div></figure>
-
-
-<p><em>(Ah iya, maaf, saya sedang login di Vagrant, jadi saya pakai Vagrant)</em></p>
-
-<p>Tidak ada masalah. Saya benar tersambung dengan Google DNS (lihat
-rekaman PTR. Perhatikan Query Time nya juga di 4 baris dari terakhir).</p>
-
-<p>Sekarang, mari kita bermain dengan Speedy DNS aka. Telkom DNS:</p>
-
-<figure class='code'><figcaption><span>mark:19 </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@classifier:/vagrant$ dig -x 118.98.44.10
-</span><span class='line'>
-</span><span class='line'>    ; &lt;&lt;>> DiG 9.8.1-P1 &lt;&lt;>> -x 118.98.44.10
-</span><span class='line'>    ;; global options: +cmd
-</span><span class='line'>    ;; Got answer:
-</span><span class='line'>    ;; ->>HEADER&lt;&lt;- opcode: QUERY, status: NOERROR, id: 57154
-</span><span class='line'>    ;; flags: qr rd ra; QUERY: 1, ANSWER: 1, AUTHORITY: 2, ADDITIONAL: 0
-</span><span class='line'>
-</span><span class='line'>    ;; QUESTION SECTION:
-</span><span class='line'>    ;10.44.98.118.in-addr.arpa.     IN      PTR
-</span><span class='line'>
-</span><span class='line'>    ;; ANSWER SECTION:
-</span><span class='line'>    10.44.98.118.in-addr.arpa. 86400 IN     PTR     10.subnet118-98-44.astinet.telkom.net.id.
-</span><span class='line'>
-</span><span class='line'>    ;; AUTHORITY SECTION:
-</span><span class='line'>    44.98.118.in-addr.arpa. 86400   IN      NS      dns1.telkom.net.id.
-</span><span class='line'>    44.98.118.in-addr.arpa. 86400   IN      NS      dns2.telkom.net.id.
-</span><span class='line'>
-</span><span class='line'>    ;; Query time: 1057 msec
-</span><span class='line'>    ;; SERVER: 10.0.2.3#53(10.0.2.3)
-</span><span class='line'>    ;; WHEN: Sat Sep 20 00:51:42 2014
-</span><span class='line'>    ;; MSG SIZE  rcvd: 135</span></code></pre></td></tr></table></div></figure>
-
-
-<blockquote><p>WAT? 1057 msec? APA APAAN NIH? Gimana ceritanya saya bisa query DNS
-ke US lebih cepat daripada query DNS ke negara sendiri!</p></blockquote>
-
-<p>Karena saya penasaran, saya coba ping keduanya:</p>
-
-<figure class='code'><figcaption><span>mark:1,12 </span></figcaption>
-<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-<span class='line-number'>6</span>
-<span class='line-number'>7</span>
-<span class='line-number'>8</span>
-<span class='line-number'>9</span>
-<span class='line-number'>10</span>
-<span class='line-number'>11</span>
-<span class='line-number'>12</span>
-<span class='line-number'>13</span>
-<span class='line-number'>14</span>
-<span class='line-number'>15</span>
-<span class='line-number'>16</span>
-<span class='line-number'>17</span>
-<span class='line-number'>18</span>
-<span class='line-number'>19</span>
-<span class='line-number'>20</span>
-<span class='line-number'>21</span>
-<span class='line-number'>22</span>
-<span class='line-number'>23</span>
-<span class='line-number'>24</span>
-<span class='line-number'>25</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>vagrant@classifier:/vagrant$ ping 8.8.8.8
-</span><span class='line'>    PING 8.8.8.8 (8.8.8.8) 56(84) bytes of data.
-</span><span class='line'>    64 bytes from 8.8.8.8: icmp_req=1 ttl=48 time=304 ms
-</span><span class='line'>    64 bytes from 8.8.8.8: icmp_req=2 ttl=48 time=241 ms
-</span><span class='line'>    64 bytes from 8.8.8.8: icmp_req=3 ttl=48 time=241 ms
-</span><span class='line'>    64 bytes from 8.8.8.8: icmp_req=4 ttl=48 time=240 ms
-</span><span class='line'>    ?
-</span><span class='line'>    --- 8.8.8.8 ping statistics ---
-</span><span class='line'>    4 packets transmitted, 4 received, 0% packet loss, time 3006ms
-</span><span class='line'>    rtt min/avg/max/mdev = 240.019/256.838/304.573/27.565 ms
-</span><span class='line'>
-</span><span class='line'>    vagrant@classifier:/vagrant$ ping 118.98.44.10
-</span><span class='line'>    PING 118.98.44.10 (118.98.44.10) 56(84) bytes of data.
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=13 ttl=252 time=24.9 ms
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=14 ttl=252 time=25.5 ms
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=15 ttl=252 time=25.3 ms
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=17 ttl=252 time=23.8 ms
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=26 ttl=252 time=168 ms
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=27 ttl=252 time=24.3 ms
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=30 ttl=252 time=90.9 ms
-</span><span class='line'>    64 bytes from 118.98.44.10: icmp_req=31 ttl=252 time=212 ms
-</span><span class='line'>    ?
-</span><span class='line'>    --- 118.98.44.10 ping statistics ---
-</span><span class='line'>    31 packets transmitted, 8 received, 74% packet loss, time 30232ms
-</span><span class='line'>    rtt min/avg/max/mdev = 23.830/74.471/212.579/71.128 ms</span></code></pre></td></tr></table></div></figure>
-
-
-<p>Nah ini. Kenapa query DNS ke negara sendiri bisa lebih lambat
-daripada ke negara orang? Note: Saya gak percaya, jangan-jangan
-saya masih tersambung ke VPN saya. Sayang sekali, saya tidak
-bisa melakukan traceroute dari sini.</p>
-
-<p>Tetapi jika Anda mengalami masalah yang sama, boleh coba
-Anda cek, Anda konek ke VPN Anda, kemudian ping ke 8.8.8.8.
-Catat hasilnya, putuskan sambungan ke VPN Anda, kemudian
-ping ke 118.98.44.10 dan apakah hasilnya sama? Mungkin
-dari situ kita bisa saling periksa hasilnya.</p>
 ]]></content>
   </entry>
   

@@ -51,8 +51,8 @@
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="MFA (multi-factor authentication) menawarkan mekanisme login yang lebih aman.
-Pada AWS, kita bisa memaksa setiap pengguna agar menghidupkan MFA. &hellip;">
+  <meta name="description" content="Saya sudah lama menggunakan RAID 1 untuk komputer pribadi saya. Sudah sejak 2017. Empat tahun lebih.
+Sejauh ini saya luar biasa puas dengan hasilnya &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -126,6 +126,112 @@ Pada AWS, kita bisa memaksa setiap pengguna agar menghidupkan MFA. &hellip;">
     <div id="content">
       <div class="blog-index">
   
+  
+  
+    <article>
+      
+  <header>
+    
+      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
+        <h1 class="entry-title"><a href="/blog/2020/raid/">RAID untuk Kebutuhan Pribadi</a></h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2020-05-27T05:28:00+00:00" pubdate data-updated="true">May 27<span>th</span>, 2020</time>
+        
+         | <a href="/blog/2020/raid/#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+  <div class="entry-content"><p><img src="/blog/images/post/raid.png" alt="RAID" /></p>
+
+<p>Saya sudah lama menggunakan RAID 1 untuk komputer pribadi saya. Sudah sejak 2017. Empat tahun lebih.
+Sejauh ini saya luar biasa puas dengan hasilnya. Mengapa saya memilih RAID 1 yang notabene harganya
+menjadi dua kali lipat?</p>
+
+<p>Hal ini karena komputer merupakan aset yang sangat berharga bagi saya.
+Melakukan riset dan eksperimen pribadi, bermain, hingga hiburan saya lakukan semuanya di komputer
+Saya. Jika hard disk rusak, saya tidak bisa menggunakan komputer Saya. Pernah beberapa kali hard
+disknya rusak. Saya haru melakukan pemasangan ulang Windows dan melakukan pemasangan ulang semua
+perangkat lunak yang saya butuhkan. Seluruh proses penyelamatan memakan waktu 2 hari lebih! Seluruh
+akhir pekan saya didgunakan hanya untuk penyelamatan dan pemasangan. Tidak efisien.</p>
+
+<p>Hard Disk saya rusak karena banyak hal. Biasanya karena masalah kelistrikan dan umur. Namun saya mencurigai
+kerusakannya di kelistrikan. Biasanya, Windows tidak mau boot setelah listrik padam secara tiba-tiba dan
+komputer sedang dinyalakan. Solusi termudahnya adalah beli UPS, tetapi UPS hanya menyelesaikan masalah
+hard disk yang rusak karena listrik padam tiba-tiba. Tidak menyelesaikan masalah karena umur atau hal lainnya.
+RAID Mirroring menyelesaikan masalah &ldquo;masa iya kedua hard disk rusak berbarengan untuk sektor yang sama.&rdquo;</p>
+
+<p>Saya menggunakan RST atau Intel Rapid Storage — fungsi RAID bawaan dari perangkat keras yang saya miliki.
+Pertimbangannya saya menggunakan perangkat keras RAID adalah sebagai berikut:</p>
+
+<ul>
+<li>Dukungan driver native dari untuk Windows Vista ke atas</li>
+<li>Tidak perlu konfigurasi apapun di perangkat lunak dan OS</li>
+<li>Instalasi yang mudah, hanya perlu konfigurasi di BIOS</li>
+</ul>
+
+
+<p>Adapun salah satu hal yang kurang menyenangkan dalam penggunaan RAID ini adalah kewajiban untuk menjalan RAID
+verification saat listrik padam tiba-tiba. Pada hard disk dengan kapasitas 3 TB yang saya miliki,
+proses verifikasi membutuhkan waktu hingga delapan jam lebih! Meski bisa kita lewati, proses
+verifikasi sudah terjadi saat driver dimuat. Artinya, proses verifikasi sudah dimulai sejak Windows
+Boot. Jadi, ketika listrik padam, penghidupan komputer selanjutnya akan memperlambat proses boot.
+Hal ini karena boot, startup, dan verifikasi RAID terjadi bersamaan. Kita baru bisa mengabaikan
+proses verifikasi ketika menjalankan UI Intel Rapid Storage — yaitu saat sudah login.</p>
+
+<p>Kekurangan lainnya adalah tidak bisa menambah array dengan mudah. Um, ini bukan hanya masalah RAID, sih.
+Ini masalah yang akan dihadapi kalau kita memiliki lebih dari satu disk. Tanpa RAID pun, menambah disk
+berarti sudah menambah mount point.</p>
+
+<p><img src="/blog/images/post/raid-verify.png" alt="RAID" /></p>
+
+<p>Tentu saja untuk build selanjutnya saya akan menggunakan RAID 1 lagi. Mungkin juga saya akan pertimbangkan
+RAID 10. Yang pasti mirroring ini membantu kehidupan saya sekali. Tidak perlu takut bad sector dan hard
+disk mati tiba-tiba.</p>
+
+<p>Saya tidak mempertimbangkan RAID 5 atau RAID 6 karena terlalu boros untuk pengguna rumahan seperti Saya.
+Dua disk saja sudah terlalu banyak, apalagi 3 disk atau malah 4 disk. Memang RAID 5 dan RAID 6 menawarkan
+kecepatan yang lebih tinggi. Akan tetapi, saya akan memilih M.2 SSD jika alasannya adalah kecepatan.
+Untuk availability yang tinggi seperti RAID 1, kita bisa menggunakan skenario sebagai berikut:</p>
+
+<ul>
+<li>SSD digunakan untuk sistem</li>
+<li>Setup RAID 1 untuk 2 disk</li>
+<li>Backup full SSD ke disk di RAID 1</li>
+<li>Andai SSD rusak tiba-tiba, tinggal restore image dari disk di RAID 1 ke SSD.</li>
+</ul>
+
+
+<p>Bagaimana dengan NAS?</p>
+
+<p>Sepertinya NAS adalah hal yang berbeda — terlepas dukungan RAID yang ditawarkan oleh NAS.
+NAS tidak bisa digunakan untuk menyimpan berkas sistem. Meski ada yang menawarkan Network
+Boot dari NAS, itu tidak memenuhi kebutuhan rumahan seperti saya. Latency network boot terlalu
+tinggi. Lagipula, NAS memindahkan risiko fisik dari komputer saya ke luar — yang mana saya juga tidak butuh.
+Terlalu banyak fitur-fiturnya yang mubazir.</p>
+</div>
+  
+  
+
+
+    </article>
   
   
     <article>
@@ -816,143 +922,6 @@ Kali ini agak berbeda dengan <a href="https://mufid.github.io/blog/2013/fr-jogja
     <footer>
       <a rel="full-article" href="/blog/2016/fr-harapan/">Read on &rarr;</a>
     </footer>
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2016/spreadsheet-js/">Lembar Kerja dalam Tiga Puluh Baris Javascript</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2016-10-25T08:00:00+00:00" pubdate data-updated="true">Oct 25<span>th</span>, 2016</time>
-        
-         | <a href="/blog/2016/spreadsheet-js/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p><img src="/blog/images/post/spreadsheet-js.gif" alt="Spreadsheet" /></p>
-
-<p>Saya menjelajahi kembali beberapa tautan yang ada di penanda saya. Saya menemukan
-tautan yang sangat menarik beberapa tahun lampau: membuat lembar kerja dalam 30
-baris di Javascript. Woh!</p>
-
-<p>Baiklah, untuk membuat cerita lebih pendek, saya melihat kembali dimana keajaiban
-baris kode tersebut. Anda dapat melihat kode sumber aslinya di <a href="http://jsfiddle.net/ondras/hYfN3/">Codepen</a>
-(via <a href="https://news.ycombinator.com/item?id=6725387">HN</a>). Pertanyaan saya ada
-dua:</p>
-
-<ul>
-<li>Bagaimana menyelesaikan formula di sana?</li>
-<li>Bagaimana <em>dependency resolution</em> antar sel di lembar kerja tersebut?</li>
-</ul>
-
-
-<p>Mari kita bahas yang pertama. Ini menjadi hal yang menarik bagi saya karena
-penyelesaian formula berarti Anda membuat DSL sendiri, menerjemahkannya, dan
-mengeksekusinya. DSL yang digunakan oleh semua program lembar kerja serupa.
-DSL yang digunakan juga dekat dengan bahasa pemrograman pada umumnya. Ya,
-menguraikan formula menjadi hal yang dimengerti dan dieksekusi oleh mesin
-bukanlah hal yang sederhana.</p>
-
-<p>Ternyata, program Javascript ini tidak memiliki DSL sendiri. Alih-alih,
-program ini menggunakan perintah <code>eval</code> sederhana untuk menguraikan
-dan mengeksekusi formulanya. Yup, tentu saja jika Anda memasukkan
-perintah Javascript yang aneh-aneh &mdash;&ndash; bukan bentuk formula lembar
-kerja pada umumnya &mdash;&ndash; Anda akan menemukan sedikit kejanggalan. Anda
-dapat memberikan perintah <code>alert</code> pada perintahnya dan <code>alert</code> akan
-bena-benar muncul. Tentu saja bukan suatu hal yang akan Anda lakukan
-pada mesin produksi, tetapi ini sudah sangat baik sebagai sebuah PoC.</p>
-
-<p>Mari kita bahas yang kedua: bagaimana <em>dependency resolution</em> dilakukan?
-Anggap saya memiliki sel A1 berisi <code>=B2 * 5</code> dan B2 yang berisi <code>=100*C2</code>
-dan C2 yang berisi <code>99</code>? Bagaimana penyelesaian keterkaitan formula
-yang berbeda sel? Ah, &ldquo;keajaiban&rdquo; bahasa yang interpret di sini.</p>
-
-<p>Anda dapat melihat di kode tersebut: ada perintah yang membuat property.
-Lihat pada bagian ini:</p>
-
-<pre><code>var getter = function() {
-    var value = localStorage[elm.id] || "";
-    if (value.charAt(0) == "=") {
-        with (DATA) return eval(value.substring(1));
-    } else { return isNaN(parseFloat(value)) ? value : parseFloat(value); }
-};
-Object.defineProperty(DATA, elm.id, {get:getter});
-Object.defineProperty(DATA, elm.id.toLowerCase(), {get:getter});
-</code></pre>
-
-<p>Ini adalah dokumentasi dari <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty">MDN</a>:</p>
-
-<blockquote><p>Object.defineProperty(obj, prop, descriptor)</p>
-
-<p>Parameters</p>
-
-<ul>
-<li>obj<br/>
-The object on which to define the property.</li>
-<li>prop<br/>
-The name of the property to be defined or modified.</li>
-<li>descriptor<br/>
-The descriptor for the property being defined or modified.</li>
-</ul>
-</blockquote>
-
-<p>Jadi, pada dasarnya, <code>eval</code> akan dilakukan dengan property di dalam
-object bernama <code>DATA</code>. Property-nya sendiri bersifat dinamis, di dalam
-fungsi. Properti baru benar-benar didapatkan nilainya apa ketika dieksekusi.
-Jadi, sebenarnya yang melakukan dependency resolution adalah <code>eval</code> itu sendiri.
-Program ini tidak benar-benar membuat <em>dependency graph</em> seperti yang
-saya bayangkan sebelumnya.</p>
-
-<p>Sebagai contoh, ada formula <code>=A9*Math.cos(B2)</code>. Yang terjadi adalah Javascript
-<code>eval</code> akan mengevaluasi <code>A9 * Math.cos(B2)</code> ke dalam sel tersebut. <code>Math.cos</code>
-adalah fungsi bawaan Javascript sehingga tidak perlu dipertanyakan. Bagaimana
-dengan A9 dan B2? Dua variabel tersebut adalah property dalam objek <code>DATA</code>
-yang dapat diakses tanpa mengetikkan <code>DATA</code> berkat idiom <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/with">with</a>. Apa nilai A9 dan B2? Belum tahu. Akan tetapi,
-karena A9 dan B2 itu sendiri merupakan property yang memiliki getter sendiri,
-maka kemudian <code>eval</code> akan mengeksekusi <code>DATA.A9</code>  dan <code>DATA.B2</code> &mdash; yang mana
-di dalam property tersebut akan melakukan <code>eval</code> lagi jika diawali dengan <code>=</code>.</p>
-
-<p>Bagaimana jika ada <em>circular reference</em>? Ini diakali dengan <em>try-catch</em>
-sederhana berikut:</p>
-
-<pre><code>INPUTS.forEach(function(elm) { try { elm.value = DATA[elm.id]; } catch(e) {} });
-</code></pre>
-
-<p>Jika terdapat <code>circular reference</code>, call-stack akan menjadi sangat panjang.
-Bayangkan B2 menggunakan nilai dari A1 dan A1 menggunakan nilai dari B2.
-Akan terjadi sebuah pemanggilan fungsi <code>getter</code> terhadap dua sel berbeda
-yang tidak ada habisnya. Ketika call stack sangat panjang, interpreter akan
-menghasilkan exception, yang ditangkap, dan diabaikan.</p>
-
-<p>Saya rubah kode asli agar menangkap exception dan mencetaknya. Beriktu hasilnya:</p>
-
-<p><img src="/blog/images/post/spredsheet-js-too-much-recursion.png" alt="Recursion" /></p>
-</div>
-  
   
 
 

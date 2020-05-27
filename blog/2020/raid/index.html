@@ -1,0 +1,334 @@
+
+<!--
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                                                  hai :)
+                                                  apa kabar? : )
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+-->
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="id"><!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <title>RAID untuk Kebutuhan Pribadi - Mufid's Code blog</title>
+  <meta name="author" content="Mufid">
+
+  
+  <meta name="description" content="Saya sudah lama menggunakan RAID 1 untuk komputer pribadi saya. Sudah sejak 2017. Empat tahun lebih.
+Sejauh ini saya luar biasa puas dengan hasilnya &hellip;">
+  
+
+  <!-- http://t.co/dKP3o1e -->
+  <meta name="HandheldFriendly" content="True">
+  <meta name="MobileOptimized" content="320">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  
+  <link rel="canonical" href="http://mufid.github.io/2020/raid/">
+  <link href="/blog/favicon.png" rel="icon">
+  <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+  <script src="/blog/javascripts/modernizr-2.0.js"></script>
+  <script src="/blog/javascripts/ender.js"></script>
+  <script src="/blog/javascripts/octopress.js" type="text/javascript"></script>
+  <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+  <link href="/atom.xml" rel="alternate" title="Mufid's Code blog" type="application/atom+xml">
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
+  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="https://fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+  
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-61504096-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+</head>
+
+<body   >
+  <header role="banner"><hgroup>
+  <div id="logo">
+  	<div id="logoLeft">{</div>
+  	<div id="logoText">fidz</div>
+  	<div id="logoRight">}</div>
+  	<div class="clear"></div>
+  </div>
+  <h1><a href="/blog/">Mufid's Code blog</a></h1>
+  
+  <div class="clear"></div>
+</hgroup>
+
+</header>
+  <nav role="navigation"><ul class="subscription" data-subscription="rss">
+  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
+  
+</ul>
+  
+<form action="https://google.com/search" method="get">
+  <fieldset role="search">
+    <input type="hidden" name="q" value="site:mufid.github.io" />
+    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
+  </fieldset>
+</form>
+  
+<ul class="main-navigation">
+  <li><a href="/blog/">Blog</a></li>
+  <li><a href="/blog/blog/archives">Archives</a></li>
+</ul>
+
+</nav>
+  <div id="main">
+    <div id="content">
+      <div>
+<article class="hentry" role="article">
+  
+  <header>
+    
+      
+        <h1 class="entry-title">RAID untuk Kebutuhan Pribadi</h1>
+      
+    
+    
+      <p class="meta">
+        
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2020-05-27T05:28:00+00:00" pubdate data-updated="true">May 27<span>th</span>, 2020</time>
+        
+         | <a href="#disqus_thread">Comments</a>
+        
+      </p>
+    
+  </header>
+
+
+<div class="entry-content"><p><img src="/blog/images/post/raid.png" alt="RAID" /></p>
+
+<p>Saya sudah lama menggunakan RAID 1 untuk komputer pribadi saya. Sudah sejak 2017. Empat tahun lebih.
+Sejauh ini saya luar biasa puas dengan hasilnya. Mengapa saya memilih RAID 1 yang notabene harganya
+menjadi dua kali lipat?</p>
+
+<p>Hal ini karena komputer merupakan aset yang sangat berharga bagi saya.
+Melakukan riset dan eksperimen pribadi, bermain, hingga hiburan saya lakukan semuanya di komputer
+Saya. Jika hard disk rusak, saya tidak bisa menggunakan komputer Saya. Pernah beberapa kali hard
+disknya rusak. Saya haru melakukan pemasangan ulang Windows dan melakukan pemasangan ulang semua
+perangkat lunak yang saya butuhkan. Seluruh proses penyelamatan memakan waktu 2 hari lebih! Seluruh
+akhir pekan saya didgunakan hanya untuk penyelamatan dan pemasangan. Tidak efisien.</p>
+
+<p>Hard Disk saya rusak karena banyak hal. Biasanya karena masalah kelistrikan dan umur. Namun saya mencurigai
+kerusakannya di kelistrikan. Biasanya, Windows tidak mau boot setelah listrik padam secara tiba-tiba dan
+komputer sedang dinyalakan. Solusi termudahnya adalah beli UPS, tetapi UPS hanya menyelesaikan masalah
+hard disk yang rusak karena listrik padam tiba-tiba. Tidak menyelesaikan masalah karena umur atau hal lainnya.
+RAID Mirroring menyelesaikan masalah &ldquo;masa iya kedua hard disk rusak berbarengan untuk sektor yang sama.&rdquo;</p>
+
+<p>Saya menggunakan RST atau Intel Rapid Storage — fungsi RAID bawaan dari perangkat keras yang saya miliki.
+Pertimbangannya saya menggunakan perangkat keras RAID adalah sebagai berikut:</p>
+
+<ul>
+<li>Dukungan driver native dari untuk Windows Vista ke atas</li>
+<li>Tidak perlu konfigurasi apapun di perangkat lunak dan OS</li>
+<li>Instalasi yang mudah, hanya perlu konfigurasi di BIOS</li>
+</ul>
+
+
+<p>Adapun salah satu hal yang kurang menyenangkan dalam penggunaan RAID ini adalah kewajiban untuk menjalan RAID
+verification saat listrik padam tiba-tiba. Pada hard disk dengan kapasitas 3 TB yang saya miliki,
+proses verifikasi membutuhkan waktu hingga delapan jam lebih! Meski bisa kita lewati, proses
+verifikasi sudah terjadi saat driver dimuat. Artinya, proses verifikasi sudah dimulai sejak Windows
+Boot. Jadi, ketika listrik padam, penghidupan komputer selanjutnya akan memperlambat proses boot.
+Hal ini karena boot, startup, dan verifikasi RAID terjadi bersamaan. Kita baru bisa mengabaikan
+proses verifikasi ketika menjalankan UI Intel Rapid Storage — yaitu saat sudah login.</p>
+
+<p>Kekurangan lainnya adalah tidak bisa menambah array dengan mudah. Um, ini bukan hanya masalah RAID, sih.
+Ini masalah yang akan dihadapi kalau kita memiliki lebih dari satu disk. Tanpa RAID pun, menambah disk
+berarti sudah menambah mount point.</p>
+
+<p><img src="/blog/images/post/raid-verify.png" alt="RAID" /></p>
+
+<p>Tentu saja untuk build selanjutnya saya akan menggunakan RAID 1 lagi. Mungkin juga saya akan pertimbangkan
+RAID 10. Yang pasti mirroring ini membantu kehidupan saya sekali. Tidak perlu takut bad sector dan hard
+disk mati tiba-tiba.</p>
+
+<p>Saya tidak mempertimbangkan RAID 5 atau RAID 6 karena terlalu boros untuk pengguna rumahan seperti Saya.
+Dua disk saja sudah terlalu banyak, apalagi 3 disk atau malah 4 disk. Memang RAID 5 dan RAID 6 menawarkan
+kecepatan yang lebih tinggi. Akan tetapi, saya akan memilih M.2 SSD jika alasannya adalah kecepatan.
+Untuk availability yang tinggi seperti RAID 1, kita bisa menggunakan skenario sebagai berikut:</p>
+
+<ul>
+<li>SSD digunakan untuk sistem</li>
+<li>Setup RAID 1 untuk 2 disk</li>
+<li>Backup full SSD ke disk di RAID 1</li>
+<li>Andai SSD rusak tiba-tiba, tinggal restore image dari disk di RAID 1 ke SSD.</li>
+</ul>
+
+
+<p>Bagaimana dengan NAS?</p>
+
+<p>Sepertinya NAS adalah hal yang berbeda — terlepas dukungan RAID yang ditawarkan oleh NAS.
+NAS tidak bisa digunakan untuk menyimpan berkas sistem. Meski ada yang menawarkan Network
+Boot dari NAS, itu tidak memenuhi kebutuhan rumahan seperti saya. Latency network boot terlalu
+tinggi. Lagipula, NAS memindahkan risiko fisik dari komputer saya ke luar — yang mana saya juga tidak butuh.
+Terlalu banyak fitur-fiturnya yang mubazir.</p>
+</div>
+
+
+  <footer>
+    <p class="meta">
+      
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mufid</span></span>
+
+      
+
+
+
+
+
+
+
+
+  
+
+
+<time datetime="2020-05-27T05:28:00+00:00" pubdate data-updated="true">May 27<span>th</span>, 2020</time>
+      
+
+
+    </p>
+    
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2020/raid/" data-via="" data-counturl="http://mufid.github.io/2020/raid/" >Tweet</a>
+  
+  
+  
+</div>
+
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left articlenav" href="/blog/2020/mfa-aws-cli/" title="Previous Post: Masuk dengan MFA pada antarmuka AWS CLI">&laquo; Masuk dengan MFA pada antarmuka AWS CLI</a>
+      
+      
+    </p>
+  </footer>
+</article>
+
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
+
+</div>
+
+<aside class="sidebar">
+  
+    
+  
+</aside>
+
+
+    </div>
+  </div>
+  <footer role="contentinfo"><p>
+  Copyright &copy; 2020 - Mufid -
+  <span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span>
+</p>
+
+</footer>
+  
+
+<script type="text/javascript">
+      var disqus_shortname = 'fidblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mufid.github.io/blog/2020/raid/';
+        var disqus_url = 'http://mufid.github.io/blog/2020/raid/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = 'https://' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+
+
+
+
+
+  <script type="text/javascript">
+    (function(){
+      var twitterWidgets = document.createElement('script');
+      twitterWidgets.type = 'text/javascript';
+      twitterWidgets.async = true;
+      twitterWidgets.src = 'https://platform.twitter.com/widgets.js';
+      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
+    })();
+  </script>
+
+
+
+
+
+</body>
+</html>
