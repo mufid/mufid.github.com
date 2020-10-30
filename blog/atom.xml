@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2020-05-27T08:05:37+00:00</updated>
+  <updated>2020-10-30T12:03:50+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,58 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Merakit Komputer untuk Masa Depan]]></title>
+    <link href="http://mufid.github.io/blog/2020/futureproof-pc/"/>
+    <updated>2020-10-30T18:56:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2020/futureproof-pc</id>
+    <content type="html"><![CDATA[<p>Artikel stub.</p>
+
+<p>Agar enggak salah untuk upgrade</p>
+
+<h2>Motherboard</h2>
+
+<p>Tentukan kebutuhan dasar dari komponen utama:</p>
+
+<ul>
+<li>Intel / AMD?</li>
+<li>Form factor? ATX? ITX?</li>
+</ul>
+
+
+<p>Tentukan kebutuhan tersier dari komponen utama:</p>
+
+<ul>
+<li>Butuh yang bisa Wifi? Kalau hanya kabel, kenapa harus Wifi?</li>
+</ul>
+
+
+<p>Tentukan kebutuhan ekspansi dari komponen yang ada:</p>
+
+<ul>
+<li>Jumlah slot RAM?</li>
+<li>Akankah Crossfire?</li>
+<li>Jumlah slot M.2?</li>
+</ul>
+
+
+<h2>Prosesor</h2>
+
+<p>Di awal bisa beli yang cupu. Cari prosesor murah. Misal
+di awal beli i3. Tapi pastikan motherboard support sampai i9,
+jadi di masa depan bisa upgrade</p>
+
+<h2>RAM</h2>
+
+<p>Di awal beli kapasitas maksimal. Soalnya cari RAM susah di masa
+depan. Apalagi dengan clock dan timing yang sama.</p>
+
+<h2>Storage</h2>
+
+<p>Bisa mulai dari manapun. Misal HDD dulu, terus mau RAID, terus beli nvme</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[RAID untuk Kebutuhan Pribadi]]></title>
@@ -1751,20 +1803,6 @@ condition.fail();
 <p>TL;DR: Di Java, jika Anda menggunakan equals, dan salah satu objek dari dua objek yang dibandingkan mungkin mengandung nilai null, maka <strong>panggil <code>.equals()</code> dari objek yang sudah pasti bukan null</strong>.</p>
 
 <p>Happy Coding!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Aku]]></title>
-    <link href="http://mufid.github.io/blog/2014/aku/"/>
-    <updated>2014-10-12T12:41:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2014/aku</id>
-    <content type="html"><![CDATA[<p><em>My lovely country is indeed awesome!</em></p>
-
-<p><img src="http://mufid.github.io/images/post/indonesia-lang.jpg" alt="" /></p>
-
-<p><a href="https://www.facebook.com/Languages.Alino1/photos/a.320819614683664.71044.318757448223214/670023456429943/?type=1&amp;theater">Source</a>
-<a href="http://www.latg.org/2014/09/indonesian-language.html">More</a></p>
 ]]></content>
   </entry>
   
