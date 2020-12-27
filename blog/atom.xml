@@ -4,7 +4,7 @@
   <title><![CDATA[Mufid's Code blog]]></title>
   <link href="http://mufid.github.io/atom.xml" rel="self"/>
   <link href="http://mufid.github.io/"/>
-  <updated>2020-12-27T14:25:53+00:00</updated>
+  <updated>2020-12-27T14:55:14+00:00</updated>
   <id>http://mufid.github.io/</id>
   <author>
     <name><![CDATA[Mufid]]></name>
@@ -12,6 +12,87 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Sebuah Curhatan Tak Terstruktur tentang Ketimpangan Gaji]]></title>
+    <link href="http://mufid.github.io/blog/2020/gaji/"/>
+    <updated>2020-12-27T21:43:00+00:00</updated>
+    <id>http://mufid.github.io/blog/2020/gaji</id>
+    <content type="html"><![CDATA[<p>Mari bicara gaji. Eits, tunggu dulu, bukannya rahasia?
+Bukannya berbahya memberi tahu gaji kita ke orang lain?
+Nanti kalau orang lain jadi suka pinjam uang ke kita,
+bagaimana? Ah, tentu saja dalam konteks lokal, rasanya
+sangat jarang untuk bicara tentang gaji. Akan tetapi,
+sesungguhnya bicara tentang gaji bisa bermanfaat.</p>
+
+<p>Karena&hellip; ini ada hubungannya dengan ketimpangan gaji. Salah
+satu upaya untuk melawan ketimpangan gaji adalah&hellip;
+membicarakannya. Pada kasus ekstrim, membicarakan gaji
+adalah <a href="https://www.youtube.com/watch?v=7xH7eGFuSYI">lelucon</a>. Akan tetapi, tempat kerja Anda tentu
+bukan lelucon, kan?</p>
+
+<p>Di salah satu papan gambar, sesekali ada utas tentang
+berapa gaji kita. Tayangan di bawah adalah salah satu
+contoh utas di papan gambar. Saya tidak tampilkan ID
+dari papan gambar ini karena mungkin terlalu &ldquo;vulgar&rdquo;.</p>
+
+<p><img src="Pembahasan%20gaji%20di%20salah%20satu%20papan%20gambar" alt="/images/post/pay-inequality.png" /></p>
+
+<p>Kalau kita bisa berbohong di papan gambar tanpa nama,
+ada juga upaya untuk membahas gaji di Twitter. Dulu,
+sempat ngetren pembahasan gaji lewat tagar <a href="https://www.theguardian.com/us-news/2015/may/02/talkpay-income-inequality-twitter-gender-pay-gap">TalkPay</a>.</p>
+
+<p>Sebentar sebentar&hellip; bukannya orang bisa berbohong?
+Tentu saja. Di level yang lebih &ldquo;gila&rdquo;, Anda mungkin
+tertarik untuk melihat <a href="https://levels.fyi">levels.fyi</a>.
+Levels.fyi disebut gila karena&hellip; metode verifikasinya
+dia adalah dengan harus mengirim bukti pajak untuk gaji!
+Anda diharuskan mengirim formulir W2 ke levels.fyi.
+Wow?? Apa enggak ngeri tuh?</p>
+
+<p>Saya kurang paham konteks kerahasiaan gaji di Amerika Serikat seperti apa.
+Akan tetapi, gaji kita sebenarnya enggak rahasia-rahasia amat.
+<a href="https://djpb.kemenkeu.go.id">DJP</a> tahu penghasilan kita berapa.
+Bank juga tahu penghasilan Anda berapa, karena jumlah pendapatan
+bulanan adalah salah satu syarat kolom yang wajib diisi dalam
+pembukaan rekening. Penyedia jasa kredit, baik itu kartu kredit
+atau kredit online atau kredit berbasis aplikasi, juga tahu
+berapa gaji Anda karena itu dibutuhkan untuk verifikasi.
+Boleh jadi bahkan Anda mengirim bukti pajak dan slip gaji ke
+lembaga non-bank tersebut. Iya, non bank.</p>
+
+<p>Di Indonesia banyak upaya serupa untuk bicara gaji dan
+melawan ketimpangan gaji. <a href="https://www.qerja.com/">Qerja</a> telah
+melakukannya sejak lama. Akan tetapi, sedikit sekali data di Qerja
+yang bermakna. Ada juga upaya lain lewat sebuah
+<a href="https://twitter.com/petrabarus/status/1228607065481809921">Tweet Viral</a>
+yang datanya terlihat lebih <em>sound</em> untuk pekerja IT.</p>
+
+<p>Meski demikian, semua data yang bisa kita dapatkan untuk konteks Indonesia tidaklah
+bisa diverifikasi. Kita tidak tahu berapa banyak orang
+yang jujur dan berapa banyak orang yang berbohong. Malah
+ada yang mengatakan data yang muncul di situs Qerja agak
+condong ke persentil 30. Artinya, di bawah rata-rata. Besar
+kemungkinan ketimpangan di sana.</p>
+
+<p>Bagaimana dengan <a href="https://www.kellyservices.co.id/salary-guide-2020/">Survei Kelly</a>?
+Saya tidak tahu, data itu masih kurang bermakna. Bandingkan dengan levels.fyi.
+Di sana secara persis digambarkan jenjang karirnya, ada apa saja
+tingkatan karirnya, dan berapa gaji rata-rata untuk tingkatan karir tersebut.
+Data ini tersebar secara ambigu di survei Kelly.</p>
+
+<p>Berapa gaji sebenernya yang harus kita dapatkan? Berapa
+gaji orang lain untuk tahun pengalaman yang sama? Kita
+tidak tahu persis. Banyak sekali persoalan dalam ketenagakerjaan
+yang perlu diperbaiki. Saya pikir, jika kita lebih berani
+bicara tentang gaji kita berapa, kehidupan kita akan lebih
+baik. Saya mengharapkan adanya platform seperti levels.fyi.
+Jika kita rela memberikan data keuangan yang paling rahasia
+kepada berbagai macam institusi finansial, mengapa kita
+juga tidak berbagi data keuangan kita untuk memberikan
+sedikit tambahan keberuntungan hidup kepada orang lain?</p>
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Merakit Komputer untuk Masa Depan]]></title>
@@ -1758,51 +1839,6 @@ Recipe&trade;Chicken, Tender Roast Chicken dll.</li>
 <p>Apa yang bisa kita perbuat untuk mengurangi flamebait?</p>
 
 <p>Entahlah. Kami pengguna internet sejak lama dan tidak tahu. Jika Anda ingin melakukan studi banding, <a href="http://www.theguardian.com/technology/2013/nov/26/youtube-spam-comments-google-plus">Youtube membuat komentar harus dibuat oleh manusia yang menampakkan jati dirinya.</a>. Mungkin, Anda memiliki cara yang lebih baik?</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[A simple pattern in Java: equals]]></title>
-    <link href="http://mufid.github.io/blog/2014/pattern-java-equals/"/>
-    <updated>2014-10-28T20:16:00+00:00</updated>
-    <id>http://mufid.github.io/blog/2014/pattern-java-equals</id>
-    <content type="html"><![CDATA[<p>Di Java, kita menggunakan <code>.equals()</code> untuk membandingkan suatu <em>instance</em> apakah bernilai sama atau tidak. Yang masalah adalah ketika Anda membandingkan nilai null. Mari kita ambil contoh kasus sederhana: validasi apakah suatu email dari user berhak mendapatkan bingkisan spesial atau tidak dari nilai yang sudah ditentukan. Misalnya kodenya seperti ini:</p>
-
-<pre><code>String email = request.getEmail();
-if (email.equals("yui.hirasawa@example.com")) {
-  condition.fullfilled();
-  return;
-}
-condition.fail();
-</code></pre>
-
-<p>Ada yang aneh dari kode di atas? Tidak ada. Kode di atas sempurna, sampai Anda menyadari bahwa <strong>email bisa bernilai null</strong>. Akhirnya, equals akan dipanggil ke null. Hal ini menyebabkan NullPointerException. Sehingga, Anda perlu menambahkan hal seperti ini:</p>
-
-<pre><code>String email = request.getEmail();
-if (email == null) {
-  condition.fail();
-  return;
-}
-if (email.equals("yui.hirasawa@example.com")) {
-  condition.fullfilled();
-  return;
-}
-condition.fail();
-</code></pre>
-
-<p>Well&hellip; bisa sih, tapi sebetulnya agak melelahkan. Coba perhatikan bahwa predefined email sudah pasti ada, tetapi email input bisa saja null. Kita bisa mencegah exception karena NullPointerException tanpa menambah baris kode sama sekali:</p>
-
-<pre><code>String email = request.getEmail();
-if ("yui.hirasawa@example.com".equals(email)) {
-  condition.fullfilled();
-  return;
-}
-condition.fail();
-</code></pre>
-
-<p>TL;DR: Di Java, jika Anda menggunakan equals, dan salah satu objek dari dua objek yang dibandingkan mungkin mengandung nilai null, maka <strong>panggil <code>.equals()</code> dari objek yang sudah pasti bukan null</strong>.</p>
-
-<p>Happy Coding!</p>
 ]]></content>
   </entry>
   
