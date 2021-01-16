@@ -44,15 +44,16 @@
 <!DOCTYPE html>
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
 <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
-<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="id"><!--<![endif]-->
 <head>
   <meta charset="utf-8">
-  <title>Mufid's Code blog</title>
+  <title>Mengatasi Pesan Kesalahan Terraform "Could Not Load Plugin" - Mufid's Code blog</title>
   <meta name="author" content="Mufid">
 
   
-  <meta name="description" content="Baru baca-baca dari okezone-kampus berita ini. Sepertinya akan menarik pendidikan Indonesia yang mulai mencoba
-mengedepankan kualitas pemahaman &hellip;">
+  <meta name="description" content="Saya menggunakan Terraform Cloud. Saya tidak sadar ada perbaruan di
+Terraform. Akan sangat baik jika saya bisa selalu ada di versi
+paling tinggi &hellip;">
   
 
   <!-- http://t.co/dKP3o1e -->
@@ -61,7 +62,7 @@ mengedepankan kualitas pemahaman &hellip;">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   
-  <link rel="canonical" href="http://mufid.github.io/page/7/">
+  <link rel="canonical" href="http://mufid.github.io/2021/terraform-013-upgrade-could-not-load-plugin/">
   <link href="/blog/favicon.png" rel="icon">
   <link href="/blog/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
   <script src="/blog/javascripts/modernizr-2.0.js"></script>
@@ -124,16 +125,13 @@ mengedepankan kualitas pemahaman &hellip;">
 </nav>
   <div id="main">
     <div id="content">
-      <div class="blog-index">
+      <div>
+<article class="hentry" role="article">
   
-  
-  
-    <article>
-      
   <header>
     
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/ipa-dihapus/">Mata Pelajaran IPA Dihapus?</a></h1>
+      
+        <h1 class="entry-title">Mengatasi Pesan Kesalahan Terraform "Could Not Load Plugin"</h1>
       
     
     
@@ -150,94 +148,64 @@ mengedepankan kualitas pemahaman &hellip;">
   
 
 
-<time datetime="2012-09-28T13:55:00+00:00" pubdate data-updated="true">Sep 28<span>th</span>, 2012</time>
+<time datetime="2021-01-16T19:02:00+00:00" pubdate data-updated="true">Jan 16<span>th</span>, 2021</time>
         
-         | <a href="/blog/2012/ipa-dihapus/#disqus_thread">Comments</a>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Baru baca-baca dari <a href="http://kampus.okezone.com/read/2012/09/27/373/696092/pelajaran-ipa-dan-ips-akan-dihapus">okezone-kampus</a> berita ini.</p>
-
-<p><img src="/blog/images/post/ss-okezone-mipadihapus.png" alt="Gambar" /></p>
-
-<p>Sepertinya akan menarik pendidikan Indonesia yang mulai mencoba
-mengedepankan kualitas pemahaman pelajaran dan bukan lagi pada
-kuantitas pelajaran.</p>
-
-<p>Kita lihat apa yang akan selanjutnya terjadi.</p>
-</div>
-  
-  
-
-
-    </article>
-  
-  
-    <article>
-      
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/awk/">AWK, oh AWK</a></h1>
-      
-    
-    
-      <p class="meta">
-        
-
-
-
-
-
-
-
-
-  
-
-
-<time datetime="2012-09-26T18:50:00+00:00" pubdate data-updated="true">Sep 26<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/awk/#disqus_thread">Comments</a>
+         | <a href="#disqus_thread">Comments</a>
         
       </p>
     
   </header>
 
 
-  <div class="entry-content"><p><img src="/blog/images/post/mingw.png" alt="Gambar" /></p>
+<div class="entry-content"><p>Saya menggunakan Terraform Cloud. Saya tidak sadar ada perbaruan di
+Terraform. Akan sangat baik jika saya bisa selalu ada di versi
+paling tinggi untuk meminimalkan masalah. Akan tetapi, layaknya
+langkah migrasi untuk perbaruan versi dari 0.11 ke 0.12, versi 0.13 ini
+juga menawarkan langkah migrasi khusus. Saya menjalankan perintah
+berikut di lokal kemudian langsung push ke Terraform Cloud via GitHub:</p>
 
-<p>Kali ini kita membahas bash!</p>
+<pre><code>terraform 0.13upgrade
+</code></pre>
 
-<p>Baiklah tadi kita kuliah sysprog. Tapi sebelumnya pak Adin pernah ngomong ini</p>
+<p>Karena percaya diri tidak ada masalah, saya langsung menggunakan
+versi 0.13 di Terraform Cloud. Sayang sekali, saya malah menemukan
+masalah berikut:</p>
 
-<blockquote><p>Ini sebenarnya mah gak perlu kuliah, wong bisa baca-baca di internet.. (informasinya gak perlu baca yang ada di buku -red)</p></blockquote>
+<p><img src="/blog/images/post/terraform-could-not-load-plugin.png" alt="Tangkapan Layar Could Not Load Plugin" /></p>
 
+<p>Wow&hellip; kenapa ya? Selidik punya selidik, saya menemui laman
+GitHub berikut: <img src="https://github.com/hashicorp/terraform/issues/26104" alt="https://github.com/hashicorp/terraform/issues/26104" />.
+Tampaknya saya harus menjalankan perintah replace-provider karena Terraform
+menggunakan struktur URL yang berbeda untuk provider registry mereka.
+Pada laman GitHub tersebut, ditampilkan bahwa dia perlu mengganti registry URL
+untuk Vault. Oleh karena problem saya adalah di DigitalOcean, maka saya
+mengganti provider untuk DigitalOcean:</p>
+
+<pre><code>$ terraform state replace-provider -auto-approve registry.terraform.io/-/digitalocean registry.terraform.io/digitalocean/digitalocean
+
+Terraform will perform the following actions:
+
+  ~ Updating provider:
+    - registry.terraform.io/-/digitalocean
+    + registry.terraform.io/digitalocean/digitalocean
+
+Changing 8 resources:
+
+  ...&lt;woops, rahasia he-he-he&gt;
+</code></pre>
+
+<p>Selesai! Terraform Cloud sekarang berjalan seperti sebagaimana seharusnya.</p>
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/awk/">Read on &rarr;</a>
-    </footer>
-  
 
 
-    </article>
-  
-  
-    <article>
+  <footer>
+    <p class="meta">
       
-  <header>
-    
-      <!-- Now we're back to normal posts. Note the links used under href in both headers.-->
-        <h1 class="entry-title"><a href="/blog/2012/tes-octopress/">Tes Octopress</a></h1>
+  
+
+<span class="byline author vcard">Posted by <span class="fn">Mufid</span></span>
+
       
-    
-    
-      <p class="meta">
-        
 
 
 
@@ -249,41 +217,44 @@ kuantitas pelajaran.</p>
   
 
 
-<time datetime="2012-09-24T06:37:00+00:00" pubdate data-updated="true">Sep 24<span>th</span>, 2012</time>
-        
-         | <a href="/blog/2012/tes-octopress/#disqus_thread">Comments</a>
-        
-      </p>
+<time datetime="2021-01-16T19:02:00+00:00" pubdate data-updated="true">Jan 16<span>th</span>, 2021</time>
+      
+
+
+    </p>
     
-  </header>
+      <div class="sharing">
+  
+  <a href="http://twitter.com/share" class="twitter-share-button" data-url="http://mufid.github.io/2021/terraform-013-upgrade-could-not-load-plugin/" data-via="" data-counturl="http://mufid.github.io/2021/terraform-013-upgrade-could-not-load-plugin/" >Tweet</a>
+  
+  
+  
+</div>
 
+    
+    <p class="meta">
+      
+        <a class="basic-alignment left articlenav" href="/blog/2020/salary/" title="Previous Post: Sebuah Curhatan Tak Terstruktur tentang Ketimpangan Gaji">&laquo; Sebuah Curhatan Tak Terstruktur tentang Ketimpangan Gaji</a>
+      
+      
+    </p>
+  </footer>
+</article>
 
-  <div class="entry-content"><p>Yihaa! Berhasil!</p>
+  <section>
+    <h1>Comments</h1>
+    <div id="disqus_thread" aria-live="polite"><noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+  </section>
 
 </div>
-  
-  
-    <footer>
-      <a rel="full-article" href="/blog/2012/tes-octopress/">Read on &rarr;</a>
-    </footer>
-  
 
-
-    </article>
-  
-  <div class="pagination">
-    
-    <a href="/blog/blog/archives">Blog Archives</a>
-    
-    <a class="next" href="/blog/page/6/">Newer &rarr;</a>
-    
-  </div>
-</div>
 <aside class="sidebar">
   
     
   
 </aside>
+
 
     </div>
   </div>
@@ -299,7 +270,10 @@ kuantitas pelajaran.</p>
       var disqus_shortname = 'fidblog';
       
         
-        var disqus_script = 'count.js';
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://mufid.github.io/blog/2021/terraform-013-upgrade-could-not-load-plugin/';
+        var disqus_url = 'http://mufid.github.io/blog/2021/terraform-013-upgrade-could-not-load-plugin/';
+        var disqus_script = 'embed.js';
       
     (function () {
       var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
