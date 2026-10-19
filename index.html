@@ -1,31 +1,359 @@
-<html>
+<!doctype html>
+<html lang="en">
 <head>
-  <title>Muhammad Mufid Afif</title>
-  <link rel="stylesheet" href="stylesheets/reset.css" />
-  <link rel="stylesheet" href="stylesheets/front.css" />
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mufid Afif - CV</title>
+  <meta name="author" content="Mufid Afif">
+  <style>
+@font-face { font-family: "Noto Sans"; font-weight: 400; font-style: normal; src: url("assets/fonts/NotoSans-Regular.ttf") format("truetype"); }
+@font-face { font-family: "Noto Sans"; font-weight: 700; font-style: normal; src: url("assets/fonts/NotoSans-Bold.ttf") format("truetype"); }
+@font-face { font-family: "Noto Sans"; font-weight: 400; font-style: italic; src: url("assets/fonts/NotoSans-Italic.ttf") format("truetype"); }
+@font-face { font-family: "Noto Sans"; font-weight: 700; font-style: italic; src: url("assets/fonts/NotoSans-BoldItalic.ttf") format("truetype"); }
+
+:root {
+  --text: #1a1a1a;
+  --muted: #555;
+  --accent: #1c6fc4;
+  --link: #1a1a1a;
+}
+
+@page {
+  size: A4;
+  margin: 15mm 18mm;
+}
+
+* { box-sizing: border-box; }
+
+html { background: #fff; }
+
+body {
+  margin: 0;
+  color: var(--text);
+  background: #fff;
+  font-family: "Noto Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 10pt;
+  line-height: 1.45;
+}
+
+.cv {
+  max-width: 190mm;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+a { color: var(--link); text-decoration: underline; }
+
+/* Header */
+header h1 {
+  margin: 0;
+  font-size: 18pt;
+  line-height: 1.2;
+}
+.tagline { margin: 0 0 1.2em; font-size: 11pt; }
+
+/* Contact table */
+table.contact {
+  border-collapse: collapse;
+  margin-bottom: 1.6em;
+  width: 100%;
+}
+table.contact td { padding: 0.35em 0.6em 0.35em 0; vertical-align: top; }
+table.contact td:nth-child(odd) { width: 13%; white-space: nowrap; }
+table.contact td:nth-child(even) { width: 37%; }
+table.contact thead { display: none; }
+
+/* Languages table */
+table.languages {
+  border-collapse: collapse;
+  margin-bottom: 1.6em;
+}
+table.languages th,
+table.languages td {
+  text-align: left;
+  padding: 0.25em 2.4em 0.25em 0;
+}
+table.languages th {
+  font-weight: bold;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Intro */
+p.intro {
+  color: var(--accent);
+  font-size: 11pt;
+  margin: 0 0 1em;
+}
+
+/* Section headings */
+h2 {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 9pt;
+  letter-spacing: 0.02em;
+  margin: 2em 0 1em;
+  break-after: avoid;
+}
+
+/* Company / institution */
+h3 {
+  font-size: 10pt;
+  margin: 1.8em 0 0.8em;
+  break-after: avoid;
+}
+h2 + h3 { margin-top: 0; }
+h3 .industry { font-weight: normal; }
+
+/* Role */
+h4 {
+  font-size: 10pt;
+  margin: 1.2em 0 0.6em;
+  break-after: avoid;
+}
+h4 .period {
+  font-weight: normal;
+  color: var(--muted);
+  margin-left: 0.4em;
+}
+h4 .period::before { content: "("; }
+h4 .period::after { content: ")"; }
+
+p.summary { margin: 0 0 0.6em; break-after: avoid; }
+
+/* Bullets */
+ul {
+  margin: 0 0 0.8em;
+  padding-left: 2.4em;
+}
+ul li { padding-left: 0.6em; break-inside: avoid; }
+ul li::marker { content: "●"; font-size: 0.85em; }
+
+ul.plain { padding-left: 0; list-style: none; }
+ul.plain li { padding-left: 0; margin-bottom: 0.5em; }
+ul.plain li::marker { content: none; }
+.ref { display: block; color: var(--muted); }
+.redacted { color: var(--muted); font-style: italic; }
+
+p.stack {
+  margin: 0.4em 0 0;
+  color: var(--muted);
+  font-size: 9pt;
+}
+
+/* Recommendations */
+blockquote.cite {
+  margin: 0 0 1.2em;
+  padding: 0;
+  font-style: italic;
+  break-inside: avoid;
+}
+blockquote.cite p { margin: 0 0 0.3em; }
+blockquote.cite p:last-child { font-style: normal; color: var(--muted); }
+
+@media screen {
+  body { padding: 24px 0; }
+}
+
+@media screen and (max-width: 640px) {
+  body { padding: 0; }
+  table.contact, table.contact tbody, table.contact tr, table.contact td { display: block; width: auto !important; }
+  table.contact td:nth-child(odd) { font-weight: bold; padding-bottom: 0; }
+  table.contact td:nth-child(even) { padding-top: 0; }
+}
+
+@media print {
+  .cv { max-width: none; padding: 0; }
+}
+
+  </style>
 </head>
 <body>
-  <div id="content">
-    <h1>Muhammad Mufid Afif</h1>
-    <h2>
-      Software Craftman by day.
-      Amateur photographer and constellation lover by night.
-      <a href=https://www.youtube.com/watch?v=QztcYr_8M6I>Occasional speaker</a>.
-      Amateur cyclist by weekend.
-    </h2>
-    <ul>
-      <li>
-        <a href="https://stackoverflow.com/cv/waza">cv</a>
-      </li>
-      <li>
-        <a href="https://mufid.github.io/blog/">blog</a>
-      </li>
-    </ul>
-  </div>
-  <div id="bio"><a href="https://gitlab.cs.ui.ac.id/muhammad.mufid/bio/-/wikis/home">bio</a></div>
-<script>
-if (window.location.protocol != "https:")
-    window.location.href = "https:" + window.location.href.substring(window.location.protocol.length);
-</script>
+  <main class="cv">
+    <header>
+      <h1>Mufid Afif</h1>
+      <p class="tagline">Senior Software Engineer, Lead Engineer, Founding Engineer</p>
+    </header>
+<table class="contact">
+  <tbody>
+    <tr>
+      <td>Phone</td>
+      <td><span class="redacted">[redacted]</span></td>
+      <td>Email</td>
+      <td><span class="redacted">[redacted]</span></td>
+    </tr>
+    <tr>
+      <td>LinkedIn</td>
+      <td><a href="https://linkedin.com/in/mufid">linkedin.com/in/mufid</a></td>
+      <td>LeetCode</td>
+      <td><a href="https://leetcode.com/u/mufid/">leetcode.com/u/mufid</a> (Go, Ruby, Java)</td>
+    </tr>
+  </tbody>
+</table>
+
+<table class="languages">
+  <thead>
+    <tr>
+      <th>Language</th>
+      <th>Proficiency</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>日本語</td>
+      <td>Basic</td>
+    </tr>
+    <tr>
+      <td>English</td>
+      <td>Conversational</td>
+    </tr>
+    <tr>
+      <td>Bahasa Indonesia</td>
+      <td>Conversational</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="intro">I am a language-agnostic software engineer who learns new languages and concepts fast, and I believe nurturing community and open source gives great impact to our programmers’ ecosystem.</p>
+
+<ul>
+  <li>11+ years experience developing software across SaaS, e-commerce, travel and healthcare</li>
+  <li>Fluent in Java, Go, C#, Ruby and PHP</li>
+  <li>Grew an early-stage startup from a small team to 40 employees</li>
+  <li>Led a cross-functional initiative of 10+ members to optimise system performance during peak loads, resulting in a 20% increase in email-driven revenue</li>
+  <li>Built AI-driven DNS fraud analysis saving $10,000 monthly in fraud costs</li>
+  <li>Speaker at RubyConf and GeekCamp; active in local meetups in my spare time</li>
+</ul>
+
+<h2 id="work-history">Work History</h2>
+
+<h3 id="2022--2025-relay-commerce--smartrmail-saas-e-commerce-email-marketing">2022 – 2025 <a href="https://www.smartrmail.com">Relay Commerce / SmartrMail</a> <span class="industry">(SaaS, e-commerce email marketing)</span></h3>
+
+<h4 id="senior-software-engineer-nov-2022--mar-2025">Senior Software Engineer <span class="period">Nov 2022 – Mar 2025</span></h4>
+
+<p class="summary">SmartrMail (a Relay Commerce company) is a retention-focused email platform for Shopify, BigCommerce, Magento and Neto. Businesses using SmartrMail experience an average 20% increase in email-driven revenue. I worked with 10+ team members across APAC, EU and NAMER.</p>
+
+<ul>
+  <li>Implemented AI-driven website analysis using manual scraping and OpenRouter, automatically building customer profiles and personalised content, increasing feature usage by 5%</li>
+  <li>Migrated $40k+ cross-account Stripe subscriptions to optimise FX fees using the classic protocol</li>
+  <li>Optimised Postgres database performance by improving indexing, ensuring uptime during peak loads with a 500% traffic increase</li>
+  <li>Introduced a “cohort” concept in the billing system to allow custom pricing for 50+ users</li>
+  <li>Fortified mailing subsystem security by implementing DNS analysis, stopping 50 fraudulent mailing attempts per week (equivalent to $10,000 subscription fraud avoided)</li>
+  <li>Ensured billing accuracy by implementing billing idempotency, achieving 99.99% billing accuracy</li>
+  <li>Improved user experience by refining cancellation, sign-up and newsletter flows, reducing weekly support tickets by 5–15</li>
+  <li>Enhanced data visualisation by presenting analytics data to stakeholders via ClickHouse, improving data-driven decision-making by 2 epics per quarter</li>
+  <li>Contributed to reviewing the initial SSO project and its documents, covering OAuth and multi-tenancy using Keycloak</li>
+</ul>
+
+<p class="stack"><strong>Stack:</strong> Ruby on Rails, Cloudflare, AWS EC2, AWS RDS, Postgres, ClickHouse, Redis, Vue.js, RSpec, Docker, GitHub CI, DataDog, GraphQL, RPC, Honeycomb/OpenTelemetry, SSO, Keycloak, IdP</p>
+
+<h3 id="2020--2022-sureswift-capital-saas-portfolio-shopify-apps">2020 – 2022 <a href="https://sureswiftcapital.com">Sureswift Capital</a> <span class="industry">(SaaS portfolio, Shopify apps)</span></h3>
+
+<h4 id="senior-software-engineer-aug-2020--nov-2022">Senior Software Engineer <span class="period">Aug 2020 – Nov 2022</span></h4>
+
+<p class="summary">Sureswift Capital brings modern systems to companies that already deliver. I worked with 7+ team members across APAC, EU and NAMER.</p>
+
+<ul>
+  <li><strong>PlugInUseful:</strong> Collaborated with the product team on A/B-testing tweaks, achieving up to 2x revenue growth within 6 months</li>
+  <li><strong>Storemapper:</strong> Implemented a rule engine for custom Shopify billing and coupon management, enabling more granular control over coupons and driving a 10% increase in sales during BFCM</li>
+  <li><strong>PlugInSEO:</strong> Implemented automatic SEO management via custom Shopify Liquid and metadata, achieving an average rating of 4.8</li>
+  <li><strong>CrossSell:</strong> Improved GraphQL performance, addressing the top-requested feature and resulting in a user satisfaction rating of 4.9/5.0</li>
+</ul>
+
+<p class="stack"><strong>Stack:</strong> Ruby on Rails, React (TSX), PostgreSQL, Redis, AWS, AWS RDS, Heroku, Fastly, Cloudflare, RSpec, New Relic, DataDog</p>
+
+<h3 id="2019--2020-airyrooms-travel-budget-accommodation">2019 – 2020 Airyrooms <span class="industry">(travel, budget accommodation)</span></h3>
+
+<h4 id="lead-software-engineer-jan-2019--jun-2020">Lead Software Engineer <span class="period">Jan 2019 – Jun 2020</span></h4>
+
+<p class="summary">Airyrooms is a leading budget travel accommodation in Indonesia. I led a team of 3 in the Application and Architecture team.</p>
+
+<ul>
+  <li>Developed a deliverability dashboard providing transparency on email deliverability issues across Gmail and Outlook, reducing deliverability complaint response time from days to 15 minutes</li>
+  <li>Implemented a Structurizr C4 model to map microservice relationships, revealing 120+ previously undocumented microservices and sparking discussions that led to service improvements</li>
+  <li>Worked with the team towards a better engineering culture with Test-Driven Development using JUnit and custom integration tests</li>
+</ul>
+
+<p class="stack"><strong>Stack:</strong> Java (Spring Boot), Kotlin, Ruby, Dropwizard, Quartz Job Scheduler, AWS ElastiCache, AWS EKS, AWS RDS, JUnit, Docker, Kubernetes, Redis</p>
+
+<h3 id="2015--2018-harmonix-teknologi-peentar-saas--iot-healthcare">2015 – 2018 Harmonix Teknologi Peentar <span class="industry">(SaaS &amp; IoT, healthcare)</span></h3>
+
+<h4 id="founding-engineer-dec-2015--jul-2018">Founding Engineer <span class="period">Dec 2015 – Jul 2018</span></h4>
+
+<p class="summary">Peentar creates SaaS and IoT platforms for the healthcare industry.</p>
+
+<ul>
+  <li>Architected and launched the Peentar Omnichannel platform encompassing POS, ERP and asset tracking systems, supporting beta testing with 1 million users</li>
+  <li>Implemented the Peentar Human Center program, reducing review cycle time from 1 month to 5 man-days and allowing us to scale efficiently from 5 to 40 employees</li>
+  <li>Engineered a scalability platform, shifting heavy logic to the client side for a minimal server architecture supporting 1,000 POS nodes</li>
+  <li>Collaborated with the IoT team to build a robust communication protocol using encapsulated native TCP</li>
+  <li>Architected firmware testing using a mocked hardware environment in portable C idiom</li>
+</ul>
+
+<p class="stack"><strong>Stack:</strong> Rails, Java (Spring Boot), C# (MvvmCross), AWS, ELK, Jenkins, gRPC, NUnit, JUnit, TCP, GSM, GPS, PostGIS, Ory Hydra, SSO, IdP, UNIX/Linux system management</p>
+
+<h3 id="2014--2015-traveloka-travel-hospitality-platform">2014 – 2015 <a href="https://www.traveloka.com">Traveloka</a> <span class="industry">(travel, hospitality platform)</span></h3>
+
+<p class="summary">Traveloka is a leading hospitality platform in ASEAN.</p>
+
+<h4 id="lead-software-engineer-mar-2015--nov-2015">Lead Software Engineer <span class="period">Mar 2015 – Nov 2015</span></h4>
+
+<p class="summary">Led a team of 3. In addition to my previous role, I had additional responsibilities of:</p>
+
+<ul>
+  <li>Architected Traveloka Quick credit card and billing-user management for 100k users</li>
+  <li>Ensured smooth provisioning projects across cross-functional teams between CS, Product and Engineering, involving 10 stakeholders</li>
+</ul>
+
+<h4 id="software-engineer-sep-2014--mar-2015">Software Engineer <span class="period">Sep 2014 – Mar 2015</span></h4>
+
+<ul>
+  <li>Collaborated on implementing a dynamic C5 decision tree to prevent fraud</li>
+  <li>Improved coupon system response time from 2,000 ms to 50 ms</li>
+</ul>
+
+<p class="stack"><strong>Stack:</strong> Java (Spring Boot), Ruby, MongoDB, modified Play Framework, Ansible, GoCD, RPC</p>
+
+<h2 id="education">Education</h2>
+
+<h3 id="2010--2014-universitas-indonesia">2010 – 2014 Universitas Indonesia</h3>
+
+<h4 id="bachelor-of-computer-science">Bachelor of Computer Science</h4>
+
+<ul>
+  <li>Graduated with <em>Very Satisfactory</em> predicate</li>
+  <li>Thesis: Implementation of Electronic Ink Price Tag using ZigBee-based 802.15.4 Network</li>
+</ul>
+
+<h2 id="certifications">Certifications</h2>
+
+<ul class="plain">
+  <li><strong>2014</strong> — IBM Certified Solution Designer, Object Oriented Analysis and Design, vUML 2 (IBM) <span class="ref">Certificate: SR9660526</span></li>
+  <li><strong>2019</strong> — DevSecOps on Amazon Web Services (AWS) <span class="ref">Certificate: xj9E9FH-BUegyVMiuX_WcQ2</span></li>
+</ul>
+
+<h2 id="talks-and-conferences">Talks and Conferences</h2>
+
+<ul class="plain">
+  <li><strong>2025</strong> - <a href="https://x.com/idswdev/status/1992438288918192332">Living with LocalLLM</a>, IDSW</li>
+  <li><strong>2017</strong> - <a href="https://www.youtube.com/watch?v=QztcYr_8M6I">Understanding Race Condition in Rails</a>, RubyConf</li>
+  <li><strong>2017</strong> - <a href="https://speakerdeck.com/mufid/the-art-of-migration-and-versioning">The Art of Migration and Versioning</a>, GeekCamp</li>
+  <li><strong>2014</strong> - <a href="https://www.slideshare.net/tonnysabastian/raspberry-pi-gpio101">Introduksi Penggunaan GPIO pada Raspberry Pi</a>, Indonesia Creative Open Source Software; assistant in talk by Bob Hardian, Ph.D and Tonny Sabastian, M.Kom</li>
+</ul>
+
+<h2 id="recommendations">Recommendations</h2>
+
+<blockquote class="cite">
+  <p>Mufid is a skilled Ruby engineer who consistently delivers solid solutions to complex technical challenges. His technical contributions were instrumental in helping one of our business units continuously deliver value to customers. Mufid combines strong engineering expertise with a proactive, committed approach that makes him a valuable asset to any development team.</p>
+
+  <p>— Ricardo Amorim, CTO at Relay Commerce</p>
+</blockquote>
+
+<blockquote class="cite">
+  <p>I have known Mufid since my days as Lecturer and Research Assistant. He was a diligent student, humble and sometimes has outside-of-the-box thinking. When I worked with him at Peentar, he helped us many times to create a helping and nurturing culture among engineers. He strives for excellence and the best performance within our developed software and systems.</p>
+
+  <p>— Tonny Sabastian, DevOps at Bitwyre</p>
+</blockquote>
+
+  </main>
 </body>
 </html>
